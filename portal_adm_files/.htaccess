@@ -1,0 +1,101 @@
+
+#1. Ir /etc/httpd/conf/httpd.conf;
+	#1.1. Alterar "AllowOverride None" para: "AllowOverride All";
+	#1.2. Procurar "mod_rewrite", descomentar linha;
+#2. Verificar o caminho <base ...> no topo.php;
+
+RewriteEngine On
+
+# php_flag magic_quotes_gpc Off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#########
+# Index #
+#########
+RewriteRule ^inicio$										frontend-v1.9/index.php
+RewriteRule ^inicio/mobile$									frontend-v1.9/index-mobile.php
+
+####################
+# Páginas de Erros #
+####################
+ErrorDocument 404 											/frontend-v1.9/404.php
+ErrorDocument 500 											/frontend-v1.9/500.php
+
+############
+# Recursos #
+############
+RewriteRule ^recursos/professores$							frontend-v1.9/professores.php
+RewriteRule ^recursos/professores/adicionar$				frontend-v1.9/professores-add.php
+RewriteRule ^recursos/alunos$								frontend-v1.9/alunos.php
+RewriteRule ^recursos/alunos/adicionar$						frontend-v1.9/aluno-add.php
+RewriteRule ^recursos/funcionarios$							frontend-v1.9/funcionarios.php
+RewriteRule ^recursos/funcionarios/adicionar$				frontend-v1.9/funcionarios-add.php
+RewriteRule ^recursos/laboratorios$							frontend-v1.9/laboratorios.php
+RewriteRule ^recursos/laboratorios/adicionar$				frontend-v1.9/laboratorios-add.php
+RewriteRule ^recursos/laboratorios/editar\/(.+)\/$			frontend-v1.9/laboratorios-edit.php?id=$1
+RewriteRule ^recursos/equipamentos$							frontend-v1.9/equipamentos.php
+RewriteRule ^recuros/equipamentos/adicionar$ 				frontend-v1.9/equipamentos-add.php
+RewriteRule ^recuros/equipamentos/editar\/(.+)\/$			frontend-v1.9/equipamentos-edit.php?id=$1
+RewriteRule ^recursos/salas$								frontend-v1.9/sala.php
+RewriteRule ^recursos/salas/adicionar$ 						frontend-v1.9/sala-add.php
+RewriteRule ^recursos/salas/editar\/(.+)\/$					frontend-v1.9/sala-edit.php?id=$1
+
+################
+# Laboratórios #
+################
+RewriteRule ^laboratorios/calendario$						frontend-v1.9/calendario-lab.php
+RewriteRule ^laboratorios/calendario\/(.+)\/$				frontend-v1.9/calendario-lab.php?filtro=$1
+RewriteRule ^laboratorios/moderar$							frontend-v1.9/moderar-lab.php
+RewriteRule ^laboratorios/meus$								frontend-v1.9/meus-lab.php
+
+#########
+# Salas #
+#########
+RewriteRule ^salas/calendario$								frontend-v1.9/calendario-sala.php
+RewriteRule ^salas/moderar$									frontend-v1.9/moderar-sala.php
+RewriteRule ^salas/minhas$									frontend-v1.9/minha-sala.php
+
+################
+# Equipamentos #
+################
+RewriteRule ^equipamentos/calendario$						frontend-v1.9/calendario-eqp.php
+RewriteRule ^equipamentos/moderar$							frontend-v1.9/moderar-eqp.php
+RewriteRule ^equipamentos/meus$								frontend-v1.9/meus-eqp.php
+RewriteRule ^entregar-equipamento$							frontend-v1.9/entregarEquipamento.php
+
+##################
+# Outras páginas #
+##################
+RewriteRule ^notas$											frontend-v1.9/novidades.php
+RewriteRule ^perfil\/(.+)\/$								frontend-v1.9/perfil.php?id=$1
+RewriteRule ^faleconosco$									frontend-v1.9/faleconosco.php
+RewriteRule ^sanidade$										frontend-v1.9/controleSanidade.php
+RewriteRule ^configuracao$									frontend-v1.9/configuracao.php
+RewriteRule ^avisos$										frontend-v1.9/avisos.php
+RewriteRule ^avisos/adicinar$								frontend-v1.9/avisos-add.php
+RewriteRule ^avisos/editar\/(.+)\/$							frontend-v1.9/avisos-edit.php?id=$1
+RewriteRule ^esqueci-minha-senha$							frontend-v1.9/esqueci.php
+RewriteRule ^gerenciar-cores$								frontend-v1.9/controleCor.php
+RewriteRule ^gerenciar-cores/editar\/(.+)\/$				frontend-v1.9/controleCor.php?id=$1
+RewriteRule ^shell/$									    frontend-v1.9/shell.php
+RewriteRule ^sanidade2/$									frontend-v1.9/sanity.php
+RewriteRule ^utilitarios/$									frontend-v1.9/utilitarios.php
+RewriteRule ^repositorio$									frontend-v1.9/pacotes.php
+RewriteRule ^repositorio/adicionar$							frontend-v1.9/pacotes-add.php
+RewriteRule ^mapa$											frontend-v1.9/mapa.php
+
+#################
+# Requerimentos #
+#################
+RewriteRule ^requerimentos/meus$							frontend-v1.9/meus-req.php
+RewriteRule ^requerimentos/moderar$							frontend-v1.9/moderar-req.php
+RewriteRule ^requerimentos/inserir\/(.+)\/$ 				frontend-v1.9/req$1.php
+RewriteRule ^requerimentos/editar\/(.+)\/(.+)\/$ 			frontend-v1.9/req$1.php?acao=edit&id=$2
+
+###########
+# Tickets #
+###########
+RewriteRule ^tickets/meus$									frontend-v1.9/meus-tickets.php
+RewriteRule ^tickets/moderar$								frontend-v1.9/moderar-tickets.php
+RewriteRule ^tickets/adicionar$								frontend-v1.9/tickets-add.php

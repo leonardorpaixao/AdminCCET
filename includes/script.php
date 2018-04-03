@@ -1,0 +1,160 @@
+    <!-- jQuery 2.1.4 -->
+    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+     <!-- script async para o mapa -->
+    <script type="text/javascript" src="../js/jquery.maphilight.js"></script>
+    <!-- InputMask -->
+    <script src="../plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="../plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- Slimscroll -->
+    <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- iCheck 1.0.1 -->
+    <script src="../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='../plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/app.min.js" type="text/javascript"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js" type="text/javascript"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="../js/moment.min.js" type="text/javascript"></script>
+    <script src="../plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="../plugins/fullcalendar/pt-br.js" type="text/javascript"></script>
+    <!-- Baixar Arquivos -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="../plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+    <!-- bootstrap time picker -->
+    <script src="../plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/combodate.js"></script>
+
+    <!-- DataTables -->
+    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    
+    <script src="../plugins/datatables/vfs_fonts.js"></script>
+    <script src="../plugins/datatables/pdfmake.min.js"></script>
+    <script src="../plugins/datatables/jszip.min.js"></script>
+    <script src="../plugins/datatables/buttons.flash.min.js"></script>
+    <script src="../plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="../plugins/datatables/buttons.print.min.js"></script>
+    <script src="../plugins/datatables/buttons.html5.min.js"></script>
+    <script src="../plugins/datatables/buttons.colVis.min.js"></script>
+
+
+    <script src="../plugins/select2/select2.full.min.js" type="text/javascript"></script>
+
+    <!-- Page specific script async -->
+    <script type="text/javascript">
+
+    $(function () {
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        $(".select2").select2();
+
+        dataTime = new Date();
+        dia = dataTime.getDate();
+        mes = dataTime.getMonth()+1;
+        ano = dataTime.getFullYear();
+
+        dataTimeLast = new Date();
+        dataTimeLast.setDate(dataTimeLast.getDate() + 365);
+        diaL = dataTimeLast.getDate();
+        mesL = dataTimeLast.getMonth()+1;
+        anoL = dataTimeLast.getFullYear();
+
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        $('#reservationtime').daterangepicker({
+            locale: {
+                "format": 'YYYY/MM/DD HH:mm',
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+            },
+            "timePicker": true,
+            "timePicker24Hour": true,
+            "timePickerIncrement": 30,
+            "minDate":  ano+'/'+mes+'/'+dia,
+            "startDate": ano+'/'+mes+'/'+dia,
+            "endDate": ano+'/'+mes+'/'+dia,
+            "maxDate": anoL+'/'+mesL+'/'+diaL
+        }, function(start, end, label) {
+          console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+        });
+        //Date range picker with time picker
+        //$('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'YYYY/MM/DD H:mm'});
+
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+                {
+                  ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                  },
+                  startDate: moment().subtract(29, 'days'),
+                  endDate: moment()
+                },
+        function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+          checkboxClass: 'icheckbox_minimal-blue',
+          radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+          checkboxClass: 'icheckbox_minimal-red',
+          radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+          checkboxClass: 'icheckbox_flat-green',
+          radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+          showInputs: false
+        });
+      });
+    function alerta(){
+      alert("Sessão Expirada, para continuar logado atualize a página e entre novamene!");
+    }
+    window.onload=function(){
+        <?php if($_SESSION['logado']){ ?>
+            setTimeout("alerta()",5400000);
+        <?php } ?>
+    }
+    $(function(){
+        $('#time').combodate({
+            firstItem: 'name', //show 'hour' and 'minute' string at first item of dropdown
+            minuteStep: 30
+        });
+    });
+
+    </script>

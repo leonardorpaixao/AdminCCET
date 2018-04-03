@@ -1,0 +1,84 @@
+.text-error {
+  color: #b94a48;
+}
+
+a.text-error:hover,
+a.text-error:focus {
+  color: #953b39;
+}
+
+.linux {
+	font-family: monospace,;
+	 word-spacing: 2px;
+	background-color: #FFFDFD;
+	color: #06318E;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 9px;
+	overflow: auto;
+	height: 350px;
+	padding: 5px;
+	
+}
+
+
+
+div#saida{
+
+		margin-top: 9px;
+}
+.morfar {
+	position: fixed;
+	bottom: 48px;
+	/*define prioridade dos elementos flutuantes*/
+	z-index: 1;
+	right: 0px;
+}
+
+.vol {
+	position: absolute;
+	top: -5px;
+	right: 6px;
+	height: 45px;
+	width: 45px;
+}
+
+.sle {
+	position: absolute;
+	top: 4px;
+	right: 56px;
+	height: 36px;
+	width: 150px;
+}
+
+#navigationMenu li {
+	/*list-style: none tira a Bolinha da lista*/
+	list-style: none;
+	height: 39px;
+	float: right;
+	width: 40px;
+}
+
+#navigationMenu span {
+	/* Container properties */
+	width: 0;
+	right: 38px;
+	padding: 0;
+	position: absolute;
+	overflow: hidden;
+	/* Text properties */
+	font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	white-space: nowrap;
+	line-height: 39px;
+	/* CSS3 Transition: */
+	-webkit-transition: 0.25s;
+	/* Future proofing (these do not work yet): */
+	-moz-transition: 0.25s;
+	transition: 0.25s;
+}
+
+
+	

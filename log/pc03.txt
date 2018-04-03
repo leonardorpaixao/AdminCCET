@@ -1,0 +1,13 @@
+Qua Set 23 16:32:24 UTC 2015
+COMPILADORES
+# GHC - O compilador GHC não está instalado.
+# SWI-PROLOG - O interpretador SWIPL não está instalado.
+UTILITÁRIOS
+# FIREFOX - O navegador Mozilla Firefox não está instalado.
+# UNRAR - Unrar não está instalado.
+BIBLIOTECAS
+# libflashplayer : A biblioteca libflashplayer.so não foi encontrada
+IDE
+# ECLIPSE - O IDE Eclipse não está instalado
+# EMACS - O editor Emacs não está instalado.
+# NETBEANS - O IDE Netbeans não está instalado.

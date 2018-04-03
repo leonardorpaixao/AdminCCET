@@ -1,0 +1,8 @@
+PC 01
+RECURSO1    OK
+GCC         OK
+RECURSO2    ERRO
+RECURSO4    FALHA
+RECURSO5    ERRO
+Python      OK
+MatLib      FALHA

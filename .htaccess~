@@ -1,0 +1,149 @@
+
+#1. Ir /etc/httpd/conf/httpd.conf;
+	#1.1. Alterar "AllowOverride None" para: "AllowOverride All";
+	#1.2. Procurar "mod_rewrite", descomentar linha;
+#2. Verificar o caminho <base ...> no topo.php;
+
+RewriteEngine On
+
+# php_flag magic_quotes_gpc Off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+<IfModule mod_deflate.c>
+        <IfModule mod_filter.c>
+                # these are known to be safe with MSIE 6
+                AddOutputFilterByType DEFLATE text/html text/plain text/xml
+
+                # everything else may cause problems with MSIE 6
+                AddOutputFilterByType DEFLATE text/css
+                AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/ecmascript
+                AddOutputFilterByType DEFLATE application/rss+xml
+                AddOutputFilterByType DEFLATE application/xml
+        </IfModule>
+</IfModule>
+
+#########
+# Index #
+#########
+RewriteRule ^inicio$										index.php
+RewriteRule ^inicio/mobile$									index-mobile.php
+
+####################
+# Páginas de Erros #
+####################
+ErrorDocument 404 											/404.php
+ErrorDocument 500 											/500.php
+
+############
+# Recursos #
+############
+RewriteRule ^recursos/professores$							modulos/professores/professores.php
+RewriteRule ^recursos/professores/adicionar$				modulos/professores/professores-add.php
+RewriteRule ^recursos/alunos$								modulos/alunos/alunos.php
+RewriteRule ^recursos/alunos/adicionar$						modulos/alunos/aluno-add.php
+RewriteRule ^recursos/funcionarios$							modulos/funcionarios/funcionarios.php
+RewriteRule ^recursos/funcionarios/adicionar$				modulos/funcionarios/funcionarios-add.php
+RewriteRule ^recursos/laboratorios$							modulos/laboratorios/laboratorios.php
+RewriteRule ^recursos/laboratorios/adicionar$				modulos/laboratorios/laboratorios-add.php
+RewriteRule ^recursos/laboratorios/editar\/(.+)\/$			modulos/laboratorios/laboratorios-edit.php?id=$1
+RewriteRule ^recursos/equipamentos$							modulos/equipamentos/equipamentos.php
+RewriteRule ^recuros/equipamentos/adicionar$ 				modulos/equipamentos/equipamentos-add.php
+RewriteRule ^recuros/equipamentos/editar\/(.+)\/$			modulos/equipamentos/equipamentos-edit.php?id=$1
+RewriteRule ^recursos/salas$								modulos/salas/sala.php
+RewriteRule ^recursos/salas/adicionar$ 						modulos/salas/sala-add.php
+RewriteRule ^recursos/salas/editar\/(.+)\/$					modulos/salas/sala-edit.php?id=$1
+RewriteRule ^recursos/disciplinas$							modulos/disciplinas/disciplinas.php
+RewriteRule ^recursos/contas-temporarias$					modulos/contas_temp/contas-temp.php
+RewriteRule ^recursos/contas-temporarias/adicionar$			modulos/contas_temp/contas-add.php
+RewriteRule ^recursos/contas-temporarias/editar\/(.+)\/$	modulos/perfil/perfil-temp.php?id=$1
+
+################
+# Laboratórios #
+################
+RewriteRule ^laboratorios/calendario$						modulos/laboratorios/calendario-lab.php
+RewriteRule ^laboratorios/calendario\/(.+)\/$				modulos/laboratorios/calendario-lab.php?filtro=$1
+RewriteRule ^laboratorios/moderar$							modulos/laboratorios/moderar-lab.php
+RewriteRule ^laboratorios/meus$								modulos/laboratorios/meus-lab.php
+
+#########
+# Salas #
+#########
+RewriteRule ^salas/calendario$								modulos/salas/calendario-sala.php
+RewriteRule ^salas/moderar$									modulos/salas/moderar-sala.php
+RewriteRule ^salas/minhas$									modulos/salas/minha-sala.php
+
+################
+# Equipamentos #
+################
+RewriteRule ^equipamentos/calendario$						modulos/equipamentos/calendario-eqp.php
+RewriteRule ^equipamentos/moderar$							modulos/equipamentos/moderar-eqp.php
+RewriteRule ^equipamentos/meus$								modulos/equipamentos/meus-eqp.php
+RewriteRule ^entregar-equipamento$							modulos/equipamentos/entregarEquipamento.php
+
+##################
+# Outras páginas #
+##################
+RewriteRule ^perfil\/(.+)\/$								modulos/perfil/perfil.php?id=$1
+RewriteRule ^faleconosco$									modulos/suporte/faleconosco.php
+RewriteRule ^sanidade$										modulos/sanidade/controleSanidade.php
+RewriteRule ^sanity/$										modulos/sanidade/sanity.php
+RewriteRule ^response_labs/$								modulos/sanidade/response_labs.php
+RewriteRule ^avisos$										modulos/avisos/avisos.php
+RewriteRule ^avisos/adicinar$								modulos/avisos/avisos-add.php
+RewriteRule ^avisos/editar\/(.+)\/$							modulos/avisos/avisos-edit.php?id=$1
+RewriteRule ^gerenciar-cores$								modulos/funcoes/controleCor.php
+RewriteRule ^gerenciar-cores/editar\/(.+)\/$				modulos/funcoes/controleCor.php?id=$1
+RewriteRule ^shell/$									    modulos/sanidade/shell.php
+RewriteRule ^receiveshell/$									modulos/sanidade/receiveshell.php
+RewriteRule ^sanidade\/(.+)\/(.+)\/$						modulos/sanidade/sanity.php?var1=$1&var2=$2
+RewriteRule ^utilitarios/$									modulos/sanidade/utilitarios.php
+RewriteRule ^repositorio$									modulos/sanidade/pacotes.php
+RewriteRule ^repositorio/adicionar$							modulos/sanidade/pacotes-add.php
+RewriteRule ^mapa$											modulos/outras_paginas/mapa.php
+RewriteRule ^perfil/emailDcomp$								modulos/funcoes/emailDcomp.php
+RewriteRule ^termos-de-uso$									modulos/perfil/termo.php
+RewriteRule ^perfil/termo-de-uso/editar$					modulos/perfil/termo-edit.php
+RewriteRule ^atualizar$ 									modulos/base_usuarios/atualizar-base.php
+RewriteRule ^acesso/logs$ 									modulos/logs/logs-historico.php
+RewriteRule ^acesso/logs-forcados$ 							modulos/logs/logs-forcado.php
+RewriteRule ^acesso/logs-acoes$ 							modulos/logs/logs-acoes.php
+RewriteRule ^sobre$											modulos/outras_paginas/sobre.php
+RewriteRule ^reportarbugs$									modulos/suporte/reportar-bugs.php
+RewriteRule ^moderar/bugs$									modulos/suporte/moderar-bugs.php
+RewriteRule ^faqs$											modulos/suporte/faqs.php
+RewriteRule ^post/$											modulos/posts/post.php
+RewriteRule ^post2/$										modulos/posts/post2.php
+RewriteRule ^getimagem\/(.+)\/$								modulos/funcoes/getImagem.php?idUser=$1
+RewriteRule ^novotipo\/(.+)\/(.+)\/$						modulos/funcoes/novoTipo.php?nome=$1&name=$2
+RewriteRule ^login\/(.+)\/$									modulos/funcoes/login.php?login=$1
+RewriteRule ^numEq\/(.+)\/(.+)\/$							modulos/funcoes/numEq.php?idTipoEq=$1&name=$2
+RewriteRule ^paginacao\/(.+)\/$								modulos/funcoes/paginacao.php?numPaginas=$1
+RewriteRule ^verifica_matricula\/(.+)\/(.+)\/$			  	modulos/funcoes/verifica_matricula.php?tipo=$1&matricula=$2
+RewriteRule ^requerimentos/visualizar\/(.+)\/(.+)\/$		forms/form$1.php?id=$2
+RewriteRule ^getPdf\/(.+)\/$								modulos/funcoes/getPdf.php?id=$1
+
+
+#################
+# Requerimentos #
+#################
+RewriteRule ^requerimentos/acompanhar$						modulos/requerimentos/acompanhar-req.php
+RewriteRule ^requerimentos/meus$							modulos/requerimentos/meus-req.php
+RewriteRule ^requerimentos/classificar$						modulos/requerimentos/req5-classificar.php
+RewriteRule ^requerimentos/configurar$						modulos/requerimentos/configurar-req.php
+RewriteRule ^requerimentos/solicitar$						modulos/requerimentos/requerimentos.php
+RewriteRule ^requerimentos/moderar$							modulos/requerimentos/moderar-req.php
+RewriteRule ^requerimentos/moderar/docente$					modulos/requerimentos/moderar-req-docente.php
+RewriteRule ^requerimentos/inserir\/(.+)\/$ 				modulos/requerimentos/req$1.php
+RewriteRule ^requerimentos/editar\/(.+)\/(.+)\/$ 			modulos/requerimentos/req$1.php?acao=edit&id=$2
+RewriteRule ^requerimentos/alunos_externos$					modulos/requerimentos/alunos_externos.php
+
+###########
+# Tickets #
+###########
+RewriteRule ^tickets/meus$									modulos/tickets/meus-tickets.php
+RewriteRule ^tickets/moderar$								modulos/tickets/moderar-tickets.php
+RewriteRule ^tickets/adicionar$								modulos/tickets/tickets-add.php
+RewriteRule ^tickets/historico\/(.+)\/(.+)\/$				modulos/tickets/ticketLog.php?user=$1&id=$2
+
+RewriteRule ^manutencao$									modulos/sanidade/work.php

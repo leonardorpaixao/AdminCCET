@@ -1,0 +1,75 @@
+<?php 
+  include '../../includes/topo.php'
+ 
+
+?>
+<title>AdminDcomp - Controle de Sanidade</title>
+
+</head>
+<?php
+  if(!$_SESSION['logado'] || $_SESSION['nivel'] != 0){
+    header('Location: /inicio');
+  }
+  include '../../includes/barra.php';
+  include '../../includes/menu.php' ;
+  require 'verifica_sanity.php';
+  $_SESSION['irPara'] = '/inicio';
+
+
+  if(isset($_POST['kill'])){
+	$comando=exec("kill -9 $(pgrep execute_shell.p)",$saida,$status);
+	echo $saida[0];
+} 
+
+  if(isset($_SESSION["user"])){
+   unset($_SESSION["user"]); 
+  }
+
+  if(isset($_SESSION["password"])){
+   unset($_SESSION["password"]); 
+  }
+?>
+
+ 
+
+
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+          Controle de Sanidade
+          <small>Laboratórios</small>
+      </h1>
+    </section>
+
+        <!-- Main content -->
+       <section class="content">
+         <div class="row">
+          <div class="col-xs-12">           
+      
+          
+          <div  id="cont">
+
+           
+          
+          <?php
+        
+            build_lab();
+              //   teste(); 
+ ?>
+           
+          </div>
+      
+
+    </div>
+  </div>
+  </section>
+  </div>
+
+
+<script src="../../js/control_sanity.js"></script>   
+<script src="../../js/control_sanity2.js"></script>    
+<?php include '../../includes/rodape.php' ?>
+<?php include '../../includes/script.php' ?>
+
+</body>
+</html>

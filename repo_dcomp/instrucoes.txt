@@ -1,0 +1,6 @@
+## DAR PERMISSÃO A PASTA REPO_DECOMP
+sudo chmod a=rwx repo_dcomp/
+
+
+## ALTERAR TAMANHO DE UPLOAD EM: /etc/php/php.ini
+upload_max_filesize = 1G

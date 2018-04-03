@@ -1,0 +1,6 @@
+PC 02
+RECURSO1    OK
+GCC         OK
+RECURSO5    ERRO
+Python      OK
+MatLib      FALHA
