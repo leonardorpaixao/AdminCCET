@@ -57,7 +57,7 @@
 			</body>
 		</html>');
 	}else{
-		$mail->Subject = "Você foi cadastrado no AdminDCOMP";
+		$mail->Subject = "Você foi cadastrado no AdminCCET";
 		$mail->MsgHTML('<html>
 			<head>
 				<meta charset="utf-8">

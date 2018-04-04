@@ -1,4 +1,3 @@
-
 <?php
 include '../../includes/topo.php';
 ?>
@@ -13,7 +12,7 @@ include '../../includes/menu.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Confirmação de dados
+            Solicitação Cadastro
         </h1>
     </section>
     <!-- Main content -->
@@ -25,7 +24,7 @@ include '../../includes/menu.php';
                         <div class="box-body table-responsive no-padding" style="text-align: justify;">
 
 
-                                <script type="text/javascript">
+                            <script type="text/javascript">
                                 function validaCampo()
                                 {
                                     if(document.cadastro.nome.value=="")
@@ -40,45 +39,25 @@ include '../../includes/menu.php';
                                         return false;
                                     }
                                     else
-                                    if(document.cadastro.endereco.value=="")
+                                    if(document.cadastro.confirmaremail.value=="")
                                     {
-                                        alert("O Campo endereço é obrigatório!");
+                                        alert("O Campo Confirmar email é obrigatório!");
                                         return false;
                                     }
                                     else
-                                    if(document.cadastro.cidade.value=="")
+                                    if(document.cadastro.confirmaremail.value!=document.cadastro.email.value)
                                     {
-                                        alert("O Campo Cidade é obrigatório!");
+                                        alert("Os e-mails inseridos não conferem");
                                         return false;
                                     }
-                                    else
-                                    if(document.cadastro.estado.value=="")
+                                    if(document.cadastro.departamento.value=="")
                                     {
-                                        alert("O Campo Estado é obrigatório!");
+                                        alert("O campo departamento é obrigatório");
                                         return false;
                                     }
-                                    else
-                                    if(document.cadastro.bairro.value=="")
+                                    if(document.cadastro.categoria.value=="")
                                     {
-                                        alert("O Campo Bairro é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.pais.value=="")
-                                    {
-                                        alert("O Campo país é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.login.value=="")
-                                    {
-                                        alert("O Campo Login é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.senha.value=="")
-                                    {
-                                        alert("Digite uma senha!");
+                                        alert("Selecione categoria!");
                                         return false;
                                     }
                                     else
@@ -89,10 +68,8 @@ include '../../includes/menu.php';
                             </head>
 
                             <body>
-                            <form id="cadastro" name="cadastro" method="post" action="cadastro.php" onsubmit="return validaCampo(); return false;">
-                                <table width="625" border="0">
 
-                                    <form id="form1" data-toggle="validator" role="form">
+                                    <form id="cadastro" name="cadastro" method="post" action="cadastro.php" data-toggle="validator" role="form" onsubmit="return validaCampo();">
                                         <div class="form-group">
                                             <label for="textNome" class="control-label">Nome</label>
                                             <input id="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome..." type="text">
@@ -104,47 +81,34 @@ include '../../includes/menu.php';
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="inputEmail" class="control-label">Confirmar e-mail</label>
-                                            <input id="corfirmaremail" class="form-control" maxlength="40" placeholder="Repita seu E-mail" type="email">
+                                            <label for="inputConfirmarEmail" class="control-label">Confirmar e-mail</label>
+                                            <input name="confirmaremail" id="corfirmaremail" class="form-control" maxlength="40" placeholder="Repita seu E-mail" type="email">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="inputtelefone" class="control-label">Telefone</label>
-                                            <input class="form-control" type="tel" required="required" maxlength="11" name="phone" pattern="[0-9]{11}$" placeholder="(DDD) + Número para contato" />
-                                        </div>
 
                                         <div class="form-group">
                                             <label for="inputDepartamento" class="control-label">Departamento / Centro</label>
-                                            <input id="departamento" class="form-control" maxlength="20" placeholder="Informe seu departamento" type="text">
+                                            <input id="departamento" name="departamento" class="form-control" maxlength="20" placeholder="Informe seu departamento" type="text">
                                         </div>
 
-                                       <div class="form-group">
-                                            <label for="inputPassword" class="control-label">Senha</label>
-                                            <input type="password" class="form-control" maxlength="15" id="inputPassword" placeholder="Digite sua Senha...">
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="inputConfirm" class="control-label">Confirmar a Senha</label>
-                                            <input type="password" class="form-control" maxlength="15" id="inputConfirm" placeholder="Confirme sua Senha...">
-                                        </div>
 
                                         <fieldset><label> Categoria</label>
                                             <div >
-                                                <form>
                                                     <label class="radio-inline">
-                                                            <input type="radio" name="categoria">Professor
+                                                        <input type="radio" id="categoria" name="categoria">Professor
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="categoria">Técnico
+                                                        <input type="radio" id="categoria" name="categoria">Técnico
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="categoria">Aluno
+                                                        <input type="radio" id="categoria" name="categoria">Aluno
                                                     </label>
-                                                </form>
+
                                             </div>
 
-                                        <br /><br />
-                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                            <br /><br />
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
                                     </form>
 
 
@@ -161,4 +125,3 @@ include '../../includes/menu.php';
 </div><!-- ./wrapper -->
 <?php include '../../includes/script.php' ?>
 </body>
-</html>
