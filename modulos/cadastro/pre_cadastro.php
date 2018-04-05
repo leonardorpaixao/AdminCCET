@@ -27,6 +27,11 @@ include '../../includes/menu.php';
                             <script type="text/javascript">
                                 function validaCampo()
                                 {
+                                    if (document.cadastro.siapMatricula.value=="")
+                                    {
+                                        alert("O campo SIAP|Matricula é obrigatório");
+                                    }
+                                    else
                                     if(document.cadastro.nome.value=="")
                                     {
                                         alert("O Campo nome é obrigatório!");
@@ -70,9 +75,15 @@ include '../../includes/menu.php';
                             <body>
 
                                     <form id="cadastro" name="cadastro" method="post" action="cadastro.php" data-toggle="validator" role="form" onsubmit="return validaCampo();">
+
+                                        <div class="form-group">
+                                            <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>
+                                            <input id="siapMatricula" name="siapMatricula" class="form-control" maxlength="12" placeholder="Digite seu SIAP ou Matricula" type="number">
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="textNome" class="control-label">Nome</label>
-                                            <input id="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome..." type="text">
+                                            <input id="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome" type="text">
                                         </div>
 
                                         <div class="form-group">
@@ -96,19 +107,19 @@ include '../../includes/menu.php';
                                         <fieldset><label> Categoria</label>
                                             <div >
                                                     <label class="radio-inline">
-                                                        <input type="radio" id="categoria" name="categoria">Professor
+                                                        <input type="radio" value="1" id="professor" name="categoria">Professor
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" id="categoria" name="categoria">Técnico
+                                                        <input type="radio" value="2" id="tecnico" name="categoria">Técnico
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" id="categoria" name="categoria">Aluno
+                                                        <input type="radio" value="3" id="aluno" name="categoria">Aluno
                                                     </label>
 
                                             </div>
 
                                             <br /><br />
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                            <button id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
                                     </form>
 
 

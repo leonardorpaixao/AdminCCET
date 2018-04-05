@@ -18,9 +18,7 @@
   }else{
     header('Location: /inicio');
   }
-  include '../../includes/barra.php';
-  include '../../includes/menu.php' ;
-  $_SESSION['irPara'] = '/inicio';
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
