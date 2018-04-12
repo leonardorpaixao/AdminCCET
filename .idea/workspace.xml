@@ -14,52 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="cadastro.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modulos/TESTE_DB/cadastro.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-              <folding>
-                <marker date="1521927412559" expanded="true" signature="2386:2467" ph="SELECT idAvi... tbAvisos" />
-                <marker date="1521927412559" expanded="false" signature="6029:6043" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6044:6671" ph="..." />
-                <marker date="1521927412559" expanded="false" signature="6099:6124" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6192:6636" ph="..." />
-                <marker date="1521927412559" expanded="false" signature="6253:6272" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6273:6406" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6459:6599" ph="..." />
-                <marker date="1521927412559" expanded="false" signature="6784:6798" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6799:7406" ph="..." />
-                <marker date="1521927412559" expanded="false" signature="6852:6877" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="6943:7373" ph="..." />
-                <marker date="1521927412559" expanded="false" signature="7002:7021" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="7022:7151" ph="..." />
-                <marker date="1521927412559" expanded="true" signature="7202:7338" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="emailDcomp.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backup/emailDcomp.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="30" />
-              <folding>
-                <marker date="1520337383000" expanded="true" signature="175:218" ph="SELECT idUse... tbEmail" />
-                <marker date="1520337383000" expanded="true" signature="2344:2569" ph="..." />
-                <marker date="1520337383000" expanded="true" signature="2378:2563" ph="..." />
-                <marker date="1520337383000" expanded="true" signature="2980:3040" ph="SELECT AES_D... tbUsuario" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="conexao.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conexao.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="1445">
+              <caret line="85" column="15" lean-forward="false" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -68,77 +27,48 @@
       <file leaf-file-name="pre_cadastro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
-              <caret line="121" column="91" lean-forward="false" selection-start-line="121" selection-start-column="91" selection-end-line="121" selection-end-column="91" />
+            <state relative-caret-position="-306">
+              <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cadastro-add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro-add.php">
+      <file leaf-file-name="funcionarios-add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="121" lean-forward="false" selection-start-line="0" selection-start-column="121" selection-end-line="0" selection-end-column="121" />
+            <state relative-caret-position="1394">
+              <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
               <folding>
-                <marker date="1522902461657" expanded="true" signature="1972:2277" ph="INSERT INTO `clientes`... " />
+                <marker date="1520337383000" expanded="true" signature="3622:3684" ph="SELECT idAfi... tbAfiliacao" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cadastro.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro.php">
+      <file leaf-file-name="funcionarios.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="-1692">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1520337383000" expanded="true" signature="396:592" ph="SELECT a.idU... tbUsuario" />
+                <marker date="1520337383000" expanded="true" signature="2980:3298" ph="..." />
+                <marker date="1520337383000" expanded="true" signature="3009:3161" ph="..." />
+                <marker date="1520337383000" expanded="true" signature="3084:3156" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pre_cadastro-add.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pre_cadastro-add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="80" lean-forward="false" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+            <state relative-caret-position="578">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
-                <marker date="1522907755179" expanded="true" signature="954:1131" ph="SELECT idAfi... tbAfiliacao" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cadastro.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-              <folding>
-                <marker date="1212766032189" expanded="true" signature="1960:1973" ph="INSERT INTO `tbprimeiroacesso`... " />
-                <marker date="1212766032189" expanded="true" signature="1960:2265" ph="INSERT INTO `clientes`... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cadastro.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aluno-add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modulos/alunos/aluno-add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="71" column="39" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="71" selection-end-column="39" />
-              <folding>
-                <marker date="1520337383000" expanded="true" signature="2665:2727" ph="SELECT idAfi... tbAfiliacao" />
+                <marker date="1523559326406" expanded="true" signature="1281:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
+                <marker date="1523559326406" expanded="true" signature="1457:1460" ph="INSERT INTO `clientes`... " />
               </folding>
             </state>
           </provider>
@@ -162,6 +92,11 @@
       <find>ca</find>
       <find>cadas</find>
       <find>nome</find>
+      <find>conec</find>
+      <find>getb</find>
+      <find>add</find>
+      <find>NOME</find>
+      <find>CADAS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,16 +115,20 @@
         <option value="$PROJECT_DIR$/modulos/cadastro/cadastrar.php" />
         <option value="$PROJECT_DIR$/modulos/outras_paginas/sobre.php" />
         <option value="$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.html" />
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/includes/barra.php" />
         <option value="$PROJECT_DIR$/modulos/cadastro/cadastro.php" />
         <option value="$PROJECT_DIR$/modulos/funcoes/enviarMail.php" />
         <option value="$PROJECT_DIR$/modulos/cadastro/cadastro-add.php" />
         <option value="$PROJECT_DIR$/modulos/funcoes/emailDcomp.php" />
-        <option value="$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.php" />
         <option value="$PROJECT_DIR$/conexao.php" />
-        <option value="$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php" />
+        <option value="$PROJECT_DIR$/modulos/TESTE_DB/cadastro.html" />
+        <option value="$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.php" />
+        <option value="$PROJECT_DIR$/modulos/TESTE_DB/cadastro.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/modulos/TESTE_DB/pre_cadastro-add.php" />
         <option value="$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php" />
+        <option value="$PROJECT_DIR$/modulos/TESTE_DB/pre_cadastro.php" />
+        <option value="$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php" />
       </list>
     </option>
   </component>
@@ -202,7 +141,11 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="C:\xampp\php" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1251" />
@@ -246,7 +189,14 @@
             <path>
               <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
               <item name="htdocs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="repo_dcomp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modulos" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="funcionarios" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htdocs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modulos" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="TESTE_DB" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -262,6 +212,11 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="nodejs.protractor.protractor_package" value="" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\modulos\TESTE_DB" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -273,6 +228,14 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="cadastro.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/htdocs/modulos/TESTE_DB/cadastro.html" />
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.cadastro.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -295,20 +258,22 @@
       <workItem from="1522726851823" duration="1860000" />
       <workItem from="1522806072003" duration="9964000" />
       <workItem from="1522894549839" duration="6066000" />
-      <workItem from="1523550930474" duration="230000" />
+      <workItem from="1523550930474" duration="2837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35014000" />
+    <option name="totallyTimeSpent" value="42318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13645834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -317,13 +282,24 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="-12" y="208" width="1736" height="856" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,62 +313,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modulos/salas/calendario-sala.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1547">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/sala.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-856">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/base_usuarios/atualizar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/base_usuarios/atualizar-base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/avisos/avisos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1785">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/calendario-eqp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="80" column="45" lean-forward="true" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modulos/equipamentos/equipamentos-edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -481,13 +401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="132" column="93" lean-forward="true" selection-start-line="132" selection-start-column="93" selection-end-line="132" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -600,20 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/atalhos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6429">
-          <caret line="203" column="0" lean-forward="true" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="1363" column="20" lean-forward="false" selection-start-line="1363" selection-start-column="20" selection-end-line="1363" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -625,31 +524,318 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backup/emailDcomp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="17">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro-add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="121" lean-forward="false" selection-start-line="0" selection-start-column="121" selection-end-line="0" selection-end-column="121" />
           <folding>
-            <marker date="1520337383000" expanded="true" signature="175:218" ph="SELECT idUse... tbEmail" />
-            <marker date="1520337383000" expanded="true" signature="2344:2569" ph="..." />
-            <marker date="1520337383000" expanded="true" signature="2378:2563" ph="..." />
-            <marker date="1520337383000" expanded="true" signature="2980:3040" ph="SELECT AES_D... tbUsuario" />
+            <marker date="1522902461657" expanded="true" signature="1972:2277" ph="INSERT INTO `clientes`... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conexao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="46" lean-forward="true" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/alunos/aluno-add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <marker date="1523555118695" expanded="true" signature="1966:1979" ph="INSERT INTO `tbprimeiroacesso`... " />
+            <marker date="1523555118695" expanded="true" signature="1966:2271" ph="INSERT INTO `clientes`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/atalhos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="79" lean-forward="false" selection-start-line="14" selection-start-column="74" selection-end-line="14" selection-end-column="79" />
+          <folding>
+            <marker date="1520390085323" expanded="true" signature="168:220" ph="SELECT idUse... tbUsuario" />
+            <marker date="1520390085323" expanded="true" signature="2951:3080" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="3589:3652" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520390085323" expanded="true" signature="3974:4103" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="4389:4446" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="4667:4741" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="4998:5072" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="5436:5565" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="5923:5986" ph="UPDATE tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="6162:6225" ph="SELECT idTel... tbTelefone" />
+            <marker date="1520390085323" expanded="true" signature="6491:6565" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="6801:6875" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="7230:7303" ph="UPDATE tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="10275:10327" ph="SELECT idUse... tbUsuario" />
+            <marker date="1520390085323" expanded="true" signature="11010:11139" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="11422:11479" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="11919:11982" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520390085323" expanded="true" signature="12359:12488" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="12781:12838" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="13068:13142" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="13413:13487" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="13802:13866" ph="SELECT idExt... tbUsuariosExternos" />
+            <marker date="1520390085323" expanded="true" signature="14098:14230" ph="INSERT INTO tbUsuariosExternos... " />
+            <marker date="1520390085323" expanded="true" signature="14742:14797" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520390085323" expanded="true" signature="15058:15187" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="15480:15537" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="15767:15841" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="16112:16186" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="16486:16541" ph="INSERT INTO tbAfiliacao... " />
+            <marker date="1520390085323" expanded="true" signature="16804:16933" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="17226:17283" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="17513:17587" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="17858:17932" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="18345:18474" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="18752:18809" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="19324:19387" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520390085323" expanded="true" signature="19884:19939" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520390085323" expanded="true" signature="20160:20215" ph="INSERT INTO tbAfiliacao... " />
+            <marker date="1520390085323" expanded="true" signature="20620:20716" ph="UPDATE tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="20947:21000" ph="UPDATE tbMatricula... " />
+            <marker date="1520390085323" expanded="true" signature="21169:21232" ph="SELECT idTel... tbTelefone" />
+            <marker date="1520390085323" expanded="true" signature="21512:21586" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="21836:21910" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520390085323" expanded="true" signature="22285:22358" ph="UPDATE tbUsuario... " />
+            <marker date="1520390085323" expanded="true" signature="22828:22889" ph="SELECT idNot... tbNotificacao" />
+            <marker date="1520390085323" expanded="true" signature="23068:23363" ph="..." />
+            <marker date="1520390085323" expanded="false" signature="23161:23186" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="23187:23337" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="23405:23487" ph="INSERT INTO tbNotificacao... " />
+            <marker date="1520390085323" expanded="true" signature="23667:23706" ph="INSERT INTO tbNotiConexao... " />
+            <marker date="1520390085323" expanded="true" signature="25857:25914" ph="SELECT idTic... tbLog" />
+            <marker date="1520390085323" expanded="true" signature="26903:26932" ph="SELECT avali... tbTicket" />
+            <marker date="1520390085323" expanded="true" signature="31889:31955" ph="SELECT idUse... tbEmail" />
+            <marker date="1520390085323" expanded="true" signature="35109:35533" ph="SELECT g.idD... tbReservaSala" />
+            <marker date="1520390085323" expanded="true" signature="35670:36044" ph="SELECT g.idD... tbReservaSala" />
+            <marker date="1520390085323" expanded="true" signature="36759:37231" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520390085323" expanded="true" signature="37366:37795" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520390085323" expanded="true" signature="39901:40476" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520390085323" expanded="true" signature="40613:41140" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520390085323" expanded="true" signature="42925:43044" ph="SELECT idDat... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="43146:43266" ph="SELECT idDat... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="43802:43889" ph="UPDATE tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="44061:44103" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="44340:44382" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="44718:44760" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="44984:45026" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="45241:45364" ph="SELECT idDat... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="45466:45590" ph="SELECT idDat... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="46126:46216" ph="UPDATE tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="46388:46431" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="46668:46711" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="47047:47090" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="47314:47357" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="47592:47719" ph="SELECT idDat... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="47821:47949" ph="SELECT idDat... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="48485:48578" ph="UPDATE tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="48750:48794" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="49031:49075" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="49411:49455" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="49679:49723" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="50398:50505" ph="SELECT * FRO... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="50624:50686" ph="SELECT * FRO... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="51076:51188" ph="SELECT idCho... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="51907:52018" ph="SELECT * FRO... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="52137:52202" ph="SELECT * FRO... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="52592:52708" ph="SELECT idCho... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="53413:53527" ph="SELECT * FRO... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="53646:53714" ph="SELECT * FRO... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="54104:54223" ph="SELECT idCho... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="55157:55473" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520390085323" expanded="true" signature="56111:56382" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520390085323" expanded="true" signature="57014:57264" ph="SELECT h.ini... tbReservaSala" />
+            <marker date="1520390085323" expanded="true" signature="57845:57975" ph="SELECT idReE... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="58094:58169" ph="SELECT idReE... tbChoqueEq" />
+            <marker date="1520390085323" expanded="true" signature="58387:58441" ph="DELETE FROM tbChoqueEq... " />
+            <marker date="1520390085323" expanded="true" signature="58664:58798" ph="SELECT idReL... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="58917:58996" ph="SELECT idReL... tbChoqueLab" />
+            <marker date="1520390085323" expanded="true" signature="59214:59270" ph="DELETE FROM tbChoqueLab... " />
+            <marker date="1520390085323" expanded="true" signature="59479:59617" ph="SELECT idReS... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="59736:59819" ph="SELECT idReS... tbChoqueSala" />
+            <marker date="1520390085323" expanded="true" signature="60037:60095" ph="DELETE FROM tbChoqueSala... " />
+            <marker date="1520390085323" expanded="true" signature="60514:60613" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="60774:60867" ph="INSERT INTO tbLogsAcoes... " />
+            <marker date="1520390085323" expanded="true" signature="61177:61243" ph="SELECT inici... tbPrazo" />
+            <marker date="1520390085323" expanded="true" signature="63932:64796" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="63945:64012" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64025:64783" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64038:64769" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64448:64755" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64462:64738" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64939:65814" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="64952:65019" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65032:65801" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65045:65787" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65466:65773" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65480:65756" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65960:66874" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="65973:66040" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="66053:66861" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="66066:66847" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="66526:66833" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="66540:66816" ph="..." />
+            <marker date="1520390085323" expanded="true" signature="67816:67948" ph="SELECT a.log... tbUsuario" />
+            <marker date="1520390085323" expanded="true" signature="68371:68828" ph="SELECT c.idL... tbLaboratorio" />
+            <marker date="1520390085323" expanded="true" signature="69237:69286" ph="SELECT nomeL... tbLaboratorio" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/atalhos2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <marker date="1520337383000" expanded="true" signature="168:220" ph="SELECT idUse... tbUsuario" />
+            <marker date="1520337383000" expanded="true" signature="2951:3080" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="3589:3652" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520337383000" expanded="true" signature="3974:4103" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="4389:4446" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520337383000" expanded="true" signature="4667:4741" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="4998:5072" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="5436:5565" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="5923:6000" ph="UPDATE tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="6184:6247" ph="SELECT idTel... tbTelefone" />
+            <marker date="1520337383000" expanded="true" signature="6513:6587" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="6823:6897" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="7252:7325" ph="UPDATE tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="10701:10753" ph="SELECT idUse... tbUsuario" />
+            <marker date="1520337383000" expanded="true" signature="11778:11907" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="12190:12247" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520337383000" expanded="true" signature="12710:12773" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520337383000" expanded="true" signature="13150:13279" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="13572:13629" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520337383000" expanded="true" signature="13859:13933" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="14204:14278" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="14708:14837" ph="INSERT INTO tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="15120:15177" ph="INSERT INTO tbMatricula... " />
+            <marker date="1520337383000" expanded="true" signature="15523:15600" ph="UPDATE tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="15794:15857" ph="SELECT idTel... tbTelefone" />
+            <marker date="1520337383000" expanded="true" signature="16137:16211" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="16461:16535" ph="INSERT INTO tbTelefone... " />
+            <marker date="1520337383000" expanded="true" signature="16910:16983" ph="UPDATE tbUsuario... " />
+            <marker date="1520337383000" expanded="true" signature="17438:17499" ph="SELECT idNot... tbNotificacao" />
+            <marker date="1520337383000" expanded="true" signature="17678:17973" ph="..." />
+            <marker date="1520337383000" expanded="false" signature="17771:17796" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="17797:17947" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="18015:18097" ph="INSERT INTO tbNotificacao... " />
+            <marker date="1520337383000" expanded="true" signature="18277:18316" ph="INSERT INTO tbNotiConexao... " />
+            <marker date="1520337383000" expanded="true" signature="20538:20595" ph="SELECT idTic... tbLog" />
+            <marker date="1520337383000" expanded="true" signature="21538:21567" ph="SELECT avali... tbTicket" />
+            <marker date="1520337383000" expanded="true" signature="26524:26590" ph="SELECT idUse... tbEmail" />
+            <marker date="1520337383000" expanded="true" signature="29502:29926" ph="SELECT g.idD... tbReservaSala" />
+            <marker date="1520337383000" expanded="true" signature="30063:30437" ph="SELECT g.idD... tbReservaSala" />
+            <marker date="1520337383000" expanded="true" signature="31152:31624" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520337383000" expanded="true" signature="31759:32188" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520337383000" expanded="true" signature="34294:34869" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520337383000" expanded="true" signature="35006:35533" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520337383000" expanded="true" signature="37318:37437" ph="SELECT idDat... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="37539:37659" ph="SELECT idDat... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="38195:38282" ph="UPDATE tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="38454:38496" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="38733:38775" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="39111:39153" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="39377:39419" ph="INSERT INTO tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="39634:39757" ph="SELECT idDat... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="39859:39983" ph="SELECT idDat... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="40519:40609" ph="UPDATE tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="40781:40824" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="41061:41104" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="41440:41483" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="41707:41750" ph="INSERT INTO tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="41985:42112" ph="SELECT idDat... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="42214:42342" ph="SELECT idDat... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="42878:42971" ph="UPDATE tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="43143:43187" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="43424:43468" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="43804:43848" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="44072:44116" ph="INSERT INTO tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="44791:44898" ph="SELECT * FRO... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="45017:45079" ph="SELECT * FRO... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="45469:45581" ph="SELECT idCho... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="46300:46411" ph="SELECT * FRO... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="46530:46595" ph="SELECT * FRO... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="46985:47101" ph="SELECT idCho... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="47806:47920" ph="SELECT * FRO... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="48039:48107" ph="SELECT * FRO... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="48497:48616" ph="SELECT idCho... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="49550:49866" ph="SELECT c.ini... tbReservaEq" />
+            <marker date="1520337383000" expanded="true" signature="50504:50775" ph="SELECT h.ini... tbReservaLab" />
+            <marker date="1520337383000" expanded="true" signature="51407:51657" ph="SELECT h.ini... tbReservaSala" />
+            <marker date="1520337383000" expanded="true" signature="52238:52368" ph="SELECT idReE... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="52487:52562" ph="SELECT idReE... tbChoqueEq" />
+            <marker date="1520337383000" expanded="true" signature="52780:52834" ph="DELETE FROM tbChoqueEq... " />
+            <marker date="1520337383000" expanded="true" signature="53057:53191" ph="SELECT idReL... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="53310:53389" ph="SELECT idReL... tbChoqueLab" />
+            <marker date="1520337383000" expanded="true" signature="53607:53663" ph="DELETE FROM tbChoqueLab... " />
+            <marker date="1520337383000" expanded="true" signature="53872:54010" ph="SELECT idReS... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="54129:54212" ph="SELECT idReS... tbChoqueSala" />
+            <marker date="1520337383000" expanded="true" signature="54430:54488" ph="DELETE FROM tbChoqueSala... " />
+            <marker date="1520337383000" expanded="true" signature="54907:55006" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="55150:55207" ph="SELECT inici... tbPrazo" />
+            <marker date="1520337383000" expanded="true" signature="57854:58681" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="57867:57934" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="57947:58668" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="57960:58654" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="58333:58640" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="58347:58623" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="210" column="20" lean-forward="false" selection-start-line="210" selection-start-column="20" selection-end-line="210" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="97" lean-forward="true" selection-start-line="43" selection-start-column="97" selection-end-line="43" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="255">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding>
             <marker date="1521927412559" expanded="true" signature="2386:2467" ph="SELECT idAvi... tbAvisos" />
             <marker date="1521927412559" expanded="false" signature="6029:6043" ph="..." />
@@ -670,67 +856,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.html">
+    <entry file="file://$PROJECT_DIR$/modulos/TESTE_DB/pre_cadastro-add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="36" selection-end-column="2" />
+          <folding>
+            <marker date="1523559212845" expanded="true" signature="1281:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
+            <marker date="1523559212845" expanded="true" signature="1380:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/TESTE_DB/cadastro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="31" />
+          <folding>
+            <marker date="1523556011254" expanded="true" signature="1977:2282" ph="INSERT INTO `clientes`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/TESTE_DB/cadastro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="15" lean-forward="false" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/alunos/aluno-add.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/core-scripting.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="39" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="71" selection-end-column="39" />
+        <state relative-caret-position="204">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/TESTE_DB/pre_cadastro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="65" column="37" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <marker date="1520337383000" expanded="true" signature="2665:2727" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1523559326406" expanded="true" signature="1281:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
+            <marker date="1523559326406" expanded="true" signature="1457:1460" ph="INSERT INTO `clientes`... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="91" lean-forward="false" selection-start-line="121" selection-start-column="91" selection-end-line="121" selection-end-column="91" />
+        <state relative-caret-position="-306">
+          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro-add.php">
+    <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="121" lean-forward="false" selection-start-line="0" selection-start-column="121" selection-end-line="0" selection-end-column="121" />
+        <state relative-caret-position="1394">
+          <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
           <folding>
-            <marker date="1522902461657" expanded="true" signature="1972:2277" ph="INSERT INTO `clientes`... " />
+            <marker date="1520337383000" expanded="true" signature="3622:3684" ph="SELECT idAfi... tbAfiliacao" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro.php">
+    <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/cadastro_completo+bd/cadastro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="-1692">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1212766032189" expanded="true" signature="1960:1973" ph="INSERT INTO `tbprimeiroacesso`... " />
-            <marker date="1212766032189" expanded="true" signature="1960:2265" ph="INSERT INTO `clientes`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="80" lean-forward="false" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
-          <folding>
-            <marker date="1522907755179" expanded="true" signature="954:1131" ph="SELECT idAfi... tbAfiliacao" />
+            <marker date="1520337383000" expanded="true" signature="396:592" ph="SELECT a.idU... tbUsuario" />
+            <marker date="1520337383000" expanded="true" signature="2980:3298" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="3009:3161" ph="..." />
+            <marker date="1520337383000" expanded="true" signature="3084:3156" ph="..." />
           </folding>
         </state>
       </provider>

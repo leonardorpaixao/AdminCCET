@@ -1,12 +1,6 @@
-<?php
-include '../../includes/topo.php';
-?>
 <title xmlns="http://www.w3.org/1999/html">AdminDcomp - Sobre o AdminCCET</title>
 </head>
-<?php
-include '../../includes/barra.php';
-include '../../includes/menu.php';
-?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -74,57 +68,57 @@ include '../../includes/menu.php';
 
                             <body>
 
-                            <form id="cadastro" name="cadastro" method="post" action="pre_cadastro-add.php" data-toggle="validator" role="form" onsubmit="return validaCampo();">
+                                    <form id="cadastro" name="cadastro" method="post" action="pre_cadastro-add.php" data-toggle="validator" role="form" onsubmit="return validaCampo();">
 
-                                <div class="form-group">
-                                    <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>
-                                    <input id="siapMatricula" name="siapMatricula" class="form-control" maxlength="12" placeholder="Digite seu SIAP ou Matricula" type="number">
-                                </div>
+                                        <div class="form-group">
+                                            <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>
+                                            <input id="siapMatricula" name="siapMatricula" class="form-control" maxlength="12" placeholder="Digite seu SIAP ou Matricula" type="number">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label for="textNome" class="control-label">Nome</label>
-                                    <input id="nome" name="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome" type="text">
-                                </div>
+                                        <div class="form-group">
+                                            <label for="textNome" class="control-label">Nome</label>
+                                            <input id="nome" name="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome" type="text">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label for="inputEmail" class="control-label">Email</label>
-                                    <input id="email" name="email" class="form-control" maxlength="40" placeholder="Digite seu E-mail" type="email">
-                                </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label">Email</label>
+                                            <input id="email" name="email" class="form-control" maxlength="40" placeholder="Digite seu E-mail" type="email">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label for="inputConfirmarEmail" class="control-label">Confirmar e-mail</label>
-                                    <input name="confirmaremail" id="corfirmaremail" class="form-control" maxlength="40" placeholder="Repita seu E-mail" type="email">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="inputDepartamento" class="control-label">Departamento / Centro</label>
-                                    <input id="departamento" name="departamento" class="form-control" maxlength="20" placeholder="Informe seu departamento" type="text">
-                                </div>
+                                        <div class="form-group">
+                                            <label for="inputConfirmarEmail" class="control-label">Confirmar e-mail</label>
+                                            <input name="confirmaremail" id="corfirmaremail" class="form-control" maxlength="40" placeholder="Repita seu E-mail" type="email">
+                                        </div>
 
 
-
-                                <fieldset><label> Categoria</label>
-                                    <div >
-                                        <label class="radio-inline">
-                                            <input type="radio" value="1" id="professor" name="categoria">Professor
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="2" id="tecnico" name="categoria">Técnico
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="3" id="aluno" name="categoria">Aluno
-                                        </label>
-
-                                    </div>
-
-                                    <br /><br />
-                                    <button id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
-                            </form>
+                                        <div class="form-group">
+                                            <label for="inputDepartamento" class="control-label">Departamento / Centro</label>
+                                            <input id="departamento" name="departamento" class="form-control" maxlength="20" placeholder="Informe seu departamento" type="text">
+                                        </div>
 
 
 
-                        </div><!-- /.box-body -->
+                                        <fieldset><label> Categoria</label>
+                                            <div >
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="1" id="professor" name="categoria">Professor
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="2" id="tecnico" name="categoria">Técnico
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="3" id="aluno" name="categoria">Aluno
+                                                    </label>
+
+                                            </div>
+
+                                            <br /><br />
+                                            <button id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
+                                    </form>
+
+
+
+
                     </div><!-- /.box -->
                 </div>
             </div>
@@ -135,4 +129,4 @@ include '../../includes/menu.php';
 <?php include '../../includes/rodape.php' ?>
 </div><!-- ./wrapper -->
 <?php include '../../includes/script.php' ?>
-                            </body>
+</body>

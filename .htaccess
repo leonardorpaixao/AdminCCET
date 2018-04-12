@@ -36,6 +36,14 @@ ErrorDocument 404 											/404.php
 ErrorDocument 500 											/500.php
 
 ############
+# Cadastro #
+############
+
+RewriteRule ^cadastro/$              						modulos/cadastro/cadastro.php
+RewriteRule ^pre_cadastro/$              					modulos/cadastro/pre_cadastro.php
+RewriteRule ^pre_cadastro-add/$              				modulos/cadastro/pre_cadastro-add.php
+
+############
 # Recursos #
 ############
 RewriteRule ^recursos/professores$							modulos/professores/professores.php
@@ -129,8 +137,7 @@ RewriteRule ^numEq\/(.+)\/(.+)\/$							modulos/funcoes/numEq.php?idTipoEq=$1&na
 RewriteRule ^paginacao\/(.+)\/$								modulos/funcoes/paginacao.php?numPaginas=$1
 RewriteRule ^verifica_matricula\/(.+)\/(.+)\/$			  	modulos/funcoes/verifica_matricula.php?tipo=$1&matricula=$2
 RewriteRule ^requerimentos/visualizar\/(.+)\/(.+)\/$		forms/form$1.php?id=$2
-RewriteRule ^cadastro/$              						modulos/cadastro/cadastro.php
-RewriteRule ^pre_cadastro/$              					modulos/cadastro/pre_cadastro.php
+
 
 
 
