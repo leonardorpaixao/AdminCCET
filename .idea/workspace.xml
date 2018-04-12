@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-306">
-              <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+              <caret line="60" column="53" lean-forward="false" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -38,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1394">
-              <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+              <caret line="103" column="13" lean-forward="false" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
               <folding>
                 <marker date="1520337383000" expanded="true" signature="3622:3684" ph="SELECT idAfi... tbAfiliacao" />
               </folding>
@@ -49,7 +49,7 @@
       <file leaf-file-name="funcionarios.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1692">
+            <state relative-caret-position="-621">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1520337383000" expanded="true" signature="396:592" ph="SELECT a.idU... tbUsuario" />
@@ -65,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <marker date="1523559326406" expanded="true" signature="1281:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
                 <marker date="1523559326406" expanded="true" signature="1457:1460" ph="INSERT INTO `clientes`... " />
@@ -146,7 +146,7 @@
       <path value="C:\xampp\php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="1251" />
     <option name="height" value="1087" />
@@ -263,10 +263,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42318000" />
+    <option name="totallyTimeSpent" value="42367000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13645834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -904,7 +904,7 @@
     <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <marker date="1523559326406" expanded="true" signature="1281:1460" ph="INSERT INTO `tbprimeiroacessoccet`... " />
             <marker date="1523559326406" expanded="true" signature="1457:1460" ph="INSERT INTO `clientes`... " />
@@ -915,7 +915,7 @@
     <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
-          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+          <caret line="60" column="53" lean-forward="false" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -923,7 +923,7 @@
     <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
-          <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+          <caret line="103" column="13" lean-forward="false" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
           <folding>
             <marker date="1520337383000" expanded="true" signature="3622:3684" ph="SELECT idAfi... tbAfiliacao" />
           </folding>
@@ -932,7 +932,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/funcionarios/funcionarios.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1692">
+        <state relative-caret-position="-621">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1520337383000" expanded="true" signature="396:592" ph="SELECT a.idU... tbUsuario" />
