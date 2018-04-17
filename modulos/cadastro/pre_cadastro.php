@@ -74,7 +74,7 @@ include '../../includes/menu.php';
 
                             <body>
 
-                            <form id="cadastro" name="cadastro" method="post" action="pre_cadastro-add.php" data-toggle="validator" role="form" onsubmit="return validaCampo();">
+                            <form id="cadastro" name="cadastro" method="post" action="pre_cadastro-add/" data-toggle="validator" role="form" onsubmit="return validaCampo();">
 
                                 <div class="form-group">
                                     <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>
