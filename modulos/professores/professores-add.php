@@ -7,7 +7,7 @@
   if(!$_SESSION['logado'] || $_SESSION['nivel'] != -1){
     header('Location: /inicio');
   }
-  include '../../includes/barra.php';
+  include ' ../../includes/barra.php';
   include '../../includes/menu.php';
   $db = Atalhos::getBanco();
   $_SESSION['irPara'] = '/inicio';

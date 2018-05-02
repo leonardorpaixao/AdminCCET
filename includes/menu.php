@@ -11,40 +11,67 @@
                 <i class="fa fa-home"></i> <span>Início</span>
               </a>
             </li>
+              <li class="treeview">
+                  <a href="#">
+                      <i class="fa fa-folder-o"></i>
+                      <span>Recursos</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                      <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
+                          <li><a href="/recursos/alunos"><i class="fa fa-group"></i> Alunos</a></li>
+                          <li><a href="/recursos/alunos-externos"><i class="fa fa-group"></i> Alunos Externos </a></li>
+                          <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 0): ?>
+                              <li><a href="/recursos/contas-temporarias"><i class="fa fa-group"></i> Contas Temporários</a></li>
+                              <li><a href="/recursos/grupos"><i class="fa fa-group"></i> Grupos </a></li>
+                          <?php endif; ?>
 
+                          <li><a href="/recursos/funcionarios"><i class="fa fa-user-secret"></i> Funcionários</a></li>
+                      <?php endif; ?>
+                      <li><a href="/recursos/professores"><i class="fa fa-graduation-cap"></i> Professores</a></li>
+                      <li><a href="/recursos/disciplinas"><i class="fa fa-book"></i> Disciplinas</a></li>
+                      <li><a href="/recursos/laboratorios"><i class="fa fa-th"></i> Laboratórios</a></li>
+                      <li><a href="/recursos/equipamentos"><i class="fa fa-laptop"></i> Equipamentos</a></li>
+                      <li><a href="/recursos/salas"><i class="fa fa-bank"></i> Salas</a></li>
+                  </ul>
+              </li>
 
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Salas</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="/laboratorios/calendario"><i class="fa fa-calendar"></i> Calendário</a></li>
-                <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
-                  <li><a href="/laboratorios/moderar"><i class="fa fa-pencil-square-o"></i> Moderar reservas
-                  <?php
-                    $db = Atalhos::getBanco();
-                    if ($query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a 
-                          WHERE EXISTS (SELECT y.idReLab FROM tbControleDataLab y
-                          WHERE a.idReLab = y.idReLab AND y.statusData = 'Pendente')")){
-                      $query->execute();
-                      $query->bind_result($idReLab);
-                      $query->store_result();
-                      $total = $query->num_rows;
-                      if($total != 0){
-                        echo '<small class="label pull-right bg-yellow">'.$total.'</small>';
-                      }
-                      $query->close();
-                    }
-                  ?>
-                </a></li>
-                <li><a href="/laboratorios/controlar"><i class="fa fa-clock-o"></i> Controlar reservas</a></li>
-                <?php elseif($_SESSION['logado']):  ?>
-                  <li><a href="/laboratorios/meus"><i class="fa  fa-pencil-square-o"></i> Reservas</a></li>
-                <?php endif ?>
-              </ul>
-            </li>
+              <li class="treeview">
+                  <a href="#">
+                      <i class="fa fa-bank"></i>
+                      <span>Salas</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li><a href="/salas/calendario"><i class="fa fa-calendar"></i> Calendário</a></li>
+                      <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
+                          <li><a href="/salas/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
+                                  <?php
+                                  if($query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a
+                              WHERE EXISTS (SELECT y.idReSala FROM tbControleDataSala y
+                              WHERE a.idReSala = y.idReSala AND y.statusData = 'Pendente')")){
+                                      $query->execute();
+                                      $query->bind_result($idReLab);
+                                      $query->store_result();
+                                      $total = $query->num_rows;
+                                      if($total != 0)
+                                          echo '<small class="label pull-right bg-yellow">'.$total.'</small>';
+                                      $query->close();
+                                  }
+                                  $db->close();
+                                  ?>
+                              </a></li>
+                      <?php elseif($_SESSION['logado'] && $_SESSION['nivel'] < 4):  ?>
+                          <li>
+                              <a href="/salas/minhas">
+                                  <i class="fa  fa-pencil-square-o"></i>
+                                  Reservas
+                              </a>
+                          </li>
+                      <?php endif; ?>
+                  </ul>
+              </li>
+
 
             <li class="treeview">
               <a href="#">
