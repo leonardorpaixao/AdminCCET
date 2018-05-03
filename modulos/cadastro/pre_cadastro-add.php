@@ -32,7 +32,6 @@ VALUES ('$nome', '$email', '$idAfiliacao', '$siapMatricula', '$departamento')";
 mysqli_query($conexao, $query);
 
 mysqli_close($conexao);
-
 echo "Seu precadastro foi enviado a secretaria. em breve você receberá e-mail com novas orientações.<br>Agradecemos a atenção.";
 ?>
 </body>
