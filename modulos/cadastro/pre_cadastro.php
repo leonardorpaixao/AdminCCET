@@ -1,7 +1,8 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 include '../../includes/topo.php';
 ?>
-<title xmlns="http://www.w3.org/1999/html">AdminDcomp - Sobre o AdminCCET</title>
+<title xmlns="http://www.w3.org/1999/html">AdminDcomp - Requisição de Cadastro</title>
 </head>
 <?php
 include '../../includes/barra.php';
@@ -12,7 +13,7 @@ include '../../includes/menu.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Solicitação Cadastro
+            Solicitação de Cadastro
         </h1>
     </section>
     <!-- Main content -->
@@ -64,7 +65,6 @@ include '../../includes/menu.php';
                                     {
                                         alert("Selecione categoria!");
                                         return false;
-                                    }
                                     else
                                         return true;
                                 }
@@ -74,7 +74,7 @@ include '../../includes/menu.php';
 
                             <body>
 
-                            <form id="cadastro" name="cadastro" method="post" action="pre_cadastro-add/" data-toggle="validator" role="form" onsubmit="return validaCampo();">
+                            <form id="cadastro" name="cadastro" method="post"  action="pre_cadastro-add/" data-toggle="validator" role="form" onsubmit="return validaCampo();">
 
                                 <div class="form-group">
                                     <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>

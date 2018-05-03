@@ -4,10 +4,10 @@
 <title>AdminDcomp - Adicinar Equipamento</title>
 </head>
 <?php
-  if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 5 && $_SESSION['afiliacao'] != 7)){
+  if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 4 && $_SESSION['afiliacao'] != 7)){
     header('Location: /inicio');
   } 
-  $db = Atalhos::getBanco();
+
   include '../../includes/barra.php';
   include '../../includes/menu.php';
   $_SESSION['irPara'] = '/inicio';
@@ -48,6 +48,7 @@
             <label>Escolha o tipo:</label>
             <select name="tipo" class="form-control" id="tipoEq" onchange="NovoTipo(this.value);">
               <?php
+              $db = Atalhos::getBanco();
               echo '<option value="">Selecionar Tipo</option>';
               echo '<option value="0">Adicinar Novo Tipo</option>';
                if ($query = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbTipoEq 

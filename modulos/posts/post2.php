@@ -37,14 +37,15 @@
       }
       if($_SESSION['numTent'] < 3 || (!isset($_SESSION['errorLogin']) && $data->success)){
         $db = Atalhos::getBanco();
-        if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo FROM tbUsuario WHERE login=? AND senha=? LIMIT 1")){
+        if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo, idAfiliacao FROM tbUsuario WHERE login=? AND senha=? LIMIT 1")){
           $query->bind_param('ss', $_POST['usuario'], $_POST['senha']);
           $query->execute();
-          $query->bind_result($id, $nome, $nivel, $status, $termo);
+          $query->bind_result($id, $nome, $nivel, $status, $termo, $afiliacao);
           if($query->fetch()){
             session_regenerate_id();
             $_SESSION['id'] = $id;
             $_SESSION['nome'] = $nome;
+            $_SESSION['afiliacao'] = $afiliacao;
             $_SESSION['nivel'] = $nivel;
             $_SESSION['ativo'] = ($status == 'Ativo') ? true : false;
             $query->close();
