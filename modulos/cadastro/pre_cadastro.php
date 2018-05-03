@@ -23,6 +23,7 @@ include '../../includes/menu.php';
                     <div class="box-header">
                         <div class="box-body table-responsive no-padding" style="text-align: justify;">
 
+
                             <script type="text/javascript">
                                 function validaCampo()
                                 {

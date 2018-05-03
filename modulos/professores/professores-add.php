@@ -3,7 +3,6 @@
 ?>
 <title>AdminDcomp - Adicionar Professor</title>
 </head>
-
 <?php
   if(!$_SESSION['logado'] || $_SESSION['nivel'] != -1){
     header('Location: /inicio');

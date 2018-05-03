@@ -58,7 +58,6 @@
                 $query = $db->prepare("UPDATE tbOnline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
                 $query->bind_param('sss', date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes")), session_id(), $_SESSION['id']);
                 $query->execute();
-
               }else{
                 $query->close();
                 $query = $db->prepare("INSERT INTO tbOnline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");

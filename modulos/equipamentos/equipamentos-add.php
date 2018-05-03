@@ -60,7 +60,6 @@
                   $query->close();
                 }
               ?>
-
             </select>
           </div>
             <div class="form-group" id="txtHint"></div>                  
