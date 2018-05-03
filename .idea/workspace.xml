@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0c30cf57-bc19-4c30-ac50-76bb5f29e159" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php" afterPath="$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php" afterPath="$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/equipamentos/equipamentos-add.php" afterPath="$PROJECT_DIR$/modulos/equipamentos/equipamentos-add.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/posts/post2.php" afterPath="$PROJECT_DIR$/modulos/posts/post2.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -368,7 +364,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44431000" />
+    <option name="totallyTimeSpent" value="45081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
