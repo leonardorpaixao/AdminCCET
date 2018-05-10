@@ -20,19 +20,20 @@
                   <ul class="treeview-menu">
                       <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
                           <li><a href="/recursos/alunos"><i class="fa fa-group"></i> Alunos</a></li>
-                          <li><a href="/recursos/alunos-externos"><i class="fa fa-group"></i> Alunos Externos </a></li>
+                      <!--  <li><a href="/recursos/alunos-externos"><i class="fa fa-group"></i> Alunos Externos </a></li>-->
                           <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 0): ?>
-                              <li><a href="/recursos/contas-temporarias"><i class="fa fa-group"></i> Contas Temporários</a></li>
-                              <li><a href="/recursos/grupos"><i class="fa fa-group"></i> Grupos </a></li>
+                        <!--      <li><a href="/recursos/contas-temporarias"><i class="fa fa-group"></i> Contas Temporários</a></li>-->
+                              <!--    <li><a href="/recursos/grupos"><i class="fa fa-group"></i> Grupos </a></li>-->
                           <?php endif; ?>
 
                           <li><a href="/recursos/funcionarios"><i class="fa fa-user-secret"></i> Funcionários</a></li>
                       <?php endif; ?>
                       <li><a href="/recursos/professores"><i class="fa fa-graduation-cap"></i> Professores</a></li>
-                      <li><a href="/recursos/disciplinas"><i class="fa fa-book"></i> Disciplinas</a></li>
-                      <li><a href="/recursos/laboratorios"><i class="fa fa-th"></i> Laboratórios</a></li>
+                  <!--    <li><a href="/recursos/disciplinas"><i class="fa fa-book"></i> Disciplinas</a></li>-->
+                  <!--    <li><a href="/recursos/laboratorios"><i class="fa fa-th"></i> Laboratórios</a></li>-->
                       <li><a href="/recursos/equipamentos"><i class="fa fa-laptop"></i> Equipamentos</a></li>
                       <li><a href="/recursos/salas"><i class="fa fa-bank"></i> Salas</a></li>
+                      <li><a href="/recursos/autorizar_cadastro"><i class="fa  fa-pencil-square-o"></i>Solicitações de Cadastro</a> </li>
                   </ul>
               </li>
 
@@ -47,6 +48,7 @@
                       <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
                           <li><a href="/salas/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
                                   <?php
+                                  $db = atalhos::getBanco();
                                   if($query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a
                               WHERE EXISTS (SELECT y.idReSala FROM tbControleDataSala y
                               WHERE a.idReSala = y.idReSala AND y.statusData = 'Pendente')")){
@@ -84,6 +86,7 @@
                 <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
                   <li><a href="/equipamentos/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
                   <?php
+                  $db = atalhos::getBanco();
                     if($query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a
                           WHERE EXISTS (SELECT y.idReEq FROM tbControleDataEq y
                           WHERE a.idReEq = y.idReEq AND y.statusData = 'Pendente')")){

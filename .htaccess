@@ -42,6 +42,7 @@ ErrorDocument 500 											/500.php
 RewriteRule ^cadastro/$              						modulos/cadastro/cadastro.php
 RewriteRule ^pre_cadastro/$              					modulos/cadastro/pre_cadastro.php
 RewriteRule ^pre_cadastro-add/$              				modulos/cadastro/pre_cadastro-add.php
+RewriteRule ^recursos/autorizar_cadastro$               	modulos/cadastro/autorizar_cadastro.php
 
 ############
 # Recursos #
