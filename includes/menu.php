@@ -33,7 +33,9 @@
                   <!--    <li><a href="/recursos/laboratorios"><i class="fa fa-th"></i> Laboratórios</a></li>-->
                       <li><a href="/recursos/equipamentos"><i class="fa fa-laptop"></i> Equipamentos</a></li>
                       <li><a href="/recursos/salas"><i class="fa fa-bank"></i> Salas</a></li>
+                      <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
                       <li><a href="/recursos/autorizar_cadastro"><i class="fa  fa-pencil-square-o"></i>Solicitações de Cadastro</a> </li>
+                      <?php endif; ?>
                   </ul>
               </li>
 

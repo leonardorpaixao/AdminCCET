@@ -86,7 +86,7 @@
       				                  <button class="btn btn-default btn-xs">Editar</button></a> '.$acao.'</td>';
                               echo '<td><button class="close" data-target="#simples" data-solict-id="'.$idSala.'"
                                 data-solict-tipo="3" data-solict-nome="'.$nomeSala.'" data-toggle="modal"
-                                data-solict-frase="Excluir"> <span aria-hidden="true">&times;</span></button></td>';
+                                data-solict-frase="Excluir"> <span aria-hidden="true">X</span></button></td>';
                             }
                             echo '</tr>';
                       }

@@ -9,9 +9,9 @@ include '../../includes/menu.php';
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
 $link = '/recursos/salas';
-if($query = $db->prepare("SELECT idSala, nomeSala, statusSala, numPessoa FROM tbSala")){
+if($query = $db->prepare("SELECT nome, email, siapMatricula, status FROM tbprimeiroacessoccet")){
     $query->execute();
-    $query->bind_result($idSala, $nomeSala, $statusSala, $numPessoa);
+    $query->bind_result($nome, $email, $siapMatricula, $statusCadastro);
 }
 ?>
 <!-- Content Wrapper. Contains page0content -->
@@ -19,8 +19,8 @@ if($query = $db->prepare("SELECT idSala, nomeSala, statusSala, numPessoa FROM tb
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Salas
-            <small>Recursos</small>
+            Solicitações de Cadastros
+            <small>Autorizar Cadastro</small>
         </h1>
     </section>
 
@@ -39,12 +39,7 @@ if($query = $db->prepare("SELECT idSala, nomeSala, statusSala, numPessoa FROM tb
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
-                        <?php
-                        if($_SESSION['logado'] && $_SESSION['nivel'] <= 1)
-                            echo '<a href="/recursos/salas/adicionar"><button class="btn btn-success">Adicionar</button></a>';
-                        ?>
-                    </div><!-- /.box-header -->
+
                     <div class="box-body table-responsive">
                         <!-- Tabela de Salas -->
                         <table id="example1" class="table table-bordered table-striped">
@@ -56,40 +51,32 @@ if($query = $db->prepare("SELECT idSala, nomeSala, statusSala, numPessoa FROM tb
                                 <th><center>Status</center></th>
                                 <?php
                                 if($_SESSION['logado'] && $_SESSION['nivel'] <= 1)
-                                    echo '<th><center>Ação</th>
-                            <th></th>';
+                                    echo '<th><center>Ação</th>';
+
                                 ?>
                             </tr>
                             </thead>
                             <?php
                             //exibe os equipamentos selecionados
                             while ($query->fetch()) {
-                                switch($statusSala){
-                                    case 'Ativo':
-                                        $status = '<span class="label label-success">ATIVO</span>';
-                                        $acao = '<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#simples"
-                              data-solict-id="'.$idSala.'" data-solict-tipo="1" data-solict-nome="'.$nomeSala.'"
-                              data-solict-frase="Inativar">Inativar</button>';
-                                        break;
+                                switch($statusCadastro){
                                     case 'Inativo':
                                         $status = '<span class="label label-warning">INATIVO</span>';
                                         $acao = '<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#simples"
-                              data-solict-id="'.$idSala.'"data-solict-tipo="2" data-solict-nome="'.$nomeSala.'"
+                              data-solict-id="'.$siapMatricula.'"data-solict-tipo="2" data-solict-nome="'.$nome.'"
                               data-solict-frase="Ativar">Ativar</button>';
                                         break;
                                 }
                                 echo '<tr align="center">
-                                  <td>'.$nomeSala.'</td>
-                                  <td>'.$numPessoa.'</td>
-                                  <td>'.$status.'</td>';
-                                if($_SESSION['logado'] && $_SESSION['nivel'] <= 1){
-                                    echo '<td><a href="/recursos/salas/editar/'.$idSala.'/">
-      				                  <button class="btn btn-default btn-xs">Editar</button></a> '.$acao.'</td>';
-                                    echo '<td><button class="close" data-target="#simples" data-solict-id="'.$idSala.'"
-                                data-solict-tipo="3" data-solict-nome="'.$nomeSala.'" data-toggle="modal"
-                                data-solict-frase="Excluir"> <span aria-hidden="true">&times;</span></button></td>';
-                                }
-                                echo '</tr>';
+                                  <td>'.$nome.'</td>
+                                  <td>'.$email .'</td>
+                                  <td>'.$siapMatricula.'</td>
+                                  <td>'.$status.'</td>
+                                  <td>'.$acao.'</td>';
+                                  echo '</tr>';
+
+
+
                             }
                             $query->close();
                             $db->close();
