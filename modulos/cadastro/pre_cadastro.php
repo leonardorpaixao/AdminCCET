@@ -117,9 +117,11 @@ include '../../includes/menu.php';
                                         </label>
 
                                     </div>
+                                </fieldset>
 
                                     <br /><br />
-                                    <button id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
+                                    <button href="/inicio" id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
+                                    <a href="/inicio"<span class="btn btn-primary">Cancelar</span></a>
                             </form>
 
 

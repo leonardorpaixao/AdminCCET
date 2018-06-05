@@ -19,14 +19,14 @@ $_SESSION['irPara'] = '/inicio';
 <?php
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO
 
-//$siapMatricula = $_POST ["siapMatricula"];//atribuição do campo "siapMatricula" vindo do formulário para variavel
-//$nome	= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel
-//$email	= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
-//$departamento	= $_POST ["departamento"];	//atribuição do campo "departamento" vindo do formulário para variavel
-//$idAfiliacao = $_POST ["categoria"];//atribuição do campo "categoria" vindo do formulário para variavel
+$siapMatricula = $_POST ["siapMatricula"];//atribuição do campo "siapMatricula" vindo do formulário para variavel
+$nome	= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel
+$email	= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
+$departamento	= $_POST ["departamento"];	//atribuição do campo "departamento" vindo do formulário para variavel
+$idAfiliacao = $_POST ["categoria"];//atribuição do campo "categoria" vindo do formulário para variavel
+
+
 //Gravando no banco de dados
-
-
 $conexao = mysqli_connect("localhost","root");
 if (!$conexao)
     die ("Erro de conexão com localhost, o seguinte erro ocorreu -> ".mysqli_error($conexao));
@@ -43,9 +43,13 @@ else
 
 mysqli_close($conexao);
 
-$_SESSION['irPara'] = '/inicio';
-echo "<script>alert ('Seu precadastro foi enviado a secretaria. em breve você receberá e-mail com novas orientações.<br>Agradecemos a atenção.')</script>";
 
-?>
+
+
+echo "<script>window.location='/inicio';alert('$nome, Seu requerimento foi enviado a secretaria. Em breve você receberá e-mail com novas orientações. \\n Por favor, aguarde!');</script>";
+
+ ?>
+
+
 </body>
 </html>

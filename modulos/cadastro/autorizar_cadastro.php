@@ -9,9 +9,9 @@ include '../../includes/menu.php';
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
 $link = '/recursos/salas';
-if($query = $db->prepare("SELECT nome, email, siapMatricula, status FROM tbprimeiroacessoccet")){
+if($query = $db->prepare("SELECT * FROM tbprimeiroacessoccet")){
     $query->execute();
-    $query->bind_result($nome, $email, $siapMatricula, $statusCadastro);
+    $query->bind_result($nome, $email, $idafiliacao, $siapMatricula, $departamento, $statusCadastro);
 }
 ?>
 <!-- Content Wrapper. Contains page0content -->
@@ -62,9 +62,11 @@ if($query = $db->prepare("SELECT nome, email, siapMatricula, status FROM tbprime
                                 switch($statusCadastro){
                                     case 'Inativo':
                                         $status = '<span class="label label-warning">INATIVO</span>';
+                                        $statusCadastro = 'Aguardando solicitante';
                                         $acao = '<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#simples"
-                              data-solict-id="'.$siapMatricula.'"data-solict-tipo="2" data-solict-nome="'.$nome.'"
-                              data-solict-frase="Ativar">Ativar</button>';
+                               data-solict-nome="'.$nome.'" data-solict-email="'.$email.'" " data-solict-idAfiliacao="'.$idafiliacao.'" 
+                              data-solict-siapMatricula="'.$siapMatricula.'" "data-solict-departamento="'.$departamento.'" "data-solict-status="'.$statusCadastro.'"
+                              data-solict-frase="Ativar">ATIVAR</button>';
                                         break;
                                 }
                                 echo '<tr align="center">
@@ -136,11 +138,30 @@ if($query = $db->prepare("SELECT nome, email, siapMatricula, status FROM tbprime
         var tipo = button.data('solict-tipo')
         var frase = button.data('solict-frase')
         var nome = button.data('solict-nome')
-        var id = button.data('solict-id')
+        var email = button.data('solict-email')
+        var idAfiliacao = button.data('solict-idAfiliacao')
+        var id = button.data('solict-siapMatricula')
+        var departamento = button.data('solict-departamento')
+        var status = button.data('solict-status')
         var modal = $(this)
-        modal.find('.modal-title').text(frase + ' - Sala: ' + nome)
-        $('#idSala').val(id)
-        $('#acao').val(tipo)
+
+
+        //Gravando no banco de dados
+        $conexao = mysqli_connect("localhost","root");
+        if (!$conexao)
+            die ("Erro de conexão com localhost, o seguinte erro ocorreu -> ".mysqli_error($conexao));
+//conectando com a tabela do banco de dados
+        $banco = mysqli_select_db($conexao, "dcomp");
+        if (!$banco)
+            die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysqli_error($conexao));
+
+
+        else
+//    $query = "INSERT INTO `tbprimeiroacessoccet` (`nome`, `email`, `idAfiliacao`, `siapMatricula`, `departamento`)
+//VALUES ('$nome', '$email', '$idAfiliacao', '$siapMatricula', '$departamento')";
+//mysqli_query($conexao, $query);
+
+            mysqli_close($conexao);
     })
 </script>
 </body>

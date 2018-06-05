@@ -56,7 +56,7 @@
   <?php include '../../includes/script.php' ?>
   <script>
     $('#box').find('.formulario').submit(function() {
-        var nome = $.trim($(this).find('#nome').val());
+        var nome = $.trim($(this).find('#nome').va  l());
         var capacidade = $.trim($(this).find('#cap').val());
         
         

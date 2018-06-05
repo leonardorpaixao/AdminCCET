@@ -192,10 +192,10 @@
               </ul>
               </li>
             <?php endif;
-             if (!($_SESSION['mobile'])):
+            // if (!($_SESSION['mobile'])):
             ?>
 
-            <?php endif;?>
+            <?//php endif;?>
 
             <li class="treeview">
                 <a href="/sobre">
