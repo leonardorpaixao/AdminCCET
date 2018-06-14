@@ -4,7 +4,7 @@
 <title>AdminDcomp - Editar Sala</title>
 </head>
 <?php
-	if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 4 && $_SESSION['afiliacao'] != 7)){
+	if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 4 && $_SESSION['afiliacao'] != 2)){
 		header('Location: /inicio');
 	} 
 	include '../../includes/barra.php';

@@ -4,7 +4,7 @@
 <title>AdminDcomp - Editar Equipamento</title>
 </head>
 <?php
-	if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 5 && $_SESSION['afiliacao'] != 7)){
+	if(!$_SESSION['logado'] || ($_SESSION['afiliacao'] != 4 && $_SESSION['afiliacao'] != 2)){
 		header('Location: /inicio');
 	} 
 	include '../../includes/barra.php';
