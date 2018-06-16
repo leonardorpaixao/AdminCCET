@@ -77,7 +77,7 @@
 						</table>
 					</div>
 					<div>
-						Olá '.$_GET['nome'].', você foi cadastrado no AdminDCOMP acesse sua conta no site admin.dcomp.ufs.br utilizando:
+						Olá '.$_GET['nome'].', você foi cadastrado no AdminDCOMP acese sua conta no site admin.dcomp.ufs.br utilizando:
 						<br><br>Login: <b>'.$_GET['login'].'</b> <br>Senha : <b>'.$_GET['senha'].'</b> <br><br>
 						Sua conta te dar direito a logar no site e em qualquer computador do DCOMP com a mesmo login e senha e um e-mail particular '.$_GET['login'].'@dcomp.ufs.br já ativo que pode ser acessado no próprio site.<br><br>
 						Muito obrigado,<br><br>
