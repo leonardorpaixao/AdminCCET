@@ -37,16 +37,16 @@ if (!$banco)
 
 
 else
-//    $query = "INSERT INTO `tbprimeiroacessoccet` (`nome`, `email`, `idAfiliacao`, `siapMatricula`, `departamento`)
-//VALUES ('$nome', '$email', '$idAfiliacao', '$siapMatricula', '$departamento')";
-//mysqli_query($conexao, $query);
+    $query = "INSERT INTO `tbprimeiroacessoccet` (`nome`, `email`, `idAfiliacao`, `siapMatricula`, `departamento`)
+  VALUES ('$nome', '$email', '$idAfiliacao', '$siapMatricula', '$departamento')";
+    mysqli_query($conexao, $query);
 
 mysqli_close($conexao);
 
 
 
 
-echo "<script>window.location='/inicio';alert('$nome, Seu requerimento foi enviado a secretaria. Em breve você receberá e-mail com novas orientações. \\n Por favor, aguarde!');</script>";
+echo "<script>window.location='/inicio';alert('Seu requerimento foi enviado a secretaria. Em breve você receberá e-mail com novas orientações. \\nPor favor, aguarde!');</script>";
 
  ?>
 

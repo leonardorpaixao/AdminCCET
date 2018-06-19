@@ -9,10 +9,11 @@ include '../../includes/menu.php';
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
 $link = '/recursos/salas';
-if($query = $db->prepare("SELECT * FROM tbprimeiroacessoccet")){
-    $query->execute();
-    $query->bind_result($nome, $email, $idafiliacao, $siapMatricula, $departamento, $statusCadastro);
-}
+
+//if($query = $db->prepare("SELECT * FROM tbprimeiroacessoccet")){
+//    $query->execute();
+//    $query->bind_result($nome, $email, $idafiliacao, $siapMatricula, $departamento, $statusCadastro);
+//}
 ?>
 <!-- Content Wrapper. Contains page0content -->
 <div class="content-wrapper">
@@ -57,30 +58,51 @@ if($query = $db->prepare("SELECT * FROM tbprimeiroacessoccet")){
                             </tr>
                             </thead>
                             <?php
-                            //exibe os equipamentos selecionados
-                            while ($query->fetch()) {
-                                switch($statusCadastro){
-                                    case 'Inativo':
-                                        $status = '<span class="label label-warning">INATIVO</span>';
-                                        $statusCadastro = 'Aguardando solicitante';
-                                        $acao = '<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#simples"
-                               data-solict-nome="'.$nome.'" data-solict-email="'.$email.'" " data-solict-idAfiliacao="'.$idafiliacao.'" 
-                              data-solict-siapMatricula="'.$siapMatricula.'" "data-solict-departamento="'.$departamento.'" "data-solict-status="'.$statusCadastro.'"
-                              data-solict-frase="Ativar">ATIVAR</button>';
-                                        break;
+                            
+                            $sql = "SELECT * FROM tbusuario";
+
+                            foreach($db->query($sql) as $row)
+                            {
+                            
+//                                switch($row['status']) {
+//                                    case 'Inativo':
+//                                        $status = '<span class="label label-warning">'.$row['status'].'</span>';
+//                                        $statusCadastro = 'Aguardando solicitante';
+//                                            $acao = '<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#simples"
+//                                data-solict-nome="'.$nome.'" data-solict-email="'.$email.'" " data-solict-idAfiliacao="'.$idafiliacao.'"
+//                                data-solict-siapMatricula="'.$siapMatricula.'" "data-solict-departamento="'.$departamento.'" "data-solict-status="'.$statusCadastro.'"
+//                                data-solict-frase="Ativar">ATIVAR</button>';
+//                                    break;
+//                                }
+                                    if($row['statusUser'] == 'Inativo')
+                                    {
+                                        echo '<tr align="center">
+                                        <td>' . $row['nomeUser'] . '</td>
+                                        <td>' . $row['email'] . '</td>
+                                        <td>' . $row['siapMatricula'] . '</td>
+                                        <td><span class="label label-warning">' . $row['statusUser'] . '</span></td>
+                                        <td><a href="'.$_SERVER['PHP_SELF'].'?idUser='. $row['idUser']. '" class="btn btn-primary btn-xs" role="button">ATIVAR</a></td>';
+                                        echo '</tr>';
+                                    }
+                            }
+
+                            if(isset($_GET['idUser']))
+                            {
+                                if ($db->connect_error) {
+                                    die("Connection failed: " . $db->connect_error);
                                 }
-                                echo '<tr align="center">
-                                  <td>'.$nome.'</td>
-                                  <td>'.$email .'</td>
-                                  <td>'.$siapMatricula.'</td>
-                                  <td>'.$status.'</td>
-                                  <td>'.$acao.'</td>';
-                                  echo '</tr>';
+
+                                $id  = $_GET['idUser'];
+                                $sqlUpdate = "UPDATE tbusuario SET statusUser = 'Aguardando Solicitante' WHERE idUser = $id";
+
+                                if(!$db->query($sqlUpdate) === TRUE) {
+                                    echo "Error updating record: " . $db->error;
+                                }
+                                include 'enviarEmailConfirmacao.php';
 
 
 
                             }
-                            $query->close();
                             $db->close();
                             ?>
 

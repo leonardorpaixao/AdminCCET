@@ -1666,5 +1666,60 @@
 			$mail->ClearAttachments();
 		}
 
+		public static function enviarEmailPrimeiroAcesso($nome, $email)	{
+			require_once("phpmailer/class.phpmailer.php");
+			include("phpmailer/class.smtp.php");
+			$mail = new PHPMailer();
+			$mail->IsSMTP(); // telling the class to use SMTP
+			$mail->SMTPDebug  = false;// enables SMTP debug information (for testing)
+			// 1 = errors and messages
+			// 2 = messages only
+			$mail->CharSet = 'UTF-8';
+			$mail->SMTPAuth   = true;                  // enable SMTP authentication
+			$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+			$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+			$mail->Username   = "leonardorpaixao3@gmail.com";  // GMAIL username
+			$mail->Password   = "leo152476389";            // GMAIL password
+			$mail->SetFrom('leonardorpaixao3@gmail.com', 'Não Responder DCOMP');
+			$mail->AltBody    = "Para visualizar esta mensagem é necessario ter um visualizador de e-mail compativel com HTML"; // optional, comment out and test
+
+			$mail->Subject = "Teste";
+			$mail->MsgHTML('<html>
+						<head>
+							<meta charset="utf-8">
+							<title></title>
+						</head>
+						<body>
+							<div>
+								<p>Olá! ISSO É UM TESTE!,</p>
+								
+								<img src="forms/dcomp-novo1.png" width="161" height="80">
+
+								<table class="rodape" cellpadding="0" cellspacing="0">
+									<tr>
+											Cidade Universitária “Prof. José Aloísio de Campos”<br>
+											Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
+											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br | admin.dcomp.ufs.br
+									</tr>
+								</table>
+							</div>
+						</body>
+					</html>');
+					
+
+			
+
+			$mail->AddAddress('leonardorpaixao3@gmail.com');
+			//$mail->AddAttachment("images/phpmailer.gif");      // attachment
+			//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
+			$enviado = $mail->Send();
+			// Limpa os destinatários e os anexos
+			$mail->ClearAllRecipients();
+			$mail->ClearAttachments();
+		}
+		
+
+		
 	}
 ?>

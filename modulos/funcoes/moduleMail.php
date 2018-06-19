@@ -3,7 +3,7 @@ require_once("../../phpmailer/class.phpmailer.php");
 include("../../phpmailer/class.smtp.php");
 
 
-//Modulo com funções para enviu de emails
+//Modulo com funções para envio de emails
 
 //funcão envia mesg com elemetos html
 function enviaEmail($destinatario,$assunto,$corpo){
