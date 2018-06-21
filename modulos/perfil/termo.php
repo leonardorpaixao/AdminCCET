@@ -116,19 +116,19 @@
                     <section class="content">
                         <div class="box box-solid">
                             <div class="box-header">
-                                <h4>Antes de continuar com o seu acesso você precisar ler e concordar com os termos de uso abaixo.</h4>
+                                <h4>Antes de continuar aceitar os termos de uso. </br></br> Clique em "Aceitar" para continuar.</h4>
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
                                     <div style="width:100%; height:250px; overflow: auto;">
-                                        <?php echo $termo;?>
+                                        <?php echo "$termo AQUI FICARÃO OS TERMOS DE USO" ;?>
                                     </div>
                                 </div>
                             </div>
                             <div class="box-footer">
                                 <form action="post2/" method="POST" id="formulario">
                                     <input type="hidden" id="numPost" name="numPost" value="3"/><!-- Número correspodente ao post -->
-                                    <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.form.submit();">Eu Aceito</button>
+                                    <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.form.submit();">Aceitar</button>
                                     <a href="/inicio"<span class="btn btn-default">Sair</span></a>
                                 </form>
                             </div>

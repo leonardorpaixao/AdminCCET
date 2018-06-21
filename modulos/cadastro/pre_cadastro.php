@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 include '../../includes/topo.php';
 ?>
+<html>
+<head>
 <title xmlns="http://www.w3.org/1999/html">AdminDcomp - Requisição de Cadastro</title>
 </head>
 <?php
@@ -23,55 +24,7 @@ include '../../includes/menu.php';
                 <div class="box">
                     <div class="box-header">
                         <div class="box-body table-responsive no-padding" style="text-align: justify;">
-
-
-                            <script type="text/javascript">
-                                function validaCampo()
-                                {
-                                    if (document.cadastro.siapMatricula.value=="")
-                                    {
-                                        alert("O campo SIAP|Matricula é obrigatório");
-                                    }
-                                    else
-                                    if(document.cadastro.nome.value=="")
-                                    {
-                                        alert("O Campo nome é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.email.value=="")
-                                    {
-                                        alert("O Campo email é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.confirmaremail.value=="")
-                                    {
-                                        alert("O Campo Confirmar email é obrigatório!");
-                                        return false;
-                                    }
-                                    else
-                                    if(document.cadastro.confirmaremail.value!=document.cadastro.email.value)
-                                    {
-                                        alert("Os e-mails inseridos não conferem");
-                                        return false;
-                                    }
-                                    if(document.cadastro.departamento.value=="")
-                                    {
-                                        alert("O campo departamento é obrigatório");
-                                        return false;
-                                    }
-                                    if(document.cadastro.categoria.value=="")
-                                    {
-                                        alert("Selecione categoria!");
-                                        return false;
-                                    else
-                                        return true;
-                                }
-                                <!-- Fim do JavaScript que validará os campos obrigatórios! -->
-                            </script>
-                            </head>
-
+                                           
                             <body>
 
                             <form id="cadastro" name="cadastro" method="post"  action="pre_cadastro-add/" data-toggle="validator" role="form" onsubmit="return validaCampo();">
@@ -120,7 +73,7 @@ include '../../includes/menu.php';
                                 </fieldset>
 
                                     <br /><br />
-                                    <button href="/inicio" id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
+                                    <button id="cadastrar" name="cadastrar" type="submit" class="btn btn-primary">Enviar</button>
                                     <a href="/inicio"<span class="btn btn-primary">Cancelar</span></a>
                             </form>
 
@@ -137,4 +90,56 @@ include '../../includes/menu.php';
 <?php include '../../includes/rodape.php' ?>
 </div><!-- ./wrapper -->
 <?php include '../../includes/script.php' ?>
-                            </body>
+
+<script type="text/javascript">
+
+function validaCampo()
+{
+    if (document.cadastro.siapMatricula.value==""){
+        alert("O campo SIAP|Matricula é obrigatório");
+    }
+    else
+    if(document.cadastro.nome.value=="")
+    {
+        alert("O Campo nome é obrigatório!");
+        return false;
+    }
+    else
+    if(document.cadastro.email.value=="")
+    {
+        alert("O Campo email é obrigatório!");
+        return false;
+    }
+    else
+    if(document.cadastro.confirmaremail.value=="")
+    {
+        alert("O Campo Confirmar email é obrigatório!");
+        return false;
+    }
+    else
+    if(document.cadastro.confirmaremail.value!=document.cadastro.email.value)
+    {
+        alert("Os e-mails inseridos não conferem");
+        return false;
+    }
+    if(document.cadastro.departamento.value=="")
+    {
+        alert("O campo departamento é obrigatório");
+        return false;
+    }
+    if(document.cadastro.categoria.value=="")
+    {
+        alert("Selecione categoria!");
+        return false;
+    }
+    else
+        return true;
+}
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -85,7 +85,7 @@
                           echo "<b>Data de Inicio:</b> ".date("d/m/y", strtotime($dataInicio))."<br>";
                           echo "<b>Data de Fim:</b> ".date("d/m/y", strtotime($dataFim))."<br>";
                           echo "<b>Motivo:</b> ".$motivoBlock."<br>";
-                          echo '<b>Para Ativar sua conta é necessario que após o dia do fim você requisite na secretaria.</b>';
+                          echo '<b>Para Ativar sua conta é necessario que após o dia do final do prazo você requisite a secretaria.</b>';
                           $query->close();
                           $db->close();
                         }

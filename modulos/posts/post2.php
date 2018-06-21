@@ -10,7 +10,7 @@
 		        break;
 	        case 3:
 		        Post::termo();
-		        header('Location: '.$_SESSION['irPara']);
+		        header('Location: /pre_cadastro/');
 		        break;
 	        case 4:
                 Post::requerimentos();
