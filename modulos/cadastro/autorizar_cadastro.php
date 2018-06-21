@@ -4,16 +4,15 @@ include '../../includes/topo.php';
 <title>AdminDcomp - Moderar Cadastros</title>
 </head>
 <?php
+include("../funcoes/enviarEmailConfirmacao.php");
 include '../../includes/barra.php';
 include '../../includes/menu.php';
+
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
-$link = '/recursos/salas';
 
-//if($query = $db->prepare("SELECT * FROM tbprimeiroacessoccet")){
-//    $query->execute();
-//    $query->bind_result($nome, $email, $idafiliacao, $siapMatricula, $departamento, $statusCadastro);
-//}
+
+
 ?>
 <!-- Content Wrapper. Contains page0content -->
 <div class="content-wrapper">
@@ -64,16 +63,6 @@ $link = '/recursos/salas';
                             foreach($db->query($sql) as $row)
                             {
                             
-//                                switch($row['status']) {
-//                                    case 'Inativo':
-//                                        $status = '<span class="label label-warning">'.$row['status'].'</span>';
-//                                        $statusCadastro = 'Aguardando solicitante';
-//                                            $acao = '<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#simples"
-//                                data-solict-nome="'.$nome.'" data-solict-email="'.$email.'" " data-solict-idAfiliacao="'.$idafiliacao.'"
-//                                data-solict-siapMatricula="'.$siapMatricula.'" "data-solict-departamento="'.$departamento.'" "data-solict-status="'.$statusCadastro.'"
-//                                data-solict-frase="Ativar">ATIVAR</button>';
-//                                    break;
-//                                }
                                     if($row['statusUser'] == 'Inativo')
                                     {
                                         echo '<tr align="center">
@@ -93,12 +82,16 @@ $link = '/recursos/salas';
                                 }
 
                                 $id  = $_GET['idUser'];
-                                $sqlUpdate = "UPDATE tbusuario SET statusUser = 'Aguardando Solicitante' WHERE idUser = $id";
+                                $email = $row['email'];
+                                $sqlUpdate = "UPDATE tbusuario SET senha = 'ccet123456', statusUser = 'Aguardando Solicitante', sudo = 'Ativo', login = '$email' WHERE idUser = $id";
+                                echo "<script>window.location='/recursos/autorizar_cadastro';alert('O cadastro do Senhor(a) ".$row['nomeUser']." foi autorizado com sucesso! Um e-mail com instruções foi ennviado ao seu respectivo endereço eletrônico.');</script>";
 
                                 if(!$db->query($sqlUpdate) === TRUE) {
                                     echo "Error updating record: " . $db->error;
                                 }
-                                include 'enviarEmailConfirmacao.php';
+                                $nomeUser=$row['nomeUser'];
+                                $email = $row['email'];
+                                enviarEmail::enviarEmailConfirmacao($row['nomeUser'], $row['email']);
 
 
 

@@ -1,6 +1,9 @@
 <?php
+class enviarEmail{
+	public static function enviarEmailConfirmacao($nomeUser, $email){
 	// Inclui o arquivo class.phpmailer.php localizado na pasta phpmailer
 	require_once("../../phpmailer/class.phpmailer.php");
+	require("../../phpmailer/PHPMailerAutoload.php");
 	include("../../phpmailer/class.smtp.php");
 	// Inicia a classe PHPMailer
 	$mail = new PHPMailer();
@@ -14,9 +17,9 @@
 	$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
 	$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
 	$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
-	$mail->Username   = "naoresponder@dcomp.ufs.br";  // GMAIL username
-	$mail->Password   = "Gr4nd3sP0d3r3sTr4z3mGr4nd3sR3sp0ns4b1l1d4d3s";            // GMAIL password
-	$mail->SetFrom('naoresponder@dcomp.ufs.br', 'Não Responder DCOMP');
+	$mail->Username   = "leonardorpaixao3@gmail.com";  // GMAIL username
+	$mail->Password   = "leo152476389";            // GMAIL password
+	$mail->SetFrom('leonardorpaixao3@gmail.com', 'Não Responder DCOMP');
 	$mail->AltBody    = "Para visualizar esta mensagem é necessario ter um visualizador de e-mail compativel com HTML"; // optional, comment out and test
 	//$mail->MsgHTML(file_get_contents('emailSenha.php'));
 		$mail->Subject = "Você foi cadastrado no AdminCCET";
@@ -39,9 +42,9 @@
 						</table>
 					</div>
 					<div>
-						Olá '.$_POST['nome'].', você foi cadastrado no AdminDCOMP acese sua conta no site admin.dcomp.ufs.br utilizando:
+						Olá '.$nomeUser.', você foi cadastrado no AdminDCOMP acese sua conta no site admin.dcomp.ufs.br utilizando:
 						<br><br>Login: <b></b> <br>Senha : <b></b> <br><br>
-						Sua conta te dar direito a logar no site e em qualquer computador do DCOMP com a mesmo login e senha e um e-mail particularjá ativo que pode ser acessado no próprio site.<br><br>
+		
 						Muito obrigado,<br><br>
 						Att,<br>
 						DCOMP.<br><br>
@@ -56,11 +59,20 @@
 				</div>
 			</body>
 		</html>');
-	
-	$mail->AddAddress($_POST['email'], $_POST['nome']);
+
+	$mail->AddAddress($email, $nomeUser);
 	//$mail->AddAttachment("images/phpmailer.gif");      // attachment
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
-	$enviado = $mail->Send();
+	//$enviado = $mail->Send();
+	if($mail->send()){
+		echo "email enviado com sucesso!";
+	}else echo"deu algum erro";
+		
+	
+
 	// Limpa os destinatários e os anexos
 	$mail->ClearAllRecipients();
 	$mail->ClearAttachments();
+}
+}
+?>
