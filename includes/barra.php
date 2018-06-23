@@ -180,7 +180,7 @@
                             </div>
                               <!-- /.col -->
                               <div class="col-xs-5 pull-left">
-                                  <button type="button" onclick="location.href = '/pre_cadastro/';" class="btn btn-primary btn-block">Cadastrar</button>
+                                  <button type="button" onclick="location.href = '/cadastro/';" class="btn btn-primary btn-block">Cadastrar</button>
                               </div>
 
 
