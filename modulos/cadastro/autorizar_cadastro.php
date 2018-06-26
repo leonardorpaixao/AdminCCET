@@ -4,16 +4,16 @@ include '../../includes/topo.php';
 <title>AdminDcomp - Moderar Cadastros</title>
 </head>
 <?php
-if(!$_SESSION['logado'] || $_SESSION['nivel'] <= 1){
+
+if(!$_SESSION['logado'] || !$_SESSION['nivel'] > 1){ 
 		header('Location: /inicio');
-	} 
+} 
 
 ?>
 <?php
 include("../funcoes/enviarEmailConfirmacao.php");
 include '../../includes/barra.php';
 include '../../includes/menu.php';
-
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
 ?>

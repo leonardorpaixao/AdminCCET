@@ -24,9 +24,12 @@
                           <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 0): ?>
                         <!--      <li><a href="/recursos/contas-temporarias"><i class="fa fa-group"></i> Contas Temporários</a></li>-->
                               <!--    <li><a href="/recursos/grupos"><i class="fa fa-group"></i> Grupos </a></li>-->
+                           <!--   <li><a href="/recursos/funcionarios/adicionar"><i class="fa fa-user-secret"></i> Adicionar Funcionários</a></li> -->
                           <?php endif; ?>
 
                           <li><a href="/recursos/funcionarios"><i class="fa fa-user-secret"></i> Funcionários</a></li>
+            
+                          
                       <?php endif; ?>
                       <li><a href="/recursos/professores"><i class="fa fa-graduation-cap"></i> Professores</a></li>
                   <!--    <li><a href="/recursos/disciplinas"><i class="fa fa-book"></i> Disciplinas</a></li>-->
