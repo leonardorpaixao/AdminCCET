@@ -121,7 +121,7 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <div style="width:100%; height:250px; overflow: auto;">
-                                        <?php echo "$termo AQUI FICARÃO OS TERMOS DE USO" ;?>
+                                        <?php echo $_SESSION['nome']. " AQUI FICARÃO OS TERMOS DE USO" ;?>
                                     </div>
                                 </div>
                             </div>

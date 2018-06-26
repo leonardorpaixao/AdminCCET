@@ -10,7 +10,7 @@
 		        break;
 	        case 3:
 		        Post::termo();
-		        header('Location: /pre_cadastro/');
+		        header('Location: /cadastro/');
 		        break;
 	        case 4:
                 Post::requerimentos();
@@ -107,7 +107,7 @@
 
   	public static function termo(){
   		$db = Atalhos::getBanco();
-  		if($query = $db->prepare("UPDATE tbUsuario SET termo = 1 WHERE idUser = ?")){
+  		if($query = $db->prepare("UPDATE tbUsuario SET termo = 0 WHERE idUser = ?")){
   			$query->bind_param('i', $_SESSION['id']);
   			$query->execute();
         Atalhos::addLogsAcoes('Confirmou termo', null, null);

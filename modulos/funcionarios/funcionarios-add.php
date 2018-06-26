@@ -4,7 +4,7 @@
 <title>AdminDcomp - Adicionar Funcionário</title>
 </head>
 <?php
-  if(!$_SESSION['logado'] || $_SESSION['nivel'] != -1){
+  if(!$_SESSION['logado'] || $_SESSION['nivel'] != 0){
     header('Location: /inicio');
   }
   include '../../includes/barra.php';

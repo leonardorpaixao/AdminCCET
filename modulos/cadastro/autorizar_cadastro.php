@@ -4,16 +4,21 @@ include '../../includes/topo.php';
 <title>AdminDcomp - Moderar Cadastros</title>
 </head>
 <?php
+
+if(!$_SESSION['logado'] || !$_SESSION['nivel'] > 1){ 
+		header('Location: /inicio');
+} 
+
+?>
+<?php
 include("../funcoes/enviarEmailConfirmacao.php");
 include '../../includes/barra.php';
 include '../../includes/menu.php';
-
 $_SESSION['irPara'] = '/inicio';
 $db = Atalhos::getBanco();
-
-
-
 ?>
+
+
 <!-- Content Wrapper. Contains page0content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,16 +31,7 @@ $db = Atalhos::getBanco();
 
     <!-- Main content -->
     <section class="content">
-        <?php
-        if(isset($_SESSION['avisoSala'])):
-            ?>
-            <div class="callout callout-success">
-                <h4><?php echo $_SESSION['avisoSala'] ?></h4>
-            </div>
-            <?php
-            unset($_SESSION['avisoSala']);
-        endif;
-        ?>
+        
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -75,6 +71,7 @@ $db = Atalhos::getBanco();
                                     }
                             }
 
+                            
                             if(isset($_GET['idUser']))
                             {
                                 if ($db->connect_error) {

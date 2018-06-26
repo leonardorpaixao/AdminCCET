@@ -1,4 +1,4 @@
-<?php
+	<?php
 	include '../../includes/topo.php';
 ?>
 <title>AdminDcomp - Moderar Reservas de Salas</title>

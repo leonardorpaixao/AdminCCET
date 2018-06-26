@@ -37,8 +37,10 @@ if (!$banco)
 
 
 else
-    $query = "INSERT INTO `tbprimeiroacessoccet` (`nome`, `email`, `idAfiliacao`, `siapMatricula`, `departamento`)
-  VALUES ('$nome', '$email', '$idAfiliacao', '$siapMatricula', '$departamento')";
+
+    $query = "INSERT INTO `tbusuario` (`idUser`, `siapMatricula`, `idAfiliacao`, `login`, `senha`, `email`, `departamento`, `nomeUser`, `cpf`, `dtnascimento`, `telefone`,
+        `nivel`, `statusUser`, `termo`, `statusLogin`, `sudo`)
+            VALUES (NULL, '$siapMatricula', '$idAfiliacao', '', '', '$email', '$departamento', '$nome', '', '', '', '1', 'Inativo', '0', '1', 'Inativo')";
     mysqli_query($conexao, $query);
 
 mysqli_close($conexao);

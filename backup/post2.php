@@ -181,7 +181,7 @@
     }
     	public static function termo(){
     		$db = Atalhos::getBanco();
-    		if($query = $db->prepare("UPDATE tbUsuario SET termo = 1 WHERE idUser = ?")){ 
+    		if($query = $db->prepare("UPDATE tbUsuario SET termo = 0 WHERE idUser = ?")){ 
     			$query->bind_param('i', $_SESSION['id']);
     			$query->execute();
           Atalhos::addLogsAcoes('Confirmou termo', null, null);
