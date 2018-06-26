@@ -4,14 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/includes/menu.php" line="22" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c30cf57-bc19-4c30-ac50-76bb5f29e159" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/includes/menu.php" afterPath="$PROJECT_DIR$/includes/menu.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/cadastro/autorizar_cadastro.php" afterPath="$PROJECT_DIR$/modulos/cadastro/autorizar_cadastro.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php" afterPath="$PROJECT_DIR$/modulos/funcionarios/funcionarios-add.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/posts/post.php" afterPath="$PROJECT_DIR$/modulos/posts/post.php" />
-      <change beforePath="$PROJECT_DIR$/modulos/salas/calendario-sala.php" afterPath="$PROJECT_DIR$/modulos/salas/calendario-sala.php" />
-    </list>
+    <list default="true" id="0c30cf57-bc19-4c30-ac50-76bb5f29e159" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +201,7 @@
       <file leaf-file-name="post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modulos/posts/post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
+            <state relative-caret-position="3494">
               <caret line="1148" column="16" lean-forward="true" selection-start-line="1148" selection-start-column="16" selection-end-line="1148" selection-end-column="16" />
               <folding>
                 <marker date="1529993681833" expanded="true" signature="9036:9160" ph="INSERT INTO tbUsuario... " />
@@ -680,16 +673,15 @@
       <workItem from="1528161524887" duration="8738000" />
       <workItem from="1528938474827" duration="2173000" />
       <workItem from="1529376195516" duration="5841000" />
-      <workItem from="1529992032687" duration="1953000" />
+      <workItem from="1529992032687" duration="2084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99467000" />
+    <option name="totallyTimeSpent" value="99598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1243,7 +1235,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/posts/post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
+        <state relative-caret-position="3494">
           <caret line="1148" column="16" lean-forward="true" selection-start-line="1148" selection-start-column="16" selection-end-line="1148" selection-end-column="16" />
           <folding>
             <marker date="1529993681833" expanded="true" signature="9036:9160" ph="INSERT INTO tbUsuario... " />
