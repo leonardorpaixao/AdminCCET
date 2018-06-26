@@ -85,7 +85,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="/equipamentos/calendario"><i class="fa fa-calendar"></i> Calendário</a></li>
-                <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
+                <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
                   <li><a href="/equipamentos/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
                   <?php
                   $db = atalhos::getBanco();
