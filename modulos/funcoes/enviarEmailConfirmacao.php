@@ -23,7 +23,8 @@ class enviarEmail{
 	$mail->AltBody    = "Para visualizar esta mensagem é necessario ter um visualizador de e-mail compativel com HTML"; // optional, comment out and test
 	//$mail->MsgHTML(file_get_contents('emailSenha.php'));
 		$mail->Subject = "Você foi cadastrado no AdminCCET";
-		$mail->MsgHTML('<html>
+		$mail->MsgHTML(
+		'<html>
 			<head>
 				<meta charset="utf-8">
 				<title></title>
@@ -33,21 +34,27 @@ class enviarEmail{
 					<div class="topo">
 						<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
 						<tr>
-							<td style="width: 30px;"><img src="forms/dcomp.jpg" width="80" height="80"></td>
-							<td style="width: 500px;">
-								UNIVERSIDADE FEDERAL DE SERGIPE<br>
-								DEPARTAMENTO DE COMPUTAÇÃO
+							
+							<td style="bold"align = "left" style="width: 500px;">
+								<strong>
+								Universidade Federal de Sergipe - UFS<br>
+								Centro de Ciencias Exatas e Tecnologia - CCET
+								</strong>
 							</td>
 						</tr>
 						</table>
 					</div>
-					<div>
-						Olá '.$nomeUser.', você foi cadastrado no AdminDCOMP acese sua conta no site admin.dcomp.ufs.br utilizando:
-						<br><br>Login: <b></b> <br>Senha : <b></b> <br><br>
+					<div align = "justify">
+						
+						Olá '.$nomeUser.', você foi cadastrado no sistema <strong>AdminCCET</strong>, nele você poderá efetuar reserva de salas e equipamentos disponíveis neste centro. </br> 
+						Acesse sua conta clicando <strong><a href="adminccet.ufs.br"> AQUI</a></strong>. Segue abaixo dados para o primeiro acesso:
+						
+						<br><br>Login: '.$email.' <b></b> 
+						<br>Senha : ccet123456 <b></b> <br><br>
 		
-						Muito obrigado,<br><br>
-						Att,<br>
-						DCOMP.<br><br>
+						<br><br>
+						Atenciosamente,<br>
+						Secretaria CCET.<br><br>
 						<table class="rodape" cellpadding="0" cellspacing="0">
 							<tr>
 									Cidade Universitária “Prof. José Aloísio de Campos”<br>

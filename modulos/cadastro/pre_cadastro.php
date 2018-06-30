@@ -60,13 +60,13 @@ include '../../includes/menu.php';
                                 <fieldset><label> Categoria</label>
                                     <div >
                                     <label class=".checkbox-inline">
-                                            <input type="radio" value="1" id="professor" name="categoria">Professor
+                                            <input type="radio" value="3" id="professor" name="categoria">Professor
                                         </label>
                                         <label class=".checkbox-inline">
-                                            <input type="radio" value="2" id="tecnico" name="categoria">Técnico
+                                            <input type="radio" value="1" id="tecnico" name="categoria">Técnico
                                         </label>
                                         <label class=".checkbox-inline">
-                                            <input type="radio" value="3" id="aluno" name="categoria">Aluno
+                                            <input type="radio" value="4" id="aluno" name="categoria">Empresas Juniores ou Centros Acadêmicos 
                                         </label>
 
                                     </div>
