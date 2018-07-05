@@ -129,7 +129,7 @@
                                 <div class='carousel-caption' style='float: left;min-width: 100%;width: 100%;'>
                                     <div class='artigo' style='text-align: center;'><h6 style='color: #000;'>".$titulo."</h6>".html_entity_decode($texto)."</div>
                                     <div class='imagem'>
-                                        <img src='prediodcomp2.jpg' class='imagemArtigo'/>
+                                        <img src='avisos.png' class='imagemArtigo'/>
                                     </div>
                                 </div>
                             </div>";

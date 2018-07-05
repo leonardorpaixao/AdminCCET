@@ -124,32 +124,18 @@
                 <div class="form-group">
                       <label>Reserva para:</label>
                       <select name="reserva" id="reserva" class="form-control">
-                        <option value="aula_dcomp">Aula do Departamento de Computação</option><!-- Exibir Disciplinas do Departamento -->
-                        <option value="aula_outros">Aula de Outros Departamentos</option><!-- Exibir Campo para Digitar Disciplina (Exibir Modelo) -->
-                        <option value="estudo">Grupo de Estudo</option> <!-- Exibir Campo de Disciplinas do Departamento -->
+                        <option value="aula_outros">Aula</option><!-- Exibir Campo para Digitar Disciplina (Exibir Modelo) -->
+                        <option value="estudo">Grupo de Estudos</option> <!-- Exibir Campo de Disciplinas do Departamento -->
                         <option value="eventos">Eventos</option><!-- Exibir Campo para Digitar nome do Evento -->
-                        <option value="tcc">TCC</option><!-- Exibir campo para digitar mais informações-->
+                        <option value="tcc">Banca TCC</option><!-- Exibir campo para digitar mais informações-->
+                        <option value="mestrado">Banca Mestrado</option><!-- Exibir campo para digitar mais informações-->
+                        <option value="doutorado">Banca Doutorado</option>
                         <option value="outro">Outros</option> <!-- Exibir Campo para Digitar Motivo -->
                       </select>
                     </div>
                     <div id="tipoRe">
-                      <div id="aula_dcomp" class="form-group">
-                        <label>Disciplina:</label>
-                        <select name="disciplina" id="disciplina" class="form-control">
-                          <option value="">Selecione uma Disciplina:</option>
-                          <?php
-                            if ($dis = $db->prepare("SELECT nome, codigo FROM tbDisciplinas WHERE status = 'Ativo' ORDER BY nome ASC")){
-                                $dis->execute();
-                                $dis->bind_result($nome, $codigo);
-                                while ($dis->fetch()){
-                                echo '<option value="'.$codigo.' - '.$nome.'">'.$codigo.' - '.$nome.'</option>';
-                              }
-                            }
-                            $dis->close();
-                          ?>
-                        </select>
-                      </div>
-                      <div id="aula_outros" class="form-group">
+                      
+                    <div id="aula_outros" class="form-group">
                           <label>Titulo da Reserva:</label>
                           <input type="text" name="titulo_aula" id="titulo_aula" class="form-control" rows="1" maxlength="40" placeholder="Ex: COMP0311 - Banco de Dados"></input>
                       </div>
@@ -157,14 +143,30 @@
                         <label>Escreva o motivo da reserva: (Opcional)</label>
                         <textarea name="motivo_aula" id="motivo_aula2" class="form-control" rows="3" placeholder="Escreva número de alunos etc..."></textarea>
                       </div>
-                      <div id="tcc" class="form-group">
-                        <label>Titulo da Reserva:</label>
-                        <input type="text" name="titulo_tcc" id="titulo_tcc" class="form-control" rows="1" maxlength="40" placeholder="Escreva nome do apresentador."></input>
-                      </div>
-                      <div id="motivo_tcc" class="form-group">
-                        <label>Escreva o motivo da reserva:</label>
-                        <textarea name="motivo_tcc" id="motivo_tcc2" class="form-control" rows="3" placeholder="Alguma coisa que seja importante."></textarea>
-                      </div>
+                        <div id="tcc" class="form-group">
+                            <label>Titulo da Reserva:</label>
+                            <input type="text" name="titulo_tcc" id="titulo_tcc" class="form-control" rows="1" maxlength="40" placeholder="Escreva nome do apresentador."></input>
+                        </div>
+                        <div id="motivo_tcc" class="form-group">
+                            <label>Escreva o motivo da reserva:</label>
+                            <textarea name="motivo_tcc" id="motivo_tcc2" class="form-control" rows="3" placeholder="Alguma coisa que seja importante."></textarea>
+                        </div>
+                        <div id="mestrado" class="form-group">
+                            <label>Titulo da Reserva:</label>
+                            <input type="text" name="titulo_mestrado" id="titulo_mestrado" class="form-control" rows="1" maxlength="40" placeholder="Escreva nome do apresentador."></input>
+                        </div>
+                        <div id="motivo_mestrado" class="form-group">
+                            <label>Escreva o motivo da reserva:</label>
+                            <textarea name="motivo_mestrado" id="motivo_mestrado2" class="form-control" rows="3" placeholder="Alguma coisa que seja importante."></textarea>
+                        </div>
+                        <div id="doutorado" class="form-group">
+                            <label>Titulo da Reserva:</label>
+                            <input type="text" name="titulo_doutorado" id="titulo_doutorado" class="form-control" rows="1" maxlength="40" placeholder="Escreva nome do apresentador."></input>
+                        </div>
+                        <div id="motivo_doutorado" class="form-group">
+                            <label>Escreva o motivo da reserva:</label>
+                            <textarea name="motivo_doutorado" id="motivo_doutorado2" class="form-control" rows="3" placeholder="Alguma coisa que seja importante."></textarea>
+                        </div>
                       <div id="outro" class="form-group">
                         <label>Titulo da Reserva:</label>
                         <input type="text" name="titulo_outro" id="titulo_outro" class="form-control" rows="1" maxlength="40" placeholder="Seja breve e objetivo."></input>
@@ -283,18 +285,16 @@
           var titulo_aula = $.trim($(this).find('#titulo_aula').val());
           var titulo_tcc = $.trim($(this).find('#titulo_tcc').val());
           var motivo_tcc = $.trim($(this).find('#motivo_tcc2').val());
+        var titulo_mestrado = $.trim($(this).find('#titulo_mestrado').val());
+        var motivo_mestrado = $.trim($(this).find('#motivo_mestrado2').val());
+        var titulo_doutorado = $.trim($(this).find('#titulo_doutorado').val());
+        var motivo_doutorado = $.trim($(this).find('#motivo_doutorado2').val());
           var titulo_outro = $.trim($(this).find('#titulo_outro').val());
           var motivo_outro = $.trim($(this).find('#motivo_outro2').val());
           var data = $.trim($(this).find('#reservationtime').val());
 
-          if(reserva == 'aula_dcomp'){
-            if(!(disciplina != "" && data.length != 0
-              && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
-              $("#botaoEnviar").attr("disabled",false);
-              alert("Por favor, preencha todos os campos!");
-              return false;
-            }
-          } else if(reserva == 'aula_outros'){
+
+          if(reserva == 'aula_outros'){
             if(!(titulo_aula.length != 0 && motivo_aula.length != 0 && data.length != 0
               && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
               $("#botaoEnviar").attr("disabled",false);
@@ -302,13 +302,29 @@
               return false;
             }
           } else if(reserva == 'tcc'){
-            if(!(titulo_tcc.length != 0 && motivo_tcc.length != 0 && data.length != 0
-              && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
-              $("#botaoEnviar").attr("disabled",false);
-              alert("Por favor, preencha todos os campos!");
-              return false;
-            }
-          } else{
+              if(!(titulo_tcc.length != 0 && motivo_tcc.length != 0 && data.length != 0
+                      && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
+                  $("#botaoEnviar").attr("disabled",false);
+                  alert("Por favor, preencha todos os campos!");
+                  return false;
+              }
+          }
+          else if(reserva == 'mestrado'){
+              if(!(titulo_mestrado.length != 0 && motivo_mestrado.length != 0 && data.length != 0
+                      && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
+                  $("#botaoEnviar").attr("disabled",false);
+                  alert("Por favor, preencha todos os campos!");
+                  return false;
+              }
+          }
+          else if(reserva == 'doutorado'){
+              if(!(titulo_doutorado.length != 0 && motivo_doutorado.length != 0 && data.length != 0
+                      && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
+                  $("#botaoEnviar").attr("disabled",false);
+                  alert("Por favor, preencha todos os campos!");
+                  return false;
+              }
+          }else{
             if(!(titulo_outro.length != 0 && motivo_outro.length != 0 && data.length != 0
               && data != ano+'/'+mes+'/'+dia+" 00:00"+" - "+ano+'/'+mes+'/'+dia+" 00:00")) {
               $("#botaoEnviar").attr("disabled",false);
@@ -512,8 +528,14 @@
         id(element.value).style.display = 'block';
         id('motivo_aula').style.display = 'block';
       }else if(element.value == 'tcc'){
-        id(element.value).style.display = 'block';
-        id('motivo_tcc').style.display = 'block';
+          id(element.value).style.display = 'block';
+          id('motivo_tcc').style.display = 'block';
+      }else if(element.value == 'mestrado'){
+          id(element.value).style.display = 'block';
+          id('motivo_mestrado').style.display = 'block';
+      }else if(element.value == 'doutorado'){
+          id(element.value).style.display = 'block';
+          id('motivo_doutorado').style.display = 'block';
       }else{
         id('outro').style.display = 'block';
         id('motivo_outro').style.display = 'block';

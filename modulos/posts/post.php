@@ -2735,17 +2735,21 @@
       $dataini = date("Y-m-d H:i", strtotime(str_replace('/', '-', $subdata[0])));
       $datafim = date("Y-m-d H:i", strtotime(str_replace('/', '-', $subdata[1])));
       switch($_POST['reserva']){
-        case 'aula_dcomp':
-          $titulo = $_POST['disciplina'];
-          $motivo = $_POST['motivo_aula'];
-          break;
-        case 'aula_outros':
+        case 'aula':
           $titulo = $_POST['titulo_aula'];
           $motivo = $_POST['motivo_aula'];
           break;
-        case 'tcc':
+          case 'tcc':
           $titulo = 'TCC - '.$_POST['titulo_tcc'];
           $motivo = $_POST['motivo_tcc'];
+          break;
+        case 'mestrado':
+          $titulo = 'Mestrado - '.$_POST['titulo_mestrado'];
+          $motivo = $_POST['motivo_mestrado'];
+          break;  
+        case 'doutorado':
+          $titulo = 'Doutorado - '.$_POST['titulo_doutorado'];
+          $motivo = $_POST['motivo_doutorado'];
           break;
         default:
           $titulo = $_POST['titulo_outro'];

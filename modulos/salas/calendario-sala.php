@@ -124,12 +124,12 @@
                  <div class="form-group">
                       <label>Reserva para:</label>
                       <select name="reserva" id="reserva" class="form-control">
-                        <option value="aula_outros">Aula de Outros Departamentos</option><!-- Exibir Campo para Digitar Disciplina (Exibir Modelo) -->
-                        <option value="estudo">Grupo de Estudo</option> <!-- Exibir Campo de Disciplinas do Departamento -->
+                        <option value="aula_outros">Aula</option><!-- Exibir Campo para Digitar Disciplina (Exibir Modelo) -->
+                        <option value="estudo">Grupo de Estudos</option> <!-- Exibir Campo de Disciplinas do Departamento -->
                         <option value="eventos">Eventos</option><!-- Exibir Campo para Digitar nome do Evento -->
-                        <option value="tcc">TCC</option><!-- Exibir campo para digitar mais informações-->
-                        <option value="mestrado">Mestrado</option><!-- Exibir campo para digitar mais informações-->
-                        <option value="doutorado">Doutorado</option>
+                        <option value="tcc">Banca TCC</option><!-- Exibir campo para digitar mais informações-->
+                        <option value="mestrado">Banca Mestrado</option><!-- Exibir campo para digitar mais informações-->
+                        <option value="doutorado">Banca Doutorado</option>
                         <option value="outro">Outros</option> <!-- Exibir Campo para Digitar Motivo -->
                       </select>
                     </div>

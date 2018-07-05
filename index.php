@@ -144,7 +144,7 @@
                                     ".html_entity_decode($texto)."
                                 </div>
                                 <div class='imagem'>
-                                    <img src='painel_avisos/prediodcomp2.jpg' class='imagemArtigo'/>
+                                    <img src='painel_avisos/avisos.png' class='imagemArtigo'/>
                                 </div>
                               </div>
                             </div>";
@@ -157,7 +157,7 @@
                                   ".html_entity_decode($texto)."
                               </div>
                               <div class='imagem'>
-                                  <img src='painel_avisos/prediodcomp2.jpg' class='imagemArtigo'/>
+                                  <img src='painel_avisos/avisos.png' class='imagemArtigo'/>
                               </div>
                             </div>
                           </div>";
