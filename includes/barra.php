@@ -147,6 +147,11 @@
                       else:
                         $error = null;
                     ?>
+                    <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="hidden-xs">Esqueci minha senha</span>
+                    </a>
+                    </li>
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <?php endif; ?>

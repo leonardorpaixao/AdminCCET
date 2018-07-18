@@ -19,7 +19,7 @@ class enviarEmail{
 	$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
 	$mail->Username   = "leonardorpaixao3@gmail.com";  // GMAIL username
 	$mail->Password   = "leo152476389";            // GMAIL password
-	$mail->SetFrom('leonardorpaixao3@gmail.com', 'Não Responder DCOMP');
+	$mail->SetFrom('leonardorpaixao3@gmail.com', 'Não Responder AdminCCET');
 	$mail->AltBody    = "Para visualizar esta mensagem é necessario ter um visualizador de e-mail compativel com HTML"; // optional, comment out and test
 	//$mail->MsgHTML(file_get_contents('emailSenha.php'));
 		$mail->Subject = "Você foi cadastrado no AdminCCET";
@@ -46,8 +46,8 @@ class enviarEmail{
 					</div>
 					<div align = "justify">
 						
-						Olá '.$nomeUser.', você foi cadastrado no sistema <strong>AdminCCET</strong>, nele você poderá efetuar reserva de salas e equipamentos disponíveis neste centro. </br> 
-						Acesse sua conta clicando <strong><a href="adminccet.ufs.br"> AQUI</a></strong>. Segue abaixo dados para o primeiro acesso:
+						Olá '.$nomeUser.', você foi cadastrado no sistema <strong>AdminCCET</strong>, nele você poderá efetuar <strong>reserva de salas e equipamentos</strong> disponíveis neste centro. </br> 
+						Acesse sua conta clicando <strong><a href="www.ccetnews.ufs.br/admin"> AQUI</a></strong>. Segue abaixo dados para o primeiro acesso:
 						
 						<br><br>Login: '.$email.' <b></b> 
 						<br>Senha : ccet123456 <b></b> <br><br>

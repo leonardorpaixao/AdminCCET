@@ -22,133 +22,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="8075">
               <caret line="475" column="54" lean-forward="false" selection-start-line="475" selection-start-column="54" selection-end-line="475" selection-end-column="54" />
-              <folding>
-                <marker date="1525289876000" expanded="true" signature="168:220" ph="SELECT idUse... tbUsuario" />
-                <marker date="1525289876000" expanded="true" signature="2951:3080" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="3589:3652" ph="SELECT idAfi... tbAfiliacao" />
-                <marker date="1525289876000" expanded="true" signature="3974:4103" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="4389:4446" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="4667:4741" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="4998:5072" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="5436:5565" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="5923:5986" ph="UPDATE tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="6162:6225" ph="SELECT idTel... tbTelefone" />
-                <marker date="1525289876000" expanded="true" signature="6491:6565" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="6801:6875" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="7230:7303" ph="UPDATE tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="10275:10327" ph="SELECT idUse... tbUsuario" />
-                <marker date="1525289876000" expanded="true" signature="11010:11139" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="11422:11479" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="11919:11982" ph="SELECT idAfi... tbAfiliacao" />
-                <marker date="1525289876000" expanded="true" signature="12359:12488" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="12781:12838" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="13068:13142" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="13413:13487" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="13802:13866" ph="SELECT idExt... tbUsuariosExternos" />
-                <marker date="1525289876000" expanded="true" signature="14098:14230" ph="INSERT INTO tbUsuariosExternos... " />
-                <marker date="1525289876000" expanded="true" signature="14742:14797" ph="SELECT idAfi... tbAfiliacao" />
-                <marker date="1525289876000" expanded="true" signature="15058:15187" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="15480:15537" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="15767:15841" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="16112:16186" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="16486:16541" ph="INSERT INTO tbAfiliacao... " />
-                <marker date="1525289876000" expanded="true" signature="16804:16933" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="17226:17283" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="17513:17587" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="17858:17932" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="18345:18474" ph="INSERT INTO tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="18752:18809" ph="INSERT INTO tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="19324:19387" ph="SELECT idAfi... tbAfiliacao" />
-                <marker date="1525289876000" expanded="true" signature="19884:19939" ph="SELECT idAfi... tbAfiliacao" />
-                <marker date="1525289876000" expanded="true" signature="20160:20215" ph="INSERT INTO tbAfiliacao... " />
-                <marker date="1525289876000" expanded="true" signature="20620:20716" ph="UPDATE tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="20947:21000" ph="UPDATE tbMatricula... " />
-                <marker date="1525289876000" expanded="true" signature="21169:21232" ph="SELECT idTel... tbTelefone" />
-                <marker date="1525289876000" expanded="true" signature="21512:21586" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="21836:21910" ph="INSERT INTO tbTelefone... " />
-                <marker date="1525289876000" expanded="true" signature="22285:22358" ph="UPDATE tbUsuario... " />
-                <marker date="1525289876000" expanded="true" signature="22828:22889" ph="SELECT idNot... tbNotificacao" />
-                <marker date="1525289876000" expanded="true" signature="23068:23363" ph="..." />
-                <marker date="1525289876000" expanded="false" signature="23161:23186" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="23187:23337" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="23405:23487" ph="INSERT INTO tbNotificacao... " />
-                <marker date="1525289876000" expanded="true" signature="23667:23706" ph="INSERT INTO tbNotiConexao... " />
-                <marker date="1525289876000" expanded="true" signature="25857:25914" ph="SELECT idTic... tbLog" />
-                <marker date="1525289876000" expanded="true" signature="26903:26932" ph="SELECT avali... tbTicket" />
-                <marker date="1525289876000" expanded="true" signature="31889:31955" ph="SELECT idUse... tbEmail" />
-                <marker date="1525289876000" expanded="true" signature="35109:35533" ph="SELECT g.idD... tbReservaSala" />
-                <marker date="1525289876000" expanded="true" signature="35670:36044" ph="SELECT g.idD... tbReservaSala" />
-                <marker date="1525289876000" expanded="true" signature="36759:37231" ph="SELECT h.ini... tbReservaLab" />
-                <marker date="1525289876000" expanded="true" signature="37366:37795" ph="SELECT h.ini... tbReservaLab" />
-                <marker date="1525289876000" expanded="true" signature="39901:40476" ph="SELECT c.ini... tbReservaEq" />
-                <marker date="1525289876000" expanded="true" signature="40613:41140" ph="SELECT c.ini... tbReservaEq" />
-                <marker date="1525289876000" expanded="true" signature="42925:43044" ph="SELECT idDat... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="43146:43266" ph="SELECT idDat... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="43802:43889" ph="UPDATE tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="44061:44103" ph="INSERT INTO tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="44340:44382" ph="INSERT INTO tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="44718:44760" ph="INSERT INTO tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="44984:45026" ph="INSERT INTO tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="45241:45364" ph="SELECT idDat... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="45466:45590" ph="SELECT idDat... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="46126:46216" ph="UPDATE tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="46388:46431" ph="INSERT INTO tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="46668:46711" ph="INSERT INTO tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="47047:47090" ph="INSERT INTO tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="47314:47357" ph="INSERT INTO tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="47592:47719" ph="SELECT idDat... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="47821:47949" ph="SELECT idDat... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="48485:48578" ph="UPDATE tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="48750:48794" ph="INSERT INTO tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="49031:49075" ph="INSERT INTO tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="49411:49455" ph="INSERT INTO tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="49679:49723" ph="INSERT INTO tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="50398:50505" ph="SELECT * FRO... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="50624:50686" ph="SELECT * FRO... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="51076:51188" ph="SELECT idCho... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="51907:52018" ph="SELECT * FRO... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="52137:52202" ph="SELECT * FRO... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="52592:52708" ph="SELECT idCho... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="53413:53527" ph="SELECT * FRO... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="53646:53714" ph="SELECT * FRO... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="54104:54223" ph="SELECT idCho... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="55157:55473" ph="SELECT c.ini... tbReservaEq" />
-                <marker date="1525289876000" expanded="true" signature="56111:56382" ph="SELECT h.ini... tbReservaLab" />
-                <marker date="1525289876000" expanded="true" signature="57014:57264" ph="SELECT h.ini... tbReservaSala" />
-                <marker date="1525289876000" expanded="true" signature="57845:57975" ph="SELECT idReE... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="58094:58169" ph="SELECT idReE... tbChoqueEq" />
-                <marker date="1525289876000" expanded="true" signature="58387:58441" ph="DELETE FROM tbChoqueEq... " />
-                <marker date="1525289876000" expanded="true" signature="58664:58798" ph="SELECT idReL... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="58917:58996" ph="SELECT idReL... tbChoqueLab" />
-                <marker date="1525289876000" expanded="true" signature="59214:59270" ph="DELETE FROM tbChoqueLab... " />
-                <marker date="1525289876000" expanded="true" signature="59479:59617" ph="SELECT idReS... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="59736:59819" ph="SELECT idReS... tbChoqueSala" />
-                <marker date="1525289876000" expanded="true" signature="60037:60095" ph="DELETE FROM tbChoqueSala... " />
-                <marker date="1525289876000" expanded="true" signature="60514:60613" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="60774:60867" ph="INSERT INTO tbLogsAcoes... " />
-                <marker date="1525289876000" expanded="true" signature="61177:61243" ph="SELECT inici... tbPrazo" />
-                <marker date="1525289876000" expanded="true" signature="63932:64796" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="63945:64012" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64025:64783" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64038:64769" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64448:64755" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64462:64738" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64939:65814" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="64952:65019" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65032:65801" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65045:65787" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65466:65773" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65480:65756" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65960:66874" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="65973:66040" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="66053:66861" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="66066:66847" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="66526:66833" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="66540:66816" ph="..." />
-                <marker date="1525289876000" expanded="true" signature="67816:67948" ph="SELECT a.log... tbUsuario" />
-                <marker date="1525289876000" expanded="true" signature="68371:68828" ph="SELECT c.idL... tbLaboratorio" />
-                <marker date="1525289876000" expanded="true" signature="69237:69286" ph="SELECT nomeL... tbLaboratorio" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,14 +40,9 @@
       <file leaf-file-name="autorizar_cadastro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulos/cadastro/autorizar_cadastro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="56" column="61" lean-forward="false" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
-              <folding>
-                <element signature="e#4640#4647#1#HTML" expanded="true" />
-                <marker date="1529986064140" expanded="true" signature="1760:1783" ph="SELECT * FRO... tbusuario" />
-                <marker date="1529986064140" expanded="true" signature="2082:2591" ph="..." />
-                <marker date="1529986064140" expanded="true" signature="3168:3298" ph="UPDATE tbusuario... " />
-              </folding>
+            <state relative-caret-position="952">
+              <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -181,19 +50,9 @@
       <file leaf-file-name="calendario-sala.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulos/salas/calendario-sala.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="135" column="37" lean-forward="true" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#select#0;n#form#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#1;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#1;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <marker date="1529993779700" expanded="true" signature="423:886" ph="SELECT g.ini... tbReservaSala" />
-                <marker date="1529993779700" expanded="true" signature="965:1409" ph="SELECT g.ini... tbReservaSala" />
-                <marker date="1529993779700" expanded="true" signature="3430:3492" ph="SELECT idSal... tbSala" />
-                <marker date="1529993779700" expanded="true" signature="9987:10049" ph="SELECT idSal... tbSala" />
-                <marker date="1529993779700" expanded="true" signature="12985:13128" ph="SELECT a.nom... tbSala" />
-              </folding>
+            <state relative-caret-position="2295">
+              <caret line="135" column="37" lean-forward="false" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,247 +60,9 @@
       <file leaf-file-name="post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modulos/posts/post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3494">
-              <caret line="1148" column="16" lean-forward="true" selection-start-line="1148" selection-start-column="16" selection-end-line="1148" selection-end-column="16" />
-              <folding>
-                <marker date="1529993681833" expanded="true" signature="9036:9160" ph="INSERT INTO tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="11925:11997" ph="INSERT INTO tbUsuarioTemp... " />
-                <marker date="1529993681833" expanded="true" signature="12930:12974" ph="SELECT login... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="13260:13298" ph="DELETE FROM tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="14630:14690" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="15038:15092" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="15381:15425" ph="SELECT login... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="15849:15901" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="16100:16144" ph="SELECT login... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="17496:17554" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="17754:17807" ph="UPDATE tbUsuarioTemp... " />
-                <marker date="1529993681833" expanded="true" signature="18161:18214" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="18814:18858" ph="UPDATE tbBugs... " />
-                <marker date="1529993681833" expanded="true" signature="19216:19260" ph="UPDATE tbBugs... " />
-                <marker date="1529993681833" expanded="true" signature="19697:19763" ph="SELECT data tbAtualizacao" />
-                <marker date="1529993681833" expanded="true" signature="20035:20089" ph="INSERT INTO tbAtualizacao... " />
-                <marker date="1529993681833" expanded="true" signature="20639:20685" ph="UPDATE tbTermo... " />
-                <marker date="1529993681833" expanded="true" signature="20875:20913" ph="INSERT INTO tbTermo... " />
-                <marker date="1529993681833" expanded="true" signature="21213:21283" ph="SELECT idLog... tbLog" />
-                <marker date="1529993681833" expanded="true" signature="21581:21666" ph="INSERT INTO tbLog... " />
-                <marker date="1529993681833" expanded="true" signature="21764:21781" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="22104:22170" ph="UPDATE tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="22341:22437" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="22912:22982" ph="UPDATE tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="23270:23340" ph="SELECT idLog... tbLog" />
-                <marker date="1529993681833" expanded="true" signature="23637:23722" ph="INSERT INTO tbLog... " />
-                <marker date="1529993681833" expanded="true" signature="23969:24035" ph="UPDATE tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="24213:24309" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="24752:24818" ph="UPDATE tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="25101:25180" ph="UPDATE tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="25388:25434" ph="UPDATE tbEmail... " />
-                <marker date="1529993681833" expanded="true" signature="25817:25926" ph="INSERT INTO tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="26226:26296" ph="SELECT idLog... tbLog" />
-                <marker date="1529993681833" expanded="true" signature="26605:26692" ph="INSERT INTO tbLog... " />
-                <marker date="1529993681833" expanded="true" signature="26941:27051" ph="SELECT a.afi... tbAfiliacao" />
-                <marker date="1529993681833" expanded="true" signature="27312:27447" ph="INSERT INTO tbTicket... " />
-                <marker date="1529993681833" expanded="true" signature="27706:27776" ph="SELECT idLog... tbLog" />
-                <marker date="1529993681833" expanded="true" signature="28705:28792" ph="INSERT INTO tbLog... " />
-                <marker date="1529993681833" expanded="true" signature="29001:29066" ph="INSERT INTO tbEmail... " />
-                <marker date="1529993681833" expanded="true" signature="38112:38155" ph="DELETE FROM tbReservaSala... " />
-                <marker date="1529993681833" expanded="true" signature="38386:38448" ph="DELETE FROM tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="38739:38820" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="39104:39209" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="39775:39836" ph="SELECT idNot... tbNotificacao" />
-                <marker date="1529993681833" expanded="true" signature="40281:40541" ph="..." />
-                <marker date="1529993681833" expanded="false" signature="40363:40388" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="40389:40515" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="40583:40701" ph="INSERT INTO tbNotificacao... " />
-                <marker date="1529993681833" expanded="true" signature="40822:40895" ph="INSERT INTO tbNotiConexao... " />
-                <marker date="1529993681833" expanded="true" signature="41062:41158" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="41722:41833" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="42484:42527" ph="DELETE FROM tbReservaSala... " />
-                <marker date="1529993681833" expanded="true" signature="42757:42819" ph="DELETE FROM tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="43151:43229" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="43537:43797" ph="..." />
-                <marker date="1529993681833" expanded="false" signature="43619:43644" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="43645:43771" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="43839:43921" ph="INSERT INTO tbNotificacao... " />
-                <marker date="1529993681833" expanded="true" signature="44097:44136" ph="INSERT INTO tbNotiConexao... " />
-                <marker date="1529993681833" expanded="true" signature="44368:44423" ph="SELECT idDat... tbControleDataSala" />
-                <marker date="1529993681833" expanded="true" signature="44765:44828" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="45214:45277" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="45706:45784" ph="UPDATE tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="47390:47490" ph="INSERT INTO tbReservaSala... " />
-                <marker date="1529993681833" expanded="true" signature="47797:47859" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="48109:48155" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="48439:48517" ph="INSERT INTO tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="50021:50129" ph="INSERT INTO tbReservaSala... " />
-                <marker date="1529993681833" expanded="true" signature="50541:50603" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="50889:50935" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="51273:51351" ph="INSERT INTO tbControleDataSala... " />
-                <marker date="1529993681833" expanded="true" signature="52391:52448" ph="UPDATE tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="52689:52744" ph="UPDATE tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="52962:52997" ph="DELETE FROM tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="53371:53429" ph="UPDATE tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="53883:53926" ph="SELECT idCor... tbSala" />
-                <marker date="1529993681833" expanded="true" signature="54068:54119" ph="SELECT idCor... tbCor" />
-                <marker date="1529993681833" expanded="true" signature="54532:54611" ph="INSERT INTO tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="55245:55289" ph="DELETE FROM tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="55719:55758" ph="DELETE FROM tbReservaEq... " />
-                <marker date="1529993681833" expanded="true" signature="55991:56049" ph="DELETE FROM tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="56342:56419" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="56705:56806" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="57294:57335" ph="DELETE FROM tbReservaLab... " />
-                <marker date="1529993681833" expanded="true" signature="57565:57625" ph="DELETE FROM tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="57915:57994" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="58277:58380" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="58837:58893" ph="UPDATE tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="59117:59273" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="59674:59753" ph="UPDATE tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="60016:60172" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="60855:60924" ph="UPDATE tbPrazo... " />
-                <marker date="1529993681833" expanded="true" signature="61301:61370" ph="UPDATE tbPrazo... " />
-                <marker date="1529993681833" expanded="true" signature="61781:61815" ph="INSERT INTO tbCor... " />
-                <marker date="1529993681833" expanded="true" signature="62027:62136" ph="INSERT INTO tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="62684:62744" ph="INSERT INTO tbTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="62956:63042" ph="INSERT INTO tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="63575:63654" ph="INSERT INTO tbSala... " />
-                <marker date="1529993681833" expanded="true" signature="64208:64516" ph="SELECT h.ini... tbReservaLab" />
-                <marker date="1529993681833" expanded="true" signature="64898:64969" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="65770:65860" ph="SELECT statu... tbControleDataLab" />
-                <marker date="1529993681833" expanded="true" signature="66362:66433" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="67192:67261" ph="INSERT INTO tbAlocaReEq... " />
-                <marker date="1529993681833" expanded="true" signature="67474:67555" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="67888:67944" ph="UPDATE tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="68229:68265" ph="INSERT INTO tbAlocaLab... " />
-                <marker date="1529993681833" expanded="true" signature="68631:68746" ph="UPDATE tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="69246:69296" ph="SELECT idCor... tbLaboratorio" />
-                <marker date="1529993681833" expanded="true" signature="69438:69489" ph="SELECT idCor... tbCor" />
-                <marker date="1529993681833" expanded="true" signature="69902:70044" ph="INSERT INTO tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="70808:70865" ph="SELECT patri... tbEquipamento" />
-                <marker date="1529993681833" expanded="true" signature="71062:71107" ph="SELECT idCor... tbTipoEq" />
-                <marker date="1529993681833" expanded="true" signature="71273:71324" ph="SELECT idCor... tbCor" />
-                <marker date="1529993681833" expanded="true" signature="71833:71893" ph="INSERT INTO tbTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="72285:72330" ph="SELECT numEq... tbTipoEq" />
-                <marker date="1529993681833" expanded="true" signature="72573:72621" ph="UPDATE tbTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="72798:72884" ph="INSERT INTO tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="73849:73882" ph="INSERT INTO tbImagem... " />
-                <marker date="1529993681833" expanded="true" signature="74211:74258" ph="UPDATE tbImagem... " />
-                <marker date="1529993681833" expanded="true" signature="74795:74855" ph="UPDATE tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="75129:75191" ph="UPDATE tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="75441:75482" ph="DELETE FROM tbLaboratorio... " />
-                <marker date="1529993681833" expanded="true" signature="75858:75922" ph="UPDATE tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="76206:76272" ph="UPDATE tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="76532:76659" ph="SELECT a.idT... tbEquipamento" />
-                <marker date="1529993681833" expanded="true" signature="76890:76936" ph="DELETE FROM tbEquipamento... " />
-                <marker date="1529993681833" expanded="true" signature="77243:77291" ph="UPDATE tbTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="77488:77527" ph="DELETE FROM tbTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="77867:77949" ph="INSERT INTO tbAtividadesComp... " />
-                <marker date="1529993681833" expanded="true" signature="78338:78555" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="78903:79057" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="79449:79535" ph="SELECT funca... tbEtapaAtividadeComp" />
-                <marker date="1529993681833" expanded="true" signature="79857:79993" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="80370:80513" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="80841:80904" ph="INSERT INTO tbDocAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="81691:81777" ph="SELECT funca... tbEtapaAtividadeComp" />
-                <marker date="1529993681833" expanded="true" signature="82058:82198" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="82508:82571" ph="INSERT INTO tbDocAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="82812:82963" ph="INSERT INTO tbEtapaAtividadeComp... " />
-                <marker date="1529993681833" expanded="true" signature="83285:83348" ph="UPDATE FROM... " />
-                <marker date="1529993681833" expanded="true" signature="83785:83843" ph="UPDATE tbDisciplinas... " />
-                <marker date="1529993681833" expanded="true" signature="84119:84179" ph="UPDATE tbDisciplinas... " />
-                <marker date="1529993681833" expanded="true" signature="85036:85083" ph="SELECT nome tbDisciplinas" />
-                <marker date="1529993681833" expanded="true" signature="85234:85297" ph="INSERT INTO tbDisciplinas... " />
-                <marker date="1529993681833" expanded="true" signature="85838:85898" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="86061:86173" ph="INSERT INTO tbBlock... " />
-                <marker date="1529993681833" expanded="true" signature="86662:86720" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="86970:87016" ph="UPDATE tbBlock... " />
-                <marker date="1529993681833" expanded="true" signature="87528:87581" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="88019:88075" ph="INSERT INTO tbAfiliacao... " />
-                <marker date="1529993681833" expanded="true" signature="89519:89572" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="89758:89802" ph="SELECT nivel... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="90079:90118" ph="SELECT * FRO... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="90326:90373" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="90810:90857" ph="UPDATE tbUsuario... " />
-                <marker date="1529993681833" expanded="true" signature="91196:91238" ph="SELECT email... tbEmail" />
-                <marker date="1529993681833" expanded="true" signature="91451:91511" ph="UPDATE tbEmail... " />
-                <marker date="1529993681833" expanded="true" signature="91877:91952" ph="INSERT INTO tbEmail... " />
-                <marker date="1529993681833" expanded="true" signature="92628:92665" ph="DELETE FROM tbImagem... " />
-                <marker date="1529993681833" expanded="true" signature="93136:93197" ph="UPDATE tbAvisos... " />
-                <marker date="1529993681833" expanded="true" signature="93469:93528" ph="UPDATE tbAvisos... " />
-                <marker date="1529993681833" expanded="true" signature="93777:93815" ph="DELETE FROM tbAvisos... " />
-                <marker date="1529993681833" expanded="true" signature="94154:94228" ph="INSERT INTO tbAvisos... " />
-                <marker date="1529993681833" expanded="true" signature="94658:94727" ph="UPDATE tbAvisos... " />
-                <marker date="1529993681833" expanded="true" signature="95219:95300" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="95604:95672" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="95957:96039" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="96344:96398" ph="SELECT idDat... tbControleDataLab" />
-                <marker date="1529993681833" expanded="true" signature="96684:96745" ph="DELETE FROM tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="96957:97052" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="97490:97575" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="97874:97959" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="98260:98365" ph="UPDATE tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="98797:98843" ph="DELETE FROM tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="99287:99349" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="99599:99645" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="99930:99991" ph="INSERT INTO tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="101222:101284" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="101570:101616" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="101954:102015" ph="INSERT INTO tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="102631:102692" ph="DELETE FROM tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="103080:103141" ph="SELECT idNot... tbNotificacao" />
-                <marker date="1529993681833" expanded="true" signature="103586:103846" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="103668:103693" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="103694:103820" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="103888:104006" ph="INSERT INTO tbNotificacao... " />
-                <marker date="1529993681833" expanded="true" signature="104127:104200" ph="INSERT INTO tbNotiConexao... " />
-                <marker date="1529993681833" expanded="true" signature="104367:104459" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="105029:105136" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="105793:105832" ph="DELETE FROM tbReservaEq... " />
-                <marker date="1529993681833" expanded="true" signature="106064:106122" ph="DELETE FROM tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="106456:106530" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="106840:107100" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="106922:106947" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="106948:107074" ph="..." />
-                <marker date="1529993681833" expanded="true" signature="107142:107224" ph="INSERT INTO tbNotificacao... " />
-                <marker date="1529993681833" expanded="true" signature="107400:107439" ph="INSERT INTO tbNotiConexao... " />
-                <marker date="1529993681833" expanded="true" signature="107671:107722" ph="SELECT idDat... tbControleDataEq" />
-                <marker date="1529993681833" expanded="true" signature="108068:108127" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="108515:108574" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="109007:109081" ph="UPDATE tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="110670:110756" ph="INSERT INTO tbReservaLab... " />
-                <marker date="1529993681833" expanded="true" signature="111043:111105" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="111355:111401" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="111686:111747" ph="INSERT INTO tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="112919:113013" ph="INSERT INTO tbReservaLab... " />
-                <marker date="1529993681833" expanded="true" signature="113404:113466" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="113752:113798" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="114136:114197" ph="INSERT INTO tbControleDataLab... " />
-                <marker date="1529993681833" expanded="true" signature="115686:115759" ph="INSERT INTO tbReservaEq... " />
-                <marker date="1529993681833" expanded="true" signature="116043:116105" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="116355:116401" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="116745:116817" ph="INSERT INTO tbReservaTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="117336:117410" ph="INSERT INTO tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="117815:117889" ph="INSERT INTO tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="119134:119207" ph="INSERT INTO tbReservaEq... " />
-                <marker date="1529993681833" expanded="true" signature="119596:119658" ph="SELECT idDat... tbData" />
-                <marker date="1529993681833" expanded="true" signature="119944:119990" ph="INSERT INTO tbData... " />
-                <marker date="1529993681833" expanded="true" signature="120400:120472" ph="INSERT INTO tbReservaTipoEq... " />
-                <marker date="1529993681833" expanded="true" signature="121057:121131" ph="INSERT INTO tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="121608:121682" ph="INSERT INTO tbControleDataEq... " />
-                <marker date="1529993681833" expanded="true" signature="128335:128436" ph="INSERT INTO tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="128855:128918" ph="INSERT INTO tbReqs_professor... " />
-                <marker date="1529993681833" expanded="true" signature="129082:129210" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="129740:129841" ph="INSERT INTO tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="130276:130339" ph="INSERT INTO tbReqs_professor... " />
-                <marker date="1529993681833" expanded="true" signature="130519:130651" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="137438:137496" ph="UPDATE tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="137839:137898" ph="UPDATE tbReqs_professor... " />
-                <marker date="1529993681833" expanded="true" signature="138063:138191" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="138543:138593" ph="SELECT idReq... tbReqs_professor" />
-                <marker date="1529993681833" expanded="true" signature="138825:138888" ph="INSERT INTO tbReqs_professor... " />
-                <marker date="1529993681833" expanded="true" signature="139055:139124" ph="UPDATE tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="139355:139483" ph="SELECT AES_D... tbUsuario" />
-                <marker date="1529993681833" expanded="true" signature="139801:139860" ph="UPDATE tbReqs_professor... " />
-                <marker date="1529993681833" expanded="true" signature="140027:140096" ph="UPDATE tbRequerimentos... " />
-                <marker date="1529993681833" expanded="true" signature="140327:140455" ph="SELECT AES_D... tbUsuario" />
-              </folding>
+            <state relative-caret-position="516">
+              <caret line="1152" column="7" lean-forward="false" selection-start-line="1152" selection-start-column="7" selection-end-line="1152" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -566,7 +187,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -600,6 +220,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -674,27 +295,24 @@
       <workItem from="1528938474827" duration="2173000" />
       <workItem from="1529376195516" duration="5841000" />
       <workItem from="1529992032687" duration="2084000" />
+      <workItem from="1531138370689" duration="3000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99598000" />
+    <option name="totallyTimeSpent" value="99601000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17862372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10326087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -702,8 +320,12 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="-12" y="208" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0064935065" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10326087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,313 +347,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/barra.php">
+    <entry file="file://$PROJECT_DIR$/includes/atalhos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3094">
-          <caret line="182" column="96" lean-forward="false" selection-start-line="182" selection-start-column="96" selection-end-line="182" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/legacy.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="1371" column="20" lean-forward="false" selection-start-line="1371" selection-start-column="20" selection-end-line="1371" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/sessao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <marker date="1528163637124" expanded="true" signature="2669:2731" ph="..." />
-            <marker date="1528163637124" expanded="true" signature="2765:2802" ph="DELETE FROM tbOnline... " />
-            <marker date="1528163637124" expanded="true" signature="2948:2992" ph="SELECT sessa... tbOnline" />
-            <marker date="1528163637124" expanded="true" signature="3332:3400" ph="..." />
-            <marker date="1528163637124" expanded="true" signature="3496:3549" ph="UPDATE tbOnline... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/professores/professores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/cadastro-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="54" lean-forward="false" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/professores/professores-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2635">
-          <caret line="230" column="7" lean-forward="false" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4250">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form1-1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2426">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/img-email.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="126" column="85" lean-forward="true" selection-start-line="126" selection-start-column="85" selection-end-line="126" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form7.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1428">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form6-1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form6.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form5-2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2205">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form3-1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/form3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2329">
-          <caret line="137" column="26" lean-forward="true" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1831">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-867">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/HTML/form7.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1304">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/ckeditor/adapters/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="225" lean-forward="false" selection-start-line="8" selection-start-column="225" selection-end-line="8" selection-end-column="225" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
-          <caret line="197" column="12" lean-forward="false" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="122" column="119" lean-forward="false" selection-start-line="122" selection-start-column="116" selection-end-line="122" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/sala-edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/equipamentos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/equipamentos-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="88" lean-forward="false" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/equipamentos-edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/sala.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/moderar-eqp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="56" lean-forward="false" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/meus-eqp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/sala-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/equipamentos/entregarEquipamento.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="88" lean-forward="false" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/minha-sala.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/moderar-sala.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/pre_cadastro-add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="42" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="8075">
+          <caret line="475" column="54" lean-forward="false" selection-start-line="475" selection-start-column="54" selection-end-line="475" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1044,438 +363,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/cadastro/enviarEmailConfirmacao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modulos/cadastro/autorizar_cadastro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="56" column="61" lean-forward="false" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
-          <folding>
-            <element signature="e#4640#4647#1#HTML" expanded="true" />
-            <marker date="1529986064140" expanded="true" signature="1760:1783" ph="SELECT * FRO... tbusuario" />
-            <marker date="1529986064140" expanded="true" signature="2082:2591" ph="..." />
-            <marker date="1529986064140" expanded="true" signature="3168:3298" ph="UPDATE tbusuario... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/origem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="432" column="53" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
+        <state relative-caret-position="952">
+          <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/salas/calendario-sala.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="135" column="37" lean-forward="true" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#form#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#1;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#1;n#div#3;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1529993779700" expanded="true" signature="423:886" ph="SELECT g.ini... tbReservaSala" />
-            <marker date="1529993779700" expanded="true" signature="965:1409" ph="SELECT g.ini... tbReservaSala" />
-            <marker date="1529993779700" expanded="true" signature="3430:3492" ph="SELECT idSal... tbSala" />
-            <marker date="1529993779700" expanded="true" signature="9987:10049" ph="SELECT idSal... tbSala" />
-            <marker date="1529993779700" expanded="true" signature="12985:13128" ph="SELECT a.nom... tbSala" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/salas/teste.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="485" column="17" lean-forward="false" selection-start-line="485" selection-start-column="17" selection-end-line="485" selection-end-column="17" />
+        <state relative-caret-position="2295">
+          <caret line="135" column="37" lean-forward="false" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/atalhos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8075">
-          <caret line="475" column="54" lean-forward="false" selection-start-line="475" selection-start-column="54" selection-end-line="475" selection-end-column="54" />
-          <folding>
-            <marker date="1525289876000" expanded="true" signature="168:220" ph="SELECT idUse... tbUsuario" />
-            <marker date="1525289876000" expanded="true" signature="2951:3080" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="3589:3652" ph="SELECT idAfi... tbAfiliacao" />
-            <marker date="1525289876000" expanded="true" signature="3974:4103" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="4389:4446" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="4667:4741" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="4998:5072" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="5436:5565" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="5923:5986" ph="UPDATE tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="6162:6225" ph="SELECT idTel... tbTelefone" />
-            <marker date="1525289876000" expanded="true" signature="6491:6565" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="6801:6875" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="7230:7303" ph="UPDATE tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="10275:10327" ph="SELECT idUse... tbUsuario" />
-            <marker date="1525289876000" expanded="true" signature="11010:11139" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="11422:11479" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="11919:11982" ph="SELECT idAfi... tbAfiliacao" />
-            <marker date="1525289876000" expanded="true" signature="12359:12488" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="12781:12838" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="13068:13142" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="13413:13487" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="13802:13866" ph="SELECT idExt... tbUsuariosExternos" />
-            <marker date="1525289876000" expanded="true" signature="14098:14230" ph="INSERT INTO tbUsuariosExternos... " />
-            <marker date="1525289876000" expanded="true" signature="14742:14797" ph="SELECT idAfi... tbAfiliacao" />
-            <marker date="1525289876000" expanded="true" signature="15058:15187" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="15480:15537" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="15767:15841" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="16112:16186" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="16486:16541" ph="INSERT INTO tbAfiliacao... " />
-            <marker date="1525289876000" expanded="true" signature="16804:16933" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="17226:17283" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="17513:17587" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="17858:17932" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="18345:18474" ph="INSERT INTO tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="18752:18809" ph="INSERT INTO tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="19324:19387" ph="SELECT idAfi... tbAfiliacao" />
-            <marker date="1525289876000" expanded="true" signature="19884:19939" ph="SELECT idAfi... tbAfiliacao" />
-            <marker date="1525289876000" expanded="true" signature="20160:20215" ph="INSERT INTO tbAfiliacao... " />
-            <marker date="1525289876000" expanded="true" signature="20620:20716" ph="UPDATE tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="20947:21000" ph="UPDATE tbMatricula... " />
-            <marker date="1525289876000" expanded="true" signature="21169:21232" ph="SELECT idTel... tbTelefone" />
-            <marker date="1525289876000" expanded="true" signature="21512:21586" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="21836:21910" ph="INSERT INTO tbTelefone... " />
-            <marker date="1525289876000" expanded="true" signature="22285:22358" ph="UPDATE tbUsuario... " />
-            <marker date="1525289876000" expanded="true" signature="22828:22889" ph="SELECT idNot... tbNotificacao" />
-            <marker date="1525289876000" expanded="true" signature="23068:23363" ph="..." />
-            <marker date="1525289876000" expanded="false" signature="23161:23186" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="23187:23337" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="23405:23487" ph="INSERT INTO tbNotificacao... " />
-            <marker date="1525289876000" expanded="true" signature="23667:23706" ph="INSERT INTO tbNotiConexao... " />
-            <marker date="1525289876000" expanded="true" signature="25857:25914" ph="SELECT idTic... tbLog" />
-            <marker date="1525289876000" expanded="true" signature="26903:26932" ph="SELECT avali... tbTicket" />
-            <marker date="1525289876000" expanded="true" signature="31889:31955" ph="SELECT idUse... tbEmail" />
-            <marker date="1525289876000" expanded="true" signature="35109:35533" ph="SELECT g.idD... tbReservaSala" />
-            <marker date="1525289876000" expanded="true" signature="35670:36044" ph="SELECT g.idD... tbReservaSala" />
-            <marker date="1525289876000" expanded="true" signature="36759:37231" ph="SELECT h.ini... tbReservaLab" />
-            <marker date="1525289876000" expanded="true" signature="37366:37795" ph="SELECT h.ini... tbReservaLab" />
-            <marker date="1525289876000" expanded="true" signature="39901:40476" ph="SELECT c.ini... tbReservaEq" />
-            <marker date="1525289876000" expanded="true" signature="40613:41140" ph="SELECT c.ini... tbReservaEq" />
-            <marker date="1525289876000" expanded="true" signature="42925:43044" ph="SELECT idDat... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="43146:43266" ph="SELECT idDat... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="43802:43889" ph="UPDATE tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="44061:44103" ph="INSERT INTO tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="44340:44382" ph="INSERT INTO tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="44718:44760" ph="INSERT INTO tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="44984:45026" ph="INSERT INTO tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="45241:45364" ph="SELECT idDat... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="45466:45590" ph="SELECT idDat... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="46126:46216" ph="UPDATE tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="46388:46431" ph="INSERT INTO tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="46668:46711" ph="INSERT INTO tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="47047:47090" ph="INSERT INTO tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="47314:47357" ph="INSERT INTO tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="47592:47719" ph="SELECT idDat... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="47821:47949" ph="SELECT idDat... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="48485:48578" ph="UPDATE tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="48750:48794" ph="INSERT INTO tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="49031:49075" ph="INSERT INTO tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="49411:49455" ph="INSERT INTO tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="49679:49723" ph="INSERT INTO tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="50398:50505" ph="SELECT * FRO... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="50624:50686" ph="SELECT * FRO... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="51076:51188" ph="SELECT idCho... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="51907:52018" ph="SELECT * FRO... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="52137:52202" ph="SELECT * FRO... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="52592:52708" ph="SELECT idCho... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="53413:53527" ph="SELECT * FRO... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="53646:53714" ph="SELECT * FRO... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="54104:54223" ph="SELECT idCho... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="55157:55473" ph="SELECT c.ini... tbReservaEq" />
-            <marker date="1525289876000" expanded="true" signature="56111:56382" ph="SELECT h.ini... tbReservaLab" />
-            <marker date="1525289876000" expanded="true" signature="57014:57264" ph="SELECT h.ini... tbReservaSala" />
-            <marker date="1525289876000" expanded="true" signature="57845:57975" ph="SELECT idReE... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="58094:58169" ph="SELECT idReE... tbChoqueEq" />
-            <marker date="1525289876000" expanded="true" signature="58387:58441" ph="DELETE FROM tbChoqueEq... " />
-            <marker date="1525289876000" expanded="true" signature="58664:58798" ph="SELECT idReL... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="58917:58996" ph="SELECT idReL... tbChoqueLab" />
-            <marker date="1525289876000" expanded="true" signature="59214:59270" ph="DELETE FROM tbChoqueLab... " />
-            <marker date="1525289876000" expanded="true" signature="59479:59617" ph="SELECT idReS... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="59736:59819" ph="SELECT idReS... tbChoqueSala" />
-            <marker date="1525289876000" expanded="true" signature="60037:60095" ph="DELETE FROM tbChoqueSala... " />
-            <marker date="1525289876000" expanded="true" signature="60514:60613" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="60774:60867" ph="INSERT INTO tbLogsAcoes... " />
-            <marker date="1525289876000" expanded="true" signature="61177:61243" ph="SELECT inici... tbPrazo" />
-            <marker date="1525289876000" expanded="true" signature="63932:64796" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="63945:64012" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64025:64783" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64038:64769" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64448:64755" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64462:64738" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64939:65814" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="64952:65019" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65032:65801" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65045:65787" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65466:65773" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65480:65756" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65960:66874" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="65973:66040" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="66053:66861" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="66066:66847" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="66526:66833" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="66540:66816" ph="..." />
-            <marker date="1525289876000" expanded="true" signature="67816:67948" ph="SELECT a.log... tbUsuario" />
-            <marker date="1525289876000" expanded="true" signature="68371:68828" ph="SELECT c.idL... tbLaboratorio" />
-            <marker date="1525289876000" expanded="true" signature="69237:69286" ph="SELECT nomeL... tbLaboratorio" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/posts/post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3494">
-          <caret line="1148" column="16" lean-forward="true" selection-start-line="1148" selection-start-column="16" selection-end-line="1148" selection-end-column="16" />
-          <folding>
-            <marker date="1529993681833" expanded="true" signature="9036:9160" ph="INSERT INTO tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="11925:11997" ph="INSERT INTO tbUsuarioTemp... " />
-            <marker date="1529993681833" expanded="true" signature="12930:12974" ph="SELECT login... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="13260:13298" ph="DELETE FROM tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="14630:14690" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="15038:15092" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="15381:15425" ph="SELECT login... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="15849:15901" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="16100:16144" ph="SELECT login... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="17496:17554" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="17754:17807" ph="UPDATE tbUsuarioTemp... " />
-            <marker date="1529993681833" expanded="true" signature="18161:18214" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="18814:18858" ph="UPDATE tbBugs... " />
-            <marker date="1529993681833" expanded="true" signature="19216:19260" ph="UPDATE tbBugs... " />
-            <marker date="1529993681833" expanded="true" signature="19697:19763" ph="SELECT data tbAtualizacao" />
-            <marker date="1529993681833" expanded="true" signature="20035:20089" ph="INSERT INTO tbAtualizacao... " />
-            <marker date="1529993681833" expanded="true" signature="20639:20685" ph="UPDATE tbTermo... " />
-            <marker date="1529993681833" expanded="true" signature="20875:20913" ph="INSERT INTO tbTermo... " />
-            <marker date="1529993681833" expanded="true" signature="21213:21283" ph="SELECT idLog... tbLog" />
-            <marker date="1529993681833" expanded="true" signature="21581:21666" ph="INSERT INTO tbLog... " />
-            <marker date="1529993681833" expanded="true" signature="21764:21781" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="22104:22170" ph="UPDATE tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="22341:22437" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="22912:22982" ph="UPDATE tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="23270:23340" ph="SELECT idLog... tbLog" />
-            <marker date="1529993681833" expanded="true" signature="23637:23722" ph="INSERT INTO tbLog... " />
-            <marker date="1529993681833" expanded="true" signature="23969:24035" ph="UPDATE tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="24213:24309" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="24752:24818" ph="UPDATE tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="25101:25180" ph="UPDATE tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="25388:25434" ph="UPDATE tbEmail... " />
-            <marker date="1529993681833" expanded="true" signature="25817:25926" ph="INSERT INTO tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="26226:26296" ph="SELECT idLog... tbLog" />
-            <marker date="1529993681833" expanded="true" signature="26605:26692" ph="INSERT INTO tbLog... " />
-            <marker date="1529993681833" expanded="true" signature="26941:27051" ph="SELECT a.afi... tbAfiliacao" />
-            <marker date="1529993681833" expanded="true" signature="27312:27447" ph="INSERT INTO tbTicket... " />
-            <marker date="1529993681833" expanded="true" signature="27706:27776" ph="SELECT idLog... tbLog" />
-            <marker date="1529993681833" expanded="true" signature="28705:28792" ph="INSERT INTO tbLog... " />
-            <marker date="1529993681833" expanded="true" signature="29001:29066" ph="INSERT INTO tbEmail... " />
-            <marker date="1529993681833" expanded="true" signature="38112:38155" ph="DELETE FROM tbReservaSala... " />
-            <marker date="1529993681833" expanded="true" signature="38386:38448" ph="DELETE FROM tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="38739:38820" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="39104:39209" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="39775:39836" ph="SELECT idNot... tbNotificacao" />
-            <marker date="1529993681833" expanded="true" signature="40281:40541" ph="..." />
-            <marker date="1529993681833" expanded="false" signature="40363:40388" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="40389:40515" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="40583:40701" ph="INSERT INTO tbNotificacao... " />
-            <marker date="1529993681833" expanded="true" signature="40822:40895" ph="INSERT INTO tbNotiConexao... " />
-            <marker date="1529993681833" expanded="true" signature="41062:41158" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="41722:41833" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="42484:42527" ph="DELETE FROM tbReservaSala... " />
-            <marker date="1529993681833" expanded="true" signature="42757:42819" ph="DELETE FROM tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="43151:43229" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="43537:43797" ph="..." />
-            <marker date="1529993681833" expanded="false" signature="43619:43644" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="43645:43771" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="43839:43921" ph="INSERT INTO tbNotificacao... " />
-            <marker date="1529993681833" expanded="true" signature="44097:44136" ph="INSERT INTO tbNotiConexao... " />
-            <marker date="1529993681833" expanded="true" signature="44368:44423" ph="SELECT idDat... tbControleDataSala" />
-            <marker date="1529993681833" expanded="true" signature="44765:44828" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="45214:45277" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="45706:45784" ph="UPDATE tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="47390:47490" ph="INSERT INTO tbReservaSala... " />
-            <marker date="1529993681833" expanded="true" signature="47797:47859" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="48109:48155" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="48439:48517" ph="INSERT INTO tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="50021:50129" ph="INSERT INTO tbReservaSala... " />
-            <marker date="1529993681833" expanded="true" signature="50541:50603" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="50889:50935" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="51273:51351" ph="INSERT INTO tbControleDataSala... " />
-            <marker date="1529993681833" expanded="true" signature="52391:52448" ph="UPDATE tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="52689:52744" ph="UPDATE tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="52962:52997" ph="DELETE FROM tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="53371:53429" ph="UPDATE tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="53883:53926" ph="SELECT idCor... tbSala" />
-            <marker date="1529993681833" expanded="true" signature="54068:54119" ph="SELECT idCor... tbCor" />
-            <marker date="1529993681833" expanded="true" signature="54532:54611" ph="INSERT INTO tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="55245:55289" ph="DELETE FROM tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="55719:55758" ph="DELETE FROM tbReservaEq... " />
-            <marker date="1529993681833" expanded="true" signature="55991:56049" ph="DELETE FROM tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="56342:56419" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="56705:56806" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="57294:57335" ph="DELETE FROM tbReservaLab... " />
-            <marker date="1529993681833" expanded="true" signature="57565:57625" ph="DELETE FROM tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="57915:57994" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="58277:58380" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="58837:58893" ph="UPDATE tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="59117:59273" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="59674:59753" ph="UPDATE tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="60016:60172" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="60855:60924" ph="UPDATE tbPrazo... " />
-            <marker date="1529993681833" expanded="true" signature="61301:61370" ph="UPDATE tbPrazo... " />
-            <marker date="1529993681833" expanded="true" signature="61781:61815" ph="INSERT INTO tbCor... " />
-            <marker date="1529993681833" expanded="true" signature="62027:62136" ph="INSERT INTO tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="62684:62744" ph="INSERT INTO tbTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="62956:63042" ph="INSERT INTO tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="63575:63654" ph="INSERT INTO tbSala... " />
-            <marker date="1529993681833" expanded="true" signature="64208:64516" ph="SELECT h.ini... tbReservaLab" />
-            <marker date="1529993681833" expanded="true" signature="64898:64969" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="65770:65860" ph="SELECT statu... tbControleDataLab" />
-            <marker date="1529993681833" expanded="true" signature="66362:66433" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="67192:67261" ph="INSERT INTO tbAlocaReEq... " />
-            <marker date="1529993681833" expanded="true" signature="67474:67555" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="67888:67944" ph="UPDATE tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="68229:68265" ph="INSERT INTO tbAlocaLab... " />
-            <marker date="1529993681833" expanded="true" signature="68631:68746" ph="UPDATE tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="69246:69296" ph="SELECT idCor... tbLaboratorio" />
-            <marker date="1529993681833" expanded="true" signature="69438:69489" ph="SELECT idCor... tbCor" />
-            <marker date="1529993681833" expanded="true" signature="69902:70044" ph="INSERT INTO tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="70808:70865" ph="SELECT patri... tbEquipamento" />
-            <marker date="1529993681833" expanded="true" signature="71062:71107" ph="SELECT idCor... tbTipoEq" />
-            <marker date="1529993681833" expanded="true" signature="71273:71324" ph="SELECT idCor... tbCor" />
-            <marker date="1529993681833" expanded="true" signature="71833:71893" ph="INSERT INTO tbTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="72285:72330" ph="SELECT numEq... tbTipoEq" />
-            <marker date="1529993681833" expanded="true" signature="72573:72621" ph="UPDATE tbTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="72798:72884" ph="INSERT INTO tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="73849:73882" ph="INSERT INTO tbImagem... " />
-            <marker date="1529993681833" expanded="true" signature="74211:74258" ph="UPDATE tbImagem... " />
-            <marker date="1529993681833" expanded="true" signature="74795:74855" ph="UPDATE tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="75129:75191" ph="UPDATE tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="75441:75482" ph="DELETE FROM tbLaboratorio... " />
-            <marker date="1529993681833" expanded="true" signature="75858:75922" ph="UPDATE tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="76206:76272" ph="UPDATE tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="76532:76659" ph="SELECT a.idT... tbEquipamento" />
-            <marker date="1529993681833" expanded="true" signature="76890:76936" ph="DELETE FROM tbEquipamento... " />
-            <marker date="1529993681833" expanded="true" signature="77243:77291" ph="UPDATE tbTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="77488:77527" ph="DELETE FROM tbTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="77867:77949" ph="INSERT INTO tbAtividadesComp... " />
-            <marker date="1529993681833" expanded="true" signature="78338:78555" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="78903:79057" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="79449:79535" ph="SELECT funca... tbEtapaAtividadeComp" />
-            <marker date="1529993681833" expanded="true" signature="79857:79993" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="80370:80513" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="80841:80904" ph="INSERT INTO tbDocAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="81691:81777" ph="SELECT funca... tbEtapaAtividadeComp" />
-            <marker date="1529993681833" expanded="true" signature="82058:82198" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="82508:82571" ph="INSERT INTO tbDocAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="82812:82963" ph="INSERT INTO tbEtapaAtividadeComp... " />
-            <marker date="1529993681833" expanded="true" signature="83285:83348" ph="UPDATE FROM... " />
-            <marker date="1529993681833" expanded="true" signature="83785:83843" ph="UPDATE tbDisciplinas... " />
-            <marker date="1529993681833" expanded="true" signature="84119:84179" ph="UPDATE tbDisciplinas... " />
-            <marker date="1529993681833" expanded="true" signature="85036:85083" ph="SELECT nome tbDisciplinas" />
-            <marker date="1529993681833" expanded="true" signature="85234:85297" ph="INSERT INTO tbDisciplinas... " />
-            <marker date="1529993681833" expanded="true" signature="85838:85898" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="86061:86173" ph="INSERT INTO tbBlock... " />
-            <marker date="1529993681833" expanded="true" signature="86662:86720" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="86970:87016" ph="UPDATE tbBlock... " />
-            <marker date="1529993681833" expanded="true" signature="87528:87581" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="88019:88075" ph="INSERT INTO tbAfiliacao... " />
-            <marker date="1529993681833" expanded="true" signature="89519:89572" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="89758:89802" ph="SELECT nivel... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="90079:90118" ph="SELECT * FRO... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="90326:90373" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="90810:90857" ph="UPDATE tbUsuario... " />
-            <marker date="1529993681833" expanded="true" signature="91196:91238" ph="SELECT email... tbEmail" />
-            <marker date="1529993681833" expanded="true" signature="91451:91511" ph="UPDATE tbEmail... " />
-            <marker date="1529993681833" expanded="true" signature="91877:91952" ph="INSERT INTO tbEmail... " />
-            <marker date="1529993681833" expanded="true" signature="92628:92665" ph="DELETE FROM tbImagem... " />
-            <marker date="1529993681833" expanded="true" signature="93136:93197" ph="UPDATE tbAvisos... " />
-            <marker date="1529993681833" expanded="true" signature="93469:93528" ph="UPDATE tbAvisos... " />
-            <marker date="1529993681833" expanded="true" signature="93777:93815" ph="DELETE FROM tbAvisos... " />
-            <marker date="1529993681833" expanded="true" signature="94154:94228" ph="INSERT INTO tbAvisos... " />
-            <marker date="1529993681833" expanded="true" signature="94658:94727" ph="UPDATE tbAvisos... " />
-            <marker date="1529993681833" expanded="true" signature="95219:95300" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="95604:95672" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="95957:96039" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="96344:96398" ph="SELECT idDat... tbControleDataLab" />
-            <marker date="1529993681833" expanded="true" signature="96684:96745" ph="DELETE FROM tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="96957:97052" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="97490:97575" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="97874:97959" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="98260:98365" ph="UPDATE tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="98797:98843" ph="DELETE FROM tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="99287:99349" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="99599:99645" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="99930:99991" ph="INSERT INTO tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="101222:101284" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="101570:101616" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="101954:102015" ph="INSERT INTO tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="102631:102692" ph="DELETE FROM tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="103080:103141" ph="SELECT idNot... tbNotificacao" />
-            <marker date="1529993681833" expanded="true" signature="103586:103846" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="103668:103693" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="103694:103820" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="103888:104006" ph="INSERT INTO tbNotificacao... " />
-            <marker date="1529993681833" expanded="true" signature="104127:104200" ph="INSERT INTO tbNotiConexao... " />
-            <marker date="1529993681833" expanded="true" signature="104367:104459" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="105029:105136" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="105793:105832" ph="DELETE FROM tbReservaEq... " />
-            <marker date="1529993681833" expanded="true" signature="106064:106122" ph="DELETE FROM tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="106456:106530" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="106840:107100" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="106922:106947" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="106948:107074" ph="..." />
-            <marker date="1529993681833" expanded="true" signature="107142:107224" ph="INSERT INTO tbNotificacao... " />
-            <marker date="1529993681833" expanded="true" signature="107400:107439" ph="INSERT INTO tbNotiConexao... " />
-            <marker date="1529993681833" expanded="true" signature="107671:107722" ph="SELECT idDat... tbControleDataEq" />
-            <marker date="1529993681833" expanded="true" signature="108068:108127" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="108515:108574" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="109007:109081" ph="UPDATE tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="110670:110756" ph="INSERT INTO tbReservaLab... " />
-            <marker date="1529993681833" expanded="true" signature="111043:111105" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="111355:111401" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="111686:111747" ph="INSERT INTO tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="112919:113013" ph="INSERT INTO tbReservaLab... " />
-            <marker date="1529993681833" expanded="true" signature="113404:113466" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="113752:113798" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="114136:114197" ph="INSERT INTO tbControleDataLab... " />
-            <marker date="1529993681833" expanded="true" signature="115686:115759" ph="INSERT INTO tbReservaEq... " />
-            <marker date="1529993681833" expanded="true" signature="116043:116105" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="116355:116401" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="116745:116817" ph="INSERT INTO tbReservaTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="117336:117410" ph="INSERT INTO tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="117815:117889" ph="INSERT INTO tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="119134:119207" ph="INSERT INTO tbReservaEq... " />
-            <marker date="1529993681833" expanded="true" signature="119596:119658" ph="SELECT idDat... tbData" />
-            <marker date="1529993681833" expanded="true" signature="119944:119990" ph="INSERT INTO tbData... " />
-            <marker date="1529993681833" expanded="true" signature="120400:120472" ph="INSERT INTO tbReservaTipoEq... " />
-            <marker date="1529993681833" expanded="true" signature="121057:121131" ph="INSERT INTO tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="121608:121682" ph="INSERT INTO tbControleDataEq... " />
-            <marker date="1529993681833" expanded="true" signature="128335:128436" ph="INSERT INTO tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="128855:128918" ph="INSERT INTO tbReqs_professor... " />
-            <marker date="1529993681833" expanded="true" signature="129082:129210" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="129740:129841" ph="INSERT INTO tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="130276:130339" ph="INSERT INTO tbReqs_professor... " />
-            <marker date="1529993681833" expanded="true" signature="130519:130651" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="137438:137496" ph="UPDATE tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="137839:137898" ph="UPDATE tbReqs_professor... " />
-            <marker date="1529993681833" expanded="true" signature="138063:138191" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="138543:138593" ph="SELECT idReq... tbReqs_professor" />
-            <marker date="1529993681833" expanded="true" signature="138825:138888" ph="INSERT INTO tbReqs_professor... " />
-            <marker date="1529993681833" expanded="true" signature="139055:139124" ph="UPDATE tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="139355:139483" ph="SELECT AES_D... tbUsuario" />
-            <marker date="1529993681833" expanded="true" signature="139801:139860" ph="UPDATE tbReqs_professor... " />
-            <marker date="1529993681833" expanded="true" signature="140027:140096" ph="UPDATE tbRequerimentos... " />
-            <marker date="1529993681833" expanded="true" signature="140327:140455" ph="SELECT AES_D... tbUsuario" />
-          </folding>
+        <state relative-caret-position="516">
+          <caret line="1152" column="7" lean-forward="false" selection-start-line="1152" selection-start-column="7" selection-end-line="1152" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
