@@ -148,8 +148,8 @@
                         $error = null;
                     ?>
                     <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="hidden-xs">Esqueci minha senha</span>
+                    <a href = '/recuperarSenha/'  >
+                    <span >Esqueci minha senha</span>
                     </a>
                     </li>
                   <li class="dropdown user user-menu">

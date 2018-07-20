@@ -1745,93 +1745,189 @@
 			$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
 			$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
 			$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
-			$mail->Username   = "naoresponder@dcomp.ufs.br";  // GMAIL username
-			$mail->Password   = "Gr4nd3sP0d3r3sTr4z3mGr4nd3sR3sp0ns4b1l1d4d3s";            // GMAIL password
-			$mail->SetFrom('naoresponder@dcomp.ufs.br', 'Não Responder DCOMP');
+			$mail->Username   = "leonardorpaixao3@gmail.com";  // GMAIL username
+			$mail->Password   = "leo152476389";            // GMAIL password
+			$mail->SetFrom('leonardorpaixao3@gmail.com', 'Não Responder AdminCCET');
 			$mail->AltBody    = "Para visualizar esta mensagem é necessario ter um visualizador de e-mail compativel com HTML"; // optional, comment out and test
-
+			
+				
 			switch ($tipoEmail){
 				case 1: //Email Admin
 					$mail->Subject = "Seu ticket foi respondido!";
-					$mail->MsgHTML('<html>
-						<head>
-							<meta charset="utf-8">
-							<title></title>
-						</head>
-						<body>
-							<div>
+					$mail->MsgHTML(
+						'<html>
+							<head>
+								<meta charset="utf-8">
+								<title></title>
+							</head>
+							<body>
+								<div class="box">
+									<div class="topo">
+										<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
+										<tr>
+											
+											<td style="bold"align = "left" style="width: 500px;">
+												<strong>
+												Universidade Federal de Sergipe - UFS<br>
+												Centro de Ciencias Exatas e Tecnologia - CCET
+												</strong>
+											</td>
+										</tr>
+										</table>
+									</div>
 								<p>Olá usuário,</p>
 								<p>A nossa equipe acabou de responder um ticket aberto por você no portal AdminDComp.</p>
 								<p>Acesse a sua conta para visualizar a resposta ou executar outras ações.</p>
-								<p>Att,<br>DCOMP.</p>
-								<img src="https://admin.dcomp.ufs.br/forms/img-email.png" width="161" height="80">
-								<br>
+								
+								<br><br>
+								
+								Atenciosamente,<br>
+								Secretaria CCET.<br><br>
 								<table class="rodape" cellpadding="0" cellspacing="0">
 									<tr>
 											Cidade Universitária “Prof. José Aloísio de Campos”<br>
 											Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
-											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br | admin.dcomp.ufs.br
+											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br
 									</tr>
 								</table>
 							</div>
-						</body>
-					</html>');
+						</div>
+					</body>
+				</html>');
 					break;
 				case 2: //Email Requerimentos UPDATE
 					$mail->Subject = "Seu requerimento mudou de status!";
-					$mail->MsgHTML('<html>
-						<head>
-							<meta charset="utf-8">
-							<title></title>
-						</head>
-						<body>
-							<div>
+					$mail->MsgHTML(
+						'<html>
+							<head>
+								<meta charset="utf-8">
+								<title></title>
+							</head>
+							<body>
+								<div class="box">
+									<div class="topo">
+										<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
+										<tr>
+											
+											<td style="bold"align = "left" style="width: 500px;">
+												<strong>
+												Universidade Federal de Sergipe - UFS<br>
+												Centro de Ciencias Exatas e Tecnologia - CCET
+												</strong>
+											</td>
+										</tr>
+										</table>
+									</div>
 								<p>Olá usuário,</p>
 								<p><b>O status de um requerimento seu acabou de ser alterado!</b></p>
 								<p>Acesse a sua conta no AdminDComp (admin.dcomp.ufs.br) para acompanhar o andamento do seu requerimento.</p>
-								<p>Att,<br>DCOMP.</p>
-								<img src="https://admin.dcomp.ufs.br/forms/img-email.png" width="161" height="80">
-								<br>
+								
+								<br><br>
+								
+								Atenciosamente,<br>
+								Secretaria CCET.<br><br>
 								<table class="rodape" cellpadding="0" cellspacing="0">
 									<tr>
 											Cidade Universitária “Prof. José Aloísio de Campos”<br>
 											Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
-											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br | admin.dcomp.ufs.br
+											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br
 									</tr>
 								</table>
 							</div>
-						</body>
-					</html>');
+						</div>
+					</body>
+				</html>');
 					break;
 				case 3: //Email Requerimentos PROFESSOR
 					$mail->Subject = "Você possui um novo requerimento!";
-					$mail->MsgHTML('<html>
-						<head>
-							<meta charset="utf-8">
-							<title></title>
-						</head>
-						<body>
-							<div>
+					$mail->MsgHTML(
+						'<html>
+							<head>
+								<meta charset="utf-8">
+								<title></title>
+							</head>
+							<body>
+								<div class="box">
+									<div class="topo">
+										<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
+										<tr>
+											
+											<td style="bold"align = "left" style="width: 500px;">
+												<strong>
+												Universidade Federal de Sergipe - UFS<br>
+												Centro de Ciencias Exatas e Tecnologia - CCET
+												</strong>
+											</td>
+										</tr>
+										</table>
+									</div>
 								<p>Olá docente,</p>
 								<p><b>Um novo requerimento foi relacionado com a sua conta!</b></p>
 								<p>Acesse a sua conta no AdminDComp (admin.dcomp.ufs.br), vá até o menu Requerimentos, clique na opção "Moderar" e gerencie os seus requerimentos.</p>
-								<p>Att,<br>DCOMP.</p>
-								<img src="https://admin.dcomp.ufs.br/forms/img-email.png" width="161" height="80">
-								<br>
+								
+								<br><br>
+								
+								Atenciosamente,<br>
+								Secretaria CCET.<br><br>
 								<table class="rodape" cellpadding="0" cellspacing="0">
 									<tr>
 											Cidade Universitária “Prof. José Aloísio de Campos”<br>
 											Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
-											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br | admin.dcomp.ufs.br
+											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br
 									</tr>
 								</table>
 							</div>
-						</body>
-					</html>');
+						</div>
+					</body>
+				</html>');
 					break;
 
-			}
+			case 4:
+			$mail->Subject = "Reinicialização de senha";
+			$mail->MsgHTML(
+				'<html>
+					<head>
+						<meta charset="utf-8">
+						<title></title>
+					</head>
+					<body>
+						<div class="box">
+							<div class="topo">
+								<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
+								<tr>
+									
+									<td style="bold"align = "left" style="width: 500px;">
+										<strong>
+										Universidade Federal de Sergipe - UFS<br>
+										Centro de Ciencias Exatas e Tecnologia - CCET
+										</strong>
+									</td>
+								</tr>
+								</table>
+							</div>
+							<div align = "justify">
+								
+								Olá! </br> </br> 
+								Sua senha foi reiniciada com sucesso! Segue abaixo sua nova senha de acesso.
 
+								<br>Senha : ccet123456 <b></b> <br><br>
+				
+								<br><br>
+								Atenciosamente,<br>
+								Secretaria CCET.<br><br>
+								<table class="rodape" cellpadding="0" cellspacing="0">
+									<tr>
+											Cidade Universitária “Prof. José Aloísio de Campos”<br>
+											Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
+											Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br
+									</tr>
+								</table>
+							</div>
+						</div>
+					</body>
+				</html>');
+			break;
+			}
 			$mail->AddAddress($para, 'Destinatário');
 			//$mail->AddAttachment("images/phpmailer.gif");      // attachment
 			//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment

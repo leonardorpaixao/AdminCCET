@@ -71,9 +71,7 @@ class enviarEmail{
 	//$mail->AddAttachment("images/phpmailer.gif");      // attachment
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 	//$enviado = $mail->Send();
-	if($mail->send()){
-		echo "email enviado com sucesso!";
-	}else echo"deu algum erro";
+	if($mail->Send();
 		
 	
 

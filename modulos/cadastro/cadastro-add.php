@@ -26,16 +26,6 @@ $telefone = $_POST['telefone'];
 
 
 
-//Gravando no banco de dados
-$conexao = mysqli_connect("localhost","root");
-if (!$conexao)
-    die ("Erro de conexão com localhost, o seguinte erro ocorreu -> ".mysqli_error($conexao));
-//conectando com a tabela do banco de dados
-$banco = mysqli_select_db($conexao, "dcomp");
-if (!$banco)
-    die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysqli_error($conexao));
-
-
 
 $db = Atalhos::getBanco();
 if($query = $db->prepare("UPDATE tbUsuario SET termo = 1, telefone = $telefone, senha = '$senha', statusUser = 'Ativo', cpf = '$cpf',

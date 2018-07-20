@@ -6,6 +6,7 @@ include '../../includes/topo.php';
 </head>
 <?php
 include '../../includes/barra.php';
+include '../../includes/menu.php';
 $db = Atalhos::getBanco();
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -65,11 +66,34 @@ $db = Atalhos::getBanco();
 <script type="text/javascript">
     function validaDados(){
         var email, dtnascimento;
+        var emailaux, dtnascimentoaux;
         email = document.recuperarSenha.email.value;
         dtnascimento = document.recuperarSenha.dtnascimento.value;
-
-        
        alert("teste");
+       <?php
+        if ($query = $db->prepare("SELECT email, dtnascimento FROM tbusuario WHERE (idSala = ? AND dtnascimento = ?)")){
+            $query->bind_param('i', email, dtnascimento);
+            $query->execute();
+            $query->bind_result($nomeSala, $numPessoa);
+            $query->fetch();
+            $query->close();
+            $db->close();
+        }
+
+       $db = Atalhos::getBanco();
+       if($query = $db->prepare("SELECT email, dtnascimento from tbUsuario SET senha = 'ccet123456', WHERE email = ?")){ 
+       $query->bind_param('i', email);
+       $query->execute();
+       }
+       ?>
+       
+       <?php
+       $db = Atalhos::getBanco();
+       if($query = $db->prepare("UPDATE tbUsuario SET senha = 'ccet123456', WHERE email = ?")){ 
+       $query->bind_param('i', email);
+       $query->execute();
+       }
+       ?>
     }
 
     function validaCampo(){
