@@ -45,6 +45,7 @@ RewriteRule ^pre_cadastro-add/$              				        modulos/cadastro/pre_ca
 RewriteRule ^cadastro-add/$             				        modulos/cadastro/cadastro-add.php
 RewriteRule ^recursos/autorizar_cadastro$               	                modulos/cadastro/autorizar_cadastro.php
 RewriteRule ^recuperarSenha/$             				        modulos/cadastro/recuperarSenha.php
+RewriteRule ^recuperar_senha-add/$             				        modulos/cadastro/recuperar_senha-add.php
 
 ############
 # Recursos #
