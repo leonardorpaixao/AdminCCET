@@ -20,35 +20,42 @@ $_SESSION['irPara'] = '/inicio';
 <?php
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO
 $email	= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel 
+$cpf = $_POST["cpf"];
+
+$emailaux = 'nadaaqui';
+$cpfaux = 'nadaaqui';
 
 
 
-echo "<script>window.location='/inicio';alert('teste1.$email.');</script>";
+
 
 $db = Atalhos::getBanco();
-if ($query = $db->prepare("SELECT email FROM tbusuario WHERE (email = ?)")){
-    $query->bind_param('i', $email);
+$query = "SELECT email, cpf FROM tbusuario WHERE (email = ? AND cpf = ?)";
+if ($query = $db->prepare($query)){
+    $query->bind_param('ss', $email, $cpf);
     $query->execute();
-    $query->bind_result($emailaux);
-    $rs = $query->fetch();
-    echo "<script>window.location='/inicio';alert('teste1.$emailaux.');</script>";
+    $query->bind_result($emailaux, $cpfaux);
+    $query->fetch();
 
-
+    echo "<script>window.location='/inicio';alert('teste2" . $emailaux   . " email2 ".$email."');</script>";
+      
     if($email==$emailaux){
-        if($query = $db->prepare("UPDATE tbUsuario SET senha = 'ccet123456', WHERE email = ?")){ 
-        $query->bind_param('i', $email);
+        $db = Atalhos::getBanco();  
+        if($query = $db->prepare("UPDATE `tbusuario` SET `senha` = 'senhaalterada123' WHERE (`tbusuario`.`email` = ?)")){ 
+        $query->bind_param('s', $email);
         $query->execute();
-        $query->close();
-        echo "<script>window.location='/inicio';alert('teste1');</script>";
+        echo "<script>window.location='/inicio';alert('testeee!!! " . $emailaux   . " \\n email2 ".$email."');</script>";
+        Atalhos::enviarEmail($email, 4);
         }
     }
     $query->close();
     $db->close();
-    echo "<script>window.location='/inicio';alert('teste2');</script>";
-    
-    }else{
 
-    echo "<script>window.location='/inicio';alert('Seu requerimento foi enviado a secretaria. Em breve você receberá e-mail com novas orientações. \\nPor favor, aguarde!');</script>";
+    
+    }
+    
+    if(($email!=$emailaux) || ($cpf!=$cpfaux)){
+    echo "<script>window.location='recuperar_senha-add/';alert('O email e CPF informados não conferem. \\n favor reeinserir');</script>";
     }
  ?>
 

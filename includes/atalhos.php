@@ -1910,7 +1910,7 @@
 								Olá! </br> </br> 
 								Sua senha foi reiniciada com sucesso! Segue abaixo sua nova senha de acesso.
 
-								<br>Senha : ccet123456 <b></b> <br><br>
+								<br>Senha : senhaalterada123 <b></b> <br><br>
 				
 								<br><br>
 								Atenciosamente,<br>
@@ -1927,7 +1927,55 @@
 					</body>
 				</html>');
 			break;
+
+			case 5:
+			$mail->Subject = "Você foi cadastrado no AdminCCET";
+			$mail->MsgHTML(
+				'<html>
+			<head>
+				<meta charset="utf-8">
+				<title></title>
+			</head>
+			<body>
+				<div class="box">
+					<div class="topo">
+						<table style="width: 50%;margin-bottom: 10px;" cellpadding="0" cellspacing="0">
+						<tr>
+							
+							<td style="bold"align = "left" style="width: 500px;">
+								<strong>
+								Universidade Federal de Sergipe - UFS<br>
+								Centro de Ciencias Exatas e Tecnologia - CCET
+								</strong>
+							</td>
+						</tr>
+						</table>
+					</div>
+					<div align = "justify">
+						
+						Olá! você foi cadastrado no sistema <strong>AdminCCET</strong>, nele você poderá efetuar <strong>reserva de salas e equipamentos</strong> disponíveis neste centro. </br> 
+						Acesse sua conta clicando <strong><a href="www.ccetnews.ufs.br/admin"> AQUI</a></strong>. Segue abaixo dados para o primeiro acesso:
+						
+						<br><br>Login: '.$para.' <b></b> 
+						<br>Senha : ccet123456 <b></b> <br><br>
+		
+						<br><br>
+						Atenciosamente,<br>
+						Secretaria CCET.<br><br>
+						<table class="rodape" cellpadding="0" cellspacing="0">
+							<tr>
+									Cidade Universitária “Prof. José Aloísio de Campos”<br>
+									Av. Marechal Rondon, s/n – Jardim Rosa Elze – São Cristóvão-SE – CEP: 49100-000 <br>
+									Telefone: (79) 2105-6678 – Endereço Eletrônico: computacao.ufs.br
+							</tr>
+						</table>
+					</div>
+				</div>
+			</body>
+		</html>');
+			break;
 			}
+
 			$mail->AddAddress($para, 'Destinatário');
 			//$mail->AddAttachment("images/phpmailer.gif");      // attachment
 			//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment

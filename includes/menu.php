@@ -21,10 +21,10 @@
                       <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
                           <li><a href="/recursos/alunos"><i class="fa fa-group"></i> Alunos</a></li>
                       <!--  <li><a href="/recursos/alunos-externos"><i class="fa fa-group"></i> Alunos Externos </a></li>-->
-                          <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 0): ?>
+                          <?php if($_SESSION['logado'] && $_SESSION['nivel'] <= 1): ?>
                         <!--      <li><a href="/recursos/contas-temporarias"><i class="fa fa-group"></i> Contas Temporários</a></li>-->
                               <!--    <li><a href="/recursos/grupos"><i class="fa fa-group"></i> Grupos </a></li>-->
-                              <li><a href="/recursos/funcionarios/adicionar"><i class="fa fa-user-secret"></i> Adicionar Funcionários</a></li>
+                              <li><a href="/recursos/cadastrar_funcionarios"><i class="fa fa-user-secret"></i> Adicionar Funcionários</a></li>
                           <?php endif; ?>
 
                           <li><a href="/recursos/funcionarios"><i class="fa fa-user-secret"></i> Funcionários</a></li>

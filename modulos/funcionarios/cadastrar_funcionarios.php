@@ -1,20 +1,24 @@
 <?php
-include '../../includes/topo.php';
-?>
-<html>
-<head>
-<title xmlns="http://www.w3.org/1999/html">AdminDcomp - Requisição de Cadastro</title>
+  include '../../includes/topo.php';
+  ?>
+<title>AdminCCET - Adicionar Funcionário</title>
 </head>
 <?php
-include '../../includes/barra.php';
-include '../../includes/menu.php';
+  if(!$_SESSION['logado'] || $_SESSION['nivel'] > 1){
+    header('Location: /inicio');
+  }
+  include '../../includes/barra.php';
+  include '../../includes/menu.php';
+  $db = Atalhos::getBanco();
+  $_SESSION['irPara'] = '/inicio';
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Solicitação de Cadastro
+            Cadastrar Funcionário
         </h1>
     </section>
     <!-- Main content -->
@@ -27,32 +31,32 @@ include '../../includes/menu.php';
                                            
                             <body>
 
-                            <form id="cadastro" name="cadastro" method="post"  action="pre_cadastro-add/" data-toggle="validator" role="form" onsubmit="return validaCampo();">
+                            <form id="cadastro" name="cadastro" method="post"  action="recursos/funcionarios/adicionar" data-toggle="validator" role="form" onsubmit="return validaCampo();">
 
                                 <div class="form-group">
                                     <label for="inputSiapMatricula" class="control-label">SIAP|Matricula</label>
-                                    <input id="siapMatricula" name="siapMatricula" class="form-control" maxlength="12" placeholder="Digite seu SIAP ou Matricula" type="number">
+                                    <input id="siapMatricula" name="siapMatricula" class="form-control" maxlength="12" placeholder="Digite o SIAP ou Matricula" type="number">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="textNome" class="control-label">Nome</label>
-                                    <input id="nome" name="nome" class="form-control" maxlength="40" placeholder="Digite seu Nome" type="text">
+                                    <input id="nome" name="nome" class="form-control" maxlength="40" placeholder="Nome" type="text">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail" class="control-label">Email</label>
-                                    <input id="email" name="email" class="form-control" maxlength="40" placeholder="Digite seu E-mail" type="email">
+                                    <input id="email" name="email" class="form-control" maxlength="40" placeholder="E-mail" type="email">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputConfirmarEmail" class="control-label">Confirmar e-mail</label>
-                                    <input name="confirmaremail" id="corfirmaremail" class="form-control" maxlength="40" placeholder="Repita seu E-mail" type="email">
+                                    <input name="confirmaremail" id="corfirmaremail" class="form-control" maxlength="40" placeholder="Confirmação de e-mail" type="email">
                                 </div>
 
 
                                 <div class="form-group">
                                     <label for="inputDepartamento" class="control-label">Departamento / Centro</label>
-                                    <input id="departamento" name="departamento" class="form-control" maxlength="20" placeholder="Informe seu departamento" type="text">
+                                    <input id="departamento" name="departamento" class="form-control" maxlength="20" placeholder="Departamento" type="text">
                                 </div>
 
 

@@ -132,10 +132,10 @@
 	                          $aux->bind_result($criado);
 	                          if($aux->fetch()){//Exiba a opção para requisitar um email institucional
 	                            if($criado == 0){
-	                              echo '<a href="/perfil/emailDcomp" class="btn btn-success btn-block disabled"/>Requisitar E-mail Dcomp</a>';
+	                              echo '<a href="/perfil/alterar_senha/" class="btn btn-success btn-block disabled"/>Alterar Senha</a>';
 	                            }
 	                          }else{
-	                            echo '<a href="/perfil/emailDcomp" class="btn btn-success btn-block"/>Requisitar E-mail Dcomp </a>';
+	                            echo '<a href="/perfil/alterar_senha/" class="btn btn-success btn-block"/>Alterar Senha </a>';
 	                          }
 	                        }
 	                        $db_aux->close();

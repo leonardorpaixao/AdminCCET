@@ -23,7 +23,16 @@ $siapMatricula = $_POST ["siapMatricula"];//atribuição do campo "siapMatricula
 $nome	= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel
 $email	= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
 $departamento	= $_POST ["departamento"];	//atribuição do campo "departamento" vindo do formulário para variavel
-$idAfiliacao = $_POST ["categoria"];//atribuição do campo "categoria" vindo do formulário para variavel
+$nivel = $_POST ["categoria"];//atribuição do campo "categoria" vindo do formulário para variavel
+
+switch($nivel){
+    case '3':
+        $idAfiliacao = '1';
+        break;
+    case '4':
+        $idAfiliacao = '3';
+    }
+}
 
 
 //Gravando no banco de dados
@@ -40,7 +49,7 @@ else
 
     $query = "INSERT INTO `tbusuario` (`idUser`, `siapMatricula`, `idAfiliacao`, `login`, `senha`, `email`, `departamento`, `nomeUser`, `cpf`, `dtnascimento`, `telefone`,
         `nivel`, `statusUser`, `termo`, `statusLogin`, `sudo`)
-            VALUES (NULL, '$siapMatricula', '$idAfiliacao', '', '', '$email', '$departamento', '$nome', '', '', '', '$idAfiliacao', 'Inativo', '0', '1', 'Inativo')";
+            VALUES (NULL, '$siapMatricula', '$idAfiliacao', '', '', '$email', '$departamento', '$nome', '', '', '', '$nivel', 'Inativo', '0', '1', 'Inativo')";
     mysqli_query($conexao, $query);
 
 mysqli_close($conexao);

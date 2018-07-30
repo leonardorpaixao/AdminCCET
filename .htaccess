@@ -46,6 +46,9 @@ RewriteRule ^cadastro-add/$             				        modulos/cadastro/cadastro-ad
 RewriteRule ^recursos/autorizar_cadastro$               	                modulos/cadastro/autorizar_cadastro.php
 RewriteRule ^recuperarSenha/$             				        modulos/cadastro/recuperarSenha.php
 RewriteRule ^recuperar_senha-add/$             				        modulos/cadastro/recuperar_senha-add.php
+RewriteRule ^perfil/alterar_senha/$             				        modulos/cadastro/alterar_senha.php
+RewriteRule ^perfil/alterar_senha-add/$             				        modulos/cadastro/alterar_senha-add.php
+
 
 ############
 # Recursos #
@@ -56,6 +59,7 @@ RewriteRule ^recursos/alunos$								modulos/alunos/alunos.php
 RewriteRule ^recursos/alunos-externos$                                                           modulos/alunos/alunos-externos.php
 RewriteRule ^recursos/alunos/adicionar$						modulos/alunos/aluno-add.php
 RewriteRule ^recursos/funcionarios$							modulos/funcionarios/funcionarios.php
+RewriteRule ^recursos/cadastrar_funcionarios$				modulos/funcionarios/cadastrar_funcionarios.php
 RewriteRule ^recursos/funcionarios/adicionar$				modulos/funcionarios/funcionarios-add.php
 RewriteRule ^recursos/laboratorios$							modulos/laboratorios/laboratorios.php
 RewriteRule ^recursos/laboratorios/adicionar$				modulos/laboratorios/laboratorios-add.php

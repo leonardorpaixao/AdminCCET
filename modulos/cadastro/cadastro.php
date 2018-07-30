@@ -47,7 +47,7 @@ include '../../includes/barra.php';
 
                                         <div class="form-group">
                                             <label for="inputCPF" class="control-label">CPF:</label>
-                                            <input id="cpf" name="cpf" class="form-control" maxlength="14" required="required" placeholder="Digite seu CPF" type="text">
+                                            <input id="cpf" name="cpf" class="form-control" maxlength="11" required="required" placeholder="Digite seu CPF (só números)" type="text">
                                         </div>
 
                                         <div class="form-group">
@@ -57,7 +57,7 @@ include '../../includes/barra.php';
 
                                         <div class="form-group">
                                             <label for="inputtelefone" class="control-label">Telefone</label>
-                                            <input id="telefone" name="telefone" class="form-control" type="tel" required="required" maxlength="11" name="phone" pattern="[0-9]{11}$" placeholder="(DDD) + Número para contato" />
+                                            <input id="telefone" name="telefone" class="form-control" type="tel" maxlength="11" name="phone" pattern="[0-9]{11}$" placeholder="(DDD) + Número para contato" />
                                         </div>
 
                                         <button type="submit" class="btn btn-primary">Enviar</button>
