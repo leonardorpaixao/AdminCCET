@@ -11,7 +11,7 @@
 	include '../../includes/menu.php';
 	$_SESSION['irPara'] = '/inicio';	
 	$db = Atalhos::getBanco();
-	if ($query = $db->prepare("SELECT nomeSala, numPessoa FROM tbSala WHERE idSala = ?")){
+	if ($query = $db->prepare("SELECT nomeSala, numPessoa FROM tbsala WHERE idSala = ?")){
 		$query->bind_param('i', $_GET['id']);
 		$query->execute();
 		$query->bind_result($nomeSala, $numPessoa);

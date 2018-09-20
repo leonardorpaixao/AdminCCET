@@ -8,7 +8,7 @@ $db = Atalhos::getBanco();
   Escolha a quantidade:
   <select name="<?php echo $name ?>" class="form-control">
     <?php
-    	if ($query = $db->prepare("SELECT numEq FROM tbTipoEq WHERE idTipoEq = ?")){
+    	if ($query = $db->prepare("SELECT numEq FROM tbtipoeq WHERE idTipoEq = ?")){
     		$query->bind_param('i', $id);
     		$query->execute();
     		$query->bind_result($numEq);

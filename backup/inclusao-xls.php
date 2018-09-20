@@ -4,7 +4,7 @@ if(!$_SESSION['logado'] || $_SESSION['nivel'] != 1){
 header('Location: /inicio');
 }
 $db = Atalhos::getBanco();
-if ($query = $db->prepare("SELECT idInc, matricula, nome, curso, disciplina, codigo, turma, periodo, dataEnvio FROM tbInclusao WHERE status = 'Em análise' ORDER BY dataEnvio ASC")){
+if ($query = $db->prepare("SELECT idInc, matricula, nome, curso, disciplina, codigo, turma, periodo, dataEnvio FROM tbinclusao WHERE status = 'Em análise' ORDER BY dataEnvio ASC")){
           $query->execute();
           $query->bind_result($idInc, $matricula, $nome, $curso, $disciplina, $codigo, $turma, $periodo, $data);
 }

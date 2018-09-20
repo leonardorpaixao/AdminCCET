@@ -11,7 +11,7 @@
     include 'menu.php';
     $_SESSION['irPara'] = '/bugs/moderar';
     $db = Atalhos::getBanco();
-    if($query = $db->prepare("SELECT idBug, nome, pagina, bug, data, status, AES_DECRYPT(email, ?) FROM tbBugs ORDER BY idBug ASC")){
+    if($query = $db->prepare("SELECT idBug, nome, pagina, bug, data, status, AES_DECRYPT(email, ?) FROM tbbugs ORDER BY idBug ASC")){
       $query->bind_param('s', $_SESSION['chave']);
       $query->execute();
       $query->bind_result($idBug, $nome, $pagina, $bug, $data, $status, $email);

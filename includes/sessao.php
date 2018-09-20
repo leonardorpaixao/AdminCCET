@@ -24,13 +24,13 @@ if(!isset($_SESSION['logado'])){
     echo '<script>
               alert("Sessão Expirada");
             </script>';
-    if($query = $db->prepare("DELETE FROM tbOnline WHERE idUser = ?")){
+    if($query = $db->prepare("DELETE FROM tbonline WHERE idUser = ?")){
       $query->bind_param('i', $_SESSION['id']);
       $query->execute();
       $query->close();
     }
   }else{
-    if($query = $db->prepare("SELECT sessao FROM tbOnline WHERE idUser = ?")){
+    if($query = $db->prepare("SELECT sessao FROM tbonline WHERE idUser = ?")){
       $query->bind_param('i', $_SESSION['id']);
       $query->execute();
       $query->bind_result($sessao);
@@ -46,7 +46,7 @@ if(!isset($_SESSION['logado'])){
               </script>';
       }else{
         $_SESSION['LAST_ACTIVITY'] = time();
-        if($query = $db->prepare("UPDATE tbOnline SET tempoExpirar = ? WHERE idUser = ?")){
+        if($query = $db->prepare("UPDATE tbonline SET tempoExpirar = ? WHERE idUser = ?")){
           $aux = date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes"));
           $query->bind_param('si', $aux, $_SESSION['id']);
           $query->execute();

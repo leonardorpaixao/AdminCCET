@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
   $link = '/recursos/contas';
-  if($query = $db->prepare("SELECT idConta, nomeConta, login, statusConta, numAcesso, dataInicio, dataFim FROM tbContaTemp ORDER BY nomeConta")){
+  if($query = $db->prepare("SELECT idConta, nomeConta, login, statusConta, numAcesso, dataInicio, dataFim FROM tbcontatemp ORDER BY nomeConta")){
     $query->execute();
     $query->bind_result($idConta, $nomeConta, $login, $statusConta, $numAcesso, $dataInicio, $dataFim);
   }

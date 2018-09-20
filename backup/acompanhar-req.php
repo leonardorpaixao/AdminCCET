@@ -18,7 +18,7 @@
     $total = 0;
     if($matricula != NULL && $email != NULL && $veriMat == 1){
       $semRequerimento = 1; 
-      if ($query = $db->prepare("SELECT a.idReq FROM tbRequerimentos a INNER JOIN tbTemporarios b on a.idTemp = b.idTemp AND b.matricula = ? AND b.email = AES_ENCRYPT(?, ?)")){
+      if ($query = $db->prepare("SELECT a.idReq FROM tbrequerimentos a INNER JOIN tbtemporarios b on a.idTemp = b.idTemp AND b.matricula = ? AND b.email = AES_ENCRYPT(?, ?)")){
           $query->bind_param('sss', $matricula, $email, $_SESSION['chave']);
           $query->execute();
           $query->store_result();
@@ -27,7 +27,7 @@
         if($total > 0){
           $query->free_result();
           $query->close();
-          if ($query = $db->prepare("SELECT a.statusReq, a.dataReq, a.tipoReq, a.justificativaReq FROM tbRequerimentos a INNER JOIN tbTemporarios b on a.idTemp = b.idTemp AND b.matricula = ? AND b.email = AES_ENCRYPT(?, ?) ORDER BY dataReq ASC")){
+          if ($query = $db->prepare("SELECT a.statusReq, a.dataReq, a.tipoReq, a.justificativaReq FROM tbrequerimentos a INNER JOIN tbtemporarios b on a.idTemp = b.idTemp AND b.matricula = ? AND b.email = AES_ENCRYPT(?, ?) ORDER BY dataReq ASC")){
             $query->bind_param('sss', $matricula, $email, $_SESSION['chave']);
             $query->execute();
             $query->bind_result($status, $dataEnvio, $tipo, $motivo2);

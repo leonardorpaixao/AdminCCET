@@ -16,7 +16,7 @@
 
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbAvisos WHERE statusAviso = 'Ativo'")){
+  if($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbavisos WHERE statusAviso = 'Ativo'")){
     $query->execute();
     $query->bind_result($id, $titulo, $texto);
     $query->store_result();

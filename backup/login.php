@@ -2,7 +2,7 @@
 	include 'atalhos.php';
 	$login = $_GET['login'];
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT login FROM tbUsuario WHERE login = ?")){
+	if($query = $db->prepare("SELECT login FROM tbusuario WHERE login = ?")){
 		$query->bind_param('s', $login);
 		$query->execute();
 		$query->store_result();

@@ -11,7 +11,7 @@
 	include 'menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT idLogs, ip, data, b.login, idRow, nomeTabela, acao FROM tbLogsAcoes a NATURAL JOIN tbUsuario b")){
+  if($query = $db->prepare("SELECT idLogs, ip, data, b.login, idRow, nomeTabela, acao FROM tblogsacoes a NATURAL JOIN tbusuario b")){
     $query->execute();
     $query->bind_result($idLogs, $ip, $data, $idUser, $idRow, $nomeTab, $acao);
   }

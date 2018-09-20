@@ -6,7 +6,7 @@
 <?php
   if($_SESSION['logado']){
     $db = Atalhos::getBanco();
-    if($query = $db->prepare("SELECT idUser FROM tbEmail WHERE idUser = ?")){
+    if($query = $db->prepare("SELECT idUser FROM tbemail WHERE idUser = ?")){
       $query->bind_param('i', $_SESSION['id']);
       $query->execute();
       if($query->fetch()){
@@ -68,7 +68,7 @@
                 <label>E-mail Alternativo:</label>
                 <?php
                   $db = Atalhos::getBanco();
-                  if($query = $db->prepare("SELECT AES_DECRYPT(email, ?) FROM tbUsuario WHERE idUser = ?")){
+                  if($query = $db->prepare("SELECT AES_DECRYPT(email, ?) FROM tbusuario WHERE idUser = ?")){
                     $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);
                     $query->execute();
                     $query->bind_result($email);

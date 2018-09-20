@@ -2,7 +2,7 @@
 	include 'sessao.php';
 	$db = Atalhos::getBanco();
 	$id = (isset($_GET['id']))? $_GET['id'] : NULL;
-	if ($query = $db->prepare("SELECT idUser FROM tbRequerimentos WHERE idReq = ?")){
+	if ($query = $db->prepare("SELECT idUser FROM tbrequerimentos WHERE idReq = ?")){
                 $query->bind_param('i', $id);
                 $query->execute(); 
                 $query->bind_result($idUser);

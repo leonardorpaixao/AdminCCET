@@ -9,8 +9,8 @@
   $_SESSION['irPara'] = '/recursos/equipamentos';
   $db = atalhos::getBanco();
   $link = '/recursos/equipamentos';
-	if($query = $db->prepare("SELECT a.patrimonio, a.statusEq, a.modelo, b.tipoEq FROM tbEquipamento a
-        inner join tbTipoEq b on a.idTipoEq  = b.idTipoEq")){
+	if($query = $db->prepare("SELECT a.patrimonio, a.statusEq, a.modelo, b.tipoEq FROM tbequipamento a
+        inner join tbtipoeq b on a.idTipoEq  = b.idTipoEq")){
     $query->execute();
     $query->bind_result($patrimonio, $statusEq, $modelo, $tipoEq);
   }

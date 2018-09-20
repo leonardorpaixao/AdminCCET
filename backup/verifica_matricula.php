@@ -3,14 +3,14 @@
 	$matricula = $_GET['matricula'];
   $tipo = $_GET['tipo'];
 	$db = Atalhos::getBanco();
-	if ($query = $db->prepare("SELECT matricula FROM tbMatricula WHERE matricula = {$matricula}")){
+	if ($query = $db->prepare("SELECT matricula FROM tbmatricula WHERE matricula = {$matricula}")){
         $query->execute();
         $query->store_result();
         $total = $query->num_rows;
       }
     $query->free_result();
     $query->close();
-    if ($query = $db->prepare("SELECT matricula FROM tbTemporarios WHERE matricula = {$matricula}")){
+    if ($query = $db->prepare("SELECT matricula FROM tbtemporarios WHERE matricula = {$matricula}")){
         $query->execute();
         $query->store_result();
         $total2 = $query->num_rows;

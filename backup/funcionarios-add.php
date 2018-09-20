@@ -78,7 +78,7 @@
               <?php
                 echo '<option value="">Selecione Afiliação</option>';
                 echo '<option value="0">Adicinar Nova Afiliação</option>';
-                if($query = $db->prepare("SELECT idAfiliacao, afiliacao FROM tbAfiliacao WHERE nivel < 2")){
+                if($query = $db->prepare("SELECT idAfiliacao, afiliacao FROM tbafiliacao WHERE nivel < 2")){
                   $query->execute();
                   $query->bind_result($idAfiliacao, $afiliacao);
                   while($query->fetch()){

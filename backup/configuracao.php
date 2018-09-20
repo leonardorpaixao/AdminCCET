@@ -9,7 +9,7 @@
   }
   $db = Atalhos::getBanco();
   $_SESSION['irPara'] = '/inicio';
-  if ($query = $db->prepare("SELECT nomeUser, AES_DECRYPT(email, ?) FROM tbUsuario WHERE idUser = ?")){
+  if ($query = $db->prepare("SELECT nomeUser, AES_DECRYPT(email, ?) FROM tbusuario WHERE idUser = ?")){
     $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);
     $query->execute();
     $query->bind_result($nomeUser, $email);
@@ -65,7 +65,7 @@
             <?php
               if($_SESSION['nivel'] > 2){
                 $db_aux = atalhos::getBanco();
-                if($aux = $db_aux->prepare("SELECT criado FROM tbEmail WHERE idUser = ?")){
+                if($aux = $db_aux->prepare("SELECT criado FROM tbemail WHERE idUser = ?")){
                   $aux->bind_param('i', $_SESSION['id']);
                   $aux->execute();
                   $aux->bind_result($criado);
@@ -94,7 +94,7 @@
               <input type="file" name="imagem">
             </div>
             <?php
-              if($query = $db->prepare("SELECT * FROM tbImagem WHERE idUser= ? ")){
+              if($query = $db->prepare("SELECT * FROM tbimagem WHERE idUser= ? ")){
                 $query->bind_param('i', $_SESSION['id']);
                 $query->execute();
                 $query->store_result();

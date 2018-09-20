@@ -2,7 +2,7 @@
 // Script para deletar arquivos que foram anexados via requerimentos e o requerimento não existe mais.
 include '../../includes/sessao.php';
 $db = Atalhos::getBanco();
-if ($query = $db->prepare("SELECT idReq FROM tbRequerimentos")){
+if ($query = $db->prepare("SELECT idReq FROM tbrequerimentos")){
 	$query->execute();
 	$query->bind_result($data);
 	while ($query->fetch()) {

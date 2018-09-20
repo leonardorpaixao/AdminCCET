@@ -28,7 +28,7 @@
           <!-- Default box -->
           <?php
             $db = Atalhos::getBanco();
-		    if($query = $db->prepare("SELECT inicio, fim FROM tbPrazo LIMIT 1")){
+		    if($query = $db->prepare("SELECT inicio, fim FROM tbprazo LIMIT 1")){
 		          $query->execute();
 		          $query->bind_result($inicio, $fim);
 		    }

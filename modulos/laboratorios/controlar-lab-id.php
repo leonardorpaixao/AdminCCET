@@ -18,7 +18,7 @@
 
   $link = '/laboratorios/controlar/'.$idReserva.'/';
   $auxDb = Atalhos::getBanco();
-  if($aux = $auxDb->prepare("SELECT a.idUser, a.tituloReLab, a.motivoReLab, b.nomeUser FROM tbReservaLab a INNER JOIN tbUsuario b ON a.idUser = b.idUser WHERE idReLab = ?")){
+  if($aux = $auxDb->prepare("SELECT a.idUser, a.tituloReLab, a.motivoReLab, b.nomeUser FROM tbreservalab a INNER JOIN tbusuario b ON a.idUser = b.idUser WHERE idReLab = ?")){
     $aux->bind_param('i', $idReserva);
     $aux->execute();
     $aux->bind_result($idUser, $tituloReLab, $motivoReLab, $nomeUser);
@@ -28,7 +28,7 @@
   $auxDb->close();
 
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idLab, a.idReLab, a.idData FROM tbControleDataLab a NATURAL JOIN tbData b WHERE a.idReLab = ?")){
+  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idLab, a.idReLab, a.idData FROM tbcontroledatalab a NATURAL JOIN tbdata b WHERE a.idReLab = ?")){
     $query->bind_param('i', $idReserva);
     $query->execute();
     $query->bind_result($inicio, $fim, $idLab, $idReLab, $idData);
@@ -53,7 +53,7 @@
   $db->close();
 
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT idReLab, tituloReLab, nomeUser, idLab, inicio, fim, statusData, idData, idUser, justificativa FROM tbControleDataLab NATURAL JOIN tbReservaLab NATURAL JOIN tbUsuario JOIN tbData USING(idData) WHERE statusData != 'Pendente' AND idReLab = ? ORDER BY statusData ASC, inicio ASC")){
+  if($query = $db->prepare("SELECT idReLab, tituloReLab, nomeUser, idLab, inicio, fim, statusData, idData, idUser, justificativa FROM tbcontroledatalab NATURAL JOIN tbreservalab NATURAL JOIN tbusuario JOIN tbdata USING(idData) WHERE statusData != 'Pendente' AND idReLab = ? ORDER BY statusData ASC, inicio ASC")){
     $query->bind_param('i', $idReserva);
     $query->execute();
     $query->bind_result($idReLab, $tituloReLab, $nomeUser, $idLab, $inicio, $fim, $statusData, $idData, $idUser, $justificativa);

@@ -5,10 +5,10 @@ $id = (isset($_GET['id']))? $_GET['id'] : NULL;
     $db = Atalhos::getBanco();
 
     if ($query = $db->prepare("SELECT a.conteudoReq, b.nomeUser, AES_DECRYPT(b.email,?), c.afiliacao, a.tipoReq, b.idUser, a.statusReq, e.matricula
-              FROM tbRequerimentos a
-              inner join tbUsuario b on a.idUser = b.idUser 
-              inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
-              inner join tbMatricula e on b.idUser = e.idUser
+              FROM tbrequerimentos a
+              inner join tbusuario b on a.idUser = b.idUser 
+              inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
+              inner join tbmatricula e on b.idUser = e.idUser
               WHERE a.idReq = ?")){
     $query->bind_param('si', $_SESSION['chave'], $id);
     $query->execute(); 
@@ -16,7 +16,7 @@ $id = (isset($_GET['id']))? $_GET['id'] : NULL;
     $query->fetch();
     $query->close();
     }
-    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbTelefone WHERE idUser = ?")){
+    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbtelefone WHERE idUser = ?")){
     $query->bind_param('si', $_SESSION['chave'], $idUser);
     $query->execute();
     $query->bind_result($numTelefone);

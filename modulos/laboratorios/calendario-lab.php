@@ -17,16 +17,16 @@
   $auxDb = Atalhos::getBanco();
   if(isset($filtro) AND $filtro != "Todos"){
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, h.nomeLab, a.tituloReLab
-      FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser
-      inner join tbLaboratorio h on h.idLab = b.idLab inner join tbCor f on h.idCor = f.idCor
-      inner join tbData g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR b.statusData = 'Entregue')
+      FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser
+      inner join tblaboratorio h on h.idLab = b.idLab inner join tbcor f on h.idCor = f.idCor
+      inner join tbdata g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR b.statusData = 'Entregue')
       AND h.idLab = ? ORDER BY h.idLab DESC");
     $aux->bind_param('i', $filtro);
   }else{
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, h.nomeLab, a.tituloReLab
-      FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser
-      inner join tbLaboratorio h on h.idLab = b.idLab inner join tbCor f on h.idCor = f.idCor
-      inner join tbData g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue'
+      FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser
+      inner join tblaboratorio h on h.idLab = b.idLab inner join tbcor f on h.idCor = f.idCor
+      inner join tbdata g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue'
       ORDER BY h.idLab DESC");
   }
   $aux->execute();
@@ -73,7 +73,7 @@
                       <select name="filtro" class="form-control pull-right" onchange="this.form.submit()"
                           style="width: 200px;" >
                             <?php
-                              if($query = $db->prepare("SELECT idLab, nomeLab FROM tbLaboratorio WHERE statusLab = 'Ativo'")){
+                              if($query = $db->prepare("SELECT idLab, nomeLab FROM tblaboratorio WHERE statusLab = 'Ativo'")){
                                 $query->execute();
                                 $query->bind_result($idLab, $nomeLab);
                                 echo '<option value="Todos">Todos</option>';
@@ -127,7 +127,7 @@
                         <select name="disciplina" id="disciplina" class="form-control select2">
                           <option value="">Selecione uma Disciplina:</option>
                           <?php
-                            if ($dis = $db->prepare("SELECT nome, codigo FROM tbDisciplinas WHERE status = 'Ativo' ORDER BY nome ASC")){
+                            if ($dis = $db->prepare("SELECT nome, codigo FROM tbdisciplinas WHERE status = 'Ativo' ORDER BY nome ASC")){
                                 $dis->execute();
                                 $dis->bind_result($nome, $codigo);
                                 while ($dis->fetch()){
@@ -172,7 +172,7 @@
                       <option value="0">Não relacionar (A reserva sairá no seu nome)</option>
                       <?php
                         $db = Atalhos::getBanco();
-                        if($query = $db->prepare("SELECT a.idUser, a.nomeUser FROM tbUsuario a inner join tbAfiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 3 AND a.statusUser = 'Ativo'")){
+                        if($query = $db->prepare("SELECT a.idUser, a.nomeUser FROM tbusuario a inner join tbafiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 3 AND a.statusUser = 'Ativo'")){
                               $query->execute();
                               $query->bind_result($idUser, $nomeUser);
                         }
@@ -239,8 +239,8 @@
                       echo '<span class="label" style="background-color: #22313F;">Reservas pendentes</span><br>';
                     }
 
-                  if ($query = $db->prepare("SELECT a.nomeLab, b.cor, a.capAluno, a.numComp FROM tbLaboratorio a
-                    inner join tbCor b on a.idCor = b.idCor WHERE a.statusLab='Ativo' ORDER BY a.idLab ASC")){
+                  if ($query = $db->prepare("SELECT a.nomeLab, b.cor, a.capAluno, a.numComp FROM tblaboratorio a
+                    inner join tbcor b on a.idCor = b.idCor WHERE a.statusLab='Ativo' ORDER BY a.idLab ASC")){
                     $query->execute();
                     $query->bind_result($nomeLab, $cor, $capAluno, $numComp);
                     while ($query->fetch()) {
@@ -402,8 +402,8 @@
               */
               if($_SESSION['logado'] && $_SESSION['nivel'] == 1){
                 $aux = $auxDb->prepare("SELECT a.idReLab, g.inicio, g.fim, d.nomeUser, a.motivoReLab, a.tituloReLab
-                    FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser
-                    inner join tbData g on b.idData = g.idData WHERE b.idLab = 0 AND b.statusData = 'Pendente'");
+                    FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser
+                    inner join tbdata g on b.idData = g.idData WHERE b.idLab = 0 AND b.statusData = 'Pendente'");
                 $aux->execute();
                 $aux->bind_result($idReLab, $inicio, $fim, $nomeUser, $motivoReLab, $tituloReLab);
                 $aux->store_result();
@@ -461,7 +461,7 @@
 
     var counter = 1;
     var limit = <?php
-                if ($query = $db->prepare("SELECT idLab FROM tbLaboratorio WHERE statusLab = 'Ativo'")){
+                if ($query = $db->prepare("SELECT idLab FROM tblaboratorio WHERE statusLab = 'Ativo'")){
                   $query->execute();
                   $query->store_result();
                   echo $query->num_rows();

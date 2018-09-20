@@ -9,7 +9,7 @@
     $db = Atalhos::getBanco();
     $link = '/inclusao/moderar';
     $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
-    if ($query = $db->prepare("SELECT idInc FROM tbInclusao")){
+    if ($query = $db->prepare("SELECT idInc FROM tbinclusao")){
         $query->execute();
         $query->store_result();
         $total = $query->num_rows;
@@ -22,7 +22,7 @@
         $inicio = (NumReg*$pagina)-NumReg;
         $query->free_result();
         $query->close();
-        if ($query = $db->prepare("SELECT idInc, matricula, curso, disciplina, codigo, turma, periodo, status, dataEnvio FROM tbInclusao
+        if ($query = $db->prepare("SELECT idInc, matricula, curso, disciplina, codigo, turma, periodo, status, dataEnvio FROM tbinclusao
           ORDER BY status, dataEnvio ASC LIMIT ?,".NumReg)){
           $query->bind_param('i', $inicio);
           $query->execute();
