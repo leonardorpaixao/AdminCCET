@@ -4,7 +4,7 @@
 
     $db = Atalhos::getBanco();
     if ($query = $db->prepare("SELECT idUser, idTemp
-              FROM tbrequerimentos a
+              FROM tbRequerimentos a
               WHERE a.idReq = ?")){
     $query->bind_param('i', $id);
     $query->execute(); 
@@ -14,10 +14,10 @@
     }
     if($idUser){ //SE FOR UM FORM DE UM ALUNO DO DCOMP
     	if ($query = $db->prepare("SELECT a.conteudoReq, b.nomeUser, AES_DECRYPT(b.email,?), c.afiliacao, a.tipoReq, b.idUser, a.statusReq, e.matricula, a.justificativaReq
-              FROM tbrequerimentos a
-              inner join tbusuario b on a.idUser = b.idUser 
-              inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
-              inner join tbmatricula e on b.idUser = e.idUser
+              FROM tbRequerimentos a
+              inner join tbUsuario b on a.idUser = b.idUser 
+              inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
+              inner join tbMatricula e on b.idUser = e.idUser
               WHERE a.idReq = ?")){
 		    $query->bind_param('si', $_SESSION['chave'], $id);
 		    $query->execute(); 
@@ -25,7 +25,7 @@
 		    $query->fetch();
 		    $query->close();
 	    }
-	    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbtelefone WHERE idUser = ?")){
+	    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbTelefone WHERE idUser = ?")){
 		    $query->bind_param('si', $_SESSION['chave'], $idUser);
 		    $query->execute();
 		    $query->bind_result($numTelefone);
@@ -35,8 +35,8 @@
 	    $conteudo = explode("/+", $conteudoReq);
     } elseif($idTemp){ // SE FOR UM FORM DE UM ALUNO TEMPORÁRIO
     	if ($query = $db->prepare("SELECT a.conteudoReq, b.nome, AES_DECRYPT(b.email,?), b.curso, a.tipoReq, a.statusReq, b.matricula, AES_DECRYPT(b.telefone,?)
-              FROM tbrequerimentos a
-              inner join tbtemporarios b on a.idTemp = b.idTemp 
+              FROM tbRequerimentos a
+              inner join tbTemporarios b on a.idTemp = b.idTemp 
               WHERE a.idReq = ?")){
 		    $query->bind_param('ssi', $_SESSION['chave'], $_SESSION['chave'], $id);
 		    $query->execute(); 
@@ -51,7 +51,7 @@
     
     if(($_SESSION['nivel'] == '1' || $_SESSION['id'] == $conteudo[4] || $_SESSION['id'] == $idUser) && ($tipoReq == 3)){
 		$db = Atalhos::getBanco();
-        if($query = $db->prepare("SELECT codigo, nome FROM tbdisciplinas WHERE idDisc = ? LIMIT 1")){
+        if($query = $db->prepare("SELECT codigo, nome FROM tbDisciplinas WHERE idDisc = ? LIMIT 1")){
         	 	$query->bind_param('i', $conteudo[2]);
               	$query->execute();
               	$query->bind_result($codDisciplina, $nomeDisciplina);
@@ -62,7 +62,7 @@
 		if($conteudo[4] == 0)
 			$professor = $conteudo[5];
 		else{
-			$query = $db->prepare("SELECT nomeUser FROM tbusuario WHERE idUser = ?");
+			$query = $db->prepare("SELECT nomeUser FROM tbUsuario WHERE idUser = ?");
 	        $query->bind_param('i', $conteudo[4]);
 	        $query->execute();
 	        $query->bind_result($professor);

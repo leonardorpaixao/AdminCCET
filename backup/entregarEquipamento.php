@@ -33,7 +33,7 @@
             <?php
               $j = 1;
               if ($query = $db->prepare("SELECT a.numReEq, b.tipoEq, a.idTipoEq 
-                  FROM tbreservatipoeq a inner join tbtipoeq b on a.idTipoEq = b.idTipoEq
+                  FROM tbReservaTipoEq a inner join tbTipoEq b on a.idTipoEq = b.idTipoEq
                   WHERE a.idReEq = ?")){
                 $query->bind_param('i', $_GET['idReEq']);
                 $query->execute();
@@ -42,7 +42,7 @@
                 while($query->fetch()){
                   if($numReEq > 1){
                     for($i = 1; $i <= $numReEq; $i++){
-                      if ($aux = $aux_db->prepare("SELECT patrimonio, modelo FROM tbequipamento 
+                      if ($aux = $aux_db->prepare("SELECT patrimonio, modelo FROM tbEquipamento 
                         WHERE statusEq='Ativo' AND idTipoEq= ?")){
                         $aux->bind_param('i', $idTipoEq);
                         $aux->execute();
@@ -60,7 +60,7 @@
                       $aux->close();
                     }
                   }else{
-                    if ($aux = $aux_db->prepare("SELECT patrimonio, modelo FROM tbequipamento 
+                    if ($aux = $aux_db->prepare("SELECT patrimonio, modelo FROM tbEquipamento 
                       WHERE statusEq='Ativo' AND idTipoEq = ?")){
                       $aux->bind_param('i', $idTipoEq);
                       $aux->execute();

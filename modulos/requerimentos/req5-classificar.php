@@ -12,7 +12,7 @@
     $_SESSION['irPara'] = '/requerimentos/classificar';
     $db = Atalhos::getBanco();
     $link = '/requerimentos/classificar';
-    if($query = $db->prepare("SELECT a.idReq, a.dataReq, a.statusReq, a.tipoReq, a.conteudoReq, a.justificativaReq, b.matricula FROM tbrequerimentos a JOIN tbmatricula b ON a.idUser = b.idUser AND a.tipoReq = 5 UNION SELECT a.idReq, a.dataReq, a.statusReq, a.tipoReq, a.conteudoReq, a.justificativaReq, b.matricula FROM tbrequerimentos a JOIN tbtemporarios b ON a.idTemp = b.idTemp AND a.tipoReq = 5 ORDER BY idReq DESC LIMIT 300")){
+    if($query = $db->prepare("SELECT a.idReq, a.dataReq, a.statusReq, a.tipoReq, a.conteudoReq, a.justificativaReq, b.matricula FROM tbRequerimentos a JOIN tbMatricula b ON a.idUser = b.idUser AND a.tipoReq = 5 UNION SELECT a.idReq, a.dataReq, a.statusReq, a.tipoReq, a.conteudoReq, a.justificativaReq, b.matricula FROM tbRequerimentos a JOIN tbTemporarios b ON a.idTemp = b.idTemp AND a.tipoReq = 5 ORDER BY idReq DESC LIMIT 300")){
       $query->execute();
       $query->bind_result($idReq, $dataReq, $statusReq, $tipoReq, $conteudoReq, $justificativaReq, $matricula);
     }

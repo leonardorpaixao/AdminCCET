@@ -114,7 +114,7 @@
             <!-- COMEÇO AVISOS DCOMP -->
             
             <?php 
-                if ($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbavisos WHERE statusAviso = 'Ativo'")){ 
+                if ($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbAvisos WHERE statusAviso = 'Ativo'")){ 
                         $query->execute();
                         $query->bind_result($id, $titulo, $texto);
                         $query->store_result();
@@ -228,7 +228,7 @@
                 $dateNow = date("Y-m-d H:i:s", strtotime("now"));
                 $date24h = date("Y-m-d H:i:s", strtotime("+24 hour", strtotime($dateNow)));
 				$dbaux =  Atalhos::getBanco();
-                if ($aux = $dbaux->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, a.tipoReLab, h.nomeLab, a.tituloReLab FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser inner join tblaboratorio h on h.idLab = b.idLab inner join tbcor f on h.idCor = f.idCor inner join tbdata g on b.idData = g.idData WHERE ((b.statusData = 'Aprovado') OR (b.statusData = 'Entregue')) AND (g.inicio >= ? AND g.inicio <= ?)")){ //COLOCAR WHERE PARA PEGAR SÓ O DIA DE HOJE
+                if ($aux = $dbaux->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, a.tipoReLab, h.nomeLab, a.tituloReLab FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser inner join tbLaboratorio h on h.idLab = b.idLab inner join tbCor f on h.idCor = f.idCor inner join tbData g on b.idData = g.idData WHERE ((b.statusData = 'Aprovado') OR (b.statusData = 'Entregue')) AND (g.inicio >= ? AND g.inicio <= ?)")){ //COLOCAR WHERE PARA PEGAR SÓ O DIA DE HOJE
                     $aux->bind_param('ss', $dateNow, $date24h);
                     $aux->execute();
                     $aux->bind_result($inicio, $fim, $nomeUser, $cor, $motivoReLab, $tipoReLab, $nomeLab, $tituloReLab);

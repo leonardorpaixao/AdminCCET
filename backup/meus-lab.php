@@ -19,21 +19,21 @@
 	$db = Atalhos::getBanco();
 	if(isset($busca)){
 		if(isset($filtro) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReLab FROM tbreservalab a WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?)
-				OR (a.motivoReLab LIKE ?)) AND EXISTS (SELECT y.idReLab FROM tbcontroledatalab y 
+			$query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?)
+				OR (a.motivoReLab LIKE ?)) AND EXISTS (SELECT y.idReLab FROM tbControleDataLab y 
 				WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
 			$query->bind_param('isss', $_SESSION['id'], $auxbusca, $auxbusca, $filtro);
 		}else{
-			$query = $db->prepare("SELECT a.idReLab FROM tbreservalab a WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?)
+			$query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?)
 				OR (a.motivoReLab LIKE ?))");
 			$query->bind_param('iss', $_SESSION['id'], $auxbusca, $auxbusca);
 		}
 	}elseif(isset($filtro) && $filtro != 'Todos'){
-		$query = $db->prepare("SELECT a.idReLab FROM tbreservalab a WHERE a.idUser = ? AND EXISTS (SELECT y.idReLab 
-			FROM tbcontroledatalab y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
+		$query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a WHERE a.idUser = ? AND EXISTS (SELECT y.idReLab 
+			FROM tbControleDataLab y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
 		$query->bind_param('is', $_SESSION['id'], $filtro);
 	}else{
-		$query = $db->prepare("SELECT a.idReLab FROM tbreservalab a WHERE a.idUser = ?");
+		$query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a WHERE a.idUser = ?");
 		$query->bind_param('i', $_SESSION['id']);
 	}		
 	$query->execute();
@@ -49,24 +49,24 @@
 		$query->close();
 		if(isset($busca)){
 			if(isset($filto) && $filtro != 'Todos'){
-				$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbreservalab a 
+				$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbReservaLab a 
 					WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?) OR (a.motivoReLab LIKE ?)) AND EXISTS (SELECT y.idReLab 
-					FROM tbcontroledatalab y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?)) 
+					FROM tbControleDataLab y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?)) 
 					ORDER BY idReLab DESC LIMIT ?,".NumReg);
 				$query->bind_param('isssi', $_SESSION['id'], $auxbusca, $auxbusca, $filtro, $inicio);
 			}else{
-				$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbreservalab a 
+				$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbReservaLab a 
 					WHERE a.idUser = ? AND ((a.tituloReLab LIKE ?)OR (a.motivoReLab LIKE ?)) 
 					ORDER BY idReLab DESC LIMIT ?,".NumReg);
 				$query->bind_param('issi', $_SESSION['id'], $auxbusca, $auxbusca, $inicio);
 			}
 		}elseif(isset($filto) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbreservalab a 
-				WHERE a.idUser = ? AND EXISTS (SELECT y.idReLab FROM tbcontroledatalab y WHERE (a.idReLab = y.idReLab) 
+			$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbReservaLab a 
+				WHERE a.idUser = ? AND EXISTS (SELECT y.idReLab FROM tbControleDataLab y WHERE (a.idReLab = y.idReLab) 
 				AND (y.statusData = ?)) ORDER BY idReLab DESC LIMIT ?,".NumReg);
 			$query->bind_param('isi', $_SESSION['id'], $filtro, $inicio);
 		}else{
-			$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbreservalab a 
+			$query = $db->prepare("SELECT a.idReLab, a.motivoReLab, a.tipoReLab, a.numPc, a.tituloReLab FROM tbReservaLab a 
 				WHERE a.idUser = ? ORDER BY idReLab DESC LIMIT ?,".NumReg);
 			$query->bind_param('ii', $_SESSION['id'], $inicio);
 		}
@@ -124,13 +124,13 @@
 			                      		while($query->fetch()){
 					                        if(isset($filto) && $filtro != 'Todos'){
 				                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, a.nomeLab, y.idData 
-				                      				FROM tbcontroledatalab y inner join tbdata f on y.idData = f.idData inner join tblaboratorio a 
+				                      				FROM tbControleDataLab y inner join tbData f on y.idData = f.idData inner join tbLaboratorio a 
 				                      				on a.idLab = y.idLab WHERE y.idReLab = ? AND y.statusData = ? ORDER BY y.statusData ASC")){
 				                      				$aux->bind_param('is', $idReLab, $filto);
 				                      			}
 				                      		}else{
 				                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, a.nomeLab, y.idData 
-				                      				FROM tbcontroledatalab y inner join tbdata f on y.idData = f.idData inner join tblaboratorio a 
+				                      				FROM tbControleDataLab y inner join tbData f on y.idData = f.idData inner join tbLaboratorio a 
 				                      				on a.idLab = y.idLab WHERE y.idReLab = ? ORDER BY y.statusData ASC")){
 				                      				$aux->bind_param('i', $idReLab);
 				                      			}

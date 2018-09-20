@@ -9,7 +9,7 @@
   include '../../includes/menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare("SELECT idTermo, termo FROM tbtermo ORDER BY idTermo LIMIT 1")){
+  if ($query = $db->prepare("SELECT idTermo, termo FROM tbTermo ORDER BY idTermo LIMIT 1")){
     $query->execute();
     $query->bind_result($id, $termo);
     $query->fetch();

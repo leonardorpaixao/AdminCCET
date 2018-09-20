@@ -67,7 +67,7 @@
         <div class="row">
             <?php
               $db = Atalhos::getBanco();
-              if($query = $db->prepare("SELECT idPrazo, nome, inicio, fim, logado FROM tbprazo ORDER BY logado DESC, fim ASC")){
+              if($query = $db->prepare("SELECT idPrazo, nome, inicio, fim, logado FROM tbPrazo ORDER BY logado DESC, fim ASC")){
                     $query->execute();
                     $query->bind_result($idPrazo, $nome, $inicio, $fim, $logado);
               }

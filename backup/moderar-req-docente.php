@@ -12,7 +12,7 @@
     $_SESSION['irPara'] = '/requerimentos/moderar/docente';
     $db = Atalhos::getBanco();
     $link = '/requerimentos/moderar/docente';
-    if($query = $db->prepare("SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, c.nomeUser FROM tbrequerimentos a JOIN tbmatricula b ON a.idUser = b.idUser AND a.tipoReq != 5 JOIN tbusuario c ON a.idUser = c.idUser WHERE a.idReq IN (SELECT idReq FROM tbreqs_professor WHERE idProfessor = {$_SESSION['id']}) UNION SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, b.nome FROM tbrequerimentos a JOIN tbtemporarios b ON a.idTemp = b.idTemp AND a.tipoReq != 5 WHERE a.idReq IN (SELECT idReq FROM tbreqs_professor WHERE idProfessor = {$_SESSION['id']})")){
+    if($query = $db->prepare("SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, c.nomeUser FROM tbRequerimentos a JOIN tbMatricula b ON a.idUser = b.idUser AND a.tipoReq != 5 JOIN tbUsuario c ON a.idUser = c.idUser WHERE a.idReq IN (SELECT idReq FROM tbReqs_professor WHERE idProfessor = {$_SESSION['id']}) UNION SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, b.nome FROM tbRequerimentos a JOIN tbTemporarios b ON a.idTemp = b.idTemp AND a.tipoReq != 5 WHERE a.idReq IN (SELECT idReq FROM tbReqs_professor WHERE idProfessor = {$_SESSION['id']})")){
       $query->execute();
       $query->bind_result($idReq, $conteudoReq, $dataReq, $statusReq, $tipoReq, $justificativaReq, $matricula, $nome);
     }

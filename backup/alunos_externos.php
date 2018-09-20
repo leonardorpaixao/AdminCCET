@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
   $link = '/recursos/alunos_externos';
-  if($query = $db->prepare("SELECT a.idTemp, a.nome, a.matricula, AES_DECRYPT(a.email, ?), a.curso FROM tbtemporarios a ORDER BY a.nome")){
+  if($query = $db->prepare("SELECT a.idTemp, a.nome, a.matricula, AES_DECRYPT(a.email, ?), a.curso FROM tbTemporarios a ORDER BY a.nome")){
     $query->bind_param('s', $_SESSION['chave']);
     $query->execute();
     $query->bind_result($idUser, $nomeUser, $matricula, $email, $curso);

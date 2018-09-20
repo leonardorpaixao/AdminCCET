@@ -10,7 +10,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
 
-  if($query = $db->prepare("SELECT idCor, cor FROM tbcor")){
+  if($query = $db->prepare("SELECT idCor, cor FROM tbCor")){
     $query->execute();
     $query->bind_result($idCor, $cor);
   } 

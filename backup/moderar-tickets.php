@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = atalhos::getBanco();
   $link = '/tickets/moderar';
-	if($query = $db->prepare("SELECT a.idTicket, a.idAssunto, a.tituloTicket, a.data, a.statusTicket, b.nomeUser, a.idUser, a.avalicao FROM tbticket a inner join tbusuario b on a.idUser = b.idUser ORDER BY a.statusTicket ASC")){
+	if($query = $db->prepare("SELECT a.idTicket, a.idAssunto, a.tituloTicket, a.data, a.statusTicket, b.nomeUser, a.idUser, a.avalicao FROM tbTicket a inner join tbUsuario b on a.idUser = b.idUser ORDER BY a.statusTicket ASC")){
     $query->execute();
     $query->bind_result($idTicket, $idAssunto, $titulo, $data, $status, $nome, $idUser, $avalicao);
   }
@@ -20,21 +20,21 @@
   $mediaAtend = atalhos::mediaAtendimento();
   //Numero de Tickets Pendentes
   $db_aux = atalhos::getBanco();
-  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Em Analise'")){
+  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Em Analise'")){
     $aux->execute();
     $aux->store_result();
     $ticketsPendentes = $aux->num_rows;
     $aux->close();
   }
   //Numero de Tickets Respondidos
-  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Respondido'")){
+  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Respondido'")){
     $aux->execute();
     $aux->store_result();
     $ticketsRespondidos = $aux->num_rows;
     $aux->close();
   }
   //Numero de Tickets Concluídos
-  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Concluido'")){
+  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Concluido'")){
     $aux->execute();
     $aux->store_result();
     $ticketsConcluidos = $aux->num_rows;

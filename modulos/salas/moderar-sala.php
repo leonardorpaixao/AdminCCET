@@ -18,21 +18,21 @@
 	$db = Atalhos::getBanco();
 	if(isset($busca)){
 		if(isset($filtro) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser 
+			$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser 
 				WHERE ((a.tituloReSala LIKE ?) OR (e.nomeUser LIKE ?) OR (e.cpf LIKE ?)) AND EXISTS (SELECT y.idReSala 
-				FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
+				FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
 			$query->bind_param('ssss', $auxbusca, $auxbusca, $filtro);
 		}else{
-			$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser 
+			$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser 
 				WHERE ((a.tituloReSala LIKE ?) OR (e.nomeUser LIKE ?) OR (e.cpf LIKE ?))");
 			$query->bind_param('sss', $auxbusca, $auxbusca, $auxbusca);
 		}
 	}elseif(isset($filtro) && $filtro != 'Todos'){
-		$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a WHERE EXISTS (SELECT y.idReSala 
-			FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
+		$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a WHERE EXISTS (SELECT y.idReSala 
+			FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
 		$query->bind_param('s', $filtro);
 	}else{
-		$query = $db->prepare("SELECT idReSala FROM tbreservasala");
+		$query = $db->prepare("SELECT idReSala FROM tbReservaSala");
 	}	
 	$query->execute();
 	$query->store_result();
@@ -49,27 +49,27 @@
     	if(isset($busca)){
 			if(isset($filtro) && $filtro != 'Todos'){
 				$query = $db->prepare("SELECT a.motivoReSala, a.idReSala, e.nomeUser, e.idUser, a.tituloReSala, b.nomeSala 
-					FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser inner join tbsala b on b.idSala = a.idSala
+					FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser inner join tbSala b on b.idSala = a.idSala
 					WHERE ((a.tituloReSala LIKE ?) OR (e.nomeUser LIKE ?) OR (e.cpf LIKE ?)) AND EXISTS (SELECT y.idReSala 
-					FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?) ORDER BY a.expirarReSala DESC
+					FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?) ORDER BY a.expirarReSala DESC
 					LIMIT ?,".NumReg);
 				$query->bind_param('ssssi', $auxbusca, $auxbusca, $auxbusca, $filtro, $inicio);
 			}else{
 				$query = $db->prepare("SELECT a.motivoReSala, a.idReSala, e.nomeUser, e.idUser, a.tituloReSala, b.nomeSala 
-					FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser inner join tbsala b on b.idSala = a.idSala
+					FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser inner join tbSala b on b.idSala = a.idSala
 					WHERE ((a.tituloReSala LIKE ?) OR (e.nomeUser LIKE ?) OR (e.cpf LIKE ?)) ORDER BY a.expirarReSala DESC
 					LIMIT ?,".NumReg);
 				$query->bind_param('sssi', $auxbusca, $auxbusca, $auxbusca, $inicio);
 			}
 		}elseif(isset($filtro) && $filtro != 'Todos'){
 			$query = $db->prepare("SELECT a.motivoReSala, a.idReSala, e.nomeUser, e.idUser, a.tituloReSala, b.nomeSala 
-				FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser inner join tbsala b on b.idSala = a.idSala
-				WHERE EXISTS (SELECT y.idReSala FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)
+				FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser inner join tbSala b on b.idSala = a.idSala
+				WHERE EXISTS (SELECT y.idReSala FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)
 				ORDER BY a.expirarReSala DESC LIMIT ?,".NumReg);
 			$query->bind_param('si', $filtro, $inicio);
 		}else{
 			$query = $db->prepare("SELECT a.motivoReSala, a.idReSala, e.nomeUser, e.idUser, a.tituloReSala, b.nomeSala 
-				FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser inner join tbsala b on b.idSala = a.idSala
+				FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser inner join tbSala b on b.idSala = a.idSala
 				ORDER BY a.expirarReSala DESC LIMIT ?,".NumReg);
 			$query->bind_param('i', $inicio);
 		}
@@ -77,8 +77,8 @@
 		$query->bind_result($motivoReSala, $idReSala, $nomeUser, $idUser, $tituloReSala, $nomeSala);
 	}
 	$auxDb = Atalhos::getBanco();
-	if($aux = $auxDb->prepare("SELECT a.idReSala, a.idData FROM tbcontroledatasala a WHERE statusData='Expirado' AND EXISTS 
-		(SELECT b.idReSala FROM tbchoquesala b WHERE (a.idReSala = b.idReSala AND a.idData = a.idData) OR 
+	if($aux = $auxDb->prepare("SELECT a.idReSala, a.idData FROM tbControleDataSala a WHERE statusData='Expirado' AND EXISTS 
+		(SELECT b.idReSala FROM tbChoqueSala b WHERE (a.idReSala = b.idReSala AND a.idData = a.idData) OR 
 		(a.idReSala = b.idChoqueReSala AND a.idData = b.idChoqueData))")){
 		$aux->execute();
 		$aux->bind_result($idRe, $idData);
@@ -90,7 +90,7 @@
 		$aux->close();
 	}
 	$ch = Atalhos::getBanco();
-	if($choque = $ch->prepare("SELECT idReSala, idData, idChoqueReSala, idChoqueData FROM tbchoquesala")){
+	if($choque = $ch->prepare("SELECT idReSala, idData, idChoqueReSala, idChoqueData FROM tbChoqueSala")){
 		$choque->execute();
 		$choque->bind_result($idReSala, $idData, $idChoqueReSala, $idChoqueData);
 		$choque->store_result();
@@ -210,13 +210,13 @@
 						                      		while($query->fetch()){
 								                        if(isset($filto) && $filtro != 'Todos'){
 							                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-							                      				FROM tbcontroledatasala y inner join tbdata f on y.idData = f.idData WHERE y.idReSala = ? 
+							                      				FROM tbControleDataSala y inner join tbData f on y.idData = f.idData WHERE y.idReSala = ? 
 							                      				AND y.statusData = ? ORDER BY y.statusData ASC")){
 							                      				$aux->bind_param('is', $idReSala, $filto);
 							                      			}
 							                      		}else{
 							                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-							                      				FROM tbcontroledatasala y inner join tbdata f on y.idData = f.idData WHERE y.idReSala = ? 
+							                      				FROM tbControleDataSala y inner join tbData f on y.idData = f.idData WHERE y.idReSala = ? 
 							                      				ORDER BY y.statusData ASC")){
 							                      				$aux->bind_param('i', $idReSala);
 							                      			}
@@ -453,9 +453,9 @@
 				                    		while($choque->fetch()){
 				                    			if($anterior[0] != $idReSala || $anterior[1] != $idData){
 				                    				if($aux = $auxDb->prepare("SELECT a.motivoReSala, e.nomeUser, e.idUser, d.idSala, d.nomeSala, a.tituloReSala, 
-				                    					c.inicio, c.fim, b.statusData FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser 
-				                    					inner join tbcontroledatasala b on b.idReSala = a.idReSala inner join tbdata c on c.idData = b.idData
-				                    					inner join tbsala d on d.idSala = a.idSala WHERE a.idReSala = ? AND b.idData = ?")){
+				                    					c.inicio, c.fim, b.statusData FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser 
+				                    					inner join tbControleDataSala b on b.idReSala = a.idReSala inner join tbData c on c.idData = b.idData
+				                    					inner join tbSala d on d.idSala = a.idSala WHERE a.idReSala = ? AND b.idData = ?")){
 					                      				$aux->bind_param('ii', $idReSala, $idData);
 					                      				$aux->execute();
                       									$aux->bind_result($motivoReSala, $nomeUser, $idUser, $idSala, $nomeSala, $tituloReSala, $inicio, $fim
@@ -499,9 +499,9 @@
 													$anterior[1] = $idData;
 				                    			}
 				                    			if($aux = $auxDb->prepare("SELECT a.motivoReSala, e.nomeUser, e.idUser, d.idSala, d.nomeSala, a.tituloReSala, 
-			                    					c.inicio, c.fim, b.statusData FROM tbreservasala a inner join tbusuario e on a.idUser = e.idUser 
-			                    					inner join tbcontroledatasala b on b.idReSala = a.idReSala inner join tbdata c on c.idData = b.idData
-			                    					inner join tbsala d on d.idSala = a.idSala WHERE a.idReSala = ? AND b.idData = ?")){
+			                    					c.inicio, c.fim, b.statusData FROM tbReservaSala a inner join tbUsuario e on a.idUser = e.idUser 
+			                    					inner join tbControleDataSala b on b.idReSala = a.idReSala inner join tbData c on c.idData = b.idData
+			                    					inner join tbSala d on d.idSala = a.idSala WHERE a.idReSala = ? AND b.idData = ?")){
 				                      				$aux->bind_param('ii', $idChoqueReSala, $idChoqueData);
 				                      				$aux->execute();
                   									$aux->bind_result($motivoReSala, $nomeUser, $idUser, $idSala, $nomeSala, $tituloReSala, $inicio, $fim

@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   
   $db = atalhos::getBanco();
-  if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbavisos ORDER BY statusAviso ASC")){
+  if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbAvisos ORDER BY statusAviso ASC")){
     $query->execute();
     $query->store_result();
     $total = $query->num_rows;
@@ -50,7 +50,7 @@
                     </tr>
                   </thead>
                   <?php
-                    if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbavisos ORDER BY statusAviso ASC")){
+                    if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbAvisos ORDER BY statusAviso ASC")){
                       $query->execute();
                       $query->bind_result($idAviso, $tituloAviso, $dataAviso, $statusAviso);
                     while ($query->fetch()) {

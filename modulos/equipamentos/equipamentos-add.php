@@ -51,7 +51,7 @@
               $db = Atalhos::getBanco();
               echo '<option value="">Selecionar Tipo</option>';
               echo '<option value="0">Adicinar Novo Tipo</option>';
-               if ($query = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbtipoeq 
+               if ($query = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbTipoEq 
 									WHERE numEq > 0 ORDER BY idTipoEq ASC")){
                   $query->execute();
                   $query->bind_result($idTipoEq, $tipoEq, $numEq);

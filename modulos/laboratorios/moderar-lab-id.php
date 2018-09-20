@@ -10,7 +10,7 @@
   }
 
   $auxDb = Atalhos::getBanco();
-  if($aux = $auxDb->prepare("SELECT a.idUser, a.tituloReLab, a.motivoReLab, b.nomeUser, c.idLab FROM tbreservalab a INNER JOIN tbusuario b ON a.idUser = b.idUser NATURAL JOIN tbcontroledatalab c WHERE idReLab = ?")){
+  if($aux = $auxDb->prepare("SELECT a.idUser, a.tituloReLab, a.motivoReLab, b.nomeUser, c.idLab FROM tbReservaLab a INNER JOIN tbUsuario b ON a.idUser = b.idUser NATURAL JOIN tbControleDataLab c WHERE idReLab = ?")){
     $aux->bind_param('i', $idReserva);
     $aux->execute();
     $aux->bind_result($idUser, $tituloReLab, $motivoReLab, $nomeUser, $idLab);
@@ -34,7 +34,7 @@
   $link = '/laboratorios/moderar';
 
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idReLab, a.idData FROM tbcontroledatalab a NATURAL JOIN tbdata b WHERE a.idReLab = ? ORDER BY statusData ASC, inicio ASC")){
+  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idReLab, a.idData FROM tbControleDataLab a NATURAL JOIN tbData b WHERE a.idReLab = ? ORDER BY statusData ASC, inicio ASC")){
     $query->bind_param('i', $idReserva);
     $query->execute();
     $query->bind_result($inicio, $fim, $idReLab, $idData);
@@ -59,7 +59,7 @@
   $db->close();
 
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idLab, a.idReLab, a.idData FROM tbcontroledatalab a NATURAL JOIN tbdata b WHERE a.idReLab = ? ORDER BY statusData ASC, inicio ASC")){
+  if($query = $db->prepare("SELECT b.inicio, b.fim, a.idLab, a.idReLab, a.idData FROM tbControleDataLab a NATURAL JOIN tbData b WHERE a.idReLab = ? ORDER BY statusData ASC, inicio ASC")){
     $query->bind_param('i', $idReserva);
     $query->execute();
     $query->bind_result($inicio, $fim, $idLab, $idReLab, $idData);
@@ -136,7 +136,7 @@
               <option></option>
               <?php
                 foreach($insercaoLabs as $result) {
-                  if ($aux = $db->prepare("SELECT nomeLab, capAluno, numComp FROM tblaboratorio WHERE idLab = ?")){
+                  if ($aux = $db->prepare("SELECT nomeLab, capAluno, numComp FROM tbLaboratorio WHERE idLab = ?")){
                     $aux->bind_param("i", $result);
                     $aux->execute();
                     $aux->bind_result($nomeLab, $capAluno, $numComp);
@@ -237,7 +237,7 @@
                           <select class="form-control select2" name="'.$idData.'" id="'.$idData.'" style="width: 100%" required>
                             <option></option>';
                           foreach($disponiveis as $result) {
-                          if ($aux = $db->prepare("SELECT nomeLab, capAluno, numComp FROM tblaboratorio WHERE idLab = ?")){
+                          if ($aux = $db->prepare("SELECT nomeLab, capAluno, numComp FROM tbLaboratorio WHERE idLab = ?")){
                               $aux->bind_param("i", $result);
                               $aux->execute();
                               $aux->bind_result($nomeLab, $capAluno, $numComp);

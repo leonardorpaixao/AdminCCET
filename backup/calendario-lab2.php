@@ -12,16 +12,16 @@
   $auxDb = Atalhos::getBanco();
   if(isset($filtro) AND $filtro != "Todos"){
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, a.tipoReLab, h.nomeLab, a.tituloReLab 
-      FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser
-      inner join tblaboratorio h on h.idLab = b.idLab inner join tbcor f on h.idCor = f.idCor
-      inner join tbdata g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR b.statusData = 'Entregue') 
+      FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser
+      inner join tbLaboratorio h on h.idLab = b.idLab inner join tbCor f on h.idCor = f.idCor
+      inner join tbData g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR b.statusData = 'Entregue') 
       AND h.idLab = ? ORDER BY h.idLab DESC");
     $aux->bind_param('i', $filtro);
   }else{
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, a.tipoReLab, h.nomeLab, a.tituloReLab 
-      FROM tbreservalab a inner join tbcontroledatalab b on b.idReLab = a.idReLab inner join tbusuario d on a.idUser = d.idUser
-      inner join tblaboratorio h on h.idLab = b.idLab inner join tbcor f on h.idCor = f.idCor
-      inner join tbdata g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue' 
+      FROM tbReservaLab a inner join tbControleDataLab b on b.idReLab = a.idReLab inner join tbUsuario d on a.idUser = d.idUser
+      inner join tbLaboratorio h on h.idLab = b.idLab inner join tbCor f on h.idCor = f.idCor
+      inner join tbData g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue' 
       ORDER BY h.idLab DESC");
   }
   $aux->execute();
@@ -77,7 +77,7 @@
         							<select name="filtro" class="form-control pull-right" onchange="this.form.submit()" 
         									style="width: 200px;" >
                             <?php
-                              if($query = $db->prepare("SELECT idLab, nomeLab FROM tblaboratorio WHERE statusLab = 'Ativo'")){
+                              if($query = $db->prepare("SELECT idLab, nomeLab FROM tbLaboratorio WHERE statusLab = 'Ativo'")){
                                 $query->execute();
                                 $query->bind_result($idLab, $nomeLab);
                     					  echo '<option value="Todos">Todos</option>';
@@ -127,7 +127,7 @@
                         <label>Escolha um laboratório:</label>
                         <select name="lab1" id="lab1" class="form-control">
                           <?php
-                            if ($query = $db->prepare("SELECT idLab, nomeLab FROM tblaboratorio 
+                            if ($query = $db->prepare("SELECT idLab, nomeLab FROM tbLaboratorio 
                               WHERE statusLab = 'Ativo'")){
                               $query->execute();
                               $query->bind_result($idLab,$nomeLab);
@@ -212,8 +212,8 @@
               </div>
               <div class="box-body">
                 <?php
-					        if ($query = $db->prepare("SELECT a.nomeLab, b.cor FROM tblaboratorio a 
-										inner join tbcor b on a.idCor = b.idCor	WHERE a.statusLab='Ativo' ORDER BY a.idLab ASC")){
+					        if ($query = $db->prepare("SELECT a.nomeLab, b.cor FROM tbLaboratorio a 
+										inner join tbCor b on a.idCor = b.idCor	WHERE a.statusLab='Ativo' ORDER BY a.idLab ASC")){
                     $query->execute();
                     $query->bind_result($nomeLab, $cor);
                     while ($query->fetch()) {
@@ -358,7 +358,7 @@
     
     var counter = 1;
     var limit = <?php
-                if ($query = $db->prepare("SELECT idLAb FROM tblaboratorio WHERE statusLab = 'Ativo'")){
+                if ($query = $db->prepare("SELECT idLAb FROM tbLaboratorio WHERE statusLab = 'Ativo'")){
                   $query->execute();
                   $query->store_result();
                   echo $query->num_rows();
@@ -377,7 +377,7 @@
           +'<select name="lab'+counter+'" class="form-control">'
           +'<?php
             echo '<option value="">Nenhum</option>';
-            $query = $db->prepare("SELECT idLab, nomeLab FROM tblaboratorio WHERE statusLab = 'Ativo'");
+            $query = $db->prepare("SELECT idLab, nomeLab FROM tbLaboratorio WHERE statusLab = 'Ativo'");
             $query->execute();
             $query->bind_result($idLab, $nomeLab);
             while ($query->fetch()) {

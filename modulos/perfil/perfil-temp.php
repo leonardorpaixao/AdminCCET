@@ -13,7 +13,7 @@
   include '../../includes/menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare('SELECT a.idUser, nomeUser, login, statusUser, statusLogin, dataInicio, dataFim, sudo FROM tbusuarioTemp a INNER JOIN tbusuario b ON a.idUser = b.idUser WHERE a.idUser = ?')){
+  if ($query = $db->prepare('SELECT a.idUser, nomeUser, login, statusUser, statusLogin, dataInicio, dataFim, sudo FROM tbUsuarioTemp a INNER JOIN tbUsuario b ON a.idUser = b.idUser WHERE a.idUser = ?')){
     $query->bind_param('i', $_GET['id']);
     $query->execute();
     $query->bind_result($idConta, $nomeConta, $login, $statusUser, $numAcesso, $dataInicio, $dataFim, $sudo);

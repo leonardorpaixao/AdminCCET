@@ -12,7 +12,7 @@
     $_SESSION['irPara'] = '/requerimentos/moderar';
     $db = Atalhos::getBanco();
     $link = '/requerimentos/moderar';
-    if($query = $db->prepare("SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, c.nomeUser FROM tbrequerimentos a JOIN tbmatricula b ON a.idUser = b.idUser AND a.tipoReq != 5 JOIN tbusuario c ON a.idUser = c.idUser UNION SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, b.nome FROM tbrequerimentos a JOIN tbtemporarios b ON a.idTemp = b.idTemp AND a.tipoReq != 5")){
+    if($query = $db->prepare("SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, c.nomeUser FROM tbRequerimentos a JOIN tbMatricula b ON a.idUser = b.idUser AND a.tipoReq != 5 JOIN tbUsuario c ON a.idUser = c.idUser UNION SELECT a.idReq, a.conteudoReq, a.dataReq, a.statusReq, a.tipoReq, a.justificativaReq, b.matricula, b.nome FROM tbRequerimentos a JOIN tbTemporarios b ON a.idTemp = b.idTemp AND a.tipoReq != 5")){
       $query->execute();
       $query->bind_result($idReq, $conteudoReq, $dataReq, $statusReq, $tipoReq, $justificativaReq, $matricula, $nome);
     }

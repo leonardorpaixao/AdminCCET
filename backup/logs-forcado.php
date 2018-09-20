@@ -11,7 +11,7 @@
 	include 'menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if($query = $db->prepare("SELECT idLogs, ip, data, login FROM tblogsforcado")){
+  if($query = $db->prepare("SELECT idLogs, ip, data, login FROM tbLogsForcado")){
     $query->execute();
     $query->bind_result($idLogs, $ip, $data, $login);
   }

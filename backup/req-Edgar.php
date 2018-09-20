@@ -13,9 +13,9 @@
     $db = Atalhos::getBanco();
     
     if ($query = $db->prepare("SELECT b.nomeUser, AES_DECRYPT(b.email, ?), c.afiliacao, e.matricula
-      FROM tbusuario b
-      inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
-      inner join tbmatricula e on b.idUser = e.idUser
+      FROM tbUsuario b
+      inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
+      inner join tbMatricula e on b.idUser = e.idUser
       WHERE b.idUser = ?")){
       $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);             
       $query->execute();
@@ -24,7 +24,7 @@
       $query->close();
     }
 
-    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone, ?) FROM tbtelefone WHERE idUser = ?")){
+    if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone, ?) FROM tbTelefone WHERE idUser = ?")){
       $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);
       $query->execute();
       $query->bind_result($numTelefone);
@@ -128,10 +128,10 @@
         elseif($acao == 'edit' && (!is_null($id))){
             
             if ($query = $db->prepare("SELECT a.conteudoReq, a.idUser, b.nomeUser, AES_DECRYPT(b.email, ?), c.afiliacao, a.tipoReq, b.idUser, a.statusReq, e.matricula
-                        FROM tbrequerimentos a
-                        inner join tbusuario b on a.idUser = b.idUser 
-                        inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
-                        inner join tbmatricula e on b.idUser = e.idUser
+                        FROM tbRequerimentos a
+                        inner join tbUsuario b on a.idUser = b.idUser 
+                        inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
+                        inner join tbMatricula e on b.idUser = e.idUser
                         WHERE a.idReq = ?")){
               $query->bind_param('si', $_SESSION['chave'], $id);
               $query->execute(); 
@@ -139,7 +139,7 @@
               $query->fetch();
               $query->close();
             }
-            if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone, ?) FROM tbtelefone WHERE idUser = ?")){
+            if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone, ?) FROM tbTelefone WHERE idUser = ?")){
               $query->bind_param('si', $_SESSION['chave'], $idUser);
               $query->execute();
               $query->bind_result($numTelefone);

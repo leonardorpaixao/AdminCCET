@@ -31,9 +31,9 @@
           $id = (isset($_GET['id']))? $_GET['id'] : NULL;
           $db = Atalhos::getBanco();
           if ($query = $db->prepare("SELECT b.nomeUser, AES_DECRYPT(b.email,?), c.afiliacao, e.matricula
-              FROM tbusuario b
-              inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
-              inner join tbmatricula e on b.idUser = e.idUser
+              FROM tbUsuario b
+              inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
+              inner join tbMatricula e on b.idUser = e.idUser
               WHERE b.idUser = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);                
             $query->execute();
@@ -42,7 +42,7 @@
             $query->close();
           }
 
-          if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbtelefone WHERE idUser = ?")){
+          if ($query = $db->prepare("SELECT AES_DECRYPT(numTelefone,?) FROM tbTelefone WHERE idUser = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);
             $query->execute();
             $query->bind_result($numTelefone);
@@ -132,7 +132,7 @@
                       <option selected disabled>Selecione uma disciplina</option>
                       <?php
                         $db = Atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbdisciplinas WHERE status = 'Ativo'")){
+                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbDisciplinas WHERE status = 'Ativo'")){
                               $query->execute();
                               $query->bind_result($idDisc, $nome, $codigo, $carga);
                         }
@@ -173,10 +173,10 @@
           // INICIO DO FORMULÁRIO PARA EDIÇÃO DE USUÁRIO LOGADO
           elseif($acao == 'edit' && (!is_null($id))){
               if ($query = $db->prepare("SELECT a.conteudoReq, b.nomeUser, b.email, c.afiliacao, a.tipoReq, b.idUser, a.statusReq, e.matricula
-                          FROM tbrequerimentos a
-                          inner join tbusuario b on a.idUser = b.idUser 
-                          inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao
-                          inner join tbmatricula e on b.idUser = e.idUser
+                          FROM tbRequerimentos a
+                          inner join tbUsuario b on a.idUser = b.idUser 
+                          inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao
+                          inner join tbMatricula e on b.idUser = e.idUser
                           WHERE a.idReq = ?")){
                 $query->bind_param('i', $id);
                 $query->execute(); 
@@ -184,7 +184,7 @@
                 $query->fetch();
                 $query->close();
               }
-              if ($query = $db->prepare("SELECT numTelefone FROM tbtelefone WHERE idUser = ?")){
+              if ($query = $db->prepare("SELECT numTelefone FROM tbTelefone WHERE idUser = ?")){
                 $query->bind_param('i', $_SESSION['id']);
                 $query->execute();
                 $query->bind_result($numTelefone);
@@ -267,7 +267,7 @@
                       <option selected disabled>Selecione uma disciplina</option>
                       <?php
                         $db = Atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbdisciplinas WHERE status = 'Ativo'")){
+                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbDisciplinas WHERE status = 'Ativo'")){
                               $query->execute();
                               $query->bind_result($idDisc, $nome, $codigo, $carga);
                         }
@@ -374,7 +374,7 @@
                       <option selected disabled>Selecione uma disciplina</option>
                       <?php
                         $db = Atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbdisciplinas WHERE status = 'Ativo'")){
+                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbDisciplinas WHERE status = 'Ativo'")){
                               $query->execute();
                               $query->bind_result($idDisc, $nome, $codigo, $carga);
                         }

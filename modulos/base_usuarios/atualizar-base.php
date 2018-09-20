@@ -51,7 +51,7 @@
                 Última atualização realizada:<br>
                 <?php
                   $db = atalhos::getBanco();
-                  if ($query = $db->prepare("SELECT data FROM tbatualizacao ORDER BY idAtualizacao DESC LIMIT 1")){
+                  if ($query = $db->prepare("SELECT data FROM tbAtualizacao ORDER BY idAtualizacao DESC LIMIT 1")){
                     $query->execute();
                     $query->bind_result($data);
                     $query->fetch();

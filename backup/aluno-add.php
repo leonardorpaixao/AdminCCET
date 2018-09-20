@@ -62,7 +62,7 @@
                         echo '<option value="">Selecionar Afiliação</option>';
                         echo '<option value="-1">Adicinar Nova Afiliação</option>';
                         $db = Atalhos::getBanco();
-                        if ($query =  $db->prepare("SELECT idAfiliacao, afiliacao FROM tbafiliacao WHERE nivel = 4")){
+                        if ($query =  $db->prepare("SELECT idAfiliacao, afiliacao FROM tbAfiliacao WHERE nivel = 4")){
                           $query->execute();                        
                           $query->bind_result($idAfiliacao, $afiliacao);
                           while($query->fetch()){

@@ -11,7 +11,7 @@
   include '../../includes/menu.php';
   include '../../includes/barra.php';
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare("SELECT cor FROM tbcor")){
+  if ($query = $db->prepare("SELECT cor FROM tbCor")){
     $query->execute();
     $query->bind_result($cor);
   } 

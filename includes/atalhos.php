@@ -3,7 +3,7 @@
 		public static function updateUser($login, $password){
 			$db = Atalhos::getBanco();
 			//Faz uma busca pelo login
-			if($query = $db->prepare("SELECT idUser FROM tbusuario WHERE login = ? LIMIT 1")){
+			if($query = $db->prepare("SELECT idUser FROM tbUsuario WHERE login = ? LIMIT 1")){
 			    $query->bind_param('s', $login);
 			    $query->execute();
 			    $query->bind_result($idUser);
@@ -81,7 +81,7 @@
 			    		$nivel = 3;
 			    		$idAfiliacao = 1;
 		                $aux_db = Atalhos::getBanco();
-				    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+				    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 				    		$query->bind_param('ssiissss', $login, $nomeAux, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 				    		$query->execute();
 				    		$query->close();
@@ -91,32 +91,32 @@
 				    	$nivel = 4;
 						if($aux_curso == 'ENGENHARIA DE COMPUTAÇÃO' || $aux_curso == 'SISTEMAS DE INFORMAÇÃO' || $aux_curso == 'CIÊNCIA DA COMPUTAÇÃO'){
 				    		$auxCurso = $curso[0];
-				    		if($query = $db->prepare("SELECT idAfiliacao FROM tbafiliacao WHERE afiliacao = ? LIMIT 1")){
+				    		if($query = $db->prepare("SELECT idAfiliacao FROM tbAfiliacao WHERE afiliacao = ? LIMIT 1")){
 				                $query->bind_param('s', $auxCurso);
 				                $query->execute();
 				                $query->bind_result($idAfiliacao);
 				                $query->fetch();
 				                $query->close();
 				                $aux_db = Atalhos::getBanco();
-						    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+						    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 						    		$query->bind_param('ssiissss', $login, $nomeAux, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 						    		$query->execute();
 						    		$auxId = $query->insert_id;
 						    		$query->close();
-						    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+						    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 						    			$query->bind_param('ii', $auxId, $matriculaAux);
 						    			$query->execute();
 						    			$query->close();
 						    		}
 						    		if($telefone1 != ""){
-							    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+							    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 							    			$query->bind_param('iss', $auxId, $telefone1, $_SESSION['chave']);
 							    			$query->execute();
 							    			$query->close();
 						    			}
 						    		}
 						    		if($telefone2 != ""){
-							    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+							    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 							    			$query->bind_param('iss', $auxId, $telefone2, $_SESSION['chave']);
 							    			$query->execute();
 							    			$query->close();
@@ -130,7 +130,7 @@
 						$nivel = 2;
 						$idAfiliacao = 7;
 		                $aux_db = Atalhos::getBanco();
-				    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+				    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 				    		$query->bind_param('ssiissss', $login, $nomeAux, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 				    		$query->execute();
 				    		$query->close();
@@ -141,26 +141,26 @@
 				else{
 					$query->fetch();
 					$query->close();
-			    	if($query = $db->prepare("UPDATE tbusuario SET email = AES_ENCRYPT(?, ?) WHERE idUser = ?")){
+			    	if($query = $db->prepare("UPDATE tbUsuario SET email = AES_ENCRYPT(?, ?) WHERE idUser = ?")){
 			    		$query->bind_param('ssi', $email, $_SESSION['chave'], $idUser);
 			    		$query->execute();
 			    		$query->close();
 			    	}
-			    	if($query = $db->prepare("SELECT idTelefone, numTelefone FROM tbtelefone WHERE idUser = ?")){
+			    	if($query = $db->prepare("SELECT idTelefone, numTelefone FROM tbTelefone WHERE idUser = ?")){
 			    		$query->bind_param('i', $idUser);
 			    		$query->execute();
 			    		$query->bind_result($idTel, $tel);
 			    		if(!($query->fetch())){
 			    			$aux_db = Atalhos::getBanco();
 				    		if($telefone1 != ""){
-					    		if ($aux = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+					    		if ($aux = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 					    			$aux->bind_param('iss', $idUser, $telefone1, $_SESSION['chave']);
 					    			$aux->execute();
 					    			$aux->close();
 				    			}
 				    		}
 				    		if($telefone2 != ""){
-					    		if ($aux = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+					    		if ($aux = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 					    			$aux->bind_param('iss', $idUser, $telefone2, $_SESSION['chave']);
 					    			$aux->execute();
 					    			$aux->close();
@@ -170,7 +170,7 @@
 			    		while($query->fetch()){
 		                	$aux_db = Atalhos::getBanco();
 			    			if($tel != $telefone1 && $tel != $telefone2){
-			    				if($aux_query = $db->prepare("UPDATE tbusuario SET numTelefone = AES_ENCRYPT(?, ?) WHERE idTelefone = ?")){
+			    				if($aux_query = $db->prepare("UPDATE tbUsuario SET numTelefone = AES_ENCRYPT(?, ?) WHERE idTelefone = ?")){
 						    		$aux_query->bind_param('ssi', $tel, $_SESSION['chave'], $idTel);
 						    		$aux_query->execute();
 						    		$aux_query->close();
@@ -255,7 +255,7 @@
 						$aux_curso = strtolower($explodeobacharel[0]);
 						$aux_curso = Atalhos::ucwords_improved($aux_curso);
 						//Faz uma busca pelo login
-						if($query = $db->prepare("SELECT idUser FROM tbusuario WHERE login = ? LIMIT 1")){
+						if($query = $db->prepare("SELECT idUser FROM tbUsuario WHERE login = ? LIMIT 1")){
 						    $query->bind_param('s', $login);
 						    $query->execute();
 						    $query->bind_result($idUser);
@@ -276,12 +276,12 @@
 					    		$idAfiliacao = 1;
 				                $aux_db = Atalhos::getBanco();
 				                //Insere no Banco
-						    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+						    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 						    		$query->bind_param('ssiissss', $login, $nome, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 						    		$query->execute();
 						    		$auxId = $query->insert_id;
 						    		$query->close();
-						    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+						    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 						    			$query->bind_param('ii', $auxId, $matricula);
 						    			$query->execute();
 						    			$query->close();
@@ -291,7 +291,7 @@
 						    	$nivel = 4;//Nivel Aluno
 						    	//Procura o curso
 						    	if($aux_curso == "Engenharia de Computação" || $aux_curso == "Sistemas de Informação" || $aux_curso == "Ciência da Computação"){
-						    		if($query = $db->prepare("SELECT idAfiliacao FROM tbafiliacao WHERE afiliacao = ? LIMIT 1")){
+						    		if($query = $db->prepare("SELECT idAfiliacao FROM tbAfiliacao WHERE afiliacao = ? LIMIT 1")){
 						                $query->bind_param('s', $aux_curso);
 						                $query->execute();
 						                $query->bind_result($idAfiliacao);
@@ -299,25 +299,25 @@
 						                $query->close();
 						                $aux_db = Atalhos::getBanco();
 						                //Insere no banco
-								    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+								    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 								    		$query->bind_param('ssiissss', $login, $nome, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 								    		$query->execute();
 								    		$auxId = $query->insert_id;
 								    		$query->close();
-								    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+								    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 								    			$query->bind_param('ii', $auxId, $matricula);
 								    			$query->execute();
 								    			$query->close();
 								    		}
 								    		if($telefone1 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone1, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
 								    			}
 								    		}
 								    		if($telefone2 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone2, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
@@ -327,14 +327,14 @@
 								    }
 						    	}else{
 										$aux_db = Atalhos::getBanco();
-										if($aux = $aux_db->prepare("SELECT idExterno FROM tbusuariosexternos WHERE login = ? LIMIT 1")){
+										if($aux = $aux_db->prepare("SELECT idExterno FROM tbUsuariosExternos WHERE login = ? LIMIT 1")){
 												$aux->bind_param('s', $login);
 												$aux->execute();
 												$aux->bind_result($idUser);
 												$aux->store_result();
 										}
 										if(!($aux->fetch())){
-											if($query = $db->prepare("INSERT INTO tbusuariosexternos (login, nome, cpf, email, curso, matricula) VALUES (?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), ?, ?)")){
+											if($query = $db->prepare("INSERT INTO tbUsuariosExternos (login, nome, cpf, email, curso, matricula) VALUES (?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), ?, ?)")){
 												$query->bind_param("ssssssss", $login, $nome, $cpf, $_SESSION['chave'], $email, $_SESSION['chave'], $aux_curso, $matricula);
 												$query->execute();
 												$query->close();
@@ -347,31 +347,31 @@
 						  		$procc = $aux_curso." (PROCC)";
 						    	//Procura o curso
 			    		    	$aux_db = Atalhos::getBanco();
-						    	if($query_aux = $db->prepare("SELECT idAfiliacao FROM tbafiliacao WHERE afiliacao = ?")){
+						    	if($query_aux = $db->prepare("SELECT idAfiliacao FROM tbAfiliacao WHERE afiliacao = ?")){
 						    		$query_aux->bind_param('s', $procc);
 						    		$query_aux->execute();
 						    		$query_aux->bind_result($idAfiliacao);
 						    		if($query_aux->fetch()){
 						                //Insere no banco
-							    		if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+							    		if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 								    		$query->bind_param('ssiissss', $login, $nome, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 								    		$query->execute();
 								    		$auxId = $query->insert_id;
 								    		$query->close();
-								    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+								    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 								    			$query->bind_param('ii', $auxId, $matricula);
 								    			$query->execute();
 								    			$query->close();
 								    		}
 								    		if($telefone1 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone1, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
 								    			}
 								    		}
 								    		if($telefone2 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone2, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
@@ -380,32 +380,32 @@
 								    	}
 								    	$query_aux->close();
 							    	}else{
-							    		if($query = $aux_db->prepare("INSERT INTO tbafiliacao (afiliacao, nivel) VALUES (?,?)")){
+							    		if($query = $aux_db->prepare("INSERT INTO tbAfiliacao (afiliacao, nivel) VALUES (?,?)")){
 							    			$query->bind_param("si", $procc, $nivel);
 							    			$query->execute();
 							    			$idAfiliacao = $query->insert_id;
 							    			$query->close();
 							    		}
 							    		//Insere no banco
-								    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+								    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 								    		$query->bind_param('ssiissss', $login, $nome, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 								    		$query->execute();
 								    		$auxId = $query->insert_id;
 								    		$query->close();
-								    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+								    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 								    			$query->bind_param('ii', $auxId, $matricula);
 								    			$query->execute();
 								    			$query->close();
 								    		}
 								    		if($telefone1 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone1, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
 								    			}
 								    		}
 								    		if($telefone2 != ""){
-									    		if ($query = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+									    		if ($query = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 									    			$query->bind_param('iss', $auxId, $telefone2, $_SESSION['chave']);
 									    			$query->execute();
 									    			$query->close();
@@ -419,12 +419,12 @@
 								$idAfiliacao = 7;
                 $aux_db = Atalhos::getBanco();
                 //Insere no Banco
-					    	if ($query = $aux_db->prepare("INSERT INTO tbusuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
+					    	if ($query = $aux_db->prepare("INSERT INTO tbUsuario (login, nomeUser, nivel, idAfiliacao, cpf, email) VALUES (?, ?, ?, ?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?))")){
 					    		$query->bind_param('ssiissss', $login, $nome, $nivel, $idAfiliacao, $cpf, $_SESSION['chave'], $email, $_SESSION['chave']);
 					    		$query->execute();
 					    		$auxId = $query->insert_id;
 					    		$query->close();
-					    		if ($query = $aux_db->prepare("INSERT INTO tbmatricula (idUser, matricula) VALUES (?, ?)")){
+					    		if ($query = $aux_db->prepare("INSERT INTO tbMatricula (idUser, matricula) VALUES (?, ?)")){
 					    			$query->bind_param('ii', $auxId, $matricula);
 					    			$query->execute();
 					    			$query->close();
@@ -439,7 +439,7 @@
 							$query->close();
 							if ($aux[0] == 'Graduação'){
 								if($aux_curso == "Engenharia de Computação" || $aux_curso == "Sistemas de Informação" || $aux_curso == "Ciência da Computação"){
-						    		if($query = $db->prepare("SELECT idAfiliacao FROM tbafiliacao WHERE afiliacao = ? LIMIT 1")){
+						    		if($query = $db->prepare("SELECT idAfiliacao FROM tbAfiliacao WHERE afiliacao = ? LIMIT 1")){
 						                $query->bind_param('s', $aux_curso);
 						                $query->execute();
 						                $query->bind_result($idAfiliacao);
@@ -452,12 +452,12 @@
 						  		$procc = $aux_curso." (PROCC)";
 						    	//Procura o curso
 			    		    	$aux_db = Atalhos::getBanco();
-						    	if($query_aux = $db->prepare("SELECT idAfiliacao FROM tbafiliacao WHERE afiliacao = ?")){
+						    	if($query_aux = $db->prepare("SELECT idAfiliacao FROM tbAfiliacao WHERE afiliacao = ?")){
 						    		$query_aux->bind_param('s', $procc);
 						    		$query_aux->execute();
 						    		$query_aux->bind_result($idAfiliacao);
 						    		if(!$query_aux->fetch()){
-							    		if($query = $aux_db->prepare("INSERT INTO tbafiliacao (afiliacao, nivel) VALUES (?,?)")){
+							    		if($query = $aux_db->prepare("INSERT INTO tbAfiliacao (afiliacao, nivel) VALUES (?,?)")){
 							    			$query->bind_param("si", $procc, $nivel);
 							    			$query->execute();
 							    			$idAfiliacao = $query->insert_id;
@@ -471,32 +471,32 @@
 					    	}else{
 								$idAfiliacao = 7;
 					    	}
-							if($query = $db->prepare("UPDATE tbusuario SET statusUser = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ? WHERE idUser = ?")){
+							if($query = $db->prepare("UPDATE tbUsuario SET statusUser = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ? WHERE idUser = ?")){
 									$status = 1;
 									$query->bind_param('issii', $status, $email, $_SESSION['chave'], $idAfiliacao, $idUser);
 					    		$query->execute();
 					    		$query->close();
 					    	}
-					    	if($query = $db->prepare("UPDATE tbmatricula SET matricula = ? WHERE idUser = ?")){
+					    	if($query = $db->prepare("UPDATE tbMatricula SET matricula = ? WHERE idUser = ?")){
 					    		$query->bind_param('ii', $matricula, $idUser);
 					    		$query->execute();
 					    		$query->close();
 					    	}
-					    	if($query = $db->prepare("SELECT idTelefone, numTelefone FROM tbtelefone WHERE idUser = ?")){
+					    	if($query = $db->prepare("SELECT idTelefone, numTelefone FROM tbTelefone WHERE idUser = ?")){
 					    		$query->bind_param('i', $idUser);
 					    		$query->execute();
 					    		$query->bind_result($idTel, $tel);
 					    		if(!($query->fetch())){
 					    			$aux_db = Atalhos::getBanco();
 						    		if($telefone1 != ""){
-							    		if ($aux = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+							    		if ($aux = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 							    			$aux->bind_param('iss', $idUser, $telefone1, $_SESSION['chave']);
 							    			$aux->execute();
 							    			$aux->close();
 						    			}
 						    		}
 						    		if($telefone2 != ""){
-							    		if ($aux = $aux_db->prepare("INSERT INTO tbtelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
+							    		if ($aux = $aux_db->prepare("INSERT INTO tbTelefone (idUser, numTelefone) VALUES (?, AES_ENCRYPT(?, ?))")){
 							    			$aux->bind_param('iss', $idUser, $telefone2, $_SESSION['chave']);
 							    			$aux->execute();
 							    			$aux->close();
@@ -506,7 +506,7 @@
 					    		while($query->fetch()){
 				                	$aux_db = Atalhos::getBanco();
 					    			if($tel != $telefone1 && $tel != $telefone2){
-					    				if($aux_query = $db->prepare("UPDATE tbusuario SET numTelefone = AES_ENCRYPT(?, ?) WHERE idTelefone = ?")){
+					    				if($aux_query = $db->prepare("UPDATE tbUsuario SET numTelefone = AES_ENCRYPT(?, ?) WHERE idTelefone = ?")){
 								    		$aux_query->bind_param('ssi', $tel, $_SESSION['chave'], $idTel);
 								    		$aux_query->execute();
 								    		$aux_query->close();
@@ -526,7 +526,7 @@
 
 		public static function notificacao($idUser){
 			$db = Atalhos::getBanco();
-			if($query = $db->prepare("SELECT idNoti FROM tbnotificacao ORDER BY idNoti DESC LIMIT 1")){
+			if($query = $db->prepare("SELECT idNoti FROM tbNotificacao ORDER BY idNoti DESC LIMIT 1")){
 				$query->bind_result($idNoti);
 				$query->execute();
 				if($query->fetch()){
@@ -541,12 +541,12 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Você pode requisitar seu email DCOMP clicando aqui!
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
+            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
               	$query->bind_param('is', $idNoti, $noti);
               	$query->execute();
               	$query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES (?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES (?, ?)")){
             	$query->bind_param('ii', $idUser, $idNoti);
               	$query->execute();
               	$query->close();
@@ -608,7 +608,7 @@
 
 	    public static function mediaAtendimento(){
 			$db = Atalhos::getBanco();
-			if ($query = $db->prepare("SELECT idTicket, dataLog FROM tblog ORDER BY idTicket ASC")){
+			if ($query = $db->prepare("SELECT idTicket, dataLog FROM tbLog ORDER BY idTicket ASC")){
 				$query->execute();
 				$query->bind_result($idTicket, $dataLog);
 				$idTicketOld = -1;
@@ -644,7 +644,7 @@
 
 	    public static function mediaNota(){
 			$db = Atalhos::getBanco();
-			if ($query = $db->prepare ("SELECT avalicao FROM tbticket")){
+			if ($query = $db->prepare ("SELECT avalicao FROM tbTicket")){
 				$query->execute();
 				$query->bind_result($avaliacao);
 				$total = 0;
@@ -824,7 +824,7 @@
 		public static function verificarEmail($email){
 			$db = Atalhos::getBanco();
 			$result = false;
-			if($query = $db->prepare("SELECT idUser FROM tbemail WHERE AES_DECRYPT(email, ?) = ? LIMIT 1")){
+			if($query = $db->prepare("SELECT idUser FROM tbEmail WHERE AES_DECRYPT(email, ?) = ? LIMIT 1")){
 				$query->bind_param('ss', $_SESSION['chave'], $email);
 				$query->execute();
 				if($query->fetch()){
@@ -944,17 +944,17 @@
 			$db = Atalhos::getBanco();
 			$idRes = '';
 			if(isset($idReSala)){
-				if($query = $db->prepare("SELECT g.idData, g.idReSala FROM tbreservasala a
-					inner join tbcontroledatasala g on a.idReSala = g.idReSala inner join tbdata h on h.idData = g.idData
-	  				inner join tbsala b on a.idSala = b.idSala WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado'
+				if($query = $db->prepare("SELECT g.idData, g.idReSala FROM tbReservaSala a
+					inner join tbControleDataSala g on a.idReSala = g.idReSala inner join tbData h on h.idData = g.idData
+	  				inner join tbSala b on a.idSala = b.idSala WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado'
 	  				OR g.statusData = 'Entregue') AND (a.idSala = ?) AND (h.inicio < ? AND h.fim > ?)
 	  				AND (g.idReSala != ? OR g.idData != ?) ORDER BY h.inicio ASC")){
 					$query->bind_param('issii', $idSala, $dataFim, $dataInicio, $idReSala, $idData);
 				}
 			}else{
-				if($query = $db->prepare("SELECT g.idData, g.idReSala FROM tbreservasala a
-					inner join tbcontroledatasala g on a.idReSala = g.idReSala inner join tbdata h on h.idData = g.idData
-					inner join tbsala b on a.idSala = b.idSala WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado'
+				if($query = $db->prepare("SELECT g.idData, g.idReSala FROM tbReservaSala a
+					inner join tbControleDataSala g on a.idReSala = g.idReSala inner join tbData h on h.idData = g.idData
+					inner join tbSala b on a.idSala = b.idSala WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado'
 					OR g.statusData = 'Entregue') AND (a.idSala = ?) AND (h.inicio < ? AND h.fim > ?) ORDER BY h.inicio ASC")){
 					$query->bind_param('iss', $idSala, $dataFim, $dataInicio);
 				}
@@ -986,8 +986,8 @@
 			$db = Atalhos::getBanco();
 			if(isset($idReLab)){
 				if($query = $db->prepare("SELECT h.inicio, h.fim, a.tipoReLab, a.numPc, b.numComp, g.idData, g.idReLab
-					FROM tbreservalab a  inner join tbcontroledatalab g on a.idReLab = g.idReLab
-					inner join tbdata h on h.idData = g.idData inner join tblaboratorio b on g.idLab = b.idLab
+					FROM tbReservaLab a  inner join tbControleDataLab g on a.idReLab = g.idReLab
+					inner join tbData h on h.idData = g.idData inner join tbLaboratorio b on g.idLab = b.idLab
 					WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado' OR g.statusData = 'Entregue')
 					AND (g.idLab = ?) AND (h.inicio < ? AND h.fim > ?) AND (g.idReLab != ? OR g.idData != ?)
 					ORDER BY h.inicio ASC")){
@@ -995,8 +995,8 @@
 				}
 			}else{
 				if($query = $db->prepare("SELECT h.inicio, h.fim, a.tipoReLab, a.numPc, b.numComp, g.idData, g.idReLab
-					FROM tbreservalab a  inner join tbcontroledatalab g on a.idReLab = g.idReLab
-					inner join tbdata h on h.idData = g.idData inner join tblaboratorio b on g.idLab = b.idLab
+					FROM tbReservaLab a  inner join tbControleDataLab g on a.idReLab = g.idReLab
+					inner join tbData h on h.idData = g.idData inner join tbLaboratorio b on g.idLab = b.idLab
 					WHERE (g.statusData = 'Pendente' OR g.statusData = 'Aprovado' OR g.statusData = 'Entregue')
 					AND (g.idLab = ?) AND (h.inicio < ? AND h.fim > ?) ORDER BY h.inicio ASC")){
 					$query->bind_param('iss', $idLab, $dataFim, $dataInicio);
@@ -1086,9 +1086,9 @@
 			$db = Atalhos::getBanco();
 			if(isset($idReEq)){
 				if($query = $db->prepare("SELECT c.inicio, c.fim, d.idTipoEq, b.idReEq, b.idData, b.statusData, e.numEq, d.numReEq
-					FROM tbreservaeq a inner join tbcontroledataeq b on a.idReEq = b.idReEq
-					inner join tbdata c on c.idData = b.idData inner join tbreservatipoeq d on a.idReEq = d.idReEq
-			        inner join tbtipoeq e on e.idTipoEq = d.idTipoEq WHERE (b.statusData = 'Pendente'
+					FROM tbReservaEq a inner join tbControleDataEq b on a.idReEq = b.idReEq
+					inner join tbData c on c.idData = b.idData inner join tbReservaTipoEq d on a.idReEq = d.idReEq
+			        inner join tbTipoEq e on e.idTipoEq = d.idTipoEq WHERE (b.statusData = 'Pendente'
 			        OR b.statusData = 'Aprovado' OR b.statusData = 'Entregue') AND (d.idTipoEq = ?)
 			        AND (c.inicio < ? AND c.fim > ?) AND (b.idReEq != ? OR b.idData != ?)
 			        ORDER BY c.inicio ASC, c.fim DESC")){
@@ -1096,9 +1096,9 @@
 				}
 			}else{
 				if($query = $db->prepare("SELECT c.inicio, c.fim, d.idTipoEq, b.idReEq, b.idData, b.statusData, e.numEq, d.numReEq
-					FROM tbreservaeq a inner join tbcontroledataeq b on a.idReEq = b.idReEq
-					inner join tbdata c on c.idData = b.idData inner join tbreservatipoeq d on a.idReEq = d.idReEq
-			        inner join tbtipoeq e on e.idTipoEq = d.idTipoEq WHERE (b.statusData = 'Pendente'
+					FROM tbReservaEq a inner join tbControleDataEq b on a.idReEq = b.idReEq
+					inner join tbData c on c.idData = b.idData inner join tbReservaTipoEq d on a.idReEq = d.idReEq
+			        inner join tbTipoEq e on e.idTipoEq = d.idTipoEq WHERE (b.statusData = 'Pendente'
 			        OR b.statusData = 'Aprovado' OR b.statusData = 'Entregue') AND (d.idTipoEq = ?)
 			        AND (c.inicio < ? AND c.fim > ?) ORDER BY c.inicio ASC, c.fim DESC")){
 					$query->bind_param('iss', $idTipoEq, $dataFim, $dataInicio);
@@ -1173,10 +1173,10 @@
 			$db = Atalhos::getBanco();
 			$auxDb = Atalhos::getBanco();
 			if($tipo == 1){
-				if($query = $db->prepare("SELECT idData, idReEq FROM tbchoqueeq
+				if($query = $db->prepare("SELECT idData, idReEq FROM tbChoqueEq
 					WHERE (idData = ? AND idReEq = ?) OR (idChoqueData = ? AND idChoqueReEq = ?)")){
 					$query->bind_param('iiii', $idData, $idRe, $idData, $idRe);
-					if($aux = $auxDb->prepare("SELECT idData, idReEq FROM tbchoqueeq
+					if($aux = $auxDb->prepare("SELECT idData, idReEq FROM tbChoqueEq
 						WHERE (idData = ? AND idReEq = ?) OR (idChoqueData = ? AND idChoqueReEq = ?)")){
 						$aux->bind_param('iiii', $idChoqueData, $idChoqueRe, $idChoqueData, $idChoqueRe);
 						$query->execute();
@@ -1192,12 +1192,12 @@
 								$aux->fetch();
 								$aux->close();
 								if($reserva != $reserva2 || $data != $data2){
-									if($query = $db->prepare("UPDATE tbchoqueeq SET idReEq = ?, idData = ? WHERE idReEq = ?
+									if($query = $db->prepare("UPDATE tbChoqueEq SET idReEq = ?, idData = ? WHERE idReEq = ?
 										AND idData = ?)")){
 										$query->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 										$query->execute();
 										$query->close();
-										if($aux = $auxDb->prepare("INSERT INTO tbchoqueeq VALUES (?, ?, ?, ?)")){
+										if($aux = $auxDb->prepare("INSERT INTO tbChoqueEq VALUES (?, ?, ?, ?)")){
 											$aux->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 											$aux->execute();
 											$aux->close();
@@ -1206,7 +1206,7 @@
 								}
 							}else{
 								$aux->close();
-								if($aux = $auxDb->prepare("INSERT INTO tbchoqueeq VALUES (?, ?, ?, ?)")){
+								if($aux = $auxDb->prepare("INSERT INTO tbChoqueEq VALUES (?, ?, ?, ?)")){
 									$aux->bind_param('iiii', $reserva, $data, $idChoqueRe, $idChoqueData);
 									$aux->execute();
 									$aux->close();
@@ -1217,7 +1217,7 @@
 							$aux->bind_result($data2, $reserva2);
 							$aux->fetch();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoqueeq VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueEq VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $reserva2, $data2, $idRe, $idData);
 								$aux->execute();
 								$aux->close();
@@ -1225,7 +1225,7 @@
 						}else{
 							$query->close();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoqueeq VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueEq VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $idRe, $idData, $idChoqueRe, $idChoqueData);
 								$aux->execute();
 								$aux->close();
@@ -1234,10 +1234,10 @@
 					}
 				}
 			}elseif($tipo == 2){
-				if($query = $db->prepare("SELECT idData, idReLab FROM tbchoquelab
+				if($query = $db->prepare("SELECT idData, idReLab FROM tbChoqueLab
 					WHERE (idData = ? AND idReLab = ?) OR (idChoqueData = ? AND idChoqueReLab = ?)")){
 					$query->bind_param('iiii', $idData, $idRe, $idData, $idRe);
-					if($aux = $auxDb->prepare("SELECT idData, idReLab FROM tbchoquelab
+					if($aux = $auxDb->prepare("SELECT idData, idReLab FROM tbChoqueLab
 						WHERE (idData = ? AND idReLab = ?) OR (idChoqueData = ? AND idChoqueReLab = ?)")){
 						$aux->bind_param('iiii', $idChoqueData, $idChoqueRe, $idChoqueData, $idChoqueRe);
 						$query->execute();
@@ -1253,12 +1253,12 @@
 								$aux->fetch();
 								$aux->close();
 								if($reserva != $reserva2 || $data != $data2){
-									if($query = $db->prepare("UPDATE tbchoquelab SET idReLab = ?, idData = ? WHERE idReLab = ?
+									if($query = $db->prepare("UPDATE tbChoqueLab SET idReLab = ?, idData = ? WHERE idReLab = ?
 										AND idData = ?)")){
 										$query->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 										$query->execute();
 										$query->close();
-										if($aux = $auxDb->prepare("INSERT INTO tbchoquelab VALUES (?, ?, ?, ?)")){
+										if($aux = $auxDb->prepare("INSERT INTO tbChoqueLab VALUES (?, ?, ?, ?)")){
 											$aux->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 											$aux->execute();
 											$aux->close();
@@ -1267,7 +1267,7 @@
 								}
 							}else{
 								$aux->close();
-								if($aux = $auxDb->prepare("INSERT INTO tbchoquelab VALUES (?, ?, ?, ?)")){
+								if($aux = $auxDb->prepare("INSERT INTO tbChoqueLab VALUES (?, ?, ?, ?)")){
 									$aux->bind_param('iiii', $reserva, $data, $idChoqueRe, $idChoqueData);
 									$aux->execute();
 									$aux->close();
@@ -1278,7 +1278,7 @@
 							$aux->bind_result($data2, $reserva2);
 							$aux->fetch();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoquelab VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueLab VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $reserva2, $data2, $idRe, $idData);
 								$aux->execute();
 								$aux->close();
@@ -1286,7 +1286,7 @@
 						}else{
 							$query->close();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoquelab VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueLab VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $idRe, $idData, $idChoqueRe, $idChoqueData);
 								$aux->execute();
 								echo $aux->error.'</br>';
@@ -1296,10 +1296,10 @@
 					}
 				}
 			}else{
-				if($query = $db->prepare("SELECT idData, idReSala FROM tbchoquesala
+				if($query = $db->prepare("SELECT idData, idReSala FROM tbChoqueSala
 					WHERE (idData = ? AND idReSala = ?) OR (idChoqueData = ? AND idChoqueReSala = ?)")){
 					$query->bind_param('iiii', $idData, $idRe, $idData, $idRe);
-					if($aux = $auxDb->prepare("SELECT idData, idReSala FROM tbchoquesala
+					if($aux = $auxDb->prepare("SELECT idData, idReSala FROM tbChoqueSala
 						WHERE (idData = ? AND idReSala = ?) OR (idChoqueData = ? AND idChoqueReSala = ?)")){
 						$aux->bind_param('iiii', $idChoqueData, $idChoqueRe, $idChoqueData, $idChoqueRe);
 						$query->execute();
@@ -1315,12 +1315,12 @@
 								$aux->fetch();
 								$aux->close();
 								if($reserva != $reserva2 || $data != $data2){
-									if($query = $db->prepare("UPDATE tbchoquesala SET idReSala = ?, idData = ? WHERE idReSala = ?
+									if($query = $db->prepare("UPDATE tbChoqueSala SET idReSala = ?, idData = ? WHERE idReSala = ?
 										AND idData = ?)")){
 										$query->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 										$query->execute();
 										$query->close();
-										if($aux = $auxDb->prepare("INSERT INTO tbchoquesala VALUES (?, ?, ?, ?)")){
+										if($aux = $auxDb->prepare("INSERT INTO tbChoqueSala VALUES (?, ?, ?, ?)")){
 											$aux->bind_param('iiii', $reserva, $data, $reserva2, $data2);
 											$aux->execute();
 											$aux->close();
@@ -1329,7 +1329,7 @@
 								}
 							}else{
 								$aux->close();
-								if($aux = $auxDb->prepare("INSERT INTO tbchoquesala VALUES (?, ?, ?, ?)")){
+								if($aux = $auxDb->prepare("INSERT INTO tbChoqueSala VALUES (?, ?, ?, ?)")){
 									$aux->bind_param('iiii', $reserva, $data, $idChoqueRe, $idChoqueData);
 									$aux->execute();
 									$aux->close();
@@ -1340,7 +1340,7 @@
 							$aux->bind_result($data2, $reserva2);
 							$aux->fetch();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoquesala VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueSala VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $reserva2, $data2, $idRe, $idData);
 								$aux->execute();
 								$aux->close();
@@ -1348,7 +1348,7 @@
 						}else{
 							$query->close();
 							$aux->close();
-							if($aux = $auxDb->prepare("INSERT INTO tbchoquesala VALUES (?, ?, ?, ?)")){
+							if($aux = $auxDb->prepare("INSERT INTO tbChoqueSala VALUES (?, ?, ?, ?)")){
 								$aux->bind_param('iiii', $idRe, $idData, $idChoqueRe, $idChoqueData);
 								$aux->execute();
 								$aux->close();
@@ -1374,12 +1374,12 @@
 			$db = Atalhos::getBanco();
 			if($tipo == 1){
 				if($idData != 0){
-					if($query = $db->prepare("SELECT * FROM  tbchoqueeq WHERE (idData = ? AND idReEq = ?) OR
+					if($query = $db->prepare("SELECT * FROM  tbChoqueEq WHERE (idData = ? AND idReEq = ?) OR
 					(idChoqueData = ? AND idChoqueReEq = ?)")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT * FROM  tbchoqueeq WHERE idReEq = ? OR idChoqueReEq = ?")){
+					if($query = $db->prepare("SELECT * FROM  tbChoqueEq WHERE idReEq = ? OR idChoqueReEq = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1393,7 +1393,7 @@
 							$result = $Re."-".$Data;
 						}
 						$auxDb = Atalhos::getBanco();
-						if($aux = $auxDb->prepare("SELECT idChoqueReEq, idChoqueData FROM tbchoqueeq WHERE idReEq = ?
+						if($aux = $auxDb->prepare("SELECT idChoqueReEq, idChoqueData FROM tbChoqueEq WHERE idReEq = ?
 							AND idData = ? AND idChoqueReSala != ?")){
 							$aux->bind_param('iii', $Re, $Data, $ChoqueRe);
 							$aux->execute();
@@ -1425,12 +1425,12 @@
 				}
 			}elseif($tipo == 2){
 				if($idData != 0){
-					if($query = $db->prepare("SELECT * FROM  tbchoquelab WHERE (idData = ? AND idReLab = ?) OR
+					if($query = $db->prepare("SELECT * FROM  tbChoqueLab WHERE (idData = ? AND idReLab = ?) OR
 						(idChoqueData = ? AND idChoqueReLab = ?)")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT * FROM  tbchoquelab WHERE idReLab = ? OR idChoqueReLab = ?")){
+					if($query = $db->prepare("SELECT * FROM  tbChoqueLab WHERE idReLab = ? OR idChoqueReLab = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1444,7 +1444,7 @@
 							$result = $Re."-".$Data;
 						}
 						$auxDb = Atalhos::getBanco();
-						if($aux = $auxDb->prepare("SELECT idChoqueReLab, idChoqueData FROM  tbchoquesala WHERE idReLab = ?
+						if($aux = $auxDb->prepare("SELECT idChoqueReLab, idChoqueData FROM  tbChoqueSala WHERE idReLab = ?
 							AND idData = ? AND idChoqueReLab != ?")){
 							$aux->bind_param('iii', $Re, $Data, $ChoqueRe);
 							$aux->execute();
@@ -1476,12 +1476,12 @@
 				}
 			}else{
 				if($idData != 0){
-					if($query = $db->prepare("SELECT * FROM  tbchoquesala WHERE (idData = ? AND idReSala = ?) OR
+					if($query = $db->prepare("SELECT * FROM  tbChoqueSala WHERE (idData = ? AND idReSala = ?) OR
 						(idChoqueData = ? AND idChoqueReSala = ?)")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT * FROM  tbchoquesala WHERE idReSala = ? OR idChoqueReSala = ?")){
+					if($query = $db->prepare("SELECT * FROM  tbChoqueSala WHERE idReSala = ? OR idChoqueReSala = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1495,7 +1495,7 @@
 							$result = $Re."-".$Data;
 						}
 						$auxDb = Atalhos::getBanco();
-						if($aux = $auxDb->prepare("SELECT idChoqueReSala, idChoqueData FROM  tbchoquesala WHERE idReSala = ?
+						if($aux = $auxDb->prepare("SELECT idChoqueReSala, idChoqueData FROM  tbChoqueSala WHERE idReSala = ?
 							AND idData = ? AND idChoqueReSala != ?")){
 							$aux->bind_param('iii', $Re, $Data, $ChoqueRe);
 							$aux->execute();
@@ -1535,9 +1535,9 @@
 				$num = count($choque);
 				for($i = 0; $i < $num; $i++){
 					$choque[$i] = explode("-", $choque[$i]);
-					if($query = $db->prepare("SELECT c.inicio, c.fim, d.idTipoEq, d.numReEq FROM tbreservaeq a
-						inner join tbcontroledataeq b on a.idReEq = b.idReEq  inner join tbdata c on c.idData = b.idData
-						inner join tbreservatipoeq d on a.idReEq = d.idReEq inner join tbtipoeq e on e.idTipoEq = d.idTipoEq
+					if($query = $db->prepare("SELECT c.inicio, c.fim, d.idTipoEq, d.numReEq FROM tbReservaEq a
+						inner join tbControleDataEq b on a.idReEq = b.idReEq  inner join tbData c on c.idData = b.idData
+						inner join tbReservaTipoEq d on a.idReEq = d.idReEq inner join tbTipoEq e on e.idTipoEq = d.idTipoEq
 						WHERE b.idReEq = ? AND b.idData = ?")){
 						$query->bind_param('ii', $choque[$i][0], $choque[$i][1]);
 						$query->execute();
@@ -1556,9 +1556,9 @@
 				$num = count($choque);
 				for($i = 0; $i < $num; $i++){
 					$choque[$i] = explode("-", $choque[$i]);
-					if($query = $db->prepare("SELECT h.inicio, h.fim, a.tipoReLab, a.numPc, b.idLab FROM tbreservalab a
-						inner join tbcontroledatalab g on a.idReLab = g.idReLab inner join tbdata h on h.idData = g.idData
-	  					inner join tblaboratorio b on g.idLab = b.idLab WHERE g.idReLab = ? AND b.idData = ?")){
+					if($query = $db->prepare("SELECT h.inicio, h.fim, a.tipoReLab, a.numPc, b.idLab FROM tbReservaLab a
+						inner join tbControleDataLab g on a.idReLab = g.idReLab inner join tbData h on h.idData = g.idData
+	  					inner join tbLaboratorio b on g.idLab = b.idLab WHERE g.idReLab = ? AND b.idData = ?")){
 						$query->bind_param('ii', $choque[$i][0], $choque[$i][1]);
 						$query->execute();
 						$query->bind_result($inicio, $fim, $tipoRe, $numPc, $idLab);
@@ -1576,9 +1576,9 @@
 				$num = count($choque);
 				for($i = 0; $i < $num; $i++){
 					$choque[$i] = explode("-", $choque[$i]);
-					if($query = $db->prepare("SELECT h.inicio, h.fim, b.idSala FROM tbreservasala a
-						inner join tbcontroledatasala g on a.idReSala = g.idReSala inner join tbdata h on h.idData = g.idData
-	  					inner join tbsala b on b.idSala = a.idSala WHERE g.idReSala = ? AND b.idData = ?")){
+					if($query = $db->prepare("SELECT h.inicio, h.fim, b.idSala FROM tbReservaSala a
+						inner join tbControleDataSala g on a.idReSala = g.idReSala inner join tbData h on h.idData = g.idData
+	  					inner join tbSala b on b.idSala = a.idSala WHERE g.idReSala = ? AND b.idData = ?")){
 						$query->bind_param('ii', $choque[$i][0], $choque[$i][1]);
 						$query->execute();
 						$query->bind_result($inicio, $fim, $idSala);
@@ -1597,12 +1597,12 @@
 			$db = Atalhos::getBanco();
 			if($tipo == 1){
 				if($idData != 0){
-					if($query = $db->prepare("SELECT idReEq, idData FROM  tbchoqueeq WHERE (idData = ? AND idReEq = ?) OR
+					if($query = $db->prepare("SELECT idReEq, idData FROM  tbChoqueEq WHERE (idData = ? AND idReEq = ?) OR
 							(idChoqueData = ? AND idChoqueReEq = ?) LIMIT 1")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT idReEq, idData FROM  tbchoqueeq WHERE idReEq = ? OR idChoqueReEq = ?")){
+					if($query = $db->prepare("SELECT idReEq, idData FROM  tbChoqueEq WHERE idReEq = ? OR idChoqueReEq = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1610,7 +1610,7 @@
 				$query->bind_result($Re, $Data);
 				$auxDb = Atalhos::getBanco();
 				while($query->fetch()){
-					if($aux = $auxDb->prepare("DELETE FROM tbchoqueeq WHERE idData = ? AND idReEq = ?")){
+					if($aux = $auxDb->prepare("DELETE FROM tbChoqueEq WHERE idData = ? AND idReEq = ?")){
 						$aux->bind_param('ii', $Data, $Re);
 						$aux->execute();
 						$aux->close();
@@ -1620,12 +1620,12 @@
 				$auxDb->close();
 			}elseif($tipo == 2){
 				if($idData != 0){
-					if($query = $db->prepare("SELECT idReLab, idData FROM  tbchoquelab WHERE (idData = ? AND idReLab = ?) OR
+					if($query = $db->prepare("SELECT idReLab, idData FROM  tbChoqueLab WHERE (idData = ? AND idReLab = ?) OR
 							(idChoqueData = ? AND idChoqueReLab = ?) LIMIT 1")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT idReLab, idData FROM  tbchoquelab WHERE idReLab = ? OR idChoqueReLab = ?")){
+					if($query = $db->prepare("SELECT idReLab, idData FROM  tbChoqueLab WHERE idReLab = ? OR idChoqueReLab = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1633,7 +1633,7 @@
 				$query->bind_result($Re, $Data);
 				$auxDb = Atalhos::getBanco();
 				while($query->fetch()){
-					if($aux = $auxDb->prepare("DELETE FROM tbchoquelab WHERE idData = ? AND idReLab = ?")){
+					if($aux = $auxDb->prepare("DELETE FROM tbChoqueLab WHERE idData = ? AND idReLab = ?")){
 						$aux->bind_param('ii', $Data, $Re);
 						$aux->execute();
 						$aux->close();
@@ -1643,12 +1643,12 @@
 				$auxDb->close();
 			}else{
 				if($idData != 0){
-					if($query = $db->prepare("SELECT idReSala, idData FROM  tbchoquesala WHERE (idData = ? AND idReSala = ?) OR
+					if($query = $db->prepare("SELECT idReSala, idData FROM  tbChoqueSala WHERE (idData = ? AND idReSala = ?) OR
 							(idChoqueData = ? AND idChoqueReSala = ?) LIMIT 1")){
 						$query->bind_param('iiii',$idData, $idRe, $idData, $idRe);
 					}
 				}else{
-					if($query = $db->prepare("SELECT idReSala, idData FROM  tbchoquesala WHERE idReSala = ? OR idChoqueReSala = ?")){
+					if($query = $db->prepare("SELECT idReSala, idData FROM  tbChoqueSala WHERE idReSala = ? OR idChoqueReSala = ?")){
 						$query->bind_param('ii', $idRe, $idRe);
 					}
 				}
@@ -1656,7 +1656,7 @@
 				$query->bind_result($Re, $Data);
 				$auxDb = Atalhos::getBanco();
 				while($query->fetch()){
-					if($aux = $auxDb->prepare("DELETE FROM tbchoquesala WHERE idData = ? AND idReSala = ?")){
+					if($aux = $auxDb->prepare("DELETE FROM tbChoqueSala WHERE idData = ? AND idReSala = ?")){
 						$aux->bind_param('ii', $Data, $Re);
 						$aux->execute();
 						$aux->close();
@@ -1683,7 +1683,7 @@
 
 		public static function addLogsAcoes($acao,$nomeTab,$idRow) {
 			$aux_db = Atalhos::getBanco();
-	    	if ($query = $aux_db->prepare("INSERT INTO tblogsacoes (ip, idUser, acao, data, idRow, nomeTabela) VALUES (?, ?, ?, ?, ?, ?)")){
+	    	if ($query = $aux_db->prepare("INSERT INTO tbLogsAcoes (ip, idUser, acao, data, idRow, nomeTabela) VALUES (?, ?, ?, ?, ?, ?)")){
 	    		$query->bind_param('sissis', $_SERVER['REMOTE_ADDR'], $_SESSION['id'], $acao, date('Y-m-d H:i:s'), $idRow, $nomeTab);
 	    		$query->execute();
 	    		$query->close();
@@ -1692,7 +1692,7 @@
 
 		public static function verificarReq($tipo){
             $db = Atalhos::getBanco();
-		    if($query = $db->prepare("SELECT inicio, fim, periodo FROM tbprazo WHERE idPrazo = ? LIMIT 1")){
+		    if($query = $db->prepare("SELECT inicio, fim, periodo FROM tbPrazo WHERE idPrazo = ? LIMIT 1")){
 			    $query->bind_param('i', $tipo);
 			    $query->execute();
 			    $query->bind_result($inicio, $fim, $periodo);
@@ -2003,7 +2003,7 @@
 		
 		public static function getAdmin(){
 			$db = Atalhos::getBanco();
-			if($query = $db->prepare("SELECT a.login, AES_DECRYPT(b.senha,?), typeUser FROM tbusuario a inner join tbonline b on a.idUser = b.idUser
+			if($query = $db->prepare("SELECT a.login, AES_DECRYPT(b.senha,?), typeUser FROM tbUsuario a inner join tbOnline b on a.idUser = b.idUser
 			WHERE a.idUser = ?")){
 				$query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);
 				$query->execute();
@@ -2019,7 +2019,7 @@
 		public static function verificarLab($inicio,$fim,$idReLab){
 			$db = Atalhos::getBanco();
 			$result = array();
-			if($query = $db->prepare("SELECT c.idLab FROM tblaboratorio c WHERE statusLab = 'Ativo' AND c.idLab NOT IN (SELECT a.idLab FROM tbcontroledatalab a NATURAL JOIN tbdata b WHERE (
+			if($query = $db->prepare("SELECT c.idLab FROM tbLaboratorio c WHERE statusLab = 'Ativo' AND c.idLab NOT IN (SELECT a.idLab FROM tbControleDataLab a NATURAL JOIN tbData b WHERE (
 				(b.inicio <= ? AND b.fim >= ?) OR 
 				(b.inicio <= ? AND (b.fim > ? AND b.fim <= ?)) OR 
 				((b.inicio >= ? AND b.inicio < ?) AND b.fim >= ?) OR 
@@ -2039,7 +2039,7 @@
 		
 		public static function nomeLab($id){
 			$db = Atalhos::getBanco();
-			if($aux = $db->prepare("SELECT nomeLab FROM tblaboratorio WHERE idLab = ?")){
+			if($aux = $db->prepare("SELECT nomeLab FROM tbLaboratorio WHERE idLab = ?")){
                       $aux->bind_param("i", $id);
                       $aux->execute();
                       $aux->bind_result($nomeLab);

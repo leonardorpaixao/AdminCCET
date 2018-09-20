@@ -27,8 +27,8 @@
                   <i class="fa fa-bell-o"></i>
                   <?php
                     $db = Atalhos::getBanco();
-                    if ($query = $db->prepare("SELECT b.notificacao, b.statusNoti FROM tbnoticonexao a
-                      inner join tbnotificacao b on a.idNoti = b.idNoti 
+                    if ($query = $db->prepare("SELECT b.notificacao, b.statusNoti FROM tbNotiConexao a
+                      inner join tbNotificacao b on a.idNoti = b.idNoti 
                       WHERE a.idUser = ? AND b.statusNoti = 0")){
                       $query->bind_param('i', $_SESSION['id']);
                       $query->execute();
@@ -43,8 +43,8 @@
                 </a>
                 <ul class="dropdown-menu">
                   <?php
-                    if ($query = $db->prepare("SELECT b.notificacao, b.statusNoti FROM tbnoticonexao a
-                      inner join tbnotificacao b on a.idNoti = b.idNoti 
+                    if ($query = $db->prepare("SELECT b.notificacao, b.statusNoti FROM tbNotiConexao a
+                      inner join tbNotificacao b on a.idNoti = b.idNoti 
                       WHERE a.idUser = ? ORDER BY a.idNoti DESC")){
                       $query->bind_param('i', $_SESSION['id']);
                       $query->execute();
@@ -80,7 +80,7 @@
                     <li>
                       <?php
                         if ($query = $db->prepare('SELECT dataInicio, dataFim, motivoBlock
-                            FROM tbblock WHERE idUserBlock = ? 
+                            FROM tbBlock WHERE idUserBlock = ? 
                             ORDER BY idBlock DESC LIMIT 1')){
                           $query->bind_param('i', $_SESSION['id']);
                           $query->execute();

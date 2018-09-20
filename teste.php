@@ -11,7 +11,7 @@
     }
   
     public function getRating(){
-      if($query = self::$db->prepare ("SELECT avalicao FROM tbticket WHERE avalicao != 'NULL'")){
+      if($query = self::$db->prepare ("SELECT avalicao FROM tbTicket WHERE avalicao != 'NULL'")){
         $query->execute();
         $query->bind_result($avaliacao);
         $total = 0; $i = 0;
@@ -27,7 +27,7 @@
     }
     
     public function getTimeClose(){
-      if($query = self::$db->prepare ("SELECT dateStart, dateUpdate FROM tbticket WHERE statusTicket = 'Concluído'")){
+      if($query = self::$db->prepare ("SELECT dateStart, dateUpdate FROM tbTicket WHERE statusTicket = 'Concluído'")){
         $query->execute();
         $query->bind_result($dateStart, $dateUpdate);
         $total = 0; $i = 0;
@@ -45,7 +45,7 @@
     }
 
     public function getTimeResponse(){
-      if($query = self::$db->prepare("SELECT idTicket, idUser, dataLog FROM tblog ORDER BY idTicket ASC")){
+      if($query = self::$db->prepare("SELECT idTicket, idUser, dataLog FROM tbLog ORDER BY idTicket ASC")){
         $query->execute();
         $query->bind_result($idTicket, $idUser, $dateLog);
         $total = 0; $i = 0; $flag = 1;

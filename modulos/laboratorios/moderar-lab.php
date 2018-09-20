@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/laboratorios/moderar';
   $db = Atalhos::getBanco();
   $link = '/laboratorios/moderar';
-  if($query = $db->prepare("SELECT DISTINCT idReLab, tituloReLab, nomeUser, idLab, statusData FROM tbcontroledatalab NATURAL JOIN tbreservalab NATURAL JOIN tbusuario WHERE statusData = 'Pendente' OR statusData = 'Aprovado'")){
+  if($query = $db->prepare("SELECT DISTINCT idReLab, tituloReLab, nomeUser, idLab, statusData FROM tbControleDataLab NATURAL JOIN tbReservaLab NATURAL JOIN tbUsuario WHERE statusData = 'Pendente' OR statusData = 'Aprovado'")){
     $query->execute();
     $query->bind_result($idReLab, $tituloReLab, $nomeUser, $idLab, $statusData);
   }

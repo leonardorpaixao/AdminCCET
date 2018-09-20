@@ -2,7 +2,7 @@
     session_start();
     include_once 'atalhos.php';
     $db = Atalhos::getBanco();
-    if ($query = $db->prepare("SELECT termo FROM tbtermo ORDER BY idTermo LIMIT 1")){ 
+    if ($query = $db->prepare("SELECT termo FROM tbTermo ORDER BY idTermo LIMIT 1")){ 
         $query->execute();
         $query->bind_result($termo);    
         $query->fetch();

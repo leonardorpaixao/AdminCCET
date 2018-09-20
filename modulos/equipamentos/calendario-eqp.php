@@ -10,17 +10,17 @@
   $filtro = (isset($_GET['filtro']))? $_GET['filtro'] : NULL;
   $db = Atalhos::getBanco();
   if(isset($filtro) && $filtro != "Todos"){
-    $query = $db->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReEq, h.tipoEq, a.tituloReEq FROM tbreservaeq a
-      inner join tbcontroledataeq b on b.idReEq = a.idReEq inner join tbusuario d on a.idUser = d.idUser
-      inner join tbreservatipoeq c on c.idReEq = a.idReEq inner join tbtipoeq h on h.idTipoEq = c.idTipoEq
-      inner join tbcor f on h.idCor = f.idCor inner join tbdata g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR
+    $query = $db->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReEq, h.tipoEq, a.tituloReEq FROM tbReservaEq a
+      inner join tbControleDataEq b on b.idReEq = a.idReEq inner join tbUsuario d on a.idUser = d.idUser
+      inner join tbReservaTipoEq c on c.idReEq = a.idReEq inner join tbTipoEq h on h.idTipoEq = c.idTipoEq
+      inner join tbCor f on h.idCor = f.idCor inner join tbData g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' OR
       b.statusData = 'Entregue') AND h.idTipoEq = ? ORDER BY h.idTipoEq ASC");
     $query->bind_param('i', $filtro);
   }else{
-    $query = $db->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReEq, h.tipoEq, a.tituloReEq FROM tbreservaeq a
-      inner join tbcontroledataeq b on b.idReEq = a.idReEq inner join tbusuario d on a.idUser = d.idUser
-      inner join tbreservatipoeq c on c.idReEq = a.idReEq inner join tbtipoeq h on h.idTipoEq = c.idTipoEq
-      inner join tbcor f on h.idCor = f.idCor inner join tbdata g on b.idData = g.idData WHERE b.statusData = 'Aprovado'
+    $query = $db->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReEq, h.tipoEq, a.tituloReEq FROM tbReservaEq a
+      inner join tbControleDataEq b on b.idReEq = a.idReEq inner join tbUsuario d on a.idUser = d.idUser
+      inner join tbReservaTipoEq c on c.idReEq = a.idReEq inner join tbTipoEq h on h.idTipoEq = c.idTipoEq
+      inner join tbCor f on h.idCor = f.idCor inner join tbData g on b.idData = g.idData WHERE b.statusData = 'Aprovado'
       OR b.statusData = 'Entregue' ORDER BY h.idTipoEq ASC");
   }
   $query->execute();
@@ -80,7 +80,7 @@
                   <select name="filtro" class="form-control pull-right" onchange="this.form.submit()"
                       style="width: 150px;" >
                         <?php
-                        if($eqp = $db->prepare("SELECT a.idTipoEq, a.tipoEq, a.numEq FROM tbtipoeq a
+                        if($eqp = $db->prepare("SELECT a.idTipoEq, a.tipoEq, a.numEq FROM tbTipoEq a
                             WHERE numEq > 0 ORDER BY idTipoEq ASC")){
                           $eqp->execute();
                           $eqp->bind_result($idTipoEq, $tipoEq, $numEq);
@@ -183,7 +183,7 @@
                       <option value="">Selecione um Equipamento:</option>
                       <?php
 
-                        if ($eqp = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbtipoeq
+                        if ($eqp = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbTipoEq
                            WHERE numEq > 0 ORDER BY idTipoEq ASC")){
                             $eqp->execute();
                             $eqp->bind_result($idTipoEq,$tipoEq, $numEq);
@@ -251,8 +251,8 @@
           </div>
           <div class="box-body">
             <?php
-              if ($eqp = $db->prepare("SELECT a.tipoEq, b.cor FROM tbtipoeq a
-                          inner join tbcor b on a.idCor = b.idCor
+              if ($eqp = $db->prepare("SELECT a.tipoEq, b.cor FROM tbTipoEq a
+                          inner join tbCor b on a.idCor = b.idCor
                           WHERE numEq > 0 ORDER BY idTipoEq ASC")){
                 $eqp->execute();
                 $eqp->bind_result($tipoEq, $cor);
@@ -436,7 +436,7 @@
 
     var counter = 1;
     var limit = <?php
-                if ($query = $db->prepare("SELECT idTipoEq FROM tbtipoeq
+                if ($query = $db->prepare("SELECT idTipoEq FROM tbTipoEq
                     WHERE numEq > 0")){
                   $query->execute();
                   $query->store_result();
@@ -457,7 +457,7 @@
           +'<option value="">Selecione um Equipamento:</option>'
           +'<?php
             echo '<option value="">Nenhum</option>';
-            $query = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbtipoeq
+            $query = $db->prepare("SELECT idTipoEq, tipoEq, numEq FROM tbTipoEq
                   WHERE numEq > 0 ORDER BY idTipoEq ASC");
             $query->execute();
             $query->bind_result($idTipoEq, $tipoEq, $numEq);

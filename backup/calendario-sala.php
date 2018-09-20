@@ -12,16 +12,16 @@
   $auxDb = Atalhos::getBanco();
   if(isset($filtro) && $filtro != "Todos"){
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReSala, h.nomeSala, a.tituloReSala
-      FROM tbreservasala a inner join tbcontroledatasala b on b.idReSala = a.idReSala inner join tbusuario d
-      on a.idUser = d.idUser inner join tbsala h on h.idSala = a.idSala inner join tbcor f on h.idCor = f.idCor
-      inner join tbdata g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' or b.statusData = 'Entregue')
+      FROM tbReservaSala a inner join tbControleDataSala b on b.idReSala = a.idReSala inner join tbUsuario d
+      on a.idUser = d.idUser inner join tbSala h on h.idSala = a.idSala inner join tbCor f on h.idCor = f.idCor
+      inner join tbData g on b.idData = g.idData WHERE (b.statusData = 'Aprovado' or b.statusData = 'Entregue')
       AND h.idSala = ? ORDER BY h.idSala ASC");
       $aux->bind_param('i', $filtro);
   }else{
     $aux = $auxDb->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReSala, h.nomeSala, a.tituloReSala
-      FROM tbreservasala a inner join tbcontroledatasala b on b.idReSala = a.idReSala inner join tbusuario d
-      on a.idUser = d.idUser inner join tbsala h on h.idSala = a.idSala inner join tbcor f on h.idCor = f.idCor
-      inner join tbdata g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue'
+      FROM tbReservaSala a inner join tbControleDataSala b on b.idReSala = a.idReSala inner join tbUsuario d
+      on a.idUser = d.idUser inner join tbSala h on h.idSala = a.idSala inner join tbCor f on h.idCor = f.idCor
+      inner join tbData g on b.idData = g.idData WHERE b.statusData = 'Aprovado' OR b.statusData = 'Entregue'
       ORDER BY h.idSala ASC");
   }
   $aux->execute();
@@ -81,7 +81,7 @@
                   <select name="filtro" class="form-control pull-right" onchange="this.form.submit()"
                       style="width: 150px;" >
                         <?php
-                          if($query = $db->prepare("SELECT idSala, nomeSala FROM tbsala WHERE statusSala = 'Ativo'")){
+                          if($query = $db->prepare("SELECT idSala, nomeSala FROM tbSala WHERE statusSala = 'Ativo'")){
                             $query->execute();
                             $query->bind_result($idSala, $nomeSala);
                             echo '<option value="Todos" selected="true">Todos</option>';
@@ -138,7 +138,7 @@
                         <select name="disciplina" id="disciplina" class="form-control">
                           <option value="">Selecione uma Disciplina:</option>
                           <?php
-                            if ($dis = $db->prepare("SELECT nome, codigo FROM tbdisciplinas WHERE status = 'Ativo' ORDER BY nome ASC")){
+                            if ($dis = $db->prepare("SELECT nome, codigo FROM tbDisciplinas WHERE status = 'Ativo' ORDER BY nome ASC")){
                                 $dis->execute();
                                 $dis->bind_result($nome, $codigo);
                                 while ($dis->fetch()){
@@ -179,7 +179,7 @@
                     <label>Escolha um Sala:</label>
                     <select name="sala" class="form-control">
                       <?php
-                        if($query = $db->prepare("SELECT idSala, nomeSala FROM tbsala WHERE statusSala = 'Ativo'")){
+                        if($query = $db->prepare("SELECT idSala, nomeSala FROM tbSala WHERE statusSala = 'Ativo'")){
                           $query->execute();
                           $query->bind_result($idSala, $nomeSala);
                           while ($query->fetch()){
@@ -239,7 +239,7 @@
           </div>
           <div class="box-body">
             <?php
-            if ($query = $db->prepare("SELECT a.nomeSala, b.cor FROM tbsala a inner join tbcor b on a.idCor = b.idCor
+            if ($query = $db->prepare("SELECT a.nomeSala, b.cor FROM tbSala a inner join tbCor b on a.idCor = b.idCor
                 WHERE statusSala = 'Ativo' ORDER BY a.idSala ASC")){
                 $query->execute();
                 $query->bind_result($nomeSala, $cor);

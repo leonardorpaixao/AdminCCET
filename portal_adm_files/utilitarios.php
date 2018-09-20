@@ -38,7 +38,7 @@
 	//echo "$laboratorio";
 	//consultando o banco para definir a sub-rede
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT subRede  from tblaboratorio WhERE nomeLab=?")){
+	if($query = $db->prepare("SELECT subRede  from tbLaboratorio WhERE nomeLab=?")){
 		$query->bind_param('s', $laboratorio);
 		$query->execute();
 		$query->bind_result($subRede);

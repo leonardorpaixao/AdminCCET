@@ -9,7 +9,7 @@
   $_SESSION['irPara'] = '/recursos/laboratorios';
   $db = Atalhos::getBanco();
   $link = '/recursos/laboratorios';
-  if($query = $db->prepare("SELECT idLab, nomeLab, numComp, capAluno, statusLab FROM tblaboratorio")){
+  if($query = $db->prepare("SELECT idLab, nomeLab, numComp, capAluno, statusLab FROM tbLaboratorio")){
     $query->execute();
     $query->bind_result($idLab, $nomeLab, $numComp, $capAluno, $statusLab);
   }

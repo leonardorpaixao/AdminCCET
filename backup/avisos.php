@@ -15,7 +15,7 @@
   //seleciona todos os itens da tabela
   $db = atalhos::getBanco();
 
-  if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbavisos ORDER BY statusAviso ASC")){
+  if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbAvisos ORDER BY statusAviso ASC")){
     $query->execute();
     $query->store_result();
     $total = $query->num_rows;
@@ -55,7 +55,7 @@
                   <?php
                     //echo '<td>1: '.$avisos.'</td>';
                     //exibe os avisos selecionados
-                    if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbavisos ORDER BY statusAviso ASC")){
+                    if($query = $db->prepare("SELECT idAviso, tituloAviso, dataAviso, statusAviso FROM tbAvisos ORDER BY statusAviso ASC")){
                       $query->execute();
                       $query->bind_result($idAviso, $tituloAviso, $dataAviso, $statusAviso);
                     while ($query->fetch()) {

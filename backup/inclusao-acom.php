@@ -10,7 +10,7 @@
     $total = 0;
     if($matricula != NULL && $email != NULL){
       $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
-      if ($query = $db->prepare("SELECT idInc FROM tbinclusao WHERE matricula = ? AND email = AES_ENCRYPT(?, ?)")){
+      if ($query = $db->prepare("SELECT idInc FROM tbInclusao WHERE matricula = ? AND email = AES_ENCRYPT(?, ?)")){
           $query->bind_param('sss', $matricula, $email, $_SESSION['chave']);
           $query->execute();
           $query->store_result();
@@ -24,7 +24,7 @@
           $inicio = (NumReg*$pagina)-NumReg;
           $query->free_result();
           $query->close();
-          if ($query = $db->prepare("SELECT status, disciplina, codigo, turma, dataEnvio, motivo2 FROM tbinclusao WHERE matricula = ? AND email = AES_ENCRYPT(?, ?) ORDER BY dataEnvio ASC LIMIT ?,".NumReg)){
+          if ($query = $db->prepare("SELECT status, disciplina, codigo, turma, dataEnvio, motivo2 FROM tbInclusao WHERE matricula = ? AND email = AES_ENCRYPT(?, ?) ORDER BY dataEnvio ASC LIMIT ?,".NumReg)){
             $query->bind_param('sssi', $matricula, $email, $_SESSION['chave'], $inicio);
             $query->execute();
             $query->bind_result($status, $disciplina, $codigo, $turma, $dataEnvio, $motivo2);

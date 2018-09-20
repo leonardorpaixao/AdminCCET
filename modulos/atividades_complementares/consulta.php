@@ -13,18 +13,18 @@
   $db = Atalhos::getBanco();
   $link = '/atividadescomplementares';
   if ($_SESSION['nivel'] == 4){
-    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbusuario b on a.idUser = b.idUser WHERE b.idUser = ? ORDER BY a.id ")){
+    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbUsuario b on a.idUser = b.idUser WHERE b.idUser = ? ORDER BY a.id ")){
       $query->bind_param('i', $_SESSION['id']);
       $query->execute();
       $query->bind_result($id, $idUser, $status, $dateStart, $nomeUser); 
     }
   }elseif ($_SESSION['nivel'] == 1){
-    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbusuario b on a.idUser = b.idUser ORDER BY a.id")){
+    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbUsuario b on a.idUser = b.idUser ORDER BY a.id")){
       $query->execute();
       $query->bind_result($id, $idUser, $status, $dateStart, $nomeUser);
     }
   }else{
-    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbusuario b on a.idUser = b.idUser INNER JOIN tbetapaatividadecomp c on a.id = c.idAtividade WHERE c.status = 'Pendente' AND c.idUser = ? ORDER BY a.id")){
+    if($query = $db->prepare("SELECT a.id, a.idUser, a.status, a.dateStart, b.nomeUser FROM tbAtividadesComp a INNER JOIN tbUsuario b on a.idUser = b.idUser INNER JOIN tbetapaatividadecomp c on a.id = c.idAtividade WHERE c.status = 'Pendente' AND c.idUser = ? ORDER BY a.id")){
       $query->bind_param('i', $_SESSION['id']);      
       $query->execute();
       $query->bind_result($id, $idUser, $status, $dateStart, $nomeUser);

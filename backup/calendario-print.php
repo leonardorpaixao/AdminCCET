@@ -18,8 +18,8 @@
   <div class="box-body">
     <img src="painel_avisos/dcomp.jpg" style="float: right;width: 150px;height: 150px;">
     <?php
-      if ($query = $db->prepare("SELECT a.nomeLab, b.cor, a.idLab FROM tblaboratorio a 
-        inner join tbcor b on a.idCor = b.idCor WHERE a.statusLab='Ativo'")){
+      if ($query = $db->prepare("SELECT a.nomeLab, b.cor, a.idLab FROM tbLaboratorio a 
+        inner join tbCor b on a.idCor = b.idCor WHERE a.statusLab='Ativo'")){
         $query->execute();
         $query->bind_result($nomeLab,$cor,$idLab);
         while ($query->fetch()) {
@@ -84,12 +84,12 @@
         events: [
           <?php 
             if($query = $db->prepare("SELECT g.inicio, g.fim, d.nomeUser, f.cor, a.motivoReLab, a.tipoReLab, h.nomeLab, a.tituloReLab, b.idLab 
-                  FROM tbreservalab a
-  								inner join tbcontroledatalab b on b.idReLab = a.idReLab
-  								inner join tbusuario d on a.idUser = d.idUser
-  								inner join tblaboratorio h on h.idLab = b.idLab
-  								inner join tbcor f on h.idCor = f.idCor
-  								inner join tbdata g on b.idData = g.idData
+                  FROM tbReservaLab a
+  								inner join tbControleDataLab b on b.idReLab = a.idReLab
+  								inner join tbUsuario d on a.idUser = d.idUser
+  								inner join tbLaboratorio h on h.idLab = b.idLab
+  								inner join tbCor f on h.idCor = f.idCor
+  								inner join tbData g on b.idData = g.idData
   								WHERE ((b.statusData = 'Aprovado') OR (b.statusData = 'Entregue')) {$f}")){
               $query->execute();
               $query->bind_result($inicio,$fim,$nomeUser,$cor,$motivoReLab,$tipoReLab,$nomeLab,$tituloReLab,$idLab);

@@ -21,21 +21,21 @@
 	//seleciona todos os itens da tabela
 	if(isset($busca)){
 		if(isset($filtro) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReEq FROM tbreservaeq a inner join tbusuario e on a.idUser = e.idUser
+			$query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a inner join tbUsuario e on a.idUser = e.idUser
 				WHERE (a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ?)
-				AND EXISTS (SELECT y.idReEq FROM tbcontroledataeq y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
+				AND EXISTS (SELECT y.idReEq FROM tbControleDataEq y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
 			$query->bind_param('ssss', $auxbusca, $auxbusca, $auxbusca, $filto);
 		}else{
-			$query = $db->prepare("SELECT a.idReEq FROM tbreservaeq a inner join tbusuario e on a.idUser = e.idUser
+			$query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a inner join tbUsuario e on a.idUser = e.idUser
 				WHERE a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ?");
 			$query->bind_param('sss', $auxbusca, $auxbusca, $auxbusca);
 		}
 	}elseif(isset($filtro) && $filtro != 'Todos'){
-		$query = $db->prepare("SELECT a.idReEq FROM tbreservaeq a WHERE EXISTS (SELECT y.idReEq FROM tbcontroledataeq y 
+		$query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a WHERE EXISTS (SELECT y.idReEq FROM tbControleDataEq y 
 			WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))");
 		$query->bind_param('s', $filto);
 	}else{
-		$query = $db->prepare("SELECT idReEq FROM tbreservaeq");
+		$query = $db->prepare("SELECT idReEq FROM tbReservaEq");
 	}
 	$query->execute();
 	$query->store_result();
@@ -53,33 +53,33 @@
 		//seleciona os itens por página
 		if(isset($busca)){
 			if(isset($filtro) && $filtro != 'Todos'){
-				$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbreservaeq a 
-					inner join tbusuario e on a.idUser = e.idUser WHERE (a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ?)
-					AND EXISTS (SELECT y.idReEq FROM tbcontroledataeq y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))
+				$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbReservaEq a 
+					inner join tbUsuario e on a.idUser = e.idUser WHERE (a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ?)
+					AND EXISTS (SELECT y.idReEq FROM tbControleDataEq y WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?))
 					ORDER BY idReEq DESC LIMIT ?,".NumReg);
 				$query->bind_param('ssssi', $auxbusca, $auxbusca, $auxbusca, $filto, $inicio);
 			}else{
-				$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbreservaeq a 
-					inner join tbusuario e on a.idUser = e.idUser WHERE a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ? 
+				$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbReservaEq a 
+					inner join tbUsuario e on a.idUser = e.idUser WHERE a.tituloReEq LIKE ? OR e.nomeUser LIKE ? OR e.cpf LIKE ? 
 					ORDER BY idReEq DESC LIMIT ?,".NumReg);
 				$query->bind_param('sssi', $auxbusca, $auxbusca, $auxbusca, $inicio);
 			}
 		}elseif(isset($filtro) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbreservaeq a
-				inner join tbusuario e on a.idUser = e.idUser WHERE EXISTS (SELECT y.idReEq FROM tbcontroledataeq y 
+			$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbReservaEq a
+				inner join tbUsuario e on a.idUser = e.idUser WHERE EXISTS (SELECT y.idReEq FROM tbControleDataEq y 
 				WHERE (a.idReLab = y.idReLab) AND (y.statusData = ?)) ORDER BY idReEq DESC LIMIT ?,".NumReg);
 			$query->bind_param('si', $filto, $inicio);
 		}else{
-			$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbreservaeq a 
-				inner join tbusuario e on a.idUser = e.idUser ORDER BY idReEq DESC LIMIT ?,".NumReg);
+			$query = $db->prepare("SELECT a.motivoReEq, a.idReEq, e.nomeUser, e.idUser, a.tituloReEq FROM tbReservaEq a 
+				inner join tbUsuario e on a.idUser = e.idUser ORDER BY idReEq DESC LIMIT ?,".NumReg);
 			$query->bind_param('i', $inicio);
 		}
 		$query->execute();
 		$query->bind_result($motivoReEq, $idReEq, $nomeUser, $idUser, $tituloReEq);
 	}
 	$auxDb = Atalhos::getBanco();
-	if($aux = $auxDb->prepare("SELECT a.idReEq, a.idData FROM tbcontroledataeq a WHERE statusData='Expirado' AND EXISTS 
-		(SELECT b.idReEq FROM tbchoqueeq b WHERE (a.idReEq = b.idReEq AND a.idData = a.idData) OR 
+	if($aux = $auxDb->prepare("SELECT a.idReEq, a.idData FROM tbControleDataEq a WHERE statusData='Expirado' AND EXISTS 
+		(SELECT b.idReEq FROM tbChoqueEq b WHERE (a.idReEq = b.idReEq AND a.idData = a.idData) OR 
 		(a.idReEq = b.idChoqueReEq AND a.idData = b.idChoqueData))")){
 		$aux->execute();
 		$aux->bind_result($idRe, $idData);
@@ -91,7 +91,7 @@
 		$aux->close();
 	}
 	$ch = Atalhos::getBanco();
-	if($choque = $ch->prepare("SELECT idReEq, idData, idChoqueReEq, idChoqueData FROM tbchoqueeq")){
+	if($choque = $ch->prepare("SELECT idReEq, idData, idChoqueReEq, idChoqueData FROM tbChoqueEq")){
 		$choque->execute();
 		$choque->bind_result($idReEq, $idData, $idChoqueReEq, $idChoqueData);
 		$choque->store_result();
@@ -210,13 +210,13 @@
 							                      	while($query->fetch()){
 							                      		if(isset($filto) && $filtro != 'Todos'){
 							                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-							                      				FROM tbcontroledataeq y inner join tbdata f on y.idData = f.idData WHERE y.idReEq = ? 
+							                      				FROM tbControleDataEq y inner join tbData f on y.idData = f.idData WHERE y.idReEq = ? 
 							                      				AND (y.statusData = ?) ORDER BY f.inicio ASC")){
 							                      				$aux->bind_param('is', $idReEq, $filto);
 							                      			}
 							                      		}else{
 							                      			if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-							                      				FROM tbcontroledataeq y inner join tbdata f on y.idData = f.idData WHERE y.idReEq = ? 
+							                      				FROM tbControleDataEq y inner join tbData f on y.idData = f.idData WHERE y.idReEq = ? 
 																ORDER BY f.inicio ASC")){
 							                      				$aux->bind_param('i', $idReEq);
 							                      			}
@@ -331,7 +331,7 @@
 																<td>-</td>
 																<td>';
 															$bd = Atalhos::getBanco();
-															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbreservatipoeq a inner join tbtipoeq b 
+															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbReservaTipoEq a inner join tbTipoEq b 
 																on a.idTipoEq = b.idTipoEq WHERE a.idReEq = ?")){
 																$temp->bind_param('i', $idReEq);
 																$temp->execute();
@@ -410,7 +410,7 @@
 																<td>'.Atalhos::getData(strtotime($inicio), strtotime($fim)).'</td>
 																<td>';
 															$bd = Atalhos::getBanco();
-															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbreservatipoeq a inner join tbtipoeq b 
+															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbReservaTipoEq a inner join tbTipoEq b 
 																on a.idTipoEq = b.idTipoEq WHERE a.idReEq = ?")){
 																$temp->bind_param('i', $idReEq);
 																$temp->execute();
@@ -482,9 +482,9 @@
 							                    		while($choque->fetch()){
 							                    			if($anterior[0] != $idReEq || $anterior[1] != $idData){
 							                    				if($aux = $auxDb->prepare("SELECT a.motivoReEq, e.nomeUser, e.idUser, a.tituloReEq, 
-							                    					b.statusData, c.inicio, c.fim FROM tbreservaeq a inner join tbusuario e 
-							                    					on a.idUser = e.idUser inner join tbcontroledataeq b on b.idReEq = a.idReEq
-									                    			inner join tbdata c on c.idData = b.idData WHERE a.idReEq = ? AND b.idData = ?")){
+							                    					b.statusData, c.inicio, c.fim FROM tbReservaEq a inner join tbUsuario e 
+							                    					on a.idUser = e.idUser inner join tbControleDataEq b on b.idReEq = a.idReEq
+									                    			inner join tbData c on c.idData = b.idData WHERE a.idReEq = ? AND b.idData = ?")){
 								                      				$aux->bind_param('ii', $idReEq, $idData);
 								                      				$aux->execute();
 			                      									$aux->bind_result($motivoReEq, $nomeUser, $idUser, $tituloReEq, $statusData, $inicio, $fim);
@@ -500,7 +500,7 @@
 																		<td>'.Atalhos::getData(strtotime($inicio), strtotime($fim)).'</td>
 																		<td>';
 																$bd = Atalhos::getBanco();
-																if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbreservatipoeq a inner join tbtipoeq b 
+																if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbReservaTipoEq a inner join tbTipoEq b 
 																	on a.idTipoEq = b.idTipoEq WHERE a.idReEq = ?")){
 																	$temp->bind_param('i', $idReEq);
 																	$temp->execute();
@@ -541,9 +541,9 @@
 																$anterior[1] = $idData;
 							                    			}
 							                    			if($aux = $auxDb->prepare("SELECT a.motivoReEq, e.nomeUser, e.idUser, a.tituloReEq, 
-						                    					b.statusData, c.inicio, c.fim FROM tbreservaeq a inner join tbusuario e 
-						                    					on a.idUser = e.idUser inner join tbcontroledataeq b on b.idReEq = a.idReEq
-								                    			inner join tbdata c on c.idData = b.idData WHERE a.idReEq = ? AND b.idData = ?")){
+						                    					b.statusData, c.inicio, c.fim FROM tbReservaEq a inner join tbUsuario e 
+						                    					on a.idUser = e.idUser inner join tbControleDataEq b on b.idReEq = a.idReEq
+								                    			inner join tbData c on c.idData = b.idData WHERE a.idReEq = ? AND b.idData = ?")){
 							                      				$aux->bind_param('ii', $idChoqueReEq, $idChoqueData);
 							                      				$aux->execute();
 		                      									$aux->bind_result($motivoReEq, $nomeUser, $idUser, $tituloReEq, $statusData, $inicio, $fim);
@@ -556,7 +556,7 @@
 																		<td>'.Atalhos::getData(strtotime($inicio), strtotime($fim)).'</td>
 																		<td>';
 															$bd = Atalhos::getBanco();
-															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbreservatipoeq a inner join tbtipoeq b 
+															if($temp = $bd->prepare("SELECT b.tipoEq, a.numReEq FROM tbReservaTipoEq a inner join tbTipoEq b 
 																on a.idTipoEq = b.idTipoEq WHERE a.idReEq = ?")){
 																$temp->bind_param('i', $idReEq);
 																$temp->execute();

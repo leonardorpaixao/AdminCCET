@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/laboratorios/controlar';
   $db = Atalhos::getBanco();
   $link = '/laboratorios/controlar';
-  if($query = $db->prepare("SELECT idReLab, tituloReLab, nomeUser, idLab, inicio, fim, statusData, idData, idUser, justificativa FROM tbcontroledatalab NATURAL JOIN tbreservalab NATURAL JOIN tbusuario JOIN tbdata USING(idData) WHERE statusData != 'Pendente' ORDER BY statusData ASC, inicio ASC")){
+  if($query = $db->prepare("SELECT idReLab, tituloReLab, nomeUser, idLab, inicio, fim, statusData, idData, idUser, justificativa FROM tbControleDataLab NATURAL JOIN tbReservaLab NATURAL JOIN tbUsuario JOIN tbData USING(idData) WHERE statusData != 'Pendente' ORDER BY statusData ASC, inicio ASC")){
     $query->execute();
     $query->bind_result($idReLab, $tituloReLab, $nomeUser, $idLab, $inicio, $fim, $statusData, $idData, $idUser, $justificativa);
   }

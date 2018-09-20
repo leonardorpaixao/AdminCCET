@@ -9,7 +9,7 @@
 
   $db1 = Atalhos::getBanco();
 
-  if($query = $db1->prepare("SELECT idUser FROM tbticket WHERE idTicket = ?")){
+  if($query = $db1->prepare("SELECT idUser FROM tbTicket WHERE idTicket = ?")){
   	$query->bind_param("i", $idTicket);
   	$query->execute();
   	$query->bind_result($idUser1);
@@ -26,7 +26,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
 
-  if($query = $db->prepare("SELECT a.idUser, a.mensagem, a.dataLog, b.nomeUser FROM tblog a inner join tbusuario b ON a.idUser = b.idUser WHERE a.idTicket = ? ORDER BY a.idLog ASC")){
+  if($query = $db->prepare("SELECT a.idUser, a.mensagem, a.dataLog, b.nomeUser FROM tbLog a inner join tbUsuario b ON a.idUser = b.idUser WHERE a.idTicket = ? ORDER BY a.idLog ASC")){
     $query->bind_param("i", $idTicket);
     $query->execute();
     $query->bind_result($idUser, $mensagem, $dataLog, $nome);
@@ -52,7 +52,7 @@
           <?php
             if($total > 0):
               $auxDb = Atalhos::getBanco();
-              if($aux = $auxDb->prepare("SELECT idAssunto, tituloTicket, statusTicket, avalicao FROM tbticket WHERE idTicket = ?")){
+              if($aux = $auxDb->prepare("SELECT idAssunto, tituloTicket, statusTicket, avalicao FROM tbTicket WHERE idTicket = ?")){
                 $aux->bind_param('i', $idTicket);
                 $aux->execute();
                 $aux->bind_result($idAssunto, $tituloTicket, $statusTicket, $avalicao);

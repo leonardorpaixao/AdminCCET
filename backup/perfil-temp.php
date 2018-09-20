@@ -13,7 +13,7 @@
   include 'menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare('SELECT idConta, nomeConta, login, statusConta, numAcesso, dataInicio, dataFim FROM tbcontatemp WHERE idConta = ? ORDER BY nomeConta')){
+  if ($query = $db->prepare('SELECT idConta, nomeConta, login, statusConta, numAcesso, dataInicio, dataFim FROM tbContaTemp WHERE idConta = ? ORDER BY nomeConta')){
     $query->bind_param('i', $_GET['id']);
     $query->execute();
     $query->bind_result($idConta, $nomeConta, $login, $statusConta, $numAcesso, $dataInicio, $dataFim);

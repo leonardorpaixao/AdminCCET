@@ -18,7 +18,7 @@
 		$email = explode('@', $user->email);
 		$db = Atalhos::getBanco();
  		if ($email[1] == 'dcomp.ufs.br'){
-			if($query = $db->prepare("SELECT a.idUser, a.nomeUser, a.nivel, a.statusUser, a.termo, a.idAfiliacao FROM tbusuario a inner join tbemail b on a.idUser = b.idUser WHERE AES_DECRYPT(a.email, ?) = ? OR AES_DECRYPT(b.email, ?) = ? LIMIT 1")){//Por algum motivo quando é desencriptado ele não mostra o original, parece que essa chave ta corronpida, mas não sei como
+			if($query = $db->prepare("SELECT a.idUser, a.nomeUser, a.nivel, a.statusUser, a.termo, a.idAfiliacao FROM tbUsuario a inner join tbEmail b on a.idUser = b.idUser WHERE AES_DECRYPT(a.email, ?) = ? OR AES_DECRYPT(b.email, ?) = ? LIMIT 1")){//Por algum motivo quando é desencriptado ele não mostra o original, parece que essa chave ta corronpida, mas não sei como
 				$query->bind_param('ssss', $_SESSION['chave'], $user->email, $_SESSION['chave'], $email[0]);
 				$query->execute();
 				$query->bind_result($id, $nome, $nivel, $status, $termo, $afiliacao);
@@ -33,17 +33,17 @@
 					$query->close();
 					if($termo == 1){
 						$_SESSION['logado'] = true;
-						$query = $db->prepare("SELECT sessao FROM tbonline WHERE idUser= ?");
+						$query = $db->prepare("SELECT sessao FROM tbOnline WHERE idUser= ?");
 						$query->bind_param('i', $_SESSION['id']);
 						$query->execute();
 						if($query->fetch()){
 							$query->close();
-							$query = $db->prepare("UPDATE tbonline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
+							$query = $db->prepare("UPDATE tbOnline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
 							$query->bind_param('sss', date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes")), session_id(), $_SESSION['id']);
 							$query->execute();
 						}else{
 							$query->close();
-							$query = $db->prepare("INSERT INTO tbonline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
+							$query = $db->prepare("INSERT INTO tbOnline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
 							$data = date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes"));
 							$idSessao = session_id();
 							$query->bind_param('sss', $_SESSION['id'], $data, $idSessao);
