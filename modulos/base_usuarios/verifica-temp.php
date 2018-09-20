@@ -16,13 +16,13 @@
         if($ldapbind){
 
           $dateNow = date("Y-m-d H:i:s", strtotime("now"));
-          if($aux = $db->prepare("SELECT login, a.idUser FROM tbUsuario a INNER JOIN tbUsuarioTemp b ON a.idUser = b.idUser WHERE ? > b.dataFim")){
+          if($aux = $db->prepare("SELECT login, a.idUser FROM tbusuario a INNER JOIN tbusuarioTemp b ON a.idUser = b.idUser WHERE ? > b.dataFim")){
             $aux->bind_param('s', $dateNow);
             $aux->execute();
             $aux->bind_result($userremove, $idUser);
             while($aux->fetch()){
               $db1 = Atalhos::getBanco();
-              if($query = $db1->prepare("DELETE FROM tbUsuario WHERE idUser = ?")){
+              if($query = $db1->prepare("DELETE FROM tbusuario WHERE idUser = ?")){
                 echo "FOI";
 
                 $query->bind_param('i',$idUser);

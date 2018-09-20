@@ -14,7 +14,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = atalhos::getBanco();
   $link = '/tickets/meus';
-	if($query = $db->prepare("SELECT idTicket, idAssunto, tituloTicket, data, statusTicket, avalicao FROM tbTicket WHERE idUser = ? ORDER BY statusTicket ASC")){
+	if($query = $db->prepare("SELECT idTicket, idAssunto, tituloTicket, data, statusTicket, avalicao FROM tbticket WHERE idUser = ? ORDER BY statusTicket ASC")){
     $query->bind_param('i', $_SESSION['id']);
     $query->execute();
     $query->bind_result($idTicket, $idAssunto, $titulo, $data, $status, $avalicao);
@@ -31,7 +31,7 @@
   $mediaNota = $statistic->getRating();;
 
   //Numero de Tickets Respondidos
-  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Respondido' AND idUser = ?")){
+  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Respondido' AND idUser = ?")){
     $aux->bind_param('i', $_SESSION['id']);
     $aux->execute();
     $aux->store_result();
@@ -40,7 +40,7 @@
   }
   
   //Numero de Tickets Concluídos
-  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Concluido' AND idUser = ?")){
+  if ($aux = $db_aux->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Concluido' AND idUser = ?")){
     $aux->bind_param('i', $_SESSION['id']);
     $aux->execute();
     $aux->store_result();

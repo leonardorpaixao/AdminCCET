@@ -2,7 +2,7 @@
 	//header( "Content-type: image/jpeg");
         include '../../includes/sessao.php';
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT imagem FROM tbImagem WHERE idUser = ?")){
+	if($query = $db->prepare("SELECT imagem FROM tbimagem WHERE idUser = ?")){
 		$query->bind_param('i', $_GET["idUser"]);
         $query->execute();
         $query->bind_result($imagem);

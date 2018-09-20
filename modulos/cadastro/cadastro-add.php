@@ -28,7 +28,7 @@ $telefone = $_POST['telefone'];
 
 
 $db = Atalhos::getBanco();
-if($query = $db->prepare("UPDATE tbUsuario SET termo = 1, telefone = $telefone, senha = '$senha', statusUser = 'Ativo', cpf = '$cpf',
+if($query = $db->prepare("UPDATE tbusuario SET termo = 1, telefone = $telefone, senha = '$senha', statusUser = 'Ativo', cpf = '$cpf',
  dtnascimento = '$dtnascimento', sudo = 'Ativo' WHERE idUser = ?")){ 
 $query->bind_param('i', $_SESSION['id']);
 $query->execute();

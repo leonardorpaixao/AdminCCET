@@ -71,7 +71,7 @@
                       <option selected disabled>Selecione uma disciplina</option>
                       <?php
                         $db = Atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbDisciplinas")){
+                        if($query = $db->prepare("SELECT idDisc, nome, codigo, carga FROM tbdisciplinas")){
                               $query->execute();
                               $query->bind_result($idDisc, $nome, $codigo, $carga);
                         }

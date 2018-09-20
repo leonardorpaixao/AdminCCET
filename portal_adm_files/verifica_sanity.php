@@ -138,7 +138,7 @@ function build_lab(){
 	$variavel_line = array();
 	$count=0;
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT nomeLab, numComp FROM tbLaboratorio")){
+	if($query = $db->prepare("SELECT nomeLab, numComp FROM tblaboratorio")){
 		$query->execute();
 		$query->bind_result($nomeLab, $numComp);
 		while($query->fetch()){
@@ -246,7 +246,7 @@ $name_lab=$name_lab;
 $count=0;
 $variavel_line="";
 $db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT subRede FROM tbLaboratorio WHERE nomeLab = '$name_lab' ")){
+	if($query = $db->prepare("SELECT subRede FROM tblaboratorio WHERE nomeLab = '$name_lab' ")){
 		$query->execute();
 		$query->bind_result($subrede);
 		while($query->fetch()){
@@ -264,7 +264,7 @@ $string=exec($come2,$saida,$status);
 
 $status=explode('-',$saida[0]);
 
-//"SELECT nomeLab, subRed, numComp FROM tbLaboratorio"
+//"SELECT nomeLab, subRed, numComp FROM tblaboratorio"
 
 
 
@@ -340,7 +340,7 @@ $var_lab = array(array());
 	$variavel_line = array();
 	$count=0;
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT nomeLab, numComp FROM tbLaboratorio")){
+	if($query = $db->prepare("SELECT nomeLab, numComp FROM tblaboratorio")){
 		$query->execute();
 		$query->bind_result($nomeLab, $numComp);
 		while($query->fetch()){

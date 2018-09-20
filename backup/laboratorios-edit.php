@@ -11,8 +11,8 @@
 	include 'menu.php';
 	$_SESSION['irPara'] = '/inicio';
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT a.nomeLab, a.capAluno, a.numComp, b.cor, a.idCor FROM tbLaboratorio a 
-		inner join tbCor b on b.idCor = a.idCor WHERE a.idLab = ?")){
+	if($query = $db->prepare("SELECT a.nomeLab, a.capAluno, a.numComp, b.cor, a.idCor FROM tblaboratorio a 
+		inner join tbcor b on b.idCor = a.idCor WHERE a.idLab = ?")){
 		$query->bind_param('i', $_GET['id']);
 		$query->execute();
 		$query->bind_result($nome, $capAluno, $numComp, $cor, $idCor);

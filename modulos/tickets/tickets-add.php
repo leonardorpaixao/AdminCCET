@@ -13,8 +13,8 @@
     $acao = (isset($_GET['acao']))? $_GET['acao'] : 'inserir';          
     $id = (isset($_GET['id']))? $_GET['id'] : NULL;
     $db = Atalhos::getBanco();
-    if ($query = $db->prepare("SELECT b.nomeUser, AES_DECRYPT(b.email, ?), c.afiliacao FROM tbUsuario b
-      inner join tbAfiliacao c on b.idAfiliacao = c.idAfiliacao WHERE b.idUser = ?")){
+    if ($query = $db->prepare("SELECT b.nomeUser, AES_DECRYPT(b.email, ?), c.afiliacao FROM tbusuario b
+      inner join tbafiliacao c on b.idAfiliacao = c.idAfiliacao WHERE b.idUser = ?")){
       $query->bind_param('si', $_SESSION['chave'], $_SESSION['id']);                
       $query->execute();
       $query->bind_result($nomeUser, $email, $afiliacao);

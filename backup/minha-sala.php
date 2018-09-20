@@ -19,21 +19,21 @@
 	$db = Atalhos::getBanco();
 	if(isset($busca)){
 		if(isset($filtro) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a WHERE a.idUser = ? 
+			$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a WHERE a.idUser = ? 
 				AND (a.tituloReSala LIKE ? OR a.motivoReSala LIKE ?) AND EXISTS (SELECT y.idReSala 
-				FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
+				FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
 			$query->bind_param('isss', $_SESSION['id'], $auxbusca, $auxbusca, $filtro);
 		}else{
-			$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a WHERE a.idUser = ? 
+			$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a WHERE a.idUser = ? 
 				AND (a.tituloReSala LIKE ? OR a.motivoReSala LIKE ?)");
 			$query->bind_param('iss', $_SESSION['id'], $auxbusca, $auxbusca);
 		}
 	}elseif(isset($filtro) && $filtro != 'Todos'){
-		$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a WHERE a.idUser = ? AND EXISTS (SELECT y.idReSala 
-			FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
+		$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a WHERE a.idUser = ? AND EXISTS (SELECT y.idReSala 
+			FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?)");
 		$query->bind_param('is', $_SESSION['id'], $filtro);
 	}else{
-		$query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a WHERE a.idUser = ?");
+		$query = $db->prepare("SELECT a.idReSala FROM tbreservasala a WHERE a.idUser = ?");
 		$query->bind_param('i', $_SESSION['id']);
 	}	
 	$query->execute();
@@ -49,26 +49,26 @@
 		$query->close();
 		if(isset($busca)){
 			if(isset($filto) && $filtro != 'Todos'){
-				$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbReservaSala a 
-					inner join tbSala b on a.idSala = b.idSala WHERE a.idUser = ? AND (a.tituloReSala LIKE ? 
-					OR a.motivoReSala LIKE ?) AND EXISTS (SELECT y.idReSala FROM tbControleDataSala y 
+				$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbreservasala a 
+					inner join tbsala b on a.idSala = b.idSala WHERE a.idUser = ? AND (a.tituloReSala LIKE ? 
+					OR a.motivoReSala LIKE ?) AND EXISTS (SELECT y.idReSala FROM tbcontroledatasala y 
 					WHERE a.idReSala = y.idReSala AND y.statusData = ?) ORDER BY idReSala DESC LIMIT ?,".NumReg);
 				$query->bind_param('isssi', $_SESSION['id'], $auxbusca, $auxbusca, $filtro, $inicio);
 			}else{
-				$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbReservaSala a 
-					inner join tbSala b on a.idSala = b.idSala WHERE a.idUser = ? AND (a.tituloReSala LIKE ? 
+				$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbreservasala a 
+					inner join tbsala b on a.idSala = b.idSala WHERE a.idUser = ? AND (a.tituloReSala LIKE ? 
 					OR a.motivoReSala LIKE ?) ORDER BY idReSala DESC LIMIT ?,".NumReg);
 				$query->bind_param('issi', $_SESSION['id'], $auxbusca, $auxbusca, $inicio);
 			}
 		}elseif(isset($filto) && $filtro != 'Todos'){
-			$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbReservaSala a 
-				inner join tbSala b on a.idSala = b.idSala WHERE a.idUser = ? AND EXISTS (SELECT y.idReSala 
-				FROM tbControleDataSala y WHERE a.idReSala = y.idReSala AND y.statusData = ?) 
+			$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbreservasala a 
+				inner join tbsala b on a.idSala = b.idSala WHERE a.idUser = ? AND EXISTS (SELECT y.idReSala 
+				FROM tbcontroledatasala y WHERE a.idReSala = y.idReSala AND y.statusData = ?) 
 				ORDER BY idReSala DESC LIMIT ?,".NumReg);
 			$query->bind_param('isi', $_SESSION['id'], $filtro, $inicio);
 		}else{
-			$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbReservaSala a
-				inner join tbSala b on a.idSala = b.idSala WHERE a.idUser = ? ORDER BY idReSala DESC LIMIT ?,".NumReg);
+			$query = $db->prepare("SELECT a.idReSala, a.motivoReSala, b.nomeSala, a.tituloReSala FROM tbreservasala a
+				inner join tbsala b on a.idSala = b.idSala WHERE a.idUser = ? ORDER BY idReSala DESC LIMIT ?,".NumReg);
 			echo $db->error;
 			$query->bind_param('ii', $_SESSION['id'], $inicio);
 		}
@@ -127,13 +127,13 @@
 			                      		while($query->fetch()){
 					                        if(isset($filto) && $filtro != 'Todos'){
 					                        	if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-				                      				FROM tbControleDataSala y inner join tbData f on y.idData = f.idData WHERE y.idReSala = ? 
+				                      				FROM tbcontroledatasala y inner join tbdata f on y.idData = f.idData WHERE y.idReSala = ? 
 				                      				AND y.statusData = ? ORDER BY y.statusData ASC")){
 				                      				$aux->bind_param('is', $idReSala, $filto);
 				                      			}
 					                        }else{
 					                        	if($aux = $auxDb->prepare("SELECT f.inicio, f.fim, y.statusData, y.justificativa, y.idData 
-				                      				FROM tbControleDataSala y inner join tbData f on y.idData = f.idData WHERE y.idReSala = ?
+				                      				FROM tbcontroledatasala y inner join tbdata f on y.idData = f.idData WHERE y.idReSala = ?
 				                      				ORDER BY y.statusData ASC")){
 				                      				$aux->bind_param('i', $idReSala);
 				                      			}

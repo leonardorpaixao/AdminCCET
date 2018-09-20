@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbAfiliacao`
+-- Table structure for table `tbafiliacao`
 --
 
-DROP TABLE IF EXISTS `tbAfiliacao`;
+DROP TABLE IF EXISTS `tbafiliacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbAfiliacao` (
+CREATE TABLE `tbafiliacao` (
   `idAfiliacao` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `afiliacao` varchar(64) NOT NULL,
   `nivel` smallint(6) NOT NULL,
@@ -31,106 +31,106 @@ CREATE TABLE `tbAfiliacao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbAfiliacao`
+-- Dumping data for table `tbafiliacao`
 --
 
-LOCK TABLES `tbAfiliacao` WRITE;
-/*!40000 ALTER TABLE `tbAfiliacao` DISABLE KEYS */;
-INSERT INTO `tbAfiliacao` VALUES (1,'Professor',3),(2,'CiÃªncia da ComputaÃ§Ã£o',4),(3,'Engenharia da ComputaÃ§Ã£o',4),(4,'Sistemas de InformaÃ§Ã£o',4),(5,'SecretÃ¡ria',1),(6,'TÃ©cnico',0),(7,'teste dkgjdf',4),(8,'teste afiliacao',4);
-/*!40000 ALTER TABLE `tbAfiliacao` ENABLE KEYS */;
+LOCK TABLES `tbafiliacao` WRITE;
+/*!40000 ALTER TABLE `tbafiliacao` DISABLE KEYS */;
+INSERT INTO `tbafiliacao` VALUES (1,'Professor',3),(2,'CiÃªncia da ComputaÃ§Ã£o',4),(3,'Engenharia da ComputaÃ§Ã£o',4),(4,'Sistemas de InformaÃ§Ã£o',4),(5,'SecretÃ¡ria',1),(6,'TÃ©cnico',0),(7,'teste dkgjdf',4),(8,'teste afiliacao',4);
+/*!40000 ALTER TABLE `tbafiliacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbAlocaLab`
+-- Table structure for table `tbalocalab`
 --
 
-DROP TABLE IF EXISTS `tbAlocaLab`;
+DROP TABLE IF EXISTS `tbalocalab`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbAlocaLab` (
+CREATE TABLE `tbalocalab` (
   `idLab` int(10) unsigned NOT NULL,
   `patrimonio` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idLab`,`patrimonio`),
   KEY `patrimonio` (`patrimonio`),
-  CONSTRAINT `tbAlocaLab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tbLaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbAlocaLab_ibfk_2` FOREIGN KEY (`patrimonio`) REFERENCES `tbEquipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbalocalab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbalocalab_ibfk_2` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbAlocaLab`
+-- Dumping data for table `tbalocalab`
 --
 
-LOCK TABLES `tbAlocaLab` WRITE;
-/*!40000 ALTER TABLE `tbAlocaLab` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbAlocaLab` ENABLE KEYS */;
+LOCK TABLES `tbalocalab` WRITE;
+/*!40000 ALTER TABLE `tbalocalab` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbalocalab` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbAlocaReEq`
+-- Table structure for table `tbalocareeq`
 --
 
-DROP TABLE IF EXISTS `tbAlocaReEq`;
+DROP TABLE IF EXISTS `tbalocareeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbAlocaReEq` (
+CREATE TABLE `tbalocareeq` (
   `patrimonio` int(10) unsigned NOT NULL,
   `idReEq` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   PRIMARY KEY (`patrimonio`,`idReEq`,`idData`),
   KEY `idReEq` (`idReEq`),
   KEY `idData` (`idData`),
-  CONSTRAINT `tbAlocaReEq_ibfk_1` FOREIGN KEY (`patrimonio`) REFERENCES `tbEquipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbAlocaReEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbControleDataEq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbAlocaReEq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbControleDataEq` (`idData`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbalocareeq_ibfk_1` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbalocareeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbcontroledataeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbalocareeq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbcontroledataeq` (`idData`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbAlocaReEq`
+-- Dumping data for table `tbalocareeq`
 --
 
-LOCK TABLES `tbAlocaReEq` WRITE;
-/*!40000 ALTER TABLE `tbAlocaReEq` DISABLE KEYS */;
-INSERT INTO `tbAlocaReEq` VALUES (241235435,42,139);
-/*!40000 ALTER TABLE `tbAlocaReEq` ENABLE KEYS */;
+LOCK TABLES `tbalocareeq` WRITE;
+/*!40000 ALTER TABLE `tbalocareeq` DISABLE KEYS */;
+INSERT INTO `tbalocareeq` VALUES (241235435,42,139);
+/*!40000 ALTER TABLE `tbalocareeq` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbAlocaReLab`
+-- Table structure for table `tbalocarelab`
 --
 
-DROP TABLE IF EXISTS `tbAlocaReLab`;
+DROP TABLE IF EXISTS `tbalocarelab`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbAlocaReLab` (
+CREATE TABLE `tbalocarelab` (
   `idLab` int(10) unsigned NOT NULL,
   `idReLab` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idLab`,`idReLab`),
   KEY `idReLab` (`idReLab`),
-  CONSTRAINT `tbAlocaReLab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tbLaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbAlocaReLab_ibfk_2` FOREIGN KEY (`idReLab`) REFERENCES `tbReservaLab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbalocarelab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbalocarelab_ibfk_2` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbAlocaReLab`
+-- Dumping data for table `tbalocarelab`
 --
 
-LOCK TABLES `tbAlocaReLab` WRITE;
-/*!40000 ALTER TABLE `tbAlocaReLab` DISABLE KEYS */;
-INSERT INTO `tbAlocaReLab` VALUES (1,1),(1,2),(1,3),(1,26),(1,28),(1,30),(1,31),(1,39),(1,40),(1,41),(1,42),(1,43),(2,26),(2,28);
-/*!40000 ALTER TABLE `tbAlocaReLab` ENABLE KEYS */;
+LOCK TABLES `tbalocarelab` WRITE;
+/*!40000 ALTER TABLE `tbalocarelab` DISABLE KEYS */;
+INSERT INTO `tbalocarelab` VALUES (1,1),(1,2),(1,3),(1,26),(1,28),(1,30),(1,31),(1,39),(1,40),(1,41),(1,42),(1,43),(2,26),(2,28);
+/*!40000 ALTER TABLE `tbalocarelab` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbAvisos`
+-- Table structure for table `tbavisos`
 --
 
-DROP TABLE IF EXISTS `tbAvisos`;
+DROP TABLE IF EXISTS `tbavisos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbAvisos` (
+CREATE TABLE `tbavisos` (
   `idAviso` int(11) NOT NULL AUTO_INCREMENT,
   `tituloAviso` varchar(50) NOT NULL,
   `textoAviso` text NOT NULL,
@@ -141,23 +141,23 @@ CREATE TABLE `tbAvisos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbAvisos`
+-- Dumping data for table `tbavisos`
 --
 
-LOCK TABLES `tbAvisos` WRITE;
-/*!40000 ALTER TABLE `tbAvisos` DISABLE KEYS */;
-INSERT INTO `tbAvisos` VALUES (1,'Fale com o DCOMP','&lt;p&gt;&lt;b&gt;Telefone&lt;/b&gt;&lt;br&gt;+55 79 2105-6678&lt;/p&gt;&lt;p&gt;&lt;b&gt;E-mail&lt;/b&gt;&lt;br&gt;dcomp.sec@ufs.br&lt;/p&gt;&lt;p&gt;&lt;b&gt;Nova Sede&lt;/b&gt;&lt;br&gt;Anexa ao Centro de VivÃªncia da UFS.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Antiga Sede&lt;/b&gt;&lt;br&gt;Ao lado do Departamento de Engenharia Civil.&lt;/p&gt;','2015-09-25','Ativo');
-/*!40000 ALTER TABLE `tbAvisos` ENABLE KEYS */;
+LOCK TABLES `tbavisos` WRITE;
+/*!40000 ALTER TABLE `tbavisos` DISABLE KEYS */;
+INSERT INTO `tbavisos` VALUES (1,'Fale com o DCOMP','&lt;p&gt;&lt;b&gt;Telefone&lt;/b&gt;&lt;br&gt;+55 79 2105-6678&lt;/p&gt;&lt;p&gt;&lt;b&gt;E-mail&lt;/b&gt;&lt;br&gt;dcomp.sec@ufs.br&lt;/p&gt;&lt;p&gt;&lt;b&gt;Nova Sede&lt;/b&gt;&lt;br&gt;Anexa ao Centro de VivÃªncia da UFS.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Antiga Sede&lt;/b&gt;&lt;br&gt;Ao lado do Departamento de Engenharia Civil.&lt;/p&gt;','2015-09-25','Ativo');
+/*!40000 ALTER TABLE `tbavisos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbBlock`
+-- Table structure for table `tbblock`
 --
 
-DROP TABLE IF EXISTS `tbBlock`;
+DROP TABLE IF EXISTS `tbblock`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbBlock` (
+CREATE TABLE `tbblock` (
   `idBlock` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idUserBlock` int(10) unsigned NOT NULL,
   `idUser` int(10) unsigned DEFAULT NULL,
@@ -167,29 +167,29 @@ CREATE TABLE `tbBlock` (
   PRIMARY KEY (`idBlock`),
   KEY `idUserBlock` (`idUserBlock`),
   KEY `idUser` (`idUser`),
-  CONSTRAINT `tbBlock_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE SET NULL ON UPDATE NO ACTION,
-  CONSTRAINT `tbBlock_ibfk_2` FOREIGN KEY (`idUserBlock`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbblock_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  CONSTRAINT `tbblock_ibfk_2` FOREIGN KEY (`idUserBlock`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbBlock`
+-- Dumping data for table `tbblock`
 --
 
-LOCK TABLES `tbBlock` WRITE;
-/*!40000 ALTER TABLE `tbBlock` DISABLE KEYS */;
-INSERT INTO `tbBlock` VALUES (1,1,10,'fgnskdlgns sfkagnfdlkgnfsd fkgnksfdlng gnfdlksg lkfmsdg fkgntkdfgnfsdÃ§lf gfkds onk fgnskdlgns sfkagnfdlkgnfsd fkgnksfdlng gnfdlksg lkfmsdg fkgntkdfgnfsdÃ§lf gfkds onk','2015-10-13','2015-10-15'),(2,4,10,'teste ngkfefsd fgdfsgfgfagagfsv','2015-12-11','2015-12-13'),(3,4,10,'ghndfhgfh','2015-12-11','2015-12-13');
-/*!40000 ALTER TABLE `tbBlock` ENABLE KEYS */;
+LOCK TABLES `tbblock` WRITE;
+/*!40000 ALTER TABLE `tbblock` DISABLE KEYS */;
+INSERT INTO `tbblock` VALUES (1,1,10,'fgnskdlgns sfkagnfdlkgnfsd fkgnksfdlng gnfdlksg lkfmsdg fkgntkdfgnfsdÃ§lf gfkds onk fgnskdlgns sfkagnfdlkgnfsd fkgnksfdlng gnfdlksg lkfmsdg fkgntkdfgnfsdÃ§lf gfkds onk','2015-10-13','2015-10-15'),(2,4,10,'teste ngkfefsd fgdfsgfgfagagfsv','2015-12-11','2015-12-13'),(3,4,10,'ghndfhgfh','2015-12-11','2015-12-13');
+/*!40000 ALTER TABLE `tbblock` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbChoqueEq`
+-- Table structure for table `tbchoqueeq`
 --
 
-DROP TABLE IF EXISTS `tbChoqueEq`;
+DROP TABLE IF EXISTS `tbchoqueeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbChoqueEq` (
+CREATE TABLE `tbchoqueeq` (
   `idReEq` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `idChoqueReEq` int(10) unsigned NOT NULL,
@@ -198,64 +198,64 @@ CREATE TABLE `tbChoqueEq` (
   KEY `idData` (`idData`),
   KEY `idChoqueReEq` (`idChoqueReEq`),
   KEY `idChoqueData` (`idChoqueData`),
-  CONSTRAINT `tbChoqueEq_ibfk_1` FOREIGN KEY (`idReEq`, `idData`) REFERENCES `tbControleDataEq` (`idReEq`, `idData`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbReservaEq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueEq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbData` (`idData`),
-  CONSTRAINT `tbChoqueEq_ibfk_4` FOREIGN KEY (`idChoqueReEq`) REFERENCES `tbReservaEq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueEq_ibfk_5` FOREIGN KEY (`idChoqueData`) REFERENCES `tbData` (`idData`)
+  CONSTRAINT `tbchoqueeq_ibfk_1` FOREIGN KEY (`idReEq`, `idData`) REFERENCES `tbcontroledataeq` (`idReEq`, `idData`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoqueeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoqueeq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
+  CONSTRAINT `tbchoqueeq_ibfk_4` FOREIGN KEY (`idChoqueReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoqueeq_ibfk_5` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbChoqueEq`
+-- Dumping data for table `tbchoqueeq`
 --
 
-LOCK TABLES `tbChoqueEq` WRITE;
-/*!40000 ALTER TABLE `tbChoqueEq` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbChoqueEq` ENABLE KEYS */;
+LOCK TABLES `tbchoqueeq` WRITE;
+/*!40000 ALTER TABLE `tbchoqueeq` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbchoqueeq` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbChoqueLab`
+-- Table structure for table `tbchoquelab`
 --
 
-DROP TABLE IF EXISTS `tbChoqueLab`;
+DROP TABLE IF EXISTS `tbchoquelab`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbChoqueLab` (
+CREATE TABLE `tbchoquelab` (
   `idReLab` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `idChoqueReLab` int(10) unsigned NOT NULL,
   `idChoqueData` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idReLab`,`idData`,`idChoqueReLab`,`idChoqueData`),
-  KEY `tbChoqueLab_ibfk_2` (`idData`),
-  KEY `tbChoqueLab_ibfk_3` (`idChoqueReLab`),
-  KEY `tbChoqueLab_ibfk_4` (`idChoqueData`),
-  CONSTRAINT `tbChoqueLab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbControleDataLab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueLab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbControleDataLab` (`idData`),
-  CONSTRAINT `tbChoqueLab_ibfk_3` FOREIGN KEY (`idChoqueReLab`) REFERENCES `tbControleDataLab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueLab_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbControleDataLab` (`idData`)
+  KEY `tbchoquelab_ibfk_2` (`idData`),
+  KEY `tbchoquelab_ibfk_3` (`idChoqueReLab`),
+  KEY `tbchoquelab_ibfk_4` (`idChoqueData`),
+  CONSTRAINT `tbchoquelab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoquelab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbcontroledatalab` (`idData`),
+  CONSTRAINT `tbchoquelab_ibfk_3` FOREIGN KEY (`idChoqueReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoquelab_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbcontroledatalab` (`idData`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbChoqueLab`
+-- Dumping data for table `tbchoquelab`
 --
 
-LOCK TABLES `tbChoqueLab` WRITE;
-/*!40000 ALTER TABLE `tbChoqueLab` DISABLE KEYS */;
-INSERT INTO `tbChoqueLab` VALUES (43,109,17,109),(43,109,31,109),(43,109,40,109),(43,109,41,109),(43,109,42,109);
-/*!40000 ALTER TABLE `tbChoqueLab` ENABLE KEYS */;
+LOCK TABLES `tbchoquelab` WRITE;
+/*!40000 ALTER TABLE `tbchoquelab` DISABLE KEYS */;
+INSERT INTO `tbchoquelab` VALUES (43,109,17,109),(43,109,31,109),(43,109,40,109),(43,109,41,109),(43,109,42,109);
+/*!40000 ALTER TABLE `tbchoquelab` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbChoqueSala`
+-- Table structure for table `tbchoquesala`
 --
 
-DROP TABLE IF EXISTS `tbChoqueSala`;
+DROP TABLE IF EXISTS `tbchoquesala`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbChoqueSala` (
+CREATE TABLE `tbchoquesala` (
   `idReSala` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `idChoqueReSala` int(10) unsigned NOT NULL,
@@ -264,60 +264,60 @@ CREATE TABLE `tbChoqueSala` (
   KEY `idData` (`idData`),
   KEY `idChoqueSala` (`idChoqueReSala`),
   KEY `idChoqueData` (`idChoqueData`),
-  CONSTRAINT `tbChoqueSala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbReservaSala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbChoqueSala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbData` (`idData`),
-  CONSTRAINT `tbChoqueSala_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbData` (`idData`),
-  CONSTRAINT `tbChoqueSala_ibfk_5` FOREIGN KEY (`idChoqueReSala`) REFERENCES `tbReservaSala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbchoquesala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbchoquesala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
+  CONSTRAINT `tbchoquesala_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`),
+  CONSTRAINT `tbchoquesala_ibfk_5` FOREIGN KEY (`idChoqueReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbChoqueSala`
+-- Dumping data for table `tbchoquesala`
 --
 
-LOCK TABLES `tbChoqueSala` WRITE;
-/*!40000 ALTER TABLE `tbChoqueSala` DISABLE KEYS */;
-INSERT INTO `tbChoqueSala` VALUES (2,136,1,136);
-/*!40000 ALTER TABLE `tbChoqueSala` ENABLE KEYS */;
+LOCK TABLES `tbchoquesala` WRITE;
+/*!40000 ALTER TABLE `tbchoquesala` DISABLE KEYS */;
+INSERT INTO `tbchoquesala` VALUES (2,136,1,136);
+/*!40000 ALTER TABLE `tbchoquesala` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbControleDataEq`
+-- Table structure for table `tbcontroledataeq`
 --
 
-DROP TABLE IF EXISTS `tbControleDataEq`;
+DROP TABLE IF EXISTS `tbcontroledataeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbControleDataEq` (
+CREATE TABLE `tbcontroledataeq` (
   `idReEq` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `statusData` enum('Pendente','Aprovado','Entregue','Recebido','Expirado','Cancelado','Negado') NOT NULL,
   `justificativa` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idReEq`,`idData`),
   KEY `idData` (`idData`),
-  CONSTRAINT `tbControleDataEq_ibfk_1` FOREIGN KEY (`idReEq`) REFERENCES `tbReservaEq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbControleDataEq_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbData` (`idData`)
+  CONSTRAINT `tbcontroledataeq_ibfk_1` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbcontroledataeq_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbControleDataEq`
+-- Dumping data for table `tbcontroledataeq`
 --
 
-LOCK TABLES `tbControleDataEq` WRITE;
-/*!40000 ALTER TABLE `tbControleDataEq` DISABLE KEYS */;
-INSERT INTO `tbControleDataEq` VALUES (1,7,'Expirado',NULL),(2,8,'Expirado',NULL),(3,9,'Expirado',NULL),(4,10,'Expirado',NULL),(5,8,'Expirado',NULL),(7,15,'Expirado',NULL),(8,17,'Expirado',NULL),(9,17,'Expirado',NULL),(10,18,'Expirado',NULL),(11,19,'Expirado',NULL),(12,19,'Expirado',NULL),(13,19,'Expirado',NULL),(14,19,'Expirado',NULL),(15,19,'Expirado',NULL),(16,19,'Expirado',NULL),(18,50,'Expirado',NULL),(19,51,'Expirado',NULL),(20,52,'Expirado',NULL),(21,53,'Expirado',NULL),(22,55,'Negado','hgfhdfhfd'),(23,56,'Negado','fsgfsgfdsg'),(24,57,'Expirado',NULL),(25,58,'Expirado',NULL),(26,58,'Negado','dhfdhgdhfdh'),(27,59,'Negado',NULL),(28,59,'Negado','gdfsgfdgdfg'),(29,60,'Negado','fdhvhdvhvc'),(30,60,'Expirado',NULL),(31,58,'Negado','fbfdbvzbfg'),(32,58,'Negado','fhgfdgfdsgd'),(33,70,'Expirado',NULL),(33,71,'Expirado',NULL),(34,72,'Expirado',NULL),(34,73,'Expirado',NULL),(35,72,'Expirado',NULL),(35,73,'Expirado',NULL),(36,74,'Expirado',NULL),(36,75,'Expirado',NULL),(36,76,'Expirado',NULL),(36,77,'Expirado',NULL),(36,78,'Expirado',NULL),(36,79,'Aprovado',NULL),(36,80,'Aprovado',NULL),(36,81,'Aprovado',NULL),(36,82,'Aprovado',NULL),(37,83,'Expirado',NULL),(37,84,'Expirado',NULL),(37,85,'Expirado',NULL),(37,86,'Expirado',NULL),(37,87,'Expirado',NULL),(37,88,'Aprovado',NULL),(37,89,'Aprovado',NULL),(38,133,'Cancelado',''),(39,134,'Entregue',NULL),(40,135,'Entregue',NULL),(41,138,'Aprovado',NULL),(42,139,'Entregue',NULL),(43,148,'Aprovado',NULL),(45,148,'Cancelado','rgvdfsf');
-/*!40000 ALTER TABLE `tbControleDataEq` ENABLE KEYS */;
+LOCK TABLES `tbcontroledataeq` WRITE;
+/*!40000 ALTER TABLE `tbcontroledataeq` DISABLE KEYS */;
+INSERT INTO `tbcontroledataeq` VALUES (1,7,'Expirado',NULL),(2,8,'Expirado',NULL),(3,9,'Expirado',NULL),(4,10,'Expirado',NULL),(5,8,'Expirado',NULL),(7,15,'Expirado',NULL),(8,17,'Expirado',NULL),(9,17,'Expirado',NULL),(10,18,'Expirado',NULL),(11,19,'Expirado',NULL),(12,19,'Expirado',NULL),(13,19,'Expirado',NULL),(14,19,'Expirado',NULL),(15,19,'Expirado',NULL),(16,19,'Expirado',NULL),(18,50,'Expirado',NULL),(19,51,'Expirado',NULL),(20,52,'Expirado',NULL),(21,53,'Expirado',NULL),(22,55,'Negado','hgfhdfhfd'),(23,56,'Negado','fsgfsgfdsg'),(24,57,'Expirado',NULL),(25,58,'Expirado',NULL),(26,58,'Negado','dhfdhgdhfdh'),(27,59,'Negado',NULL),(28,59,'Negado','gdfsgfdgdfg'),(29,60,'Negado','fdhvhdvhvc'),(30,60,'Expirado',NULL),(31,58,'Negado','fbfdbvzbfg'),(32,58,'Negado','fhgfdgfdsgd'),(33,70,'Expirado',NULL),(33,71,'Expirado',NULL),(34,72,'Expirado',NULL),(34,73,'Expirado',NULL),(35,72,'Expirado',NULL),(35,73,'Expirado',NULL),(36,74,'Expirado',NULL),(36,75,'Expirado',NULL),(36,76,'Expirado',NULL),(36,77,'Expirado',NULL),(36,78,'Expirado',NULL),(36,79,'Aprovado',NULL),(36,80,'Aprovado',NULL),(36,81,'Aprovado',NULL),(36,82,'Aprovado',NULL),(37,83,'Expirado',NULL),(37,84,'Expirado',NULL),(37,85,'Expirado',NULL),(37,86,'Expirado',NULL),(37,87,'Expirado',NULL),(37,88,'Aprovado',NULL),(37,89,'Aprovado',NULL),(38,133,'Cancelado',''),(39,134,'Entregue',NULL),(40,135,'Entregue',NULL),(41,138,'Aprovado',NULL),(42,139,'Entregue',NULL),(43,148,'Aprovado',NULL),(45,148,'Cancelado','rgvdfsf');
+/*!40000 ALTER TABLE `tbcontroledataeq` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbControleDataLab`
+-- Table structure for table `tbcontroledatalab`
 --
 
-DROP TABLE IF EXISTS `tbControleDataLab`;
+DROP TABLE IF EXISTS `tbcontroledatalab`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbControleDataLab` (
+CREATE TABLE `tbcontroledatalab` (
   `idReLab` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `idLab` int(10) unsigned NOT NULL DEFAULT '0',
@@ -326,59 +326,59 @@ CREATE TABLE `tbControleDataLab` (
   PRIMARY KEY (`idReLab`,`idData`,`idLab`),
   KEY `idData` (`idData`),
   KEY `idLab` (`idLab`),
-  CONSTRAINT `tbControleDataLab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbReservaLab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbControleDataLab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbData` (`idData`),
-  CONSTRAINT `tbControleDataLab_ibfk_3` FOREIGN KEY (`idLab`) REFERENCES `tbLaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbcontroledatalab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbcontroledatalab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
+  CONSTRAINT `tbcontroledatalab_ibfk_3` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbControleDataLab`
+-- Dumping data for table `tbcontroledatalab`
 --
 
-LOCK TABLES `tbControleDataLab` WRITE;
-/*!40000 ALTER TABLE `tbControleDataLab` DISABLE KEYS */;
-INSERT INTO `tbControleDataLab` VALUES (1,6,1,'Expirado',NULL),(2,8,1,'Expirado',NULL),(3,8,1,'Expirado',NULL),(11,62,1,'Expirado',NULL),(12,63,1,'Expirado',NULL),(13,64,1,'Expirado',NULL),(14,65,1,'Expirado',NULL),(15,66,1,'Expirado',NULL),(15,67,1,'Expirado',NULL),(15,68,1,'Expirado',NULL),(15,69,1,'Expirado',NULL),(16,90,1,'Expirado',NULL),(16,91,1,'Expirado',NULL),(16,92,1,'Expirado',NULL),(16,93,1,'Expirado',NULL),(16,94,1,'Expirado',NULL),(17,77,1,'Expirado',NULL),(17,79,1,'Aprovado',NULL),(17,81,1,'Aprovado',NULL),(17,95,1,'Expirado',NULL),(17,96,1,'Expirado',NULL),(17,97,1,'Expirado',NULL),(17,98,1,'Aprovado',NULL),(17,99,1,'Aprovado',NULL),(17,100,1,'Aprovado',NULL),(17,101,1,'Aprovado',NULL),(17,102,1,'Aprovado',NULL),(17,103,1,'Aprovado',NULL),(17,104,1,'Aprovado',NULL),(17,105,1,'Aprovado',NULL),(17,106,1,'Aprovado',NULL),(17,107,1,'Aprovado',NULL),(17,108,1,'Aprovado',NULL),(17,109,1,'Aprovado',NULL),(17,110,1,'Aprovado',NULL),(17,111,1,'Aprovado',NULL),(18,80,1,'Pendente',NULL),(19,108,1,'Negado','tenkffxf'),(20,140,1,'Aprovado',NULL),(21,140,1,'Aprovado',NULL),(22,140,1,'Aprovado',NULL),(23,141,1,'Aprovado',NULL),(24,142,1,'Pendente',NULL),(25,143,1,'Pendente',NULL),(26,143,1,'Aprovado',NULL),(28,143,1,'Entregue',NULL),(29,144,1,'Cancelado','teste 23'),(29,145,1,'Cancelado','teste 23'),(29,146,1,'Cancelado','teste 23'),(29,147,1,'Cancelado','teste 23'),(30,108,1,'Pendente',NULL),(31,109,1,'Pendente',NULL),(40,109,1,'Pendente',NULL),(41,109,1,'Pendente',NULL),(42,109,1,'Pendente',NULL),(43,109,1,'Pendente',NULL);
-/*!40000 ALTER TABLE `tbControleDataLab` ENABLE KEYS */;
+LOCK TABLES `tbcontroledatalab` WRITE;
+/*!40000 ALTER TABLE `tbcontroledatalab` DISABLE KEYS */;
+INSERT INTO `tbcontroledatalab` VALUES (1,6,1,'Expirado',NULL),(2,8,1,'Expirado',NULL),(3,8,1,'Expirado',NULL),(11,62,1,'Expirado',NULL),(12,63,1,'Expirado',NULL),(13,64,1,'Expirado',NULL),(14,65,1,'Expirado',NULL),(15,66,1,'Expirado',NULL),(15,67,1,'Expirado',NULL),(15,68,1,'Expirado',NULL),(15,69,1,'Expirado',NULL),(16,90,1,'Expirado',NULL),(16,91,1,'Expirado',NULL),(16,92,1,'Expirado',NULL),(16,93,1,'Expirado',NULL),(16,94,1,'Expirado',NULL),(17,77,1,'Expirado',NULL),(17,79,1,'Aprovado',NULL),(17,81,1,'Aprovado',NULL),(17,95,1,'Expirado',NULL),(17,96,1,'Expirado',NULL),(17,97,1,'Expirado',NULL),(17,98,1,'Aprovado',NULL),(17,99,1,'Aprovado',NULL),(17,100,1,'Aprovado',NULL),(17,101,1,'Aprovado',NULL),(17,102,1,'Aprovado',NULL),(17,103,1,'Aprovado',NULL),(17,104,1,'Aprovado',NULL),(17,105,1,'Aprovado',NULL),(17,106,1,'Aprovado',NULL),(17,107,1,'Aprovado',NULL),(17,108,1,'Aprovado',NULL),(17,109,1,'Aprovado',NULL),(17,110,1,'Aprovado',NULL),(17,111,1,'Aprovado',NULL),(18,80,1,'Pendente',NULL),(19,108,1,'Negado','tenkffxf'),(20,140,1,'Aprovado',NULL),(21,140,1,'Aprovado',NULL),(22,140,1,'Aprovado',NULL),(23,141,1,'Aprovado',NULL),(24,142,1,'Pendente',NULL),(25,143,1,'Pendente',NULL),(26,143,1,'Aprovado',NULL),(28,143,1,'Entregue',NULL),(29,144,1,'Cancelado','teste 23'),(29,145,1,'Cancelado','teste 23'),(29,146,1,'Cancelado','teste 23'),(29,147,1,'Cancelado','teste 23'),(30,108,1,'Pendente',NULL),(31,109,1,'Pendente',NULL),(40,109,1,'Pendente',NULL),(41,109,1,'Pendente',NULL),(42,109,1,'Pendente',NULL),(43,109,1,'Pendente',NULL);
+/*!40000 ALTER TABLE `tbcontroledatalab` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbControleDataSala`
+-- Table structure for table `tbcontroledatasala`
 --
 
-DROP TABLE IF EXISTS `tbControleDataSala`;
+DROP TABLE IF EXISTS `tbcontroledatasala`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbControleDataSala` (
+CREATE TABLE `tbcontroledatasala` (
   `idReSala` int(10) unsigned NOT NULL,
   `idData` int(10) unsigned NOT NULL,
   `statusData` enum('Pendente','Aprovado','Entregue','Recebido','Expirado','Cancelado','Negado') NOT NULL,
   `justificativa` varchar(50) NOT NULL,
   PRIMARY KEY (`idReSala`,`idData`),
   KEY `idData` (`idData`),
-  CONSTRAINT `tbControleDataSala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbReservaSala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbControleDataSala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbData` (`idData`)
+  CONSTRAINT `tbcontroledatasala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbcontroledatasala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbControleDataSala`
+-- Dumping data for table `tbcontroledatasala`
 --
 
-LOCK TABLES `tbControleDataSala` WRITE;
-/*!40000 ALTER TABLE `tbControleDataSala` DISABLE KEYS */;
-INSERT INTO `tbControleDataSala` VALUES (1,136,'Pendente',''),(2,136,'Pendente',''),(3,153,'Pendente',''),(4,154,'Aprovado',''),(5,154,'Aprovado','');
-/*!40000 ALTER TABLE `tbControleDataSala` ENABLE KEYS */;
+LOCK TABLES `tbcontroledatasala` WRITE;
+/*!40000 ALTER TABLE `tbcontroledatasala` DISABLE KEYS */;
+INSERT INTO `tbcontroledatasala` VALUES (1,136,'Pendente',''),(2,136,'Pendente',''),(3,153,'Pendente',''),(4,154,'Aprovado',''),(5,154,'Aprovado','');
+/*!40000 ALTER TABLE `tbcontroledatasala` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbCor`
+-- Table structure for table `tbcor`
 --
 
-DROP TABLE IF EXISTS `tbCor`;
+DROP TABLE IF EXISTS `tbcor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbCor` (
+CREATE TABLE `tbcor` (
   `idCor` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `cor` varchar(7) NOT NULL,
   PRIMARY KEY (`idCor`)
@@ -386,23 +386,23 @@ CREATE TABLE `tbCor` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbCor`
+-- Dumping data for table `tbcor`
 --
 
-LOCK TABLES `tbCor` WRITE;
-/*!40000 ALTER TABLE `tbCor` DISABLE KEYS */;
-INSERT INTO `tbCor` VALUES (1,'#3498DB'),(2,'#E67E22'),(3,'#1ABC9C'),(4,'#9B59B6'),(5,'#FF0000'),(6,'#60FF00'),(7,'#0400FF'),(8,'#FF00EB'),(9,'#26FF00'),(10,'#00FFB7');
-/*!40000 ALTER TABLE `tbCor` ENABLE KEYS */;
+LOCK TABLES `tbcor` WRITE;
+/*!40000 ALTER TABLE `tbcor` DISABLE KEYS */;
+INSERT INTO `tbcor` VALUES (1,'#3498DB'),(2,'#E67E22'),(3,'#1ABC9C'),(4,'#9B59B6'),(5,'#FF0000'),(6,'#60FF00'),(7,'#0400FF'),(8,'#FF00EB'),(9,'#26FF00'),(10,'#00FFB7');
+/*!40000 ALTER TABLE `tbcor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbData`
+-- Table structure for table `tbdata`
 --
 
-DROP TABLE IF EXISTS `tbData`;
+DROP TABLE IF EXISTS `tbdata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbData` (
+CREATE TABLE `tbdata` (
   `idData` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `inicio` datetime NOT NULL,
   `fim` datetime NOT NULL,
@@ -411,77 +411,77 @@ CREATE TABLE `tbData` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbData`
+-- Dumping data for table `tbdata`
 --
 
-LOCK TABLES `tbData` WRITE;
-/*!40000 ALTER TABLE `tbData` DISABLE KEYS */;
-INSERT INTO `tbData` VALUES (6,'2015-09-08 15:00:00','2015-09-08 16:00:00'),(7,'2015-09-09 12:00:00','2015-09-09 14:00:00'),(8,'2015-09-09 00:00:00','2015-09-09 23:59:00'),(9,'2015-09-09 00:00:00','2015-09-09 00:00:00'),(10,'2015-09-10 00:00:00','2015-09-10 23:59:00'),(11,'2015-09-23 00:00:00','2015-09-23 23:59:00'),(12,'2015-09-24 00:00:00','2015-09-24 23:59:00'),(13,'2015-10-07 16:00:00','2015-10-07 17:00:00'),(14,'2015-10-07 16:00:00','2015-10-07 22:00:00'),(15,'2015-10-07 01:00:00','2015-10-07 18:00:00'),(16,'2015-10-07 02:00:00','2015-10-07 18:00:00'),(17,'2015-10-07 18:00:00','2015-10-07 22:00:00'),(18,'2015-10-09 05:00:00','2015-10-09 18:00:00'),(19,'2015-10-20 05:00:00','2015-10-20 15:00:00'),(20,'2015-10-14 08:00:00','2015-10-14 11:00:00'),(21,'2015-10-14 08:00:00','0000-00-00 00:00:00'),(22,'2015-10-19 05:00:00','2015-10-19 08:00:00'),(23,'2015-10-14 05:00:00','2015-10-14 08:00:00'),(24,'2015-10-21 05:00:00','2015-10-21 08:00:00'),(25,'2015-10-15 05:00:00','2015-10-15 08:00:00'),(26,'2015-10-22 05:00:00','2015-10-22 08:00:00'),(27,'2015-10-21 07:00:00','2015-10-21 09:00:00'),(28,'2015-10-28 07:00:00','2015-10-28 09:00:00'),(29,'2015-11-04 07:00:00','2015-11-04 09:00:00'),(30,'2015-11-11 07:00:00','2015-11-11 09:00:00'),(31,'2015-11-18 07:00:00','2015-11-18 09:00:00'),(32,'2015-11-25 07:00:00','2015-11-25 09:00:00'),(33,'2015-12-02 07:00:00','2015-12-02 09:00:00'),(34,'2015-12-09 07:00:00','2015-12-09 09:00:00'),(35,'2015-12-16 07:00:00','2015-12-16 09:00:00'),(36,'2015-12-23 07:00:00','2015-12-23 09:00:00'),(37,'2015-12-30 07:00:00','2015-12-30 09:00:00'),(38,'2015-10-16 07:00:00','2015-10-16 09:00:00'),(39,'2015-10-23 07:00:00','2015-10-23 09:00:00'),(40,'2015-10-30 07:00:00','2015-10-30 09:00:00'),(41,'2015-11-06 07:00:00','2015-11-06 09:00:00'),(42,'2015-11-13 07:00:00','2015-11-13 09:00:00'),(43,'2015-11-20 07:00:00','2015-11-20 09:00:00'),(44,'2015-11-27 07:00:00','2015-11-27 09:00:00'),(45,'2015-12-04 07:00:00','2015-12-04 09:00:00'),(46,'2015-12-11 07:00:00','2015-12-11 09:00:00'),(47,'2015-12-18 07:00:00','2015-12-18 09:00:00'),(48,'2015-12-25 07:00:00','2015-12-25 09:00:00'),(49,'2016-01-01 07:00:00','2016-01-01 09:00:00'),(50,'2015-10-21 00:00:00','2015-10-21 09:00:00'),(51,'2015-10-21 10:00:00','2015-10-21 15:00:00'),(52,'2015-10-23 00:00:00','2015-10-23 02:00:00'),(53,'2015-10-23 02:00:00','2015-10-23 04:00:00'),(54,'2015-10-23 00:00:00','2015-10-23 04:00:00'),(55,'2015-10-26 00:00:00','2015-10-26 04:00:00'),(56,'2015-10-26 04:00:00','2015-10-26 06:00:00'),(57,'2015-10-26 00:00:00','2015-10-26 07:00:00'),(58,'2015-10-26 00:00:00','2015-10-26 02:00:00'),(59,'2015-10-26 06:00:00','2015-10-26 08:00:00'),(60,'2015-10-26 01:00:00','2015-10-26 04:00:00'),(61,'2015-10-27 00:00:00','2015-10-27 02:00:00'),(62,'2015-10-27 00:00:00','2015-10-27 04:00:00'),(63,'2015-10-27 02:00:00','2015-10-27 06:00:00'),(64,'2015-10-27 04:00:00','2015-10-27 08:00:00'),(65,'2015-10-27 06:00:00','2015-10-27 08:00:00'),(66,'2015-10-28 06:00:00','2015-10-28 10:00:00'),(67,'2015-11-04 06:00:00','2015-11-04 10:00:00'),(68,'2015-10-30 06:00:00','2015-10-30 10:00:00'),(69,'2015-11-06 06:00:00','2015-11-06 10:00:00'),(70,'2015-10-29 08:00:00','2015-10-29 00:00:00'),(71,'2015-10-30 08:00:00','2015-10-30 00:00:00'),(72,'2015-10-29 08:00:00','2015-10-29 10:00:00'),(73,'2015-10-30 08:00:00','2015-10-30 10:00:00'),(74,'2015-10-29 10:00:00','2015-10-29 12:00:00'),(75,'2015-11-02 10:00:00','2015-11-02 12:00:00'),(76,'2015-11-05 10:00:00','2015-11-05 12:00:00'),(77,'2015-11-09 10:00:00','2015-11-09 12:00:00'),(78,'2015-11-12 10:00:00','2015-11-12 12:00:00'),(79,'2015-11-16 10:00:00','2015-11-16 12:00:00'),(80,'2015-11-19 10:00:00','2015-11-19 12:00:00'),(81,'2015-11-23 10:00:00','2015-11-23 12:00:00'),(82,'2015-11-26 10:00:00','2015-11-26 12:00:00'),(83,'2015-10-28 08:00:00','2015-10-28 10:00:00'),(84,'2015-11-02 08:00:00','2015-11-02 10:00:00'),(85,'2015-11-04 08:00:00','2015-11-04 10:00:00'),(86,'2015-11-09 08:00:00','2015-11-09 10:00:00'),(87,'2015-11-11 08:00:00','2015-11-11 10:00:00'),(88,'2015-11-16 08:00:00','2015-11-16 10:00:00'),(89,'2015-11-18 08:00:00','2015-11-18 10:00:00'),(90,'2015-10-29 12:00:00','2015-10-29 14:00:00'),(91,'2015-11-03 12:00:00','2015-11-03 14:00:00'),(92,'2015-11-05 12:00:00','2015-11-05 14:00:00'),(93,'2015-11-10 12:00:00','2015-11-10 14:00:00'),(94,'2015-11-12 12:00:00','2015-11-12 14:00:00'),(95,'2015-11-04 10:00:00','2015-11-04 12:00:00'),(96,'2015-11-06 10:00:00','2015-11-06 12:00:00'),(97,'2015-11-11 10:00:00','2015-11-11 12:00:00'),(98,'2015-11-13 10:00:00','2015-11-13 12:00:00'),(99,'2015-11-18 10:00:00','2015-11-18 12:00:00'),(100,'2015-11-20 10:00:00','2015-11-20 12:00:00'),(101,'2015-11-25 10:00:00','2015-11-25 12:00:00'),(102,'2015-11-27 10:00:00','2015-11-27 12:00:00'),(103,'2015-11-30 10:00:00','2015-11-30 12:00:00'),(104,'2015-12-02 10:00:00','2015-12-02 12:00:00'),(105,'2015-12-04 10:00:00','2015-12-04 12:00:00'),(106,'2015-12-07 10:00:00','2015-12-07 12:00:00'),(107,'2015-12-09 10:00:00','2015-12-09 12:00:00'),(108,'2015-12-11 10:00:00','2015-12-11 12:00:00'),(109,'2015-12-14 10:00:00','2015-12-14 12:00:00'),(110,'2015-12-16 10:00:00','2015-12-16 12:00:00'),(111,'2015-12-18 10:00:00','2015-12-18 12:00:00'),(112,'2015-11-05 07:00:00','2015-11-05 07:00:00'),(113,'2015-11-06 07:00:00','2015-11-06 07:00:00'),(114,'2015-11-12 07:00:00','2015-11-12 07:00:00'),(115,'2015-11-13 07:00:00','2015-11-13 07:00:00'),(116,'2015-11-19 07:00:00','2015-11-19 07:00:00'),(117,'2015-11-20 07:00:00','2015-11-20 07:00:00'),(118,'2015-11-05 12:00:00','2015-11-05 12:00:00'),(119,'2015-11-06 12:00:00','2015-11-06 12:00:00'),(120,'2015-11-12 12:00:00','2015-11-12 12:00:00'),(121,'2015-11-13 12:00:00','2015-11-13 12:00:00'),(122,'2015-11-19 12:00:00','2015-11-19 12:00:00'),(123,'2015-11-20 12:00:00','2015-11-20 12:00:00'),(124,'2015-11-05 10:00:00','2015-11-05 15:00:00'),(125,'2015-11-06 10:00:00','2015-11-06 15:00:00'),(126,'2015-11-12 10:00:00','2015-11-12 15:00:00'),(127,'2015-11-13 10:00:00','2015-11-13 15:00:00'),(128,'2015-11-19 10:00:00','2015-11-19 15:00:00'),(129,'2015-11-20 10:00:00','2015-11-20 15:00:00'),(130,'2015-11-09 00:00:00','2015-11-09 00:00:00'),(131,'2015-11-09 12:00:00','2015-11-25 14:00:00'),(132,'2015-11-10 06:00:00','2015-11-10 08:00:00'),(133,'2015-11-17 09:00:00','2015-11-17 11:00:00'),(134,'2015-11-24 10:00:00','2015-11-24 12:00:00'),(135,'2015-11-24 14:00:00','2015-11-24 16:00:00'),(136,'2015-11-26 10:00:00','2015-11-26 13:00:00'),(137,'2015-12-10 10:00:00','2015-12-10 14:00:00'),(138,'2015-12-10 10:00:00','2015-12-10 15:00:00'),(139,'2015-12-10 13:00:00','2015-12-10 15:00:00'),(140,'2015-12-10 10:00:00','2015-12-10 12:00:00'),(141,'2015-12-10 13:00:00','2015-12-10 16:00:00'),(142,'2015-12-10 14:00:00','2015-12-10 16:00:00'),(143,'2015-12-10 14:00:00','2015-12-10 18:00:00'),(144,'2015-12-15 12:00:00','2015-12-15 14:00:00'),(145,'2015-12-22 12:00:00','2015-12-22 14:00:00'),(146,'2015-12-17 12:00:00','2015-12-17 14:00:00'),(147,'2015-12-24 12:00:00','2015-12-24 14:00:00'),(148,'2015-12-10 08:00:00','2015-12-10 10:00:00'),(149,'2015-12-14 12:00:00','2015-12-14 14:00:00'),(150,'2015-12-21 12:00:00','2015-12-21 14:00:00'),(151,'2015-12-16 12:00:00','2015-12-16 14:00:00'),(152,'2015-12-23 12:00:00','2015-12-23 14:00:00'),(153,'2015-12-11 10:00:00','2015-12-11 14:00:00'),(154,'2015-12-11 12:00:00','2015-12-11 14:00:00');
-/*!40000 ALTER TABLE `tbData` ENABLE KEYS */;
+LOCK TABLES `tbdata` WRITE;
+/*!40000 ALTER TABLE `tbdata` DISABLE KEYS */;
+INSERT INTO `tbdata` VALUES (6,'2015-09-08 15:00:00','2015-09-08 16:00:00'),(7,'2015-09-09 12:00:00','2015-09-09 14:00:00'),(8,'2015-09-09 00:00:00','2015-09-09 23:59:00'),(9,'2015-09-09 00:00:00','2015-09-09 00:00:00'),(10,'2015-09-10 00:00:00','2015-09-10 23:59:00'),(11,'2015-09-23 00:00:00','2015-09-23 23:59:00'),(12,'2015-09-24 00:00:00','2015-09-24 23:59:00'),(13,'2015-10-07 16:00:00','2015-10-07 17:00:00'),(14,'2015-10-07 16:00:00','2015-10-07 22:00:00'),(15,'2015-10-07 01:00:00','2015-10-07 18:00:00'),(16,'2015-10-07 02:00:00','2015-10-07 18:00:00'),(17,'2015-10-07 18:00:00','2015-10-07 22:00:00'),(18,'2015-10-09 05:00:00','2015-10-09 18:00:00'),(19,'2015-10-20 05:00:00','2015-10-20 15:00:00'),(20,'2015-10-14 08:00:00','2015-10-14 11:00:00'),(21,'2015-10-14 08:00:00','0000-00-00 00:00:00'),(22,'2015-10-19 05:00:00','2015-10-19 08:00:00'),(23,'2015-10-14 05:00:00','2015-10-14 08:00:00'),(24,'2015-10-21 05:00:00','2015-10-21 08:00:00'),(25,'2015-10-15 05:00:00','2015-10-15 08:00:00'),(26,'2015-10-22 05:00:00','2015-10-22 08:00:00'),(27,'2015-10-21 07:00:00','2015-10-21 09:00:00'),(28,'2015-10-28 07:00:00','2015-10-28 09:00:00'),(29,'2015-11-04 07:00:00','2015-11-04 09:00:00'),(30,'2015-11-11 07:00:00','2015-11-11 09:00:00'),(31,'2015-11-18 07:00:00','2015-11-18 09:00:00'),(32,'2015-11-25 07:00:00','2015-11-25 09:00:00'),(33,'2015-12-02 07:00:00','2015-12-02 09:00:00'),(34,'2015-12-09 07:00:00','2015-12-09 09:00:00'),(35,'2015-12-16 07:00:00','2015-12-16 09:00:00'),(36,'2015-12-23 07:00:00','2015-12-23 09:00:00'),(37,'2015-12-30 07:00:00','2015-12-30 09:00:00'),(38,'2015-10-16 07:00:00','2015-10-16 09:00:00'),(39,'2015-10-23 07:00:00','2015-10-23 09:00:00'),(40,'2015-10-30 07:00:00','2015-10-30 09:00:00'),(41,'2015-11-06 07:00:00','2015-11-06 09:00:00'),(42,'2015-11-13 07:00:00','2015-11-13 09:00:00'),(43,'2015-11-20 07:00:00','2015-11-20 09:00:00'),(44,'2015-11-27 07:00:00','2015-11-27 09:00:00'),(45,'2015-12-04 07:00:00','2015-12-04 09:00:00'),(46,'2015-12-11 07:00:00','2015-12-11 09:00:00'),(47,'2015-12-18 07:00:00','2015-12-18 09:00:00'),(48,'2015-12-25 07:00:00','2015-12-25 09:00:00'),(49,'2016-01-01 07:00:00','2016-01-01 09:00:00'),(50,'2015-10-21 00:00:00','2015-10-21 09:00:00'),(51,'2015-10-21 10:00:00','2015-10-21 15:00:00'),(52,'2015-10-23 00:00:00','2015-10-23 02:00:00'),(53,'2015-10-23 02:00:00','2015-10-23 04:00:00'),(54,'2015-10-23 00:00:00','2015-10-23 04:00:00'),(55,'2015-10-26 00:00:00','2015-10-26 04:00:00'),(56,'2015-10-26 04:00:00','2015-10-26 06:00:00'),(57,'2015-10-26 00:00:00','2015-10-26 07:00:00'),(58,'2015-10-26 00:00:00','2015-10-26 02:00:00'),(59,'2015-10-26 06:00:00','2015-10-26 08:00:00'),(60,'2015-10-26 01:00:00','2015-10-26 04:00:00'),(61,'2015-10-27 00:00:00','2015-10-27 02:00:00'),(62,'2015-10-27 00:00:00','2015-10-27 04:00:00'),(63,'2015-10-27 02:00:00','2015-10-27 06:00:00'),(64,'2015-10-27 04:00:00','2015-10-27 08:00:00'),(65,'2015-10-27 06:00:00','2015-10-27 08:00:00'),(66,'2015-10-28 06:00:00','2015-10-28 10:00:00'),(67,'2015-11-04 06:00:00','2015-11-04 10:00:00'),(68,'2015-10-30 06:00:00','2015-10-30 10:00:00'),(69,'2015-11-06 06:00:00','2015-11-06 10:00:00'),(70,'2015-10-29 08:00:00','2015-10-29 00:00:00'),(71,'2015-10-30 08:00:00','2015-10-30 00:00:00'),(72,'2015-10-29 08:00:00','2015-10-29 10:00:00'),(73,'2015-10-30 08:00:00','2015-10-30 10:00:00'),(74,'2015-10-29 10:00:00','2015-10-29 12:00:00'),(75,'2015-11-02 10:00:00','2015-11-02 12:00:00'),(76,'2015-11-05 10:00:00','2015-11-05 12:00:00'),(77,'2015-11-09 10:00:00','2015-11-09 12:00:00'),(78,'2015-11-12 10:00:00','2015-11-12 12:00:00'),(79,'2015-11-16 10:00:00','2015-11-16 12:00:00'),(80,'2015-11-19 10:00:00','2015-11-19 12:00:00'),(81,'2015-11-23 10:00:00','2015-11-23 12:00:00'),(82,'2015-11-26 10:00:00','2015-11-26 12:00:00'),(83,'2015-10-28 08:00:00','2015-10-28 10:00:00'),(84,'2015-11-02 08:00:00','2015-11-02 10:00:00'),(85,'2015-11-04 08:00:00','2015-11-04 10:00:00'),(86,'2015-11-09 08:00:00','2015-11-09 10:00:00'),(87,'2015-11-11 08:00:00','2015-11-11 10:00:00'),(88,'2015-11-16 08:00:00','2015-11-16 10:00:00'),(89,'2015-11-18 08:00:00','2015-11-18 10:00:00'),(90,'2015-10-29 12:00:00','2015-10-29 14:00:00'),(91,'2015-11-03 12:00:00','2015-11-03 14:00:00'),(92,'2015-11-05 12:00:00','2015-11-05 14:00:00'),(93,'2015-11-10 12:00:00','2015-11-10 14:00:00'),(94,'2015-11-12 12:00:00','2015-11-12 14:00:00'),(95,'2015-11-04 10:00:00','2015-11-04 12:00:00'),(96,'2015-11-06 10:00:00','2015-11-06 12:00:00'),(97,'2015-11-11 10:00:00','2015-11-11 12:00:00'),(98,'2015-11-13 10:00:00','2015-11-13 12:00:00'),(99,'2015-11-18 10:00:00','2015-11-18 12:00:00'),(100,'2015-11-20 10:00:00','2015-11-20 12:00:00'),(101,'2015-11-25 10:00:00','2015-11-25 12:00:00'),(102,'2015-11-27 10:00:00','2015-11-27 12:00:00'),(103,'2015-11-30 10:00:00','2015-11-30 12:00:00'),(104,'2015-12-02 10:00:00','2015-12-02 12:00:00'),(105,'2015-12-04 10:00:00','2015-12-04 12:00:00'),(106,'2015-12-07 10:00:00','2015-12-07 12:00:00'),(107,'2015-12-09 10:00:00','2015-12-09 12:00:00'),(108,'2015-12-11 10:00:00','2015-12-11 12:00:00'),(109,'2015-12-14 10:00:00','2015-12-14 12:00:00'),(110,'2015-12-16 10:00:00','2015-12-16 12:00:00'),(111,'2015-12-18 10:00:00','2015-12-18 12:00:00'),(112,'2015-11-05 07:00:00','2015-11-05 07:00:00'),(113,'2015-11-06 07:00:00','2015-11-06 07:00:00'),(114,'2015-11-12 07:00:00','2015-11-12 07:00:00'),(115,'2015-11-13 07:00:00','2015-11-13 07:00:00'),(116,'2015-11-19 07:00:00','2015-11-19 07:00:00'),(117,'2015-11-20 07:00:00','2015-11-20 07:00:00'),(118,'2015-11-05 12:00:00','2015-11-05 12:00:00'),(119,'2015-11-06 12:00:00','2015-11-06 12:00:00'),(120,'2015-11-12 12:00:00','2015-11-12 12:00:00'),(121,'2015-11-13 12:00:00','2015-11-13 12:00:00'),(122,'2015-11-19 12:00:00','2015-11-19 12:00:00'),(123,'2015-11-20 12:00:00','2015-11-20 12:00:00'),(124,'2015-11-05 10:00:00','2015-11-05 15:00:00'),(125,'2015-11-06 10:00:00','2015-11-06 15:00:00'),(126,'2015-11-12 10:00:00','2015-11-12 15:00:00'),(127,'2015-11-13 10:00:00','2015-11-13 15:00:00'),(128,'2015-11-19 10:00:00','2015-11-19 15:00:00'),(129,'2015-11-20 10:00:00','2015-11-20 15:00:00'),(130,'2015-11-09 00:00:00','2015-11-09 00:00:00'),(131,'2015-11-09 12:00:00','2015-11-25 14:00:00'),(132,'2015-11-10 06:00:00','2015-11-10 08:00:00'),(133,'2015-11-17 09:00:00','2015-11-17 11:00:00'),(134,'2015-11-24 10:00:00','2015-11-24 12:00:00'),(135,'2015-11-24 14:00:00','2015-11-24 16:00:00'),(136,'2015-11-26 10:00:00','2015-11-26 13:00:00'),(137,'2015-12-10 10:00:00','2015-12-10 14:00:00'),(138,'2015-12-10 10:00:00','2015-12-10 15:00:00'),(139,'2015-12-10 13:00:00','2015-12-10 15:00:00'),(140,'2015-12-10 10:00:00','2015-12-10 12:00:00'),(141,'2015-12-10 13:00:00','2015-12-10 16:00:00'),(142,'2015-12-10 14:00:00','2015-12-10 16:00:00'),(143,'2015-12-10 14:00:00','2015-12-10 18:00:00'),(144,'2015-12-15 12:00:00','2015-12-15 14:00:00'),(145,'2015-12-22 12:00:00','2015-12-22 14:00:00'),(146,'2015-12-17 12:00:00','2015-12-17 14:00:00'),(147,'2015-12-24 12:00:00','2015-12-24 14:00:00'),(148,'2015-12-10 08:00:00','2015-12-10 10:00:00'),(149,'2015-12-14 12:00:00','2015-12-14 14:00:00'),(150,'2015-12-21 12:00:00','2015-12-21 14:00:00'),(151,'2015-12-16 12:00:00','2015-12-16 14:00:00'),(152,'2015-12-23 12:00:00','2015-12-23 14:00:00'),(153,'2015-12-11 10:00:00','2015-12-11 14:00:00'),(154,'2015-12-11 12:00:00','2015-12-11 14:00:00');
+/*!40000 ALTER TABLE `tbdata` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbEquipamento`
+-- Table structure for table `tbequipamento`
 --
 
-DROP TABLE IF EXISTS `tbEquipamento`;
+DROP TABLE IF EXISTS `tbequipamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbEquipamento` (
+CREATE TABLE `tbequipamento` (
   `patrimonio` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idTipoEq` int(10) unsigned DEFAULT NULL,
   `modelo` varchar(255) NOT NULL,
   `statusEq` enum('Ativo','Inativo') NOT NULL,
   PRIMARY KEY (`patrimonio`),
-  KEY `tbEquipamento_FKIndex1` (`idTipoEq`),
+  KEY `tbequipamento_FKIndex1` (`idTipoEq`),
   KEY `idTipoEqp` (`idTipoEq`),
-  CONSTRAINT `tbEquipamento_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbTipoEq` (`idTipoEq`) ON DELETE SET NULL ON UPDATE NO ACTION
+  CONSTRAINT `tbequipamento_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE SET NULL ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2152344235 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbEquipamento`
+-- Dumping data for table `tbequipamento`
 --
 
-LOCK TABLES `tbEquipamento` WRITE;
-/*!40000 ALTER TABLE `tbEquipamento` DISABLE KEYS */;
-INSERT INTO `tbEquipamento` VALUES (46523643,3,'hgfhgdshgdgdfsg','Ativo'),(241235435,2,'fdgsfdhfdgfdsgdfg','Ativo'),(2152344234,3,'gregfegbfdshdhgdfb','Ativo');
-/*!40000 ALTER TABLE `tbEquipamento` ENABLE KEYS */;
+LOCK TABLES `tbequipamento` WRITE;
+/*!40000 ALTER TABLE `tbequipamento` DISABLE KEYS */;
+INSERT INTO `tbequipamento` VALUES (46523643,3,'hgfhgdshgdgdfsg','Ativo'),(241235435,2,'fdgsfdhfdgfdsgdfg','Ativo'),(2152344234,3,'gregfegbfdshdhgdfb','Ativo');
+/*!40000 ALTER TABLE `tbequipamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbImagem`
+-- Table structure for table `tbimagem`
 --
 
-DROP TABLE IF EXISTS `tbImagem`;
+DROP TABLE IF EXISTS `tbimagem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbImagem` (
+CREATE TABLE `tbimagem` (
   `idUser` int(10) unsigned NOT NULL,
   `imagem` blob NOT NULL,
   PRIMARY KEY (`idUser`),
-  CONSTRAINT `tbImagem_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbimagem_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbImagem`
+-- Dumping data for table `tbimagem`
 --
 
-LOCK TABLES `tbImagem` WRITE;
-/*!40000 ALTER TABLE `tbImagem` DISABLE KEYS */;
-INSERT INTO `tbImagem` VALUES (3,'‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0×\0\0\0×\0\0\0‰}Äµ\0\00•IDATxÚí‰ÛÅ¹è¿?äŞóœQQD6ÙAPÜXdS\"\ZÄÄ1B7\\ãrİŠ ÑƒÆ5¸ DqAwOİùµ¼së«¯º»º§g¦{¦æyŞıà›™®ª_½k½ÕòÈıkT£Kï^=TûöíUÿşı)ıúõS}úôQ}ûöı·Ç{¬êÙ³§êŞ½{¬sÌ1ê\'?ù‰êÑ£‡õ3;wîù:tèü>rŞ9ST3¬¥$ÒÒyÅ¬Á`°¤Ò«W¯X¸ºté\n—¼G·nİb?çğÃŞ§s§êºEW{°š	.„‰/²öª`€Òµk×à}â>‹÷8ôĞCƒ÷x|uËÊ¥®fyPÑ^.¥‘mæ#c§01]>÷:äCT»’6»ä¢ó<\\Í\"ø^˜0Í—øGh`€Ğ±cÇØ÷À¿Jò™¼\'à2æ+–.òpQ&M8#0C\\l}&™Õe15šè°™‰l6.æ2€&7>x›5àQx¸\0ë°ÃS|pàWyšZ0ov\0Û=·ßèÍCCˆ8êp¡‘\0ÀUFEÃ~çˆ#Æœ¹±Í‰‡+Çp±@:ê(uôÑG;1 IˆØ&,&ÄÕhD-&áz	Ç»FR%ŸtìĞ|ÎÉCOôp	.&N&Å‚Fkñ;D·š0	và‹±!%ñ©*\ræá*\\¤ÀäAƒ>ŒûÈ#´\\³šˆ\nù.WÓĞrT¢Á˜;¿¹ƒ\r€˜¹&>0vmş-‹?›0ÉS¥ù=‚I6\'`”|¿Ë÷³ŸıLtĞAAd±‘’Ğ…‡‹Ğæ3ôîİ;ğÁ:uêY3UnTCr$™³víÚ•ç€÷üA\'W„oT\"”I0vÉ(s3±™ı¯J…ñO²IIÉ”>\'øËD~%t_x¸»‹‰áb’à—1¡a ¡ñ<,éMË¸jİtgŞlæ;¦b#”Q.ò&LDšÊvZN¯Á*«gtŒ1fŞĞT¶Mk?LÊ¨Š˜kˆò\'a&ÊC‘\ræ !°A0*êH	h +bø¾!àbgûİ/îü9â6;ñ»¢ƒM½ÕÊ×y³°^‚]Î$±Ëù…‰óƒãàÂ›6u’÷¹ò’¯¦iˆ?ÑÌ	ç¬ÍCàÂäƒ‹TŠ$œ‹Øhi­EâQLÃjW¼óşŞ·KfFÁE9Ê,0\0”ã+D	Óá¬X®á\Z‡•’ªßlœa¢M„n‰.ñßÕ.ÈM[W×¬å3ÌK¯şÜ9gOôpU’¿’( ÀÈ¹#lºL$»\\Òƒ}iBøÕşŒF*¶™Òü,ª\ZŸÊ}Ò\"¶f;æÍñfaVìpRÃ†\0QØÉZI@¦­•Kâ5[OJ´½M£¹æ&ä>s:ğ¸şŞçªFÿİ~—j\0&‰Ÿ›G×kq^K*=ÂD£€§shø`X5®Œı¯0„ihˆb&\rÍ§)àå³l€±Ó\"E„L,—>‰õ€ÿ¨’ÅP„èa¡¢…h°($Í3P¢LIL·¤GØe7¥ºÛŒŸ‹éÊB-Z\0DÚğy±.BÅFáBñ¬sÑHrm\'\'•]4Wš*ówùL³ò>Ú I÷^@“šÌz~76Ù¼°,\\pŠwÕ2ì¼D¨csI\0§Í“ñŞ6ÀÂúVk‘¯˜¤Ò»RÓ4®¹¨h7ù\\‘jÈ8ç½GKQÇTK»VK0ÉRj<Q¾UZíÅ–’Z\r$]œY-Æ¨^ñüÑp=\rÀß¹ö ©¶–F{åÙ÷*l…Fœÿv O Ã´\"hi«0ÄOA«’Ğ5FXê ‚JµK¯øj‹íl\\–ÚŒ7ÁÃå(ØÑä¶D¢z*œròTÅº,<\0:<¤A( mK5In4˜À«8ÒŠh×3gõÌ„K\Z“fÕÄ‚ñp%0ùˆI‰“Üas^ÏF\0€emßKh?Y¦C$=<²ÌÕÜ©Æç¥…²Nîc½ä5ï•[³ğŞ;W©	à‘&ŸfuôàAƒÊ ,²n4“Ö<4£„’læçÕ,¢Ã¥I–¾XMÃÜû\\gO™X.–È(Şe·Òƒh/ş>ë1m‘nX”Pü¨f\0L‡K^´l–5¨®”‚ù\'m\"ÍıuIï»Õ±©iK“\\òy$©œ4úVT¸lã•ö’^yì±Q¸0G›ÏŒ3B˜‰Yh1\0à}ÒïÉÂ`6*\\ñûû¬JÃ˜ë<6mÉs¨]oyÜí˜®‘swÄœ“ò§J|1½(‰gJ²·‘ ’ŸQ§ŒEƒg.Aûæ.¢…)$Xˆ)Šm‡”CvYZM¦ÃAÍbÒEáâcÕ;²—•0ÎŒ÷äÓO\næ¬İqòXk˜K¸äòì™3RC &­À05‹qÉªrB7‹ê‡1&Ò-wÙìóÕgîRíÛ^>©PMÀø¬WÒÆ3Ã†¤¾ØÍšŸL\nz™˜8SOJ›Ìğ:*ÉÂ»İ1,o•g˜a&ËE\nŒçˆÁÔó·-ÀBĞ^Œ·ËûU’§”ËÎ=\\	¥SÂÈŸë¢4‡ì¶R­!tÒ½H\nSmïdTß\'ÌÕÇâ;Ö2Ùt\0†?õ~º\0éé]\"©‘]:ª[ç_Z†J\rÆ¸º~´€IË\0WÂ\nø¸^Òš‹ß’¦ä\'¸J¨SÇ`çº‘Rúy°Èta×”>iœV‹ºÜ¼˜€…írçXÖšÉ&À\'×°\"×L?[mì¦6`!üSÜåBÂJCô|—Õ7\\ïáJâ{Åå¬Ìjˆ4¾Âãúª·î[^^ënXÈ×ıW°x0o\0ÏEõíÙF1?%üÄ“…–à½\0dÁf¡Ùt-/5ççãZY˜\\8~xğüÕ®¦ç{-ÏÙù®\\ÃEK5—„pÚUÌEFÄ.¤Â¢NÌ\"›6DÓÉU©¢åÂ4….æ}ÏÀ¦·–ËZs…\0…°q`ş…i*›àƒñ“nIMDWŠÎO.ÉÛ4Ú‹…*Q­ZˆhC4aœ64µŸ«`‚‰©ªûJ@®@KpB\n-¥*’\nÏëÒŸ°À<\\)®duÍM¹V:°ƒ–ÍÏ³œ\"l*‚ùU) ˜{¼cãbò%¾O\Z¿Ñ0WŠ«\\árIÔJ€ h`UN]*ÑJILå£Û™ÊWtÌÃ•P\\›{J^\\h,vùf+/Â¦æRµ‘¦ÑÃ•®°R£¨vÇ6ÁŸÀäñ‹¼¾Âæ–$÷¥§K¢\0óp¥hš¦ŒÈÄæOåòR=a“KXØ906`\"’>‰\\!\\ICï8ÑlW¿Â‹›°ÉtÁšÈ¢é\rZíğöÒÈõ‘“0¸’„Ş±ñ›1€QÀ°&’&˜mWŠW\\®5„äVFêïsN…\"áÌvW­eó»°N8ïçáJ\0WÔ3qÚKîêzãÎßù…œcyîÆùÁ&\ZU=w~*—a9ì¾›[¸èèW\\`ƒJƒçSŸ¬õAŒ<ËîÇVª›æœl„æUPú7é×hÓ\\®Õ6¸Ü¸#A9O»ÃÔ?ï¾N}ºîV¿ˆs,l~=¼\\?z¨sL\0±XÀuş¹g{¸*‹Ëå(¼h-&íÓõ·ùE\\\0¸Ø{vî(DF“{\0fäğò\\Ã%­ª“ä¶t­ÀõÔ\Z¿ˆs,XÌòøâY±ş—­5\0pÍ½ârW¸ôã&®GäÑZ˜2a~ç®’e!s…Ø7öˆŠy¸–çğ®®ÂÀ¥‘3\rqˆÙù6,Ÿëá*(\\¯Şüër“°^æš\0Æ¼B.\\qµ„äµNè}L«Éò¸XpéÚ+,aT><§7´ä¹hW‡Ë¥©²dÆWä³§oo¡yæ?êü—ä¾ĞdGwèàáJ—X8Áüf…LÒîÿ¾Ñ/àˆ	Á¨0ÓĞô¹Ğf\'èáªDsÅE1\rL“ĞÃUL¸Ä4´…åÍ`p8ıW%pÅ4&Ãoš„®âÂE’Èo\\0ƒ VûÄ\n®¨zBr[f”ĞÃUl¸Ø(M¸$il–>ıò²é®¤ı3\\ÍB¢„ÀeN‡«¸p‘P¶EõÊ+×å>O\"*¯¥\'±Ñ=\\—®¹¢ª3<\\)ó\\.mŸÑZ³&ğp5\\˜øİºtŠ=(	\\y¼U²0Iä¨³[äB€Ëfx¸Š¯¹ÌF¢¶#\'yM ªB#Ìç’`“ááj,¸l=6°bô\n<6¦)\\a‰d	f˜‘BWãú\\ºß•Ç«ƒr÷!“¡—+‚ÂÚU‡E\n=\\—ŞbÍÃUA¸c&®Æ„‹2¶0¸t¿ËÃU\\qW±FÁõÑ#7øÅ[P¸æ5®o¡‡«¸l÷;Ãå«â.3ïáJ!æÍ\Z–Hq¦‡ËÃe»”ÃÃUa;ë¨»·<\\\rkô3m½â=\\ÂåwIK\ZÒx¸ŠXR?v¢ÃeëïáÊà\n¡¨ÃÃ’ÈÈg¾Ãi’ÿıÀRõÁ=×¶’÷W_©Ş]zq¨ğ÷òoùıJïµ}Í‚Ê[•=y‹z}îøàÏJŞC‡¨1@øŞæØ¹~¾í˜¸:wêèáªôò»¨ªxşİŸæ_l ¨¾…,€-+fª—.\Z¬şvv¯Ìäùsû«WçŒRo-<«„¶ÇÏø7üPT\nŸÅ{ñù=úÇÈDààßnºì”LÇ\0áùÃ¾ƒ\\OØªÊ„kØĞ!A±‡+å±jãús«4uK4d½ \\„…Ì‚Fôï…æBô÷”Ï1?«–z\\Ìi\\l¼®*ïRÉ¡÷*Œ‚‹»\Z»t¥’…Ö*_ÏS‚4oÏØlhQMAmpéõ…®eôÈÓpôÁ«Œ\'²¤7§ùdíÍå‰ó+o²ùÚó*ò‘ÂÌÃziª8-¦?«´³¶	¦¾^¥a¶TtÂ@WV×E•B‘³5˜<&“IµMö+—Ÿªşñ›Ÿ«.¿¼¤Õ~[òG–´~¶uåœ²¼½øÁ¿×…÷ĞåÅ&òKª‰Ã·J˜ù¯_5®Í³êcñ¯[æ¶/„Ÿóo_3R=?íX«“\0P\\f}¡	×È§5¨®”·KJ\"9ÎïblpíºI3…$6˜²NSøûj†ºYÄQŸ_íçGøœ7çOjZä‰€K„ÆCafaÏ’%“×æ4¹‡Ë¼9ªÊ×w/*i‘~Ü-KËN¼ıö…5YPI¤Ú¹¤<=ë»K§«—/RlÛ-óBá2«4L¸ºwëæáª4o6tk×ı×«—g\ràbBk¡¥ò\n×‡ı!wÏŒéÈfÇ¦·}ÍüP¸èE)—2´\rÅŸèáªDÚ•|.½¦,Ìï.}RŞ˜w¦ÚúÇ_ªİŞ[¨j×G¬Èåsï~ôjçŸsÅf—H6áê”ãÎO¹‚ë±›§¾jJç÷¤‡Uúea‰dİÔ\'èãÇWå,´Jµáúø‰Õù{öÿ»T}öÔí¡s&BŠ%®G¦V\rïÒj½<{ùÈ`-y¸Èã7şFıuš=ªunß#ÛtŞƒËV_øáƒ¿Ï%\\h•ª×ï•qŞ[îªò·$×%=ãM¸úµ?Dİ5ú˜6k†µÄšòp•„İFO¦êukF×æúV›ßE+l‚¸]’d2»e%/3,í*ø|q‹¬ê{—L03ŠYÉóT’gf^âàâÆ©Ò°”Ô×\nkG×`M×¯Y^êüÌE±î†­Âña~—­)¨Y¥ÁŸ®\ZŒÅCÈ>«ä)¹/ÂÑ­rC˜FOßQ£êó;Ô®û~€Aş)Ëç8\'¸4öúğQ¥O¶k:\\“ÇŒà2Ÿ“5$ßµÕÔp­[|Y9±h«RØşØM­Âñ6¿‹hR\\úû²È,B‹Á¦™ÃÕ\'›UŸoŞ¤~wş8uÁÀ#Õ¼1İÕÕcz¨	Ç\\–ãÛı‡ê}èÿR\'u9XÍÛK5´“ê{øÿV;wlSòúè¯ÏHšd5ü_7]U³ËĞ©ë#§ÄÂ{oÙ%?VJÌ¨¾Û¿·üçÏœ®NêúSuŞğnê¬!‚gB†õŸåg½xĞQêš3{©¹£º©Éİª6¯0Ÿ­w]@f&•)èeRú|›†f^\\à’D²Wp»ÉàÖ÷”Ä9k«©ázfö¸rYLØâhß®uÄĞô»pxmwõ*0_„”	¸m·ı*\0`ó²™å…·÷ó=jàÑÿGM;ıuÑèê„?)/<S&x´š>¦§š0øhuı‚+•şÚşĞªà9I^×\nª°…÷ÂƒZÅ3_zÆsNã{¨ãÚÿgè3NÖ9ØD&\ZÏÈFÄûn^tN0ŞŒmì÷‰H ë\"pµªĞèÛÇ\n\"Õ8¬­¦†Kü-[Q§ƒØ­[·P¿¸Âªâ%ZèRìúò%ÃÔÎ\'ïnÅ¦çŸS£ú¡~1¢»:»´°Â2¤´ó_:®·:dwuñäQÊ|½·z~¹2¡p±è\0`ß¶wÚ<ãğ¾í­uöĞègZzÆËÆ÷QŒê¡.={L«÷ùz÷Nõæ¢_8Ÿ\'c^ÒÂEëšég[ßWjHëíwÕ®\r…‹A4¯Òı®8¸âZ¬a.a&™‹NŞØí`ÖŞ¿:øÙê¥×ÚŞ1?U—ŸÙG]XZx3Ï«l/\0‹ÒÒÕ€¶U~ÆãÛ«Ë&¯¾Ü·7Ğdƒ»úŒ3\'ô\r´xØ3¢¥)9‹;ËÅ¼¸À%U\Z:\\D—Í>?.ÖVSÃ%!x.v=*ÅÅ1]zJ§6CİïÂá\r;‰×bêq|İLÒ_øNc©.8\0×k/m…krÉ,üqáõPËÍSa/v÷Zk/€Æ?²½€iìÀ£Ô•çªŞ{kSğŒ#úw³>ã”ò3öT×^uYè3òYo^sN¤c^\\àÂŸ6áb=ã²e¸X[Ş,4Î3Q)®G¤\Z×­MÄP÷»bá\né¥±ã®E¯÷šó‹3Í…É7½¤•=â?Ú,º;¤f•šëç§v\r´AØß_sMí\ZÀ”4A•¨×‚K¦”ŸQhè2º_;uåYıƒg<\'æËÏyGø‘°ÂàB›­›Ø£¼FtÀ$$ßôf¡À¥›J=~~Åhµù·ÓTûv‡µéY\'~—\\4B1ûı[^S./´×9§÷V3Îè¥~9±Ÿš{ö\05uh§Ò.Ş1K‹rŞÔãÔìIÇª‹Jğıqñ¯bßó¾û¦fp}ùŞ&çg¼¸ôŒ³JÏ8{R?5iĞÑågœUò³æÏØ/xÆU×/p\Z»¾Ú§>yæDiâà¢Ö”õÀÚĞ7a3 Ñôpé%O28rŸQw&lö­¿Ë¬+LÒKã‹¿¯WßîŞjÊë·ŞPs/šìì@tåYÔÕ??.`›3ùX5c\\õğİ·Ä.¸¯·o|­àÚûÒãê«÷_Wßñi,`ÿÿûZŠMáyyÆËK~Ù+—Æj, â3÷l¸/ññş0¸ds%¸ÅÏ.é\"gÄd=±¶|ëÀ`08	S9ªNÕ´”Á˜A\rñ»\\àÒO$[¥´>~únµçµ\rAÔ+ìõì“¨;…ºmñµæºK¹ûWª\'î]ø.qÚŠ…^ÏVfßìÚÿÏ®U÷­úµºµôŒ·-¾$şû¡Û–D>ã76ªOşöˆÚóÜƒaø›Ã¥G\nI½è½G$—Ç\Z’Ÿ7}‹\Z0‚º}.¦!Er_“ír7¸nJtÀğÃ\'nUÿºgIà˜GÁ÷bÿúÃmjÿæ¡»x­Àì«]ÿR•¼|¹÷/S»\\¨UkËÁŒ5—O*»º©/İ¯z×æ¢¶0ìÈ»D©f é§Ô¿‹Ğâ&(í\'Ÿ>}GøØzëÂÀ9\'Ì,•aÂ‚ÛùèÍjç¨¸Ÿaµ“Ê<pü{ıŸ‚gã»‡=9@6œ`,Ö\\£>|8ıE®ax\\Ì÷_®Zî?¢¿¯ó…»ZPƒşfn†Ÿs.KÎ™A\rü®¨Šø2\\19—4åD6ÉºÑL­ÅÖU$ëBâ$p‰¿Í|Ì ÈeKÈKJ_¸{@Ö_sQ+¿K¬`w*\r$ƒŒmVj9r«Ğ­­Ÿ½»iúÃ‡F–>ñœíãŒ—Àen²XS®%mù\n	«n¿m~ùøÔ@“¹ÂÅ‡\",<³\\ëóçhšşğa\Z~7ë\0¸ÌJ½u^Lææ$²Tj˜¦!6õ;~]îdVjHBÑ	.í¸CŞM³VpıíÁ†‚+Iãÿ—l¤¬à2ı-1	ë]™‘;¸ô|—¾¸¨ûÃ®Ö¯•±ÁekZIÄ°²ãkZ}×½/>ÖPp%‰¾´üŠ`~9n‚K€‰ÈÏß_uE«óºIXïüVîàzbùÕVÓPrzO3™uËI« Æc+aî¸}aCÃåZ\r<0{J.Šuåhı(õ`†n²–<\\š<z÷*«i((¡[Zë\rkC=4°Ãk1¬Z´—µ‚ë‹WÖ5\\IÂğÇ¤`\\‚—Ûl0-u¸t“µäáŠ0\reà$´-B¾Ëô»øÿ¨#\'EŠîº÷º¶pıı©¦^6¨sP$Ğ¥K—V—êål’²É“I˜;¸ôj\r3¡¬ïvf¾+ê–“¢E‘c2Àµïõg›2RH³Ğ]àbõV:\\zâ8]ŸrÛTO\"a·a ¥äŞ.©5‹ê¡ÖO#—×-\\ûßz®q\"…W™òÎï.úV~Ç4Ô­}Ìd½ÔûpdîáÒy©³ÁeÖ\ZY{\'¸r1ä»5:\\I\"…T½qÈAÁå†˜„–Ïm—^KXïBİÜÃ¥·ZãAX§ ı|ÑÃ¨KÇ³¨1¬•/\nWNŠ~+f<¶Ò.úü3¯ÜtÒº/åŠVÇ“òÒJ­½â¥#”ó2øXºiè\Z×\'&ÏpÉsï}áÑ\0®F©Òp=ÚÏIæŸyEtŸZ6Hj<eÔ»ÓSaàÒs^’(4á\"ôN^àÂ&_2cJ¡ƒ\Z:\\D\r%ÇÕ(p%	fHEK¿P^àÊcn«·œHÎKêÇ>ûó­P¿^,ªwa‚\Z†oT¸’38®Ã¥›ü\\,¡›„y)w*\\¶ãÿ¶jé:$Êää.ñ¹¾Ø´¶aàJÌ[(OîÕ©Í¼ÊU¼yÌm®\'—\\Ñ&¡lÂ””Ô¹Fó\ZÔØYzNK*ãI 7\n\\®•ä·¤Å`™	\ZPÚ@äÕ$Ì5\\ú1	É£qÌ;s18@\'C×1Ï	ä Bã€éJéÓ¾76Dé\"H@ÙT½Úd»û”+œó[Òù‹\rS÷·¤“—Ş×2/åN…ºYÒ,äµ]9£›†îÃå¹ZˆìèºIˆ$\rÈïí<p‰wîü-‡ë‚ôüódf~KêC¥;Ø_.>Ùß,™\\6Ó“ALC\n;]áŠíU£Šª4p™ZA“å­úÄ®²;p÷¢¶şÖ—Ş„……KJ¡ô:Cs|òWç–£†I\nxë}ü„<Ö»K¦[ÁÊ®-7ÌlÕË¯(Écú¥\\Ò;ÅvªÁÃU…n¼²n½qvy¸¾“c(wºÂUïd2G$Èå„ÂUò±Ã#œD& !Bb9.ó*ê‚‹<&%¯Kpq|Éb!ãáª2\\dæ¥§¡Ü›LB™p¼;\\õK&Ë‰m·Ì…‹\r¨f-Ù÷ÚŸ­¥P¶÷à¿zÜ¨RIò˜’\'.æÚ¼1Eæÿ©_MópUR¥×êö`*8[õcÔ0)\\õJ&\\a`é>S ©Dƒm|Ø\Z5Ô~?¸kQğ»»î»>€K¿à\"ïşV9 Ñ\'s+™Ï‘§.O…„Ko¹fv„bĞõ“¨:™Ğ,t»¯ZşVœæ¢†kDSòczŠmñ÷Y§·:Y÷cıÒ.M÷±Ég1×¦öpU	.v1³äâsÇ\'æLt?éúÈ\ru[p,–\\35Ğ4ø@€´uåœVauóv–°zDŞÇü·¯Ì<­PşÖË3†¶9j$ÇJ¼æªâÙ.İæf73\'pÓWg°Ù“#¯—ßÅó¼~ÕØò³ğ§ô á‹Vşİ¦K‡µ2Ÿ0Åò)tÍoI¼yHVïo;ÖO%‡«Âcÿ.í”™Ü·Ü[ŞÙïªs¾Ë\0è‚kd5ÀÌVkÀÆïÉß¿¿ê¿­‡|”³&<®·™ˆIèâ#2>y<Ö_(¸(k‘A4@ÚDz)È^EÈwE]€şöµç¶òÃĞbfÒ9Ï=$Éo…™„Qóœ‡Ë\nBy‹­oTNîô*r¡ìĞøea¼Ua¤­\'Œ2	m‘G‰ æñ€d¡àÒı.½ÃªmĞõbN´Î~W^y¦Î?>ğ©0Ñfh«¸@G‘ê	¥PW.L7	óìo.½Y¨\r0š•Ñ9$ŸÓó]ææßU¨’ß²%1ıL“W+o\n	—?Ñ‹½5Müü®tâ-äù-‡;¸$q,İ›\\æ™“‡[L\Z.óğ¤M(•’È‘\0–Ä4,’F(D¿£-C\\-¡øOX*z~Ó&y7—´]ãH7 !ü7»¹‹Éä$ÉyıFÈ¢öËãüæibæš¹5ç;oíÓ\Z®4½1;Š’oä›LäxIü\'—¥è7IÎK?Ò·`Î¼$ŠÉå]Óº„à)ÏÊ{	“‡+¦÷¡k`#ï}ä«qñw½LB=·U$SÏÃeœd–Ë½i˜“ğ­…S\n‘öpÅTÕ\'	läÕ4,Öı[+œy®\rôpÅ6$oâ\Z–o¶¨aÖÏëbJ«êF\rd4\\zç^Wí•uB™*u—z9|)‚T…sÖK—¨â\\ù=ù·T6ğHRŸe€Ä¥PW*2Š’¯òp9„å]¢d‘PÎk•@¡4K¢|¦È‰j—Ê ÑĞÏ…	ÏïiBı÷–Ÿñw|G³•Bµze0Í µš.½Ñ\r¡ßZÖ\ZŠFB3°ÈMdJ„rá\0 ‚t>^à-ÅŸQ>b›ğ^ü»¬\".µ„~ot­Õ4pé‡.İ´Wşîğ’C”\0…äñWÜqşfÒZMW\ZíåË¡²ïğ$Z+¯\'x¸2Ğ^N‘Ã:6¯iÄL¤Ô)ÏM<=\\5ŒæıÖÜTd·~šB…ŒäµŠpTÄÃUaäÓ¯E¾œ¼Hç¶äÖ’<wÇõpeÜÑ¥b¤¨(½¯¥W¾çõ-WšŞĞqÈÅ÷ÊkI”„İ%_Uëîº?ˆ\\áÍA—½,Ê¥¨·—ÉÌæßÛ&7¥\'‰Ù0¹xÂÜµşqy-i—Ölæ`SÃeIq‰Ö£3/š!¾ÅŠ ä¨Öß/®³“ßo¦è ‡+¤m[\\r¹^Ml\0\rÑ²’¹ÊÑzõşˆ‚^ºç6£Ÿåá²„çñ\râEhÁV“óZÆÅï¶Š÷¢thòpå°f¯Üˆ:RâÁòpUX³&—¬z_Y7Ø,E¹®ª¶¢nWÕ³a˜ŸÅXIÈİƒåáŠÍ±XÌÛäÍ\0G3µ;)¦ ËÃå\\=ï¦oÀÂ\ZÎH“™fÎey¸RÀ…æS\'ª÷a£–(–<V®OõpåğÜ¾„ô{ Ú ¬ÿa£f«d¤òBşôpy¸öJóÊòbºdXh £Ñ\0³eÛl<\\®ÔpÉn­›AaÇU\Z0Xø63ÙÃåár;­üğİêÙÅ—¶K?>!³Ñf&0[õ…¸0<:\\ëÀ¯#—]¶¼ûµoÛ;jÓÌáV¸Ä43Ğì5‰ÅÌƒ™QAMsĞf—/„¿w…úö›o<`®¶òÜ³k•¼¾Û¿W½:wbd•†§şØSpŠE‹° Alä±ôçÃæÚlõüòØ}üÑ¿ızòpµ6÷ïûBé/\0ûä™{b¯Ÿ?mIç¼×\"š•z\0\'.‘È_UæëW_ôpy¸~”·ßzUÙ^?|ûµúü•§b›¯è>	Ó4Ÿ‚£!9ôÃ‚Æ2z\rÏçSêòÕ¶ÍÖqÃ<dÃòpy­,†¨W`¢Å¤‹-¢˜·@‡¸à»\nTüéÒ¼\',y±ay¸š|\00a\\^ûŞ~Ñ©›¾P%\'?L÷¯ĞVÒ¨Óªİ­Rß|üAìx±ay¸š|\0L_+êÅní˜¾hmzùa€SVßøÎ.`}·g·óx½ø·?{¸š¶Ôiı£*éÀXd.€‡híQK3QjuÍêÚ¿1Ø¹G}¿o¢±Úöş{®f”?İ±R½³ùM•æÅîí\n˜ğ\0¶ò‚~ä†ª¼ä€#ÚŠä¯^hOØeÏÁ¤/LÃ±cFªÙ3/VK¯[èájT¹mõ2uõ•³Ôyçœ¥N:qêÔ©“úàƒTÚWÀÄTÔzè¾ZZmµõÆÙeí‰ğ\\L@‚9iÀ’×Ô©Sƒ±9ıÔ“ÕŒ‹ÎS‹^lp®ÊXì˜ìœúÛj‚ûöí«¦M›¦*}}ï³‡×5HY“¡Å2êîûñã«Õ–fµ2ÿøÌØœ•!q*}=ôĞCjÜ¸qêä“OVıû÷W]»vm5ltS&6>6@W…‘QŸ<iÈ!jÌ˜1ÁNŠÜu×]*‹»:fS’E+ş˜ô\0Lµwş&µ©È]›MkŸ‘*4ò×»¶d2>¯¼òJyÌE¶îİ»·™«=z\"sÉéáª“fb·c\"Ì	êÕ«W\0“ü¿9¹;j–¯ıÿ|51`¶ü˜h™÷~?#ğ‰œ:ó¸vUŞÓõšÚJQ¯Í›7[ÇaÓc~\0M4›	°¡ÙØ<‹¦ÙZŠ>“iæ1)À4räH5yòäòäEÁµlÙ2•õ?ìãukRA&º$Wµ†]»jŞ,&fŸJ—/ŞØù˜¬[·NMœ8QM™2%.İ¢@&L˜ N;í45xğà`£4ÍHÌı\"€ÖRD ÄÌ¦°]1®Y³f©j¼0?ıË½©·®Í\0M÷ÍÂ³ \\nl©…h¾–,Y¢N=õTuÆg8Ãe\n¦À¦k¶¼ƒÖ’W °¹u ĞN°®™â$\n.dÛ¶mªZ¯/·¼ª>Y{sì=Á.¡|Ì;›Tò¾¥Ü³ñaõÃWûª6cÇ\rà²m„®p™‚fÃŒÔµ\Z¾vŞ@kÉSŞ‰Á©¨$p­\\¹RUóõİgªÏ7>TFPË©BµeEPDô„ş¿|o“úŸï¾©ÚóoÜ¸1\0+k¸\\@Ãoz¸ØiĞRz0‚ÁJ”.2àD§l©²oß¾ªÆâİ»i]«Ú>Bîl1÷W,%­‰v\"ßERri{_z\\}ÿÅ§ªÚ¯9sæ”áb“4Ç_ÂòYÌµD!1å}	†\0Y½òi-õ„Š(îGÅùPI%ngäó²\nÉ»h±=î-¦eñg&ÅÁÕÖVòzıõ×Ë`‰$µ,*|rñÏ€Œ\r¼ÖÕ.Ê`ô\\P‰YP)\\ø~øaM\0cQïß¼±.E»˜§µĞV6­%rÖYgÕ.¬ =qÍ†^+¿¬¥–>•®©€Êf*d)øl|VØçÈ¤ÑªåK|±ZõõöÍ5}>İ×Ò…|­á’h#šL‡ÿ¾!àâAPÍµ‚J7\røLşŒ‚ÁŒ©õë«÷_5³}oü¥ª‘@ë¹·’k­\r.¬	İ –A\nSËe>™\0Fğ¬šÅ-Õ©ë<X5abB˜@&ˆ‰Íeƒ‹6ıj7¬y±ÒâÇÊª/ş¾>ĞõxáÃÚÀBôÀ’WØ¿?ıôÓÕèÑ£Ø²\\\'¼Ÿ]$Z\r¬¥šÚJ©g=@ú@1Ã‡o39²K1æï¡ùïkÜƒ¬RŒ(à·»·×ílA]Øôdü±^dmDı.£FRgyffZï =²Öb-ÕXÈ‘uX¼í$@18Q“!p±K™ïÃ$Ù~§æ¡²æ\"šªPÅ™ƒ\"z•†˜ìƒ\rr†K,“¬6lİÃÒÊ*à‘)\\’¯â‹¥ÉZC±s%™\0¾C˜Ó,•¶İµæ¡-²øÍ®-‘ ¬e0êµjÕ*\' düeã;á„RÁeB[i®ŒõuÜqÊë%-Ö’eŞJ‚hŠ,ƒ{2pq\Z*Jd°Ìïƒæû…ª<½\0¿\rE¢ŞZÊ5:—¤IN9å”ŠáÒ}4,¥´fã¨Q#[Õ-æ.ó•Ís5û ›•Fz\0ŞÌuI„*Lêéµ1÷îUûo\\­>9îDµgÚêÛ—7åæ»¡åÃ¬\0Sô(±ø:Ã†\rË.2İ¿s	°è‚%Vw¸8kÃ—8p`\0†ÿŸDK1 L–İ§OŸò™!ıó\\àeG®÷ëË;ï	 ú¸[ŸVdßïÜY÷ï7}úôDóaæ¸¢,ˆJ˜YS¶ã.fäX|.Ö,&¢9*ñ¿Z²Hó%ørbz˜|Y—ãÕ`	Ç›i\0—ß­eõF›DóÛï\0™Péth´<ûY¶*\rÖ‡øæqDVÂ\Z3ÊTpÁ\"«\\älUzÃö@„Âk1°8Ì¶ïáúûìÌõ0£ ²i1`¬åkıúõ©æCæ]æ$+ó?­&-e‹ˆ†eVs¸ˆ¨D$;‚®½j•ÈĞ¡CÛDm9®(©U€_êÓSF&K—Zi±-[¶¤Æ^´ÖD­Ö-Âˆ&“¨¥ÍÂe–&É\\\\’Ï\nË7È®\0dìµ„**b˜.¨¾URù÷âëÕ×_]U°\\aU\Z²éY½àM†i\Z|“ïŠ…V3¸$§V·g†\\ë9ˆİºukµ;1ÁiŞS(ó0ûÎ±¾UÙ1~RĞqiïŞ½™W—D±‹+k¢–&aT‘AT­«ìHÚª¥’ 6©K‰I½M\0©#“ˆa%;/;wV¯Ï>ûLmÿëÌÀ\n‚SÏS[·nU/½ôR¦m\0+id0ÌK‚ÿ®\'\\ÒG1.\'+>bÒàF*¸äèˆKu»˜†¨ë êÑ J¢“YUpĞí\róÑú§2…Kü®ıû÷«×^{-hmöİwßå,Dü-u%›\\V9PÖ†Š³À’Tn´¤©Äˆ\nbèõúqû~ıúÕ]ı‹mÍÉn¤K’*ZZÀXèï¾ûn°è€W%ASôÜŸ…ö2ù¬4/:6\rDX(5‚˜yãÇ|ZÄ¦Ä’aıÔ.ÜQ¬Yr¬¶.UâJ$Õ^-iCïQGòe±Êà²¸™„z\r¢^c¨O8\0~ß—•ïÉ¤Ë.%>¥,Š}Â4€±Øß|óÍ6=ê‰f©µlæ\'Ÿ›Æ“Öh¶`\0c\"°ØºK?IÆŸqf¼õ`FÒZÑjº¤°\\y:|ëª½ZÒh­(_K·£@& wïŞ¹j ½lm”M‘§^Eoj·$\'˜ÅL[àû®[RXŸŸ6fh’Ë\'ÂÀ25˜^•ã*¤H*©ÍB˜cÑZúw	ë8&¡y*ç3‡K\"„a¾;“ù\0,J¾TÔ¡¸Zf©m’Ñ¨=T˜è»®˜µ|Ôë@\Z$êõùe¿LfåZI4§‹F»o×±ÅD‹ÉÎ.ş-ÂÏØĞ¤ÆS¤k9é¤“Ê®Í<å™¢|/—²¨Dpq,:,ºbÒ¯Qòïë= ˜|UøS\\b²èàé©ŒK­cT‘ïîİ»áâó\0Hš\\ZëG“¨ˆ&Y`iª/˜{é!(c‰f.\\ş¾‘c}= aëÖ<ÜiúŒ.E½ÎpÑÿ-ª7jw—cÕõPÛî%æ\"f~°3©³mŒŸ­]»Ö9Z÷Å¼©ÍB~7É‹@€}şùç™”5éf\"c\'f\"óN£^QpzØ¡Y›\"AÁŠÊ.9Rb+±™ƒfÑ$PæipÑbº	#ƒH86mrSO2‹¿²|ùòªƒ%’ô(\nZõÂ/,çî*)k2M*­˜‰,F|¬¼Í?k9n®m;‰>Çuõm©4!!Ì8“]\"Oƒ+¦ ®‰%úUÉûâ«è9!4zœIHéSÑB*=’¼şù²ùÃÆehœ±Ô«ßó6ÿ€ïZ©cF]Ãò-IšÍØº7¹NÈˆ#r5¸LvçÎ[ÕFFÙß•È†\r\"ËŸ²L\"\'©Ÿ7o^UÆVv{qş³8Ê_\rÍåj¡ <Ìu/foT`£Å5a+ĞM²ófs#Ç|¹QZ_ËE¢®+Ê²®0Ieü;ª6®h-	lÔ3¿·¹&­Ì±™†Q½ÿi7_Lí¢T˜\0\0\0\0IEND®B`‚‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0×\0\0\0×\0\0\0‰}Äµ\0\00•IDATxÚí‰ÛÅ¹è¿?äŞóœQQD6ÙAPÜXdS\"\ZÄÄ1B7\\ãrİŠ ÑƒÆ5¸ DqAwOİùµ¼së«¯º»º§g¦{¦æyŞıà›™®ª_½k½ÕòÈıkT£Kï^=TûöíUÿşı)ıúõS}úôQ}ûöı·Ç{¬êÙ³§êŞ½{¬sÌ1ê\'?ù‰êÑ£‡õ3;wîù:tèü>rŞ9ST3¬¥$ÒÒyÅ¬Á`°¤Ò«W¯X¸ºté\n—¼G·nİb?çğÃŞ§s§êºEW{°š	.„‰/²öª`€Òµk×à}â>‹÷8ôĞCƒ÷x|uËÊ¥®fyPÑ^.¥‘mæ#c§01]>÷:äCT»’6»ä¢ó<\\Í\"ø^˜0Í—øGh`€Ğ±cÇØ÷À¿Jò™¼\'à2æ+–.òpQ&M8#0C\\l}&™Õe15šè°™‰l6.æ2€&7>x›5àQx¸\0ë°ÃS|pàWyšZ0ov\0Û=·ßèÍCCˆ8êp¡‘\0ÀUFEÃ~çˆ#Æœ¹±Í‰‡+Çp±@:ê(uôÑG;1 IˆØ&,&ÄÕhD-&áz	Ç»FR%ŸtìĞ|ÎÉCOôp	.&N&Å‚Fkñ;D·š0	và‹±!%ñ©*\ræá*\\¤ÀäAƒ>ŒûÈ#´\\³šˆ\nù.WÓĞrT¢Á˜;¿¹ƒ\r€˜¹&>0vmş-‹?›0ÉS¥ù=‚I6\'`”|¿Ë÷³ŸıLtĞAAd±‘’Ğ…‡‹Ğæ3ôîİ;ğÁ:uêY3UnTCr$™³víÚ•ç€÷üA\'W„oT\"”I0vÉ(s3±™ı¯J…ñO²IIÉ”>\'øËD~%t_x¸»‹‰áb’à—1¡a ¡ñ<,éMË¸jİtgŞlæ;¦b#”Q.ò&LDšÊvZN¯Á*«gtŒ1fŞĞT¶Mk?LÊ¨Š˜kˆò\'a&ÊC‘\ræ !°A0*êH	h +bø¾!àbgûİ/îü9â6;ñ»¢ƒM½ÕÊ×y³°^‚]Î$±Ëù…‰óƒãàÂ›6u’÷¹ò’¯¦iˆ?ÑÌ	ç¬ÍCàÂäƒ‹TŠ$œ‹Øhi­EâQLÃjW¼óşŞ·KfFÁE9Ê,0\0”ã+D	Óá¬X®á\Z‡•’ªßlœa¢M„n‰.ñßÕ.ÈM[W×¬å3ÌK¯şÜ9gOôpU’¿’( ÀÈ¹#lºL$»\\Òƒ}iBøÕşŒF*¶™Òü,ª\ZŸÊ}Ò\"¶f;æÍñfaVìpRÃ†\0QØÉZI@¦­•Kâ5[OJ´½M£¹æ&ä>s:ğ¸şŞçªFÿİ~—j\0&‰Ÿ›G×kq^K*=ÂD£€§shø`X5®Œı¯0„ihˆb&\rÍ§)àå³l€±Ó\"E„L,—>‰õ€ÿ¨’ÅP„èa¡¢…h°($Í3P¢LIL·¤GØe7¥ºÛŒŸ‹éÊB-Z\0DÚğy±.BÅFáBñ¬sÑHrm\'\'•]4Wš*ówùL³ò>Ú I÷^@“šÌz~76Ù¼°,\\pŠwÕ2ì¼D¨csI\0§Í“ñŞ6ÀÂúVk‘¯˜¤Ò»RÓ4®¹¨h7ù\\‘jÈ8ç½GKQÇTK»VK0ÉRj<Q¾UZíÅ–’Z\r$]œY-Æ¨^ñüÑp=\rÀß¹ö ©¶–F{åÙ÷*l…Fœÿv O Ã´\"hi«0ÄOA«’Ğ5FXê ‚JµK¯øj‹íl\\–ÚŒ7ÁÃå(ØÑä¶D¢z*œròTÅº,<\0:<¤A( mK5In4˜À«8ÒŠh×3gõÌ„K\Z“fÕÄ‚ñp%0ùˆI‰“Üas^ÏF\0€emßKh?Y¦C$=<²ÌÕÜ©Æç¥…²Nîc½ä5ï•[³ğŞ;W©	à‘&ŸfuôàAƒÊ ,²n4“Ö<4£„’læçÕ,¢Ã¥I–¾XMÃÜû\\gO™X.–È(Şe·Òƒh/ş>ë1m‘nX”Pü¨f\0L‡K^´l–5¨®”‚ù\'m\"ÍıuIï»Õ±©iK“\\òy$©œ4úVT¸lã•ö’^yì±Q¸0G›ÏŒ3B˜‰Yh1\0à}ÒïÉÂ`6*\\ñûû¬JÃ˜ë<6mÉs¨]oyÜí˜®‘swÄœ“ò§J|1½(‰gJ²·‘ ’ŸQ§ŒEƒg.Aûæ.¢…)$Xˆ)Šm‡”CvYZM¦ÃAÍbÒEáâcÕ;²—•0ÎŒ÷äÓO\næ¬İqòXk˜K¸äòì™3RC &­À05‹qÉªrB7‹ê‡1&Ò-wÙìóÕgîRíÛ^>©PMÀø¬WÒÆ3Ã†¤¾ØÍšŸL\nz™˜8SOJ›Ìğ:*ÉÂ»İ1,o•g˜a&ËE\nŒçˆÁÔó·-ÀBĞ^Œ·ËûU’§”ËÎ=\\	¥SÂÈŸë¢4‡ì¶R­!tÒ½H\nSmïdTß\'ÌÕÇâ;Ö2Ùt\0†?õ~º\0éé]\"©‘]:ª[ç_Z†J\rÆ¸º~´€IË\0WÂ\nø¸^Òš‹ß’¦ä\'¸J¨SÇ`çº‘Rúy°Èta×”>iœV‹ºÜ¼˜€…írçXÖšÉ&À\'×°\"×L?[mì¦6`!üSÜåBÂJCô|—Õ7\\ïáJâ{Åå¬Ìjˆ4¾Âãúª·î[^^ënXÈ×ıW°x0o\0ÏEõíÙF1?%üÄ“…–à½\0dÁf¡Ùt-/5ççãZY˜\\8~xğüÕ®¦ç{-ÏÙù®\\ÃEK5—„pÚUÌEFÄ.¤Â¢NÌ\"›6DÓÉU©¢åÂ4….æ}ÏÀ¦·–ËZs…\0…°q`ş…i*›àƒñ“nIMDWŠÎO.ÉÛ4Ú‹…*Q­ZˆhC4aœ64µŸ«`‚‰©ªûJ@®@KpB\n-¥*’\nÏëÒŸ°À<\\)®duÍM¹V:°ƒ–ÍÏ³œ\"l*‚ùU) ˜{¼cãbò%¾O\Z¿Ñ0WŠ«\\árIÔJ€ h`UN]*ÑJILå£Û™ÊWtÌÃ•P\\›{J^\\h,vùf+/Â¦æRµ‘¦ÑÃ•®°R£¨vÇ6ÁŸÀäñ‹¼¾Âæ–$÷¥§K¢\0óp¥hš¦ŒÈÄæOåòR=a“KXØ906`\"’>‰\\!\\ICï8ÑlW¿Â‹›°ÉtÁšÈ¢é\rZíğöÒÈõ‘“0¸’„Ş±ñ›1€QÀ°&’&˜mWŠW\\®5„äVFêïsN…\"áÌvW­eó»°N8ïçáJ\0WÔ3qÚKîêzãÎßù…œcyîÆùÁ&\ZU=w~*—a9ì¾›[¸èèW\\`ƒJƒçSŸ¬õAŒ<ËîÇVª›æœl„æUPú7é×hÓ\\®Õ6¸Ü¸#A9O»ÃÔ?ï¾N}ºîV¿ˆs,l~=¼\\?z¨sL\0±XÀuş¹g{¸*‹Ëå(¼h-&íÓõ·ùE\\\0¸Ø{vî(DF“{\0fäğò\\Ã%­ª“ä¶t­ÀõÔ\Z¿ˆs,XÌòøâY±ş—­5\0pÍ½ârW¸ôã&®GäÑZ˜2a~ç®’e!s…Ø7öˆŠy¸–çğ®®ÂÀ¥‘3\rqˆÙù6,Ÿëá*(\\¯Şüër“°^æš\0Æ¼B.\\qµ„äµNè}L«Éò¸XpéÚ+,aT><§7´ä¹hW‡Ë¥©²dÆWä³§oo¡yæ?êü—ä¾ĞdGwèàáJ—X8Áüf…LÒîÿ¾Ñ/àˆ	Á¨0ÓĞô¹Ğf\'èáªDsÅE1\rL“ĞÃUL¸Ä4´…åÍ`p8ıW%pÅ4&Ãoš„®âÂE’Èo\\0ƒ VûÄ\n®¨zBr[f”ĞÃUl¸Ø(M¸$il–>ıò²é®¤ı3\\ÍB¢„ÀeN‡«¸p‘P¶EõÊ+×å>O\"*¯¥\'±Ñ=\\—®¹¢ª3<\\)ó\\.mŸÑZ³&ğp5\\˜øİºtŠ=(	\\y¼U²0Iä¨³[äB€Ëfx¸Š¯¹ÌF¢¶#\'yM ªB#Ìç’`“ááj,¸l=6°bô\n<6¦)\\a‰d	f˜‘BWãú\\ºß•Ç«ƒr÷!“¡—+‚ÂÚU‡E\n=\\—ŞbÍÃUA¸c&®Æ„‹2¶0¸t¿ËÃU\\qW±FÁõÑ#7øÅ[P¸æ5®o¡‡«¸l÷;Ãå«â.3ïáJ!æÍ\Z–Hq¦‡ËÃe»”ÃÃUa;ë¨»·<\\\rkô3m½â=\\ÂåwIK\ZÒx¸ŠXR?v¢ÃeëïáÊà\n¡¨ÃÃ’ÈÈg¾Ãi’ÿıÀRõÁ=×¶’÷W_©Ş]zq¨ğ÷òoùıJïµ}Í‚Ê[•=y‹z}îøàÏJŞC‡¨1@øŞæØ¹~¾í˜¸:wêèáªôò»¨ªxşİŸæ_l ¨¾…,€-+fª—.\Z¬şvv¯Ìäùsû«WçŒRo-<«„¶ÇÏø7üPT\nŸÅ{ñù=úÇÈDààßnºì”LÇ\0áùÃ¾ƒ\\OØªÊ„kØĞ!A±‡+å±jãús«4uK4d½ \\„…Ì‚Fôï…æBô÷”Ï1?«–z\\Ìi\\l¼®*ïRÉ¡÷*Œ‚‹»\Z»t¥’…Ö*_ÏS‚4oÏØlhQMAmpéõ…®eôÈÓpôÁ«Œ\'²¤7§ùdíÍå‰ó+o²ùÚó*ò‘ÂÌÃziª8-¦?«´³¶	¦¾^¥a¶TtÂ@WV×E•B‘³5˜<&“IµMö+—Ÿªşñ›Ÿ«.¿¼¤Õ~[òG–´~¶uåœ²¼½øÁ¿×…÷ĞåÅ&òKª‰Ã·J˜ù¯_5®Í³êcñ¯[æ¶/„Ÿóo_3R=?íX«“\0P\\f}¡	×È§5¨®”·KJ\"9ÎïblpíºI3…$6˜²NSøûj†ºYÄQŸ_íçGøœ7çOjZä‰€K„ÆCafaÏ’%“×æ4¹‡Ë¼9ªÊ×w/*i‘~Ü-KËN¼ıö…5YPI¤Ú¹¤<=ë»K§«—/RlÛ-óBá2«4L¸ºwëæáª4o6tk×ı×«—g\ràbBk¡¥ò\n×‡ı!wÏŒéÈfÇ¦·}ÍüP¸èE)—2´\rÅŸèáªDÚ•|.½¦,Ìï.}RŞ˜w¦ÚúÇ_ªİŞ[¨j×G¬Èåsï~ôjçŸsÅf—H6áê”ãÎO¹‚ë±›§¾jJç÷¤‡Uúea‰dİÔ\'èãÇWå,´Jµáúø‰Õù{öÿ»T}öÔí¡s&BŠ%®G¦V\rïÒj½<{ùÈ`-y¸Èã7şFıuš=ªunß#ÛtŞƒËV_øáƒ¿Ï%\\h•ª×ï•qŞ[îªò·$×%=ãM¸úµ?Dİ5ú˜6k†µÄšòp•„İFO¦êukF×æúV›ßE+l‚¸]’d2»e%/3,í*ø|q‹¬ê{—L03ŠYÉóT’gf^âàâÆ©Ò°”Ô×\nkG×`M×¯Y^êüÌE±î†­Âña~—­)¨Y¥ÁŸ®\ZŒÅCÈ>«ä)¹/ÂÑ­rC˜FOßQ£êó;Ô®û~€Aş)Ëç8\'¸4öúğQ¥O¶k:\\“ÇŒà2Ÿ“5$ßµÕÔp­[|Y9±h«RØşØM­Âñ6¿‹hR\\úû²È,B‹Á¦™ÃÕ\'›UŸoŞ¤~wş8uÁÀ#Õ¼1İÕÕcz¨	Ç\\–ãÛı‡ê}èÿR\'u9XÍÛK5´“ê{øÿV;wlSòúè¯ÏHšd5ü_7]U³ËĞ©ë#§ÄÂ{oÙ%?VJÌ¨¾Û¿·üçÏœ®NêúSuŞğnê¬!‚gB†õŸåg½xĞQêš3{©¹£º©Éİª6¯0Ÿ­w]@f&•)èeRú|›†f^\\à’D²Wp»ÉàÖ÷”Ä9k«©ázfö¸rYLØâhß®uÄĞô»pxmwõ*0_„”	¸m·ı*\0`ó²™å…·÷ó=jàÑÿGM;ıuÑèê„?)/<S&x´š>¦§š0øhuı‚+•şÚşĞªà9I^×\nª°…÷ÂƒZÅ3_zÆsNã{¨ãÚÿgè3NÖ9ØD&\ZÏÈFÄûn^tN0ŞŒmì÷‰H ë\"pµªĞèÛÇ\n\"Õ8¬­¦†Kü-[Q§ƒØ­[·P¿¸Âªâ%ZèRìúò%ÃÔÎ\'ïnÅ¦çŸS£ú¡~1¢»:»´°Â2¤´ó_:®·:dwuñäQÊ|½·z~¹2¡p±è\0`ß¶wÚ<ãğ¾í­uöĞègZzÆËÆ÷QŒê¡.={L«÷ùz÷Nõæ¢_8Ÿ\'c^ÒÂEëšég[ßWjHëíwÕ®\r…‹A4¯Òı®8¸âZ¬a.a&™‹NŞØí`ÖŞ¿:øÙê¥×ÚŞ1?U—ŸÙG]XZx3Ï«l/\0‹ÒÒÕ€¶U~ÆãÛ«Ë&¯¾Ü·7Ğdƒ»úŒ3\'ô\r´xØ3¢¥)9‹;ËÅ¼¸À%U\Z:\\D—Í>?.ÖVSÃ%!x.v=*ÅÅ1]zJ§6CİïÂá\r;‰×bêq|İLÒ_øNc©.8\0×k/m…krÉ,üqáõPËÍSa/v÷Zk/€Æ?²½€iìÀ£Ô•çªŞ{kSğŒ#úw³>ã”ò3öT×^uYè3òYo^sN¤c^\\àÂŸ6áb=ã²e¸X[Ş,4Î3Q)®G¤\Z×­MÄP÷»bá\né¥±ã®E¯÷šó‹3Í…É7½¤•=â?Ú,º;¤f•šëç§v\r´AØß_sMí\ZÀ”4A•¨×‚K¦”ŸQhè2º_;uåYıƒg<\'æËÏyGø‘°ÂàB›­›Ø£¼FtÀ$$ßôf¡À¥›J=~~Åhµù·ÓTûv‡µéY\'~—\\4B1ûı[^S./´×9§÷V3Îè¥~9±Ÿš{ö\05uh§Ò.Ş1K‹rŞÔãÔìIÇª‹Jğıqñ¯bßó¾û¦fp}ùŞ&çg¼¸ôŒ³JÏ8{R?5iĞÑågœUò³æÏØ/xÆU×/p\Z»¾Ú§>yæDiâà¢Ö”õÀÚĞ7a3 Ñôpé%O28rŸQw&lö­¿Ë¬+LÒKã‹¿¯WßîŞjÊë·ŞPs/šìì@tåYÔÕ??.`›3ùX5c\\õğİ·Ä.¸¯·o|­àÚûÒãê«÷_Wßñi,`ÿÿûZŠMáyyÆËK~Ù+—Æj, â3÷l¸/ññş0¸ds%¸ÅÏ.é\"gÄd=±¶|ëÀ`08	S9ªNÕ´”Á˜A\rñ»\\àÒO$[¥´>~únµçµ\rAÔ+ìõì“¨;…ºmñµæºK¹ûWª\'î]ø.qÚŠ…^ÏVfßìÚÿÏ®U÷­úµºµôŒ·-¾$şû¡Û–D>ã76ªOşöˆÚóÜƒaø›Ã¥G\nI½è½G$—Ç\Z’Ÿ7}‹\Z0‚º}.¦!Er_“ír7¸nJtÀğÃ\'nUÿºgIà˜GÁ÷bÿúÃmjÿæ¡»x­Àì«]ÿR•¼|¹÷/S»\\¨UkËÁŒ5—O*»º©/İ¯z×æ¢¶0ìÈ»D©f é§Ô¿‹Ğâ&(í\'Ÿ>}GøØzëÂÀ9\'Ì,•aÂ‚ÛùèÍjç¨¸Ÿaµ“Ê<pü{ıŸ‚gã»‡=9@6œ`,Ö\\£>|8ıE®ax\\Ì÷_®Zî?¢¿¯ó…»ZPƒşfn†Ÿs.KÎ™A\rü®¨Šø2\\19—4åD6ÉºÑL­ÅÖU$ëBâ$p‰¿Í|Ì ÈeKÈKJ_¸{@Ö_sQ+¿K¬`w*\r$ƒŒmVj9r«Ğ­­Ÿ½»iúÃ‡F–>ñœíãŒ—Àen²XS®%mù\n	«n¿m~ùøÔ@“¹ÂÅ‡\",<³\\ëóçhšşğa\Z~7ë\0¸ÌJ½u^Lææ$²Tj˜¦!6õ;~]îdVjHBÑ	.í¸CŞM³VpıíÁ†‚+Iãÿ—l¤¬à2ı-1	ë]™‘;¸ô|—¾¸¨ûÃ®Ö¯•±ÁekZIÄ°²ãkZ}×½/>ÖPp%‰¾´üŠ`~9n‚K€‰ÈÏß_uE«óºIXïüVîàzbùÕVÓPrzO3™uËI« Æc+aî¸}aCÃåZ\r<0{J.Šuåhı(õ`†n²–<\\š<z÷*«i((¡[Zë\rkC=4°Ãk1¬Z´—µ‚ë‹WÖ5\\IÂğÇ¤`\\‚—Ûl0-u¸t“µäáŠ0\reà$´-B¾Ëô»øÿ¨#\'EŠîº÷º¶pıı©¦^6¨sP$Ğ¥K—V—êål’²É“I˜;¸ôj\r3¡¬ïvf¾+ê–“¢E‘c2Àµïõg›2RH³Ğ]àbõV:\\zâ8]ŸrÛTO\"a·a ¥äŞ.©5‹ê¡ÖO#—×-\\ûßz®q\"…W™òÎï.úV~Ç4Ô­}Ìd½ÔûpdîáÒy©³ÁeÖ\ZY{\'¸r1ä»5:\\I\"…T½qÈAÁå†˜„–Ïm—^KXïBİÜÃ¥·ZãAX§ ı|ÑÃ¨KÇ³¨1¬•/\nWNŠ~+f<¶Ò.úü3¯ÜtÒº/åŠVÇ“òÒJ­½â¥#”ó2øXºiè\Z×\'&ÏpÉsï}áÑ\0®F©Òp=ÚÏIæŸyEtŸZ6Hj<eÔ»ÓSaàÒs^’(4á\"ôN^àÂ&_2cJ¡ƒ\Z:\\D\r%ÇÕ(p%	fHEK¿P^àÊcn«·œHÎKêÇ>ûó­P¿^,ªwa‚\Z†oT¸’38®Ã¥›ü\\,¡›„y)w*\\¶ãÿ¶jé:$Êää.ñ¹¾Ø´¶aàJÌ[(OîÕ©Í¼ÊU¼yÌm®\'—\\Ñ&¡lÂ””Ô¹Fó\ZÔØYzNK*ãI 7\n\\®•ä·¤Å`™	\ZPÚ@äÕ$Ì5\\ú1	É£qÌ;s18@\'C×1Ï	ä Bã€éJéÓ¾76Dé\"H@ÙT½Úd»û”+œó[Òù‹\rS÷·¤“—Ş×2/åN…ºYÒ,äµ]9£›†îÃå¹ZˆìèºIˆ$\rÈïí<p‰wîü-‡ë‚ôüódf~KêC¥;Ø_.>Ùß,™\\6Ó“ALC\n;]áŠíU£Šª4p™ZA“å­úÄ®²;p÷¢¶şÖ—Ş„……KJ¡ô:Cs|òWç–£†I\nxë}ü„<Ö»K¦[ÁÊ®-7ÌlÕË¯(Écú¥\\Ò;ÅvªÁÃU…n¼²n½qvy¸¾“c(wºÂUïd2G$Èå„ÂUò±Ã#œD& !Bb9.ó*ê‚‹<&%¯Kpq|Éb!ãáª2\\dæ¥§¡Ü›LB™p¼;\\õK&Ë‰m·Ì…‹\r¨f-Ù÷ÚŸ­¥P¶÷à¿zÜ¨RIò˜’\'.æÚ¼1Eæÿ©_MópUR¥×êö`*8[õcÔ0)\\õJ&\\a`é>S ©Dƒm|Ø\Z5Ô~?¸kQğ»»î»>€K¿à\"ïşV9 Ñ\'s+™Ï‘§.O…„Ko¹fv„bĞõ“¨:™Ğ,t»¯ZşVœæ¢†kDSòczŠmñ÷Y§·:Y÷cıÒ.M÷±Ég1×¦öpU	.v1³äâsÇ\'æLt?éúÈ\ru[p,–\\35Ğ4ø@€´uåœVauóv–°zDŞÇü·¯Ì<­PşÖË3†¶9j$ÇJ¼æªâÙ.İæf73\'pÓWg°Ù“#¯—ßÅó¼~ÕØò³ğ§ô á‹Vşİ¦K‡µ2Ÿ0Åò)tÍoI¼yHVïo;ÖO%‡«Âcÿ.í”™Ü·Ü[ŞÙïªs¾Ë\0è‚kd5ÀÌVkÀÆïÉß¿¿ê¿­‡|”³&<®·™ˆIèâ#2>y<Ö_(¸(k‘A4@ÚDz)È^EÈwE]€şöµç¶òÃĞbfÒ9Ï=$Éo…™„Qóœ‡Ë\nBy‹­oTNîô*r¡ìĞøea¼Ua¤­\'Œ2	m‘G‰ æñ€d¡àÒı.½ÃªmĞõbN´Î~W^y¦Î?>ğ©0Ñfh«¸@G‘ê	¥PW.L7	óìo.½Y¨\r0š•Ñ9$ŸÓó]ææßU¨’ß²%1ıL“W+o\n	—?Ñ‹½5Müü®tâ-äù-‡;¸$q,İ›\\æ™“‡[L\Z.óğ¤M(•’È‘\0–Ä4,’F(D¿£-C\\-¡øOX*z~Ó&y7—´]ãH7 !ü7»¹‹Éä$ÉyıFÈ¢öËãüæibæš¹5ç;oíÓ\Z®4½1;Š’oä›LäxIü\'—¥è7IÎK?Ò·`Î¼$ŠÉå]Óº„à)ÏÊ{	“‡+¦÷¡k`#ï}ä«qñw½LB=·U$SÏÃeœd–Ë½i˜“ğ­…S\n‘öpÅTÕ\'	läÕ4,Öı[+œy®\rôpÅ6$oâ\Z–o¶¨aÖÏëbJ«êF\rd4\\zç^Wí•uB™*u—z9|)‚T…sÖK—¨â\\ù=ù·T6ğHRŸe€Ä¥PW*2Š’¯òp9„å]¢d‘PÎk•@¡4K¢|¦È‰j—Ê ÑĞÏ…	ÏïiBı÷–Ÿñw|G³•Bµze0Í µš.½Ñ\r¡ßZÖ\ZŠFB3°ÈMdJ„rá\0 ‚t>^à-ÅŸQ>b›ğ^ü»¬\".µ„~ot­Õ4pé‡.İ´Wşîğ’C”\0…äñWÜqşfÒZMW\ZíåË¡²ïğ$Z+¯\'x¸2Ğ^N‘Ã:6¯iÄL¤Ô)ÏM<=\\5ŒæıÖÜTd·~šB…ŒäµŠpTÄÃUaäÓ¯E¾œ¼Hç¶äÖ’<wÇõpeÜÑ¥b¤¨(½¯¥W¾çõ-WšŞĞqÈÅ÷ÊkI”„İ%_Uëîº?ˆ\\áÍA—½,Ê¥¨·—ÉÌæßÛ&7¥\'‰Ù0¹xÂÜµşqy-i—Ölæ`SÃeIq‰Ö£3/š!¾ÅŠ ä¨Öß/®³“ßo¦è ‡+¤m[\\r¹^Ml\0\rÑ²’¹ÊÑzõşˆ‚^ºç6£Ÿåá²„çñ\râEhÁV“óZÆÅï¶Š÷¢thòpå°f¯Üˆ:RâÁòpUX³&—¬z_Y7Ø,E¹®ª¶¢nWÕ³a˜ŸÅXIÈİƒåáŠÍ±XÌÛäÍ\0G3µ;)¦ ËÃå\\=ï¦oÀÂ\ZÎH“™fÎey¸RÀ…æS\'ª÷a£–(–<V®OõpåğÜ¾„ô{ Ú ¬ÿa£f«d¤òBşôpy¸öJóÊòbºdXh £Ñ\0³eÛl<\\®ÔpÉn­›AaÇU\Z0Xø63ÙÃåár;­üğİêÙÅ—¶K?>!³Ñf&0[õ…¸0<:\\ëÀ¯#—]¶¼ûµoÛ;jÓÌáV¸Ä43Ğì5‰ÅÌƒ™QAMsĞf—/„¿w…úö›o<`®¶òÜ³k•¼¾Û¿W½:wbd•†§şØSpŠE‹° Alä±ôçÃæÚlõüòØ}üÑ¿ızòpµ6÷ïûBé/\0ûä™{b¯Ÿ?mIç¼×\"š•z\0\'.‘È_UæëW_ôpy¸~”·ßzUÙ^?|ûµúü•§b›¯è>	Ó4Ÿ‚£!9ôÃ‚Æ2z\rÏçSêòÕ¶ÍÖqÃ<dÃòpy­,†¨W`¢Å¤‹-¢˜·@‡¸à»\nTüéÒ¼\',y±ay¸š|\00a\\^ûŞ~Ñ©›¾P%\'?L÷¯ĞVÒ¨Óªİ­Rß|üAìx±ay¸š|\0L_+êÅní˜¾hmzùa€SVßøÎ.`}·g·óx½ø·?{¸š¶Ôiı£*éÀXd.€‡híQK3QjuÍêÚ¿1Ø¹G}¿o¢±Úöş{®f”?İ±R½³ùM•æÅîí\n˜ğ\0¶ò‚~ä†ª¼ä€#ÚŠä¯^hOØeÏÁ¤/LÃ±cFªÙ3/VK¯[èájT¹mõ2uõ•³Ôyçœ¥N:qêÔ©“úàƒTÚWÀÄTÔzè¾ZZmµõÆÙeí‰ğ\\L@‚9iÀ’×Ô©Sƒ±9ıÔ“ÕŒ‹ÎS‹^lp®ÊXì˜ìœúÛj‚ûöí«¦M›¦*}}ï³‡×5HY“¡Å2êîûñã«Õ–fµ2ÿøÌØœ•!q*}=ôĞCjÜ¸qêä“OVıû÷W]»vm5ltS&6>6@W…‘QŸ<iÈ!jÌ˜1ÁNŠÜu×]*‹»:fS’E+ş˜ô\0Lµwş&µ©È]›MkŸ‘*4ò×»¶d2>¯¼òJyÌE¶îİ»·™«=z\"sÉéáª“fb·c\"Ì	êÕ«W\0“ü¿9¹;j–¯ıÿ|51`¶ü˜h™÷~?#ğ‰œ:ó¸vUŞÓõšÚJQ¯Í›7[ÇaÓc~\0M4›	°¡ÙØ<‹¦ÙZŠ>“iæ1)À4räH5yòäòäEÁµlÙ2•õ?ìãukRA&º$Wµ†]»jŞ,&fŸJ—/ŞØù˜¬[·NMœ8QM™2%.İ¢@&L˜ N;í45xğà`£4ÍHÌı\"€ÖRD ÄÌ¦°]1®Y³f©j¼0?ıË½©·®Í\0M÷ÍÂ³ \\nl©…h¾–,Y¢N=õTuÆg8Ãe\n¦À¦k¶¼ƒÖ’W °¹u ĞN°®™â$\n.dÛ¶mªZ¯/·¼ª>Y{sì=Á.¡|Ì;›Tò¾¥Ü³ñaõÃWûª6cÇ\rà²m„®p™‚fÃŒÔµ\Z¾vŞ@kÉSŞ‰Á©¨$p­\\¹RUóõİgªÏ7>TFPË©BµeEPDô„ş¿|o“úŸï¾©ÚóoÜ¸1\0+k¸\\@Ãoz¸ØiĞRz0‚ÁJ”.2àD§l©²oß¾ªÆâİ»i]«Ú>Bîl1÷W,%­‰v\"ßERri{_z\\}ÿÅ§ªÚ¯9sæ”áb“4Ç_ÂòYÌµD!1å}	†\0Y½òi-õ„Š(îGÅùPI%ngäó²\nÉ»h±=î-¦eñg&ÅÁÕÖVòzıõ×Ë`‰$µ,*|rñÏ€Œ\r¼ÖÕ.Ê`ô\\P‰YP)\\ø~øaM\0cQïß¼±.E»˜§µĞV6­%rÖYgÕ.¬ =qÍ†^+¿¬¥–>•®©€Êf*d)øl|VØçÈ¤ÑªåK|±ZõõöÍ5}>İ×Ò…|­á’h#šL‡ÿ¾!àâAPÍµ‚J7\røLşŒ‚ÁŒ©õë«÷_5³}oü¥ª‘@ë¹·’k­\r.¬	İ –A\nSËe>™\0Fğ¬šÅ-Õ©ë<X5abB˜@&ˆ‰Íeƒ‹6ıj7¬y±ÒâÇÊª/ş¾>ĞõxáÃÚÀBôÀ’WØ¿?ıôÓÕèÑ£Ø²\\\'¼Ÿ]$Z\r¬¥šÚJ©g=@ú@1Ã‡o39²K1æï¡ùïkÜƒ¬RŒ(à·»·×ílA]Øôdü±^dmDı.£FRgyffZï =²Öb-ÕXÈ‘uX¼í$@18Q“!p±K™ïÃ$Ù~§æ¡²æ\"šªPÅ™ƒ\"z•†˜ìƒ\rr†K,“¬6lİÃÒÊ*à‘)\\’¯â‹¥ÉZC±s%™\0¾C˜Ó,•¶İµæ¡-²øÍ®-‘ ¬e0êµjÕ*\' düeã;á„RÁeB[i®ŒõuÜqÊë%-Ö’eŞJ‚hŠ,ƒ{2pq\Z*Jd°Ìïƒæû…ª<½\0¿\rE¢ŞZÊ5:—¤IN9å”ŠáÒ}4,¥´fã¨Q#[Õ-æ.ó•Ís5û ›•Fz\0ŞÌuI„*Lêéµ1÷îUûo\\­>9îDµgÚêÛ—7åæ»¡åÃ¬\0Sô(±ø:Ã†\rË.2İ¿s	°è‚%Vw¸8kÃ—8p`\0†ÿŸDK1 L–İ§OŸò™!ıó\\àeG®÷ëË;ï	 ú¸[ŸVdßïÜY÷ï7}úôDóaæ¸¢,ˆJ˜YS¶ã.fäX|.Ö,&¢9*ñ¿Z²Hó%ørbz˜|Y—ãÕ`	Ç›i\0—ß­eõF›DóÛï\0™Péth´<ûY¶*\rÖ‡øæqDVÂ\Z3ÊTpÁ\"«\\älUzÃö@„Âk1°8Ì¶ïáúûìÌõ0£ ²i1`¬åkıúõ©æCæ]æ$+ó?­&-e‹ˆ†eVs¸ˆ¨D$;‚®½j•ÈĞ¡CÛDm9®(©U€_êÓSF&K—Zi±-[¶¤Æ^´ÖD­Ö-Âˆ&“¨¥ÍÂe–&É\\\\’Ï\nË7È®\0dìµ„**b˜.¨¾URù÷âëÕ×_]U°\\aU\Z²éY½àM†i\Z|“ïŠ…V3¸$§V·g†\\ë9ˆİºukµ;1ÁiŞS(ó0ûÎ±¾UÙ1~RĞqiïŞ½™W—D±‹+k¢–&aT‘AT­«ìHÚª¥’ 6©K‰I½M\0©#“ˆa%;/;wV¯Ï>ûLmÿëÌÀ\n‚SÏS[·nU/½ôR¦m\0+id0ÌK‚ÿ®\'\\ÒG1.\'+>bÒàF*¸äèˆKu»˜†¨ë êÑ J¢“YUpĞí\róÑú§2…Kü®ıû÷«×^{-hmöİwßå,Dü-u%›\\V9PÖ†Š³À’Tn´¤©Äˆ\nbèõúqû~ıúÕ]ı‹mÍÉn¤K’*ZZÀXèï¾ûn°è€W%ASôÜŸ…ö2ù¬4/:6\rDX(5‚˜yãÇ|ZÄ¦Ä’aıÔ.ÜQ¬Yr¬¶.UâJ$Õ^-iCïQGòe±Êà²¸™„z\r¢^c¨O8\0~ß—•ïÉ¤Ë.%>¥,Š}Â4€±Øß|óÍ6=ê‰f©µlæ\'Ÿ›Æ“Öh¶`\0c\"°ØºK?IÆŸqf¼õ`FÒZÑjº¤°\\y:|ëª½ZÒh­(_K·£@& wïŞ¹j ½lm”M‘§^Eoj·$\'˜ÅL[àû®[RXŸŸ6fh’Ë\'ÂÀ25˜^•ã*¤H*©ÍB˜cÑZúw	ë8&¡y*ç3‡K\"„a¾;“ù\0,J¾TÔ¡¸Zf©m’Ñ¨=T˜è»®˜µ|Ôë@\Z$êõùe¿LfåZI4§‹F»o×±ÅD‹ÉÎ.ş-ÂÏØĞ¤ÆS¤k9é¤“Ê®Í<å™¢|/—²¨Dpq,:,ºbÒ¯Qòïë= ˜|UøS\\b²èàé©ŒK­cT‘ïîİ»áâó\0Hš\\ZëG“¨ˆ&Y`iª/˜{é!(c‰f.\\ş¾‘c}= aëÖ<ÜiúŒ.E½ÎpÑÿ-ª7jw—cÕõPÛî%æ\"f~°3©³mŒŸ­]»Ö9Z÷Å¼©ÍB~7É‹@€}şùç™”5éf\"c\'f\"óN£^QpzØ¡Y›\"AÁŠÊ.9Rb+±™ƒfÑ$PæipÑbº	#ƒH86mrSO2‹¿²|ùòªƒ%’ô(\nZõÂ/,çî*)k2M*­˜‰,F|¬¼Í?k9n®m;‰>Çuõm©4!!Ì8“]\"Oƒ+¦ ®‰%úUÉûâ«è9!4zœIHéSÑB*=’¼şù²ùÃÆehœ±Ô«ßó6ÿ€ïZ©cF]Ãò-IšÍØº7¹NÈˆ#r5¸LvçÎ[ÕFFÙß•È†\r\"ËŸ²L\"\'©Ÿ7o^UÆVv{qş³8Ê_\rÍåj¡ <Ìu/foT`£Å5a+ĞM²ófs#Ç|¹QZ_ËE¢®+Ê²®0Ieü;ª6®h-	lÔ3¿·¹&­Ì±™†Q½ÿi7_Lí¢T˜\0\0\0\0IEND®B`‚');
-/*!40000 ALTER TABLE `tbImagem` ENABLE KEYS */;
+LOCK TABLES `tbimagem` WRITE;
+/*!40000 ALTER TABLE `tbimagem` DISABLE KEYS */;
+INSERT INTO `tbimagem` VALUES (3,'ï¿½PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0ï¿½\0\0\0ï¿½\0\0\0ï¿½}Äµ\0\00ï¿½IDATxï¿½í‰ï¿½Å¹ï¿½?ï¿½ï¿½ï¿½ï¿½QQD6ï¿½APï¿½XdS\"\Zï¿½ï¿½1B7\\ï¿½rİï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ DqAwOï¿½ï¿½ï¿½ï¿½së«¯ï¿½ï¿½ï¿½ï¿½gï¿½{ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½kTï¿½Kï¿½^=Tï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½S}ï¿½ï¿½Q}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½Ù³ï¿½ï¿½Ş½{ï¿½sï¿½1ï¿½\'?ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½3;wï¿½ï¿½ï¿½:tï¿½ï¿½>rï¿½9ST3ï¿½ï¿½$ï¿½ï¿½yÅ¬ï¿½`ï¿½ï¿½ï¿½Ò«Wï¿½Xï¿½ï¿½tï¿½\nï¿½ï¿½Gï¿½nï¿½b?ï¿½ï¿½ï¿½Ş§sï¿½ï¿½ï¿½EW{ï¿½ï¿½	.ï¿½ï¿½/ï¿½ï¿½ï¿½`ï¿½Òµkï¿½ï¿½}ï¿½>ï¿½ï¿½8ï¿½ï¿½Cï¿½ï¿½x|uï¿½Ê¥ï¿½fyPï¿½^.ï¿½ï¿½mï¿½#cï¿½ï¿½01]>ï¿½ï¿½:ï¿½CTï¿½ï¿½6ï¿½ï¿½ï¿½<\\ï¿½\"ï¿½^ï¿½0ï¿½ï¿½ï¿½Gh`ï¿½Ğ±cï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½\'ï¿½2ï¿½+ï¿½.ï¿½pQ&M8#0C\\l}&ï¿½ï¿½e15ï¿½è°™ï¿½l6.ï¿½2ï¿½&7>xï¿½5ï¿½Qxï¿½\0ï¿½ï¿½S|pï¿½Wï¿½yï¿½Z0ov\0ï¿½=ï¿½ï¿½ï¿½ï¿½CCï¿½8ï¿½pï¿½ï¿½\0ï¿½UFEï¿½~ï¿½#ï¿½Æœï¿½ï¿½Í‰ï¿½+ï¿½pï¿½@ï¿½:ï¿½(uï¿½ï¿½G;1ï¿½Iï¿½ï¿½&,&ï¿½ÕhD-&ï¿½z	Ç»FR%ï¿½tï¿½Ğ|ï¿½ï¿½COï¿½p	.&N&ï¿½ï¿½ï¿½Fkï¿½;Dï¿½ï¿½0	vï¿½!%ï¿½*\rï¿½ï¿½*\\ï¿½ï¿½ï¿½Aï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½#ï¿½ï¿½\\ï¿½ï¿½ï¿½\nï¿½.Wï¿½ï¿½rTï¿½ï¿½ï¿½;ï¿½ï¿½ï¿½\rï¿½ï¿½ï¿½&>0vmï¿½-ï¿½?ï¿½0ï¿½Sï¿½ï¿½=ï¿½I6\'`ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ltï¿½AAdï¿½ï¿½ï¿½Ğ…ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½;ï¿½ï¿½:uï¿½Y3UnTCr$ï¿½ï¿½ï¿½vï¿½Ú•ï¿½ï¿½ï¿½ï¿½A\'Wï¿½oT\"ï¿½I0vï¿½(s3ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½Oï¿½IIÉ”>\'ï¿½ï¿½D~%t_xï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½1ï¿½aï¿½ï¿½ï¿½<,ï¿½MË¸jï¿½tgï¿½lï¿½;ï¿½b#ï¿½Q.ï¿½&LDï¿½ï¿½vZNï¿½ï¿½*ï¿½gtï¿½1fï¿½ï¿½Tï¿½Mk?LÊ¨ï¿½ï¿½kï¿½ï¿½\'a&ï¿½Cï¿½\rï¿½ !ï¿½A0*ï¿½H	h +bï¿½ï¿½!ï¿½bgï¿½ï¿½/ï¿½ï¿½9ï¿½6;ñ»¢ƒMï¿½ï¿½ï¿½ï¿½yï¿½ï¿½^ï¿½]ï¿½$ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½?ï¿½ï¿½	ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½$ï¿½ï¿½ï¿½hiï¿½Eï¿½QLï¿½jWï¿½ï¿½ï¿½Ş·KfFï¿½E9ï¿½,0\0ï¿½ï¿½+D	ï¿½ï¿½Xï¿½ï¿½\Zï¿½ï¿½ï¿½ï¿½ï¿½lï¿½aï¿½Mï¿½nï¿½.ï¿½ï¿½ï¿½.ï¿½M[W×¬ï¿½3ÌKï¿½ï¿½ï¿½ï¿½9gOï¿½pUï¿½ï¿½ï¿½( ï¿½È¹#ï¿½lï¿½L$ï¿½\\Òƒ}iBï¿½ï¿½ï¿½ï¿½F*ï¿½ï¿½ï¿½ï¿½,ï¿½\Zï¿½ï¿½}ï¿½\"ï¿½f;ï¿½ï¿½ï¿½faVï¿½pRÃ†\0Qï¿½ï¿½ZI@ï¿½ï¿½ï¿½Kï¿½5[Oï¿½Jï¿½ï¿½Mï¿½ï¿½ï¿½&ï¿½ï¿½>s:ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½~ï¿½j\0&ï¿½ï¿½ï¿½Gï¿½kq^K*=ï¿½Dï¿½ï¿½ï¿½ï¿½shï¿½`X5ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ihï¿½ï¿½b&\rÍ§)ï¿½ï¿½lï¿½ï¿½ï¿½\"Eï¿½L,ï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½aï¿½ï¿½ï¿½hï¿½(ï¿½$ï¿½3Pï¿½LILï¿½ï¿½Gï¿½e7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B-Z\0Dï¿½ï¿½yï¿½ï¿½.Bï¿½Fï¿½Bï¿½ï¿½sï¿½Hrm\'\'ï¿½]4Wï¿½*ï¿½wï¿½Lï¿½ï¿½>ï¿½ï¿½ Iï¿½^@ï¿½ï¿½ï¿½z~76Ù¼ï¿½,\\pï¿½wï¿½2ï¿½Dï¿½csI\0ï¿½Í“ï¿½ï¿½6ï¿½ï¿½ï¿½Vkï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½4ï¿½ï¿½ï¿½h7ï¿½\\ï¿½jï¿½8ï¿½GKQï¿½TKï¿½VK0ï¿½Rj<Qï¿½UZï¿½ï¿½ï¿½ï¿½Z\r$]ï¿½Y-Æ¨^ï¿½ï¿½ï¿½p=\rï¿½ß¹ï¿½ï¿½ï¿½ï¿½ï¿½F{ï¿½ï¿½ï¿½*lï¿½Fï¿½ï¿½vï¿½O Ã´\"hiï¿½0ï¿½OAï¿½ï¿½ï¿½5FXï¿½ ï¿½Jï¿½ï¿½Kï¿½ï¿½jï¿½ï¿½l\\ï¿½ÚŒï¿½7ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Dï¿½z*ï¿½rï¿½TÅº,<\0:<ï¿½A( mK5In4ï¿½ï¿½ï¿½8ÒŠhï¿½3gï¿½Ì„K\Zï¿½fï¿½Ä‚ï¿½p%0ï¿½ï¿½Iï¿½ï¿½Üas^ï¿½F\0ï¿½emï¿½Kh?ï¿½Yï¿½C$=<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç¥…ï¿½Nï¿½cï¿½ï¿½5ï¿½[ï¿½ï¿½ï¿½;Wï¿½	ï¿½&ï¿½fuï¿½ï¿½Aï¿½ï¿½ï¿½,ï¿½n4ï¿½ï¿½<4ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½,ï¿½ï¿½Ã¥ï¿½Iï¿½ï¿½Xï¿½Mï¿½ï¿½ï¿½\\gOï¿½X.ï¿½ï¿½(ï¿½eï¿½Òƒh/ï¿½>ï¿½1mï¿½nXï¿½Pï¿½ï¿½f\0Lï¿½K^ï¿½lï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½\'m\"ï¿½ï¿½uIï»Õ±ï¿½iKï¿½\\ï¿½ï¿½y$ï¿½ï¿½4ï¿½VTï¿½lã•ï¿½ï¿½^yï¿½Qï¿½0Gï¿½ï¿½ï¿½ï¿½3Bï¿½ï¿½Yh1\0ï¿½}ï¿½ï¿½ï¿½ï¿½`6*\\ï¿½ï¿½ï¿½ï¿½JÃ˜ï¿½<6mï¿½sï¿½]oyï¿½í˜®ï¿½swÄœï¿½ï¿½J|1ï¿½(ï¿½ï¿½gJï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½Eï¿½g.Aï¿½ï¿½.ï¿½ï¿½)$Xï¿½ï¿½)ï¿½mï¿½ï¿½CvYZMï¿½ï¿½Aï¿½bï¿½Eï¿½ï¿½cï¿½;ï¿½ï¿½ï¿½0ÎŒï¿½ï¿½ï¿½O\nï¿½İqï¿½Xkï¿½Kï¿½ï¿½ï¿½ï¿½3RCï¿½&ï¿½ï¿½05ï¿½qÉªrB7ï¿½ï¿½1&ï¿½-wï¿½ï¿½ï¿½Õgï¿½Rï¿½ï¿½^>ï¿½PMï¿½ï¿½ï¿½Wï¿½ï¿½3Ã†ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½L\nzï¿½ï¿½8SOJï¿½ï¿½ï¿½:*ï¿½ï¿½ï¿½ï¿½1,oï¿½gï¿½a&ï¿½E\nï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Bï¿½^ï¿½ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½=\\	ï¿½Sï¿½ÈŸï¿½4ï¿½ï¿½Rï¿½!tÒ½H\nSmï¿½dTï¿½\'ï¿½ï¿½ï¿½ï¿½ï¿½;ï¿½2ï¿½t\0ï¿½?ï¿½~ï¿½\0ï¿½ï¿½]\"ï¿½ï¿½ï¿½]:ï¿½[ï¿½_Zï¿½J\rÆ¸ï¿½~ï¿½ï¿½ï¿½Iï¿½\0Wï¿½\nï¿½ï¿½^Òï¿½ï¿½ß’ï¿½ï¿½\'ï¿½Jï¿½Sï¿½`çºï¿½Rï¿½yï¿½ï¿½ta×”>iï¿½Vï¿½ï¿½Ü¼ï¿½ï¿½ï¿½ï¿½rï¿½XÖšï¿½&ï¿½\'×°\"ï¿½L?[mï¿½6`!ï¿½Sï¿½ï¿½Bï¿½JCï¿½|ï¿½ï¿½7\\ï¿½ï¿½Jï¿½{ï¿½ï¿½ï¿½jï¿½4ï¿½Âï¿½ï¿½ï¿½ï¿½ï¿½[^^ï¿½nXï¿½ï¿½ï¿½Wï¿½x0o\0ï¿½Eï¿½ï¿½ï¿½F1?%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\0ï¿½ï¿½dï¿½fï¿½ï¿½t-ï¿½/5ï¿½ï¿½ï¿½Zï¿½Yï¿½\\8~xï¿½ï¿½Õ®ï¿½ï¿½{-ï¿½ï¿½ï¿½ï¿½\\ï¿½EK5ï¿½ï¿½pï¿½Uï¿½EFï¿½.ï¿½ï¿½Â¢Nï¿½\"ï¿½6Dï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½4ï¿½.ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zsï¿½\0ï¿½ï¿½q`ï¿½ï¿½i*ï¿½ï¿½ï¿½nIMDWï¿½ï¿½O.ï¿½ï¿½4Ú‹ï¿½*Qï¿½Zï¿½hC4aï¿½64ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½J@ï¿½@KpB\n-ï¿½*ï¿½\nï¿½ï¿½ÒŸï¿½ï¿½<\\)ï¿½duï¿½Mï¿½V:ï¿½ï¿½ï¿½ï¿½Ï³ï¿½\"l*ï¿½ï¿½U)ï¿½ï¿½{ï¿½cï¿½bï¿½%ï¿½O\Zï¿½ï¿½0Wï¿½ï¿½ï¿½\\ï¿½rIï¿½Jï¿½ï¿½h`UN]*ï¿½JILï¿½ï¿½ï¿½ï¿½Wtï¿½Ã•P\\ï¿½{Jï¿½^\\h,vï¿½f+/Â¦ï¿½Rï¿½ï¿½ï¿½ï¿½Ã•ï¿½ï¿½Rï¿½ï¿½vï¿½6ï¿½ï¿½ï¿½ï¿½ñ‹¼¾ï¿½ï¿½$ï¿½ï¿½ï¿½Kï¿½\0ï¿½pï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½R=aï¿½KXï¿½906`\"ï¿½>ï¿½\\!\\ICï¿½8ï¿½ï¿½lWï¿½Â‹ï¿½ï¿½ï¿½tï¿½ï¿½È¢ï¿½\rZï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½Ş±ï¿½1ï¿½Qï¿½ï¿½&ï¿½&ï¿½mWï¿½W\\ï¿½5ï¿½ï¿½VFï¿½ï¿½sNï¿½\"ï¿½ï¿½vWï¿½eï¿½N8ï¿½ï¿½ï¿½J\0Wï¿½3qï¿½Kï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cyï¿½ï¿½ï¿½ï¿½&\ZU=w~ï¿½*ï¿½a9ì¾›[ï¿½ï¿½ï¿½W\\`ï¿½Jï¿½ï¿½Sï¿½ï¿½ï¿½Aï¿½<ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½lï¿½ï¿½UPï¿½7ï¿½ï¿½hï¿½\\ï¿½ï¿½6ï¿½Ü¸#A9Oï¿½ï¿½ï¿½?ï¿½N}ï¿½ï¿½Vï¿½ï¿½s,l~=ï¿½\\ï¿½?zï¿½sLï¿½\0ï¿½Xï¿½uï¿½ï¿½g{ï¿½*ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½h-&ï¿½ï¿½ï¿½ï¿½ï¿½E\\\0ï¿½ï¿½{vï¿½(Dï¿½Fï¿½{\0fï¿½ï¿½ï¿½\\ï¿½%ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½\Zï¿½ï¿½s,Xï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½5\0pÍ½ï¿½rWï¿½ï¿½ï¿½&ï¿½Gï¿½ï¿½Zï¿½2a~ï¿½ï¿½ï¿½e!sï¿½ï¿½7ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3\rqï¿½ï¿½ï¿½6,ï¿½ï¿½ï¿½*(\\ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½^ï¿½ï¿½\0Æ¼ï¿½B.\\qï¿½ï¿½ï¿½Nï¿½}Lï¿½ï¿½ï¿½ï¿½Xpï¿½ï¿½+,ï¿½aï¿½T><ï¿½7ï¿½ï¿½ï¿½hWï¿½Ë¥ï¿½ï¿½dï¿½Wï¿½ä³§ooï¿½yï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½dGwï¿½ï¿½ï¿½Jï¿½X8ï¿½ï¿½fï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½	ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½f\'ï¿½ï¿½Dsï¿½E1\rLï¿½ï¿½ï¿½ULï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½`pï¿½8ï¿½W%pÅ4&ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½o\\0ï¿½ Vï¿½ï¿½\nï¿½ï¿½zBr[fï¿½ï¿½ï¿½Ulï¿½ï¿½(Mï¿½$ilï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3\\ï¿½Bï¿½ï¿½ï¿½eNï¿½ï¿½ï¿½ï¿½pï¿½Pï¿½Eï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½>Oï¿½\"*ï¿½ï¿½\'ï¿½ï¿½ï¿½=\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3<\\)ï¿½\\.mï¿½ï¿½Zï¿½&ï¿½ï¿½p5\\ï¿½ï¿½İºtï¿½=(	\\yï¿½Uï¿½0Iä¨³[ï¿½Bï¿½ï¿½fxï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½#\'yM ï¿½B#ï¿½ï¿½`ï¿½ï¿½ï¿½j,ï¿½l=6ï¿½bï¿½\nï¿½<6ï¿½)\\aï¿½d	fï¿½ï¿½BWï¿½ï¿½\\ï¿½ß•Ç«ï¿½rï¿½!ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½Uï¿½E\n=\\ï¿½ï¿½ï¿½bï¿½ï¿½UAï¿½ï¿½c&ï¿½Æ„ï¿½2ï¿½0ï¿½tï¿½ï¿½ï¿½U\\qWï¿½Fï¿½ï¿½ï¿½#7ï¿½ï¿½[Pï¿½ï¿½5ï¿½oï¿½ï¿½ï¿½ï¿½lï¿½;ï¿½ï¿½ï¿½.3ï¿½ï¿½J!ï¿½ï¿½\Zï¿½Hqï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½Ua;ë¨»ï¿½<\\ï¿½\rkï¿½3mï¿½ï¿½=\\ï¿½ï¿½wIï¿½K\Zï¿½xï¿½ï¿½XR?vï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½ï¿½Ã’ï¿½ï¿½gï¿½ï¿½iï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½=×¶ï¿½ï¿½W_ï¿½ï¿½]zqï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Jï¿½}Í‚ï¿½[ï¿½=yï¿½z}ï¿½ï¿½ï¿½ï¿½Jï¿½Cï¿½ï¿½1@ï¿½ï¿½ï¿½Ø¹~ï¿½ï¿½ï¿½:wï¿½ï¿½ï¿½ï¿½ò»¨ªxï¿½İŸï¿½_lï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½-+fï¿½ï¿½.\Zï¿½ï¿½vvï¿½ï¿½ï¿½ï¿½sï¿½ï¿½Wï¿½Ro-<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7ï¿½PT\nï¿½ï¿½{ï¿½ï¿½=ï¿½ï¿½ÈDï¿½ï¿½ï¿½nï¿½ï¿½Lï¿½\0ï¿½ï¿½Ã¾ï¿½\\OØªÊ„kï¿½ï¿½!Aï¿½ï¿½ï¿½+ï¿½jï¿½ï¿½sï¿½4uï¿½K4dï¿½ï¿½\\ï¿½ï¿½Ì‚Fï¿½ï…ï¿½Bï¿½ï¿½ï¿½ï¿½1?ï¿½ï¿½z\\ï¿½i\\lï¿½ï¿½*ï¿½RÉ¡ï¿½*ï¿½ï¿½ï¿½ï¿½\Zï¿½tï¿½ï¿½ï¿½ï¿½*_ï¿½Sï¿½4oï¿½ï¿½lhQMAmpï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½\'ï¿½ï¿½7ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½+oï¿½ï¿½ï¿½ï¿½*ï¿½ï¿½ï¿½ï¿½ziï¿½8-ï¿½?ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½^ï¿½aï¿½Ttï¿½@WVï¿½Eï¿½Bï¿½ï¿½5ï¿½<&ï¿½Iï¿½Mï¿½+ï¿½ï¿½ï¿½ï¿½ñ›Ÿ«.ï¿½ï¿½ï¿½ï¿½~[ï¿½Gï¿½ï¿½~ï¿½uåœ²ï¿½ï¿½ï¿½ï¿½ï¿½×…ï¿½ï¿½ï¿½ï¿½&ï¿½Kï¿½ï¿½Ã·Jï¿½ï¿½ï¿½_5ï¿½Í³ï¿½cï¿½[ï¿½/ï¿½ï¿½ï¿½o_ï¿½3R=?ï¿½Xï¿½ï¿½\0P\\f}ï¿½	ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½KJ\"9ï¿½ï¿½blpï¿½I3ï¿½ï¿½$6ï¿½ï¿½NSï¿½ï¿½jï¿½ï¿½Yï¿½Qï¿½_ï¿½ï¿½Gï¿½ï¿½7ï¿½OjZä‰€Kï¿½ï¿½CafaÏ’%ï¿½ï¿½ï¿½4ï¿½ï¿½Ë¼9ï¿½ï¿½ï¿½w/*iï¿½~ï¿½-Kï¿½Nï¿½ï¿½ï¿½ï¿½5YPIï¿½Ú¹ï¿½<=ï¿½Kï¿½ï¿½ï¿½/Rlï¿½-ï¿½Bï¿½2ï¿½4Lï¿½ï¿½wï¿½ï¿½ï¿½4o6ï¿½tï¿½kï¿½ï¿½×«ï¿½g\rï¿½bBkï¿½ï¿½ï¿½\n×‡ï¿½!wÏŒï¿½ï¿½fÇ¦ï¿½}ï¿½ï¿½Pï¿½ï¿½E)ï¿½2ï¿½\rÅŸï¿½ï¿½DÚ•|.ï¿½ï¿½,ï¿½ï¿½.}RŞ˜wï¿½ï¿½ï¿½ï¿½_ï¿½İŞ[ï¿½jï¿½Gï¿½ï¿½ï¿½ï¿½sï¿½~ï¿½jï¿½sï¿½fï¿½H6ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ë±›ï¿½ï¿½ï¿½jJï¿½ï¿½ï¿½ï¿½ï¿½Uï¿½eaï¿½dï¿½ï¿½\'ï¿½ï¿½ï¿½Wï¿½,ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½T}ï¿½ï¿½ï¿½s&Bï¿½%ï¿½ï¿½Gï¿½V\rï¿½ï¿½jï¿½<{ï¿½ï¿½`-yï¿½ï¿½ï¿½7ï¿½Fï¿½uï¿½=ï¿½unï¿½#ï¿½tŞï¿½ï¿½V_ï¿½áƒ¿ï¿½%\\hï¿½ï¿½ï¿½ï¿½qŞ[îªï¿½$ï¿½%=ï¿½Mï¿½ï¿½ï¿½?Dï¿½5ï¿½ï¿½6kï¿½ï¿½Äšï¿½pï¿½ï¿½ï¿½FOï¿½ï¿½ukFï¿½ï¿½ï¿½Vï¿½ï¿½Eï¿½+lï¿½ï¿½]ï¿½d2ï¿½e%/3,ï¿½*ï¿½|qï¿½ï¿½ï¿½{ï¿½L03ï¿½Yï¿½ï¿½Tï¿½gf^ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½\nkGï¿½`Mï¿½ï¿½Y^ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½a~ï¿½ï¿½)ï¿½Yï¿½ï¿½ï¿½ï¿½\Zï¿½ï¿½Cï¿½>ï¿½ï¿½)ï¿½/ï¿½Ñ­rCï¿½FOï¿½Qï¿½ï¿½ï¿½;Ô®ï¿½~ï¿½Aï¿½)ï¿½ï¿½8\'ï¿½4ï¿½ï¿½ï¿½Qï¿½Oï¿½k:\\ï¿½ÇŒï¿½2ï¿½ï¿½5$ßï¿½ï¿½ï¿½pï¿½[|Y9ï¿½hï¿½Rï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½6ï¿½ï¿½hR\\ï¿½ï¿½ï¿½ï¿½,Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\'ï¿½ï¿½Uï¿½oŞ¤~wï¿½8uï¿½ï¿½#Õ¼1ï¿½ï¿½ï¿½czï¿½	ï¿½\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½R\'u9Xï¿½ï¿½Kï¿½5ï¿½ï¿½ï¿½{ï¿½ï¿½V;wlSï¿½ï¿½è¯ï¿½Hï¿½d5ï¿½_7]Uï¿½ï¿½Ğ©ï¿½#ï¿½ï¿½ï¿½{oï¿½%?VJÌï¿½ï¿½Û¿ï¿½ï¿½ï¿½Ïœï¿½Nï¿½ï¿½Suï¿½ï¿½nï¿½!ï¿½ï¿½gBï¿½ï¿½ï¿½ï¿½gï¿½xï¿½Qï¿½3{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½0ï¿½ï¿½w]@f&ï¿½ï¿½)ï¿½eRï¿½|ï¿½ï¿½f^\\ï¿½Dï¿½Wpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9kï¿½ï¿½ï¿½zfï¿½ï¿½rYLï¿½ï¿½hß®uï¿½ï¿½ï¿½pxmwï¿½*ï¿½0_ï¿½ï¿½ï¿½	ï¿½mï¿½ï¿½*\0`ï¿½å…·ï¿½ï¿½=jï¿½ï¿½ï¿½GM;ï¿½uï¿½ï¿½ê„?)/<S&ï¿½xï¿½ï¿½>ï¿½ï¿½ï¿½0ï¿½huï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½Ğªï¿½9I^ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½3_zï¿½sNï¿½{ï¿½ï¿½ï¿½ï¿½gï¿½3Nï¿½9ï¿½D&\Zï¿½ï¿½Fï¿½ï¿½n^tN0ŞŒmï¿½ï¿½ï¿½H ï¿½\"pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n\"ï¿½8ï¿½ï¿½ï¿½ï¿½Kï¿½-[Qï¿½ï¿½Ø­[ï¿½Pï¿½ï¿½Âªï¿½%Zï¿½Rï¿½ï¿½ï¿½%ï¿½ï¿½ï¿½\'ï¿½nÅ¦ï¿½Sï¿½ï¿½ï¿½~1ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½_:ï¿½ï¿½:dwuï¿½ï¿½Qï¿½|ï¿½ï¿½z~ï¿½2ï¿½pï¿½ï¿½\0`ß¶wï¿½<ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½gZzï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½.={Lï¿½ï¿½ï¿½zï¿½Nï¿½ï¿½_8ï¿½\'c^ï¿½ï¿½Eï¿½ï¿½ï¿½g[ï¿½WjHï¿½ï¿½wï¿½ï¿½\rï¿½ï¿½ï¿½A4ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½Zï¿½a.a&ï¿½ï¿½Nï¿½Øï¿½`ï¿½Ş¿:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1?Uï¿½ï¿½ï¿½G]XZx3ï¿½ï¿½l/\0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½U~ï¿½ï¿½Û«ï¿½&ï¿½ï¿½Ü·7ï¿½dï¿½ï¿½ï¿½ï¿½3\'ï¿½\rï¿½xï¿½3ï¿½ï¿½)9ï¿½;ï¿½Å¼ï¿½ï¿½%U\Z:\\Dï¿½ï¿½>?.ï¿½VSï¿½%!x.v=*ï¿½ï¿½1]zJï¿½6Cï¿½ï¿½ï¿½ï¿½\r;ï¿½ï¿½bï¿½ï¿½q|ï¿½Lï¿½_ï¿½Ncï¿½.8\0ï¿½k/mï¿½krï¿½,ï¿½qï¿½ï¿½Pï¿½ï¿½Sa/vï¿½Zk/ï¿½ï¿½?ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Ô•çªï¿½{kSï¿½#ï¿½wï¿½>ï¿½ï¿½3ï¿½Tï¿½^uYï¿½3ï¿½Yo^sNï¿½c^\\ï¿½ÂŸ6ï¿½b=ï¿½ï¿½eï¿½X[ï¿½,4ï¿½3Q)ï¿½Gï¿½\Z×­Mï¿½Pï¿½ï¿½bï¿½\né¥±ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½3Í…ï¿½7ï¿½ï¿½ï¿½ï¿½=ï¿½?ï¿½,ï¿½;ï¿½fï¿½ï¿½ï¿½ï¿½v\rï¿½Aï¿½ï¿½ï¿½_sMï¿½\Zï¿½ï¿½4Aï¿½ï¿½×‚Kï¿½ï¿½ï¿½Qhï¿½2ï¿½_;uï¿½Yï¿½ï¿½g<\'ï¿½ï¿½ï¿½yGï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½Ø£ï¿½Ftï¿½$$ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½J=~~ï¿½hï¿½ï¿½ï¿½ï¿½Tï¿½vï¿½ï¿½ï¿½Y\'~ï¿½\\4B1ï¿½ï¿½ï¿½[^S./ï¿½ï¿½9ï¿½ï¿½V3ï¿½ï¿½~9ï¿½ï¿½ï¿½{ï¿½\05uhï¿½ï¿½.ï¿½1ï¿½Kï¿½rï¿½ï¿½ï¿½ï¿½ï¿½IÇªï¿½Jï¿½ï¿½qï¿½bï¿½ï¿½ï¿½ï¿½ï¿½fp}ï¿½ï¿½&ï¿½gï¿½ï¿½ï¿½Jï¿½8{R?5iï¿½ï¿½ï¿½gï¿½Uï¿½ï¿½ï¿½ï¿½/xï¿½Uï¿½/p\Zï¿½ï¿½Ú§>yï¿½Dï¿½iï¿½ï¿½Ö”ï¿½ï¿½ï¿½ï¿½7a3ï¿½ï¿½ï¿½pï¿½%O28rï¿½ï¿½Qw&lï¿½ï¿½ï¿½Ë¬+Lï¿½Kã‹¿ï¿½Wï¿½ï¿½ï¿½jï¿½ë·ï¿½Ps/ï¿½ï¿½ï¿½@tï¿½Yï¿½ï¿½??.`ï¿½3ï¿½X5c\\ï¿½ï¿½İ·ï¿½.ï¿½ï¿½ï¿½o|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_Wï¿½ï¿½i,`ï¿½ï¿½ï¿½Zï¿½Mï¿½yyï¿½ï¿½K~Ù+ï¿½ï¿½j,ï¿½ï¿½3ï¿½lï¿½/ï¿½ï¿½ï¿½0ï¿½ds%ï¿½ï¿½ï¿½.ï¿½\"gï¿½d=ï¿½ï¿½|ï¿½ï¿½ï¿½`08ï¿½	S9ï¿½NÕ´ï¿½ï¿½ï¿½A\rï¿½\\ï¿½ï¿½O$[ï¿½ï¿½>~ï¿½nï¿½ï¿½\rAï¿½+ï¿½ï¿½ì“ï¿½;ï¿½ï¿½mï¿½ï¿½ï¿½Kï¿½ï¿½Wï¿½\'ï¿½]ï¿½.qÚŠï¿½^ï¿½Vfï¿½ï¿½ï¿½ï¿½Ï®Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½$ï¿½ï¿½ï¿½Û–D>ï¿½76ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Üƒaï¿½ï¿½Ã¥G\nIï¿½ï¿½G$ï¿½ï¿½\Zï¿½ï¿½7}ï¿½ï¿½\Z0ï¿½ï¿½}.ï¿½!Eï¿½r_ï¿½ï¿½r7ï¿½nJtï¿½ï¿½ï¿½\'nUï¿½ï¿½gIï¿½Gï¿½ï¿½bï¿½ï¿½ï¿½mjï¿½æ¡ï¿½xï¿½ï¿½ï¿½ï¿½]ï¿½Rï¿½ï¿½|ï¿½ï¿½/Sï¿½\\ï¿½ï¿½Uï¿½kï¿½ï¿½ï¿½ï¿½5ï¿½O*ï¿½ï¿½ï¿½/İ¯ï¿½zï¿½æ¢¶0ï¿½È»Dï¿½fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&(ï¿½\'ï¿½>}Gï¿½ï¿½zï¿½ï¿½ï¿½9\'ï¿½,ï¿½aÂ‚ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½<pï¿½{ï¿½ï¿½ï¿½gã»‡=9@6ï¿½`,ï¿½\\ï¿½>|8ï¿½Eï¿½ax\\ï¿½ï¿½_ï¿½ï¿½Zï¿½?ï¿½ï¿½ï¿½ï¿½ZPï¿½ï¿½ï¿½fnï¿½ï¿½s.KÎ™A\rï¿½ï¿½ï¿½ï¿½ï¿½2\\19ï¿½4ï¿½D6Éºï¿½Lï¿½ï¿½ï¿½U$ï¿½Bï¿½$pï¿½ï¿½ï¿½|ï¿½ ï¿½eKï¿½KJ_ï¿½{@ï¿½_sQ+ï¿½Kï¿½`w*\r$ï¿½ï¿½ï¿½mVj9rï¿½ï¿½Ğ­ï¿½ï¿½ï¿½ï¿½iï¿½Ã‡ï¿½Fï¿½>ï¿½ï¿½ãŒ—ï¿½enï¿½ï¿½XSï¿½%mï¿½\n	ï¿½nï¿½m~ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½\",<ï¿½\\ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½a\Z~7ï¿½\0ï¿½ï¿½Jï¿½u^Lï¿½ï¿½$ï¿½Tjï¿½ï¿½!6ï¿½ï¿½;~]ï¿½dVjHBï¿½	.ï¿½Cï¿½Mï¿½Vpï¿½ï¿½ï¿½ï¿½ï¿½+Iï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½2ï¿½-1	ï¿½]ï¿½ï¿½;ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½Ã®Ö¯ï¿½ï¿½ï¿½ekZIÄ°ï¿½ï¿½ï¿½kZ}×½/>ï¿½Pp%ï¿½ï¿½ï¿½ï¿½ï¿½`~9nï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½_uEï¿½ï¿½ï¿½IXï¿½ï¿½Vï¿½ï¿½zbï¿½ï¿½Vï¿½PrzO3ï¿½uï¿½Iï¿½ï¿½ï¿½c+aï¿½}aCï¿½ï¿½Z\rï¿½<0{J.ï¿½uï¿½hï¿½(ï¿½`ï¿½nï¿½ï¿½<\\ï¿½<zï¿½*ï¿½i((ï¿½[Zï¿½\rkï¿½C=4ï¿½ï¿½k1ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½5\\Iï¿½ï¿½Çï¿½`\\ï¿½ï¿½ï¿½l0-uï¿½tï¿½ï¿½ï¿½ï¿½ï¿½0\reï¿½$ï¿½-Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#\'Eï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^6ï¿½sP$Ğ¥Kï¿½Vï¿½ï¿½ï¿½lï¿½ï¿½É“Iï¿½;ï¿½ï¿½j\r3ï¿½ï¿½ï¿½vfï¿½+ê–“ï¿½Eï¿½c2ï¿½ï¿½ï¿½ï¿½gï¿½2RHï¿½ï¿½]ï¿½bï¿½ï¿½V:\\zï¿½8]ï¿½rï¿½TO\"aï¿½aï¿½ï¿½ï¿½ï¿½.ï¿½5ï¿½ï¿½ï¿½O#ï¿½ï¿½-\\ï¿½ï¿½zï¿½q\"ï¿½Wï¿½ï¿½ï¿½ï¿½.ï¿½V~ï¿½4Ô­}ï¿½dï¿½ï¿½ï¿½pdï¿½ï¿½ï¿½yï¿½ï¿½ï¿½eï¿½\ZY{\'ï¿½r1ï¿½5:\\I\"ï¿½Tï¿½qï¿½Aï¿½å†˜ï¿½ï¿½ï¿½mï¿½^KXï¿½Bï¿½ï¿½Ã¥ï¿½Zï¿½AXï¿½ ï¿½|ï¿½Ã¨KÇ³ï¿½1ï¿½ï¿½/\nWNï¿½~+f<ï¿½ï¿½.ï¿½ï¿½3ï¿½ï¿½tÒº/ï¿½VÇ“ï¿½ï¿½Jï¿½ï¿½ï¿½#ï¿½ï¿½ï¿½2ï¿½ï¿½Xï¿½iï¿½\Zï¿½ï¿½\'&ï¿½pï¿½sï¿½}ï¿½ï¿½\0ï¿½Fï¿½ï¿½p=ï¿½ï¿½Iï¿½yEtï¿½Z6Hj<eï¿½Ô»ï¿½Saï¿½ï¿½s^ï¿½(4ï¿½\"ï¿½N^ï¿½ï¿½&_2cJï¿½ï¿½\Z:\\D\r%ï¿½ï¿½(p%	fHEï¿½Kï¿½P^ï¿½ï¿½cnï¿½ï¿½ï¿½Hï¿½Kï¿½ï¿½>ï¿½ï¿½ï¿½Pï¿½^,ï¿½waï¿½\Zï¿½oTï¿½ï¿½38ï¿½ï¿½Ã¥ï¿½ï¿½\\,ï¿½ï¿½ï¿½y)w*\\ï¿½ï¿½ï¿½ï¿½jï¿½:$ï¿½ï¿½ï¿½ï¿½.ï¿½Ø´ï¿½aï¿½JÌ[(Oï¿½Õ©Í¼ï¿½Uï¿½yï¿½mï¿½\'ï¿½\\ï¿½&ï¿½lï¿½ï¿½ï¿½ï¿½Ôï¿½Fï¿½\Zï¿½ï¿½YzNï¿½K*ï¿½I 7\n\\ï¿½ï¿½ä·¤ï¿½`ï¿½	\ZPï¿½@ï¿½ï¿½$ï¿½5\\ï¿½1	É£qï¿½;s18@\'C×1ï¿½	ï¿½Bï¿½ï¿½Jï¿½Ó¾76Dï¿½ï¿½\"H@ï¿½Tï¿½ï¿½dï¿½ï¿½ï¿½+ï¿½ï¿½[ï¿½ï¿½ï¿½\rSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2/ï¿½Nï¿½ï¿½Yï¿½,ï¿½]9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Iï¿½$\rï¿½ï¿½ï¿½<pï¿½wï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½df~Kï¿½Cï¿½;ï¿½_.>ï¿½ï¿½,ï¿½\\6ï¿½ï¿½ALC\n;]ï¿½ï¿½Uï¿½ï¿½ï¿½4pï¿½ZAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş„ï¿½ï¿½KJï¿½ï¿½:Cs|ï¿½Wç–£ï¿½I\nxï¿½}ï¿½ï¿½<Ö»Kï¿½[ï¿½ï¿½ï¿½-7ï¿½lï¿½Ë¯(ï¿½cï¿½ï¿½\\ï¿½;ï¿½vï¿½ï¿½ï¿½Uï¿½nï¿½ï¿½nï¿½qvyï¿½ï¿½ï¿½c(wï¿½ï¿½Uï¿½d2G$ï¿½ï¿½ï¿½Uï¿½ï¿½#ï¿½D&ï¿½!Bb9.ï¿½*ê‚‹<&ï¿½%ï¿½Kpq|ï¿½b!ï¿½ï¿½2\\dæ¥§ï¿½Ü›LBï¿½pï¿½;\\ï¿½K&ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½\rï¿½f-ï¿½ï¿½ÚŸï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½zÜ¨RIï¿½\'.ï¿½Ú¼1Eï¿½ï¿½ï¿½_Mï¿½pURï¿½ï¿½ï¿½ï¿½`*8ï¿½[ï¿½cï¿½0)\\ï¿½J&\\a`ï¿½>Sï¿½ï¿½Dï¿½m|ï¿½\Z5ï¿½~?ï¿½kQï¿½ï¿½>ï¿½Kï¿½ï¿½\"ï¿½ï¿½V9ï¿½ï¿½\'s+ï¿½Ï‘ï¿½.Oï¿½ï¿½Koï¿½fvï¿½bï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½,tï¿½ï¿½Zï¿½Vï¿½æ¢ï¿½kDSï¿½czï¿½mï¿½ï¿½Yï¿½ï¿½:Yï¿½ï¿½cï¿½ï¿½.Mï¿½ï¿½ï¿½g1×¦ï¿½pU	.v1ï¿½ï¿½ï¿½sï¿½ï¿½\'ï¿½Lt?ï¿½ï¿½ï¿½\ru[p,ï¿½\\35ï¿½4ï¿½@ï¿½ï¿½uï¿½Vauï¿½vï¿½ï¿½zDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<ï¿½Pï¿½ï¿½ï¿½3ï¿½ï¿½9j$ï¿½Jï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½f73\'pÓWgï¿½Ù“#ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Vï¿½İ¦Kï¿½ï¿½2ï¿½0ï¿½ï¿½)tï¿½oIï¿½yHVï¿½o;ï¿½O%ï¿½ï¿½ï¿½ï¿½cï¿½.ï¿½ï¿½Ü·ï¿½[ï¿½ï¿½ï¿½sï¿½ï¿½\0ï¿½kd5ï¿½ï¿½Vkï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½&<ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½#2>y<ï¿½_(ï¿½(kï¿½A4@ï¿½Dz)È^Eï¿½wE]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bfï¿½9ï¿½=$ï¿½oï¿½ï¿½ï¿½Qï¿½ï¿½\nByï¿½ï¿½oTNï¿½ï¿½*rï¿½ï¿½ï¿½ï¿½ï¿½eaï¿½ï¿½Uaï¿½ï¿½\'ï¿½2	mï¿½Gï¿½ ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½.ï¿½Ãªmï¿½ï¿½bNï¿½ï¿½~Wï¿½^yï¿½ï¿½?>ï¿½0ï¿½fhï¿½ï¿½@Gï¿½ï¿½	ï¿½PW.ï¿½L7	ï¿½ï¿½o.ï¿½Yï¿½\r0ï¿½ï¿½ï¿½9$ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ß²%ï¿½1ï¿½Lï¿½W+oï¿½ï¿½\n	ï¿½?ï¿½ï¿½ï¿½5Mï¿½ï¿½ï¿½ï¿½tï¿½-ï¿½ï¿½-ï¿½;ï¿½$q,İ›\\ï¿½ï¿½ï¿½[L\Z.ï¿½ï¿½M(ï¿½ï¿½È‘\0ï¿½ï¿½4,ï¿½F(Dï¿½ï¿½-C\\-ï¿½ï¿½OX*z~ï¿½&y7ï¿½ï¿½]ï¿½H7 !ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½$ï¿½yï¿½FÈ¢ï¿½Ëï¿½ï¿½ï¿½ibæš¹5ï¿½;oï¿½ï¿½\Zï¿½4ï¿½1;ï¿½ï¿½oï¿½Lï¿½xIï¿½\'ï¿½ï¿½ï¿½7Iï¿½K?Òï¿½`Î¼$ï¿½ï¿½ï¿½]Óºï¿½ï¿½)ï¿½ï¿½{	ï¿½ï¿½+ï¿½ï¿½ï¿½k`#ï¿½}ï¿½qï¿½wï¿½LB=ï¿½U$Sï¿½ï¿½eï¿½dï¿½Ë½iï¿½ï¿½ï¿½S\nï¿½ï¿½pï¿½Tï¿½\'	lï¿½ï¿½4,ï¿½ï¿½[+ï¿½yï¿½\rï¿½pï¿½6$oï¿½\Zï¿½oï¿½ï¿½aï¿½ï¿½ï¿½bJï¿½ï¿½F\rd4\\zï¿½^Wï¿½uBï¿½*uï¿½z9|)ï¿½Tï¿½sï¿½Kï¿½ï¿½ï¿½\\ï¿½=ï¿½ï¿½T6ï¿½HRï¿½eï¿½Ä¥PW*2ï¿½ï¿½ï¿½ï¿½p9ï¿½ï¿½]ï¿½ï¿½dï¿½Pï¿½kï¿½@ï¿½4Kï¿½|ï¿½È‰jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½iBï¿½ï¿½ï¿½ï¿½ï¿½w|Gï¿½ï¿½Bï¿½ze0Í ï¿½ï¿½.ï¿½ï¿½\rï¿½ï¿½Zï¿½\Zï¿½FB3ï¿½ï¿½Mï¿½dJï¿½rï¿½\0 ï¿½t>^ï¿½-ÅŸQ>bï¿½ï¿½^ï¿½ï¿½ï¿½\"ï¿½.ï¿½ï¿½~otï¿½ï¿½4pï¿½.İ´Wï¿½ï¿½ï¿½Cï¿½\0ï¿½ï¿½ï¿½Wï¿½qï¿½fï¿½ZMW\Zï¿½ï¿½Ë¡ï¿½ï¿½ï¿½$Z+ï¿½\'xï¿½2ï¿½^Nï¿½ï¿½:6ï¿½iï¿½Lï¿½ï¿½)ï¿½M<=\\5ï¿½ï¿½ï¿½Öï¿½Tdï¿½~ï¿½Bï¿½ï¿½äµŠpTï¿½ï¿½Uaï¿½Ó¯Eï¿½ï¿½ï¿½Hï¿½ï¿½Ö’<wï¿½ï¿½peï¿½Ñ¥bï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½-Wï¿½ï¿½ï¿½qï¿½ï¿½ï¿½ï¿½kIï¿½ï¿½ï¿½%_Uï¿½ï¿½?ï¿½\\ï¿½ï¿½Aï¿½ï¿½,Ê¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßï¿½&7ï¿½\'ï¿½ï¿½0ï¿½xï¿½Üµï¿½ï¿½qy-iï¿½ï¿½lï¿½`Sï¿½eIqï¿½Ö£3/ï¿½!ï¿½ÅŠï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½oï¿½è ‡+ï¿½m[\\rï¿½^Ml\0\rï¿½ï¿½ï¿½ï¿½ï¿½Ñzï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½6ï¿½ï¿½ï¿½á²„ï¿½ï¿½\rï¿½Ehï¿½Vï¿½ï¿½Zï¿½ï¿½ï¶Šï¿½ï¿½thï¿½pï¿½ï¿½fï¿½Üˆ:Rï¿½ï¿½ï¿½pUXï¿½&ï¿½ï¿½z_Y7ï¿½,Eï¿½ï¿½ï¿½ï¿½ï¿½nWÕ³aï¿½ï¿½ï¿½XIï¿½İƒï¿½ï¿½Íï¿½Xï¿½ï¿½ï¿½ï¿½\0G3ï¿½;)ï¿½ï¿½ï¿½ï¿½ï¿½\\=ï¿½ï¿½oï¿½ï¿½\Zï¿½Hï¿½ï¿½fï¿½eyï¿½Rï¿½ï¿½ï¿½S\'ï¿½ï¿½aï¿½ï¿½(ï¿½<Vï¿½Oï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ ï¿½ï¿½aï¿½fï¿½dï¿½ï¿½Bï¿½ï¿½pyï¿½ï¿½Jï¿½ï¿½ï¿½bï¿½dXhï¿½ï¿½ï¿½\0ï¿½ï¿½eï¿½l<\\ï¿½ï¿½pï¿½nï¿½ï¿½Aaï¿½U\Z0Xï¿½ï¿½63ï¿½ï¿½ï¿½ï¿½r;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å—ï¿½ï¿½K?>!ï¿½ï¿½f&0[ï¿½ï¿½ï¿½0<:\\ï¿½ï¿½ï¿½#ï¿½]ï¿½ï¿½ï¿½ï¿½oï¿½;jï¿½ï¿½ï¿½Vï¿½ï¿½43ï¿½ï¿½5ï¿½ï¿½Ìƒï¿½QAï¿½Mï¿½sï¿½fï¿½/ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½o<`ï¿½ï¿½ï¿½Ü³kï¿½ï¿½ï¿½Û¿Wï¿½:wbdï¿½ï¿½ï¿½ï¿½ï¿½Spï¿½Eï¿½ï¿½ Alï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½}ï¿½Ñ¿ï¿½zï¿½pï¿½6ï¿½ï¿½ï¿½Bï¿½/\0ï¿½ï¿½{bï¿½ï¿½?mIï¿½ï¿½\"ï¿½ï¿½z\0\'.ï¿½ï¿½_Uï¿½ï¿½W_ï¿½pyï¿½~ï¿½ï¿½ï¿½zUï¿½^?|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½>	ï¿½4ï¿½ï¿½ï¿½!9ï¿½Ã‚ï¿½2z\rï¿½ï¿½Sï¿½ï¿½Õ¶ï¿½ï¿½qï¿½<dï¿½ï¿½pyï¿½,ï¿½ï¿½W`ï¿½Å¤ï¿½-ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½\nTï¿½ï¿½Ò¼\',yï¿½ayï¿½ï¿½|\00a\\^ï¿½ï¿½~Ñ©ï¿½ï¿½P%ï¿½\'?Lï¿½ï¿½ï¿½VÒ¨ï¿½ï¿½İï¿½Rï¿½|ï¿½Aï¿½xï¿½ayï¿½ï¿½|\0L_+ï¿½ï¿½nï¿½ï¿½ï¿½hmï¿½zï¿½aï¿½ï¿½SVï¿½ï¿½ï¿½.`}ï¿½gï¿½ï¿½xï¿½ï¿½ï¿½?{ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½*ï¿½ï¿½Xd.ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½QK3Qjuï¿½ï¿½Ú¿1ï¿½ï¿½ï¿½G}ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½fï¿½?İ±Rï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½\0ï¿½ï¿½~ä†ªï¿½ï¿½#ÚŠï¿½^hOï¿½eï¿½ï¿½ï¿½ï¿½ï¿½/LÃ±cFï¿½ï¿½3/VKï¿½[ï¿½ï¿½jTï¿½mï¿½2uï¿½ï¿½ï¿½ï¿½yçœ¥N:qï¿½ï¿½Ô©ï¿½ï¿½ï¿½Tï¿½Wï¿½ï¿½Tï¿½zï¿½ZZmï¿½ï¿½ï¿½ï¿½eï¿½ï¿½\\L@ï¿½9iï¿½ï¿½ï¿½Ô©Sï¿½ï¿½9ï¿½Ô“ÕŒï¿½ï¿½Sï¿½^lpï¿½ÊXï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Mï¿½ï¿½*}}ï¿½ï¿½ï¿½ï¿½5HYï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Õ–fï¿½2ï¿½ï¿½ï¿½Øœï¿½!q*}=ï¿½ï¿½CjÜ¸qï¿½ï¿½OVï¿½ï¿½ï¿½W]ï¿½vm5ltS&ï¿½6>6@Wï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½<ï¿½iÈ!jÌ˜1ï¿½Nï¿½ï¿½uï¿½]*ï¿½ï¿½:fSï¿½E+ï¿½ï¿½ï¿½\0Lï¿½wï¿½&ï¿½ï¿½È]ï¿½Mkï¿½ï¿½*4ï¿½×»ï¿½d2>ï¿½ï¿½ï¿½Jyï¿½Eï¿½ï¿½İ»ï¿½ï¿½ï¿½ï¿½=z\"sï¿½ï¿½áª“fbï¿½c\"ï¿½	ï¿½Õ«W\0ï¿½ï¿½ï¿½9ï¿½;jï¿½ï¿½ï¿½ï¿½|51`ï¿½ï¿½ï¿½hï¿½ï¿½~?#ï¿½:ï¿½ï¿½vUï¿½ï¿½ï¿½ï¿½ï¿½JQï¿½Í›7[ï¿½aï¿½c~\0M4ï¿½	ï¿½ï¿½ï¿½ï¿½<ï¿½ï¿½ï¿½Zï¿½>ï¿½iï¿½1)ï¿½4rï¿½H5yï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½lï¿½2ï¿½ï¿½?ï¿½ï¿½ukRA&ï¿½$Wï¿½ï¿½]ï¿½jŞ,&fï¿½Jï¿½/ï¿½Øï¿½ï¿½ï¿½[ï¿½NMï¿½8QMï¿½2%.İ¢@&Lï¿½ï¿½N;ï¿½45xï¿½ï¿½`ï¿½4ï¿½Hï¿½ï¿½\"ï¿½ï¿½RDï¿½ï¿½ï¿½ï¿½ï¿½]1ï¿½Yï¿½fï¿½jï¿½0?ï¿½Ë½ï¿½ï¿½ï¿½ï¿½\0Mï¿½ï¿½ï¿½ï¿½ï¿½\\nlï¿½ï¿½hï¿½ï¿½,Yï¿½N=ï¿½Tuï¿½g8ï¿½e\nï¿½ï¿½ï¿½kï¿½ï¿½ï¿½Ö’Wï¿½ï¿½ï¿½uï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½$\n.dÛ¶mï¿½Zï¿½/ï¿½ï¿½ï¿½>Y{sï¿½=ï¿½.ï¿½|ï¿½;ï¿½Tï¿½ï¿½Ü³ï¿½aï¿½ï¿½Wï¿½ï¿½6cÇ\rï¿½mï¿½ï¿½pï¿½ï¿½fÃŒÔµ\Zï¿½vï¿½@kï¿½SŞ‰ï¿½ï¿½ï¿½$pï¿½\\ï¿½RUï¿½ï¿½ï¿½gï¿½ï¿½7>TFPï¿½ï¿½Bï¿½eEPDï¿½ï¿½ï¿½|oï¿½ï¿½ï¿½ï¾©ï¿½ï¿½oÜ¸1\0+kï¿½\\@ï¿½ozï¿½ï¿½iï¿½Rz0ï¿½ï¿½Jï¿½.2ï¿½Dï¿½lï¿½ï¿½ï¿½oß¾ï¿½ï¿½ï¿½İ»i]ï¿½ï¿½>Bï¿½l1ï¿½W,%ï¿½ï¿½v\"ï¿½ERri{_z\\}ï¿½Å§ï¿½Ú¯9sï¿½ï¿½bï¿½4ï¿½_ï¿½ï¿½YÌµD!1ï¿½}	ï¿½\0Yï¿½ï¿½i-ï¿½ï¿½ï¿½(ï¿½ï¿½Gï¿½ï¿½PI%ngï¿½ï¿½\nÉ»hï¿½=ï¿½-ï¿½eï¿½g&ï¿½ï¿½ï¿½ï¿½Vï¿½zï¿½ï¿½ï¿½ï¿½`ï¿½$ï¿½,*|rï¿½Ï€ï¿½\rï¿½Öï¿½.ï¿½`ï¿½\\Pï¿½YP)\\ï¿½~ï¿½aM\0cQï¿½ß¼ï¿½.Eï¿½ï¿½ï¿½ï¿½ï¿½V6ï¿½%rï¿½Ygï¿½.ï¿½ =qÍ†^+ï¿½ï¿½ï¿½ï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½f*d)ï¿½l|Vï¿½ï¿½È¤Ñªï¿½K|ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½5}>ï¿½ï¿½Ò…ï¿½|ï¿½ï¿½h#ï¿½Lï¿½ï¿½ï¿½!ï¿½ï¿½APÍµï¿½J7\rï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_5ï¿½ï¿½}oï¿½ï¿½ï¿½ï¿½@ë¹·ï¿½kï¿½ï¿½\r.ï¿½	ï¿½ï¿½ï¿½ï¿½A\nSï¿½e>ï¿½\0Fï¿½ï¿½-ï¿½ï¿½ï¿½<X5abBï¿½@&ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½6ï¿½ï¿½j7ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½>Ğï¿½xï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½WØ¿?ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£Ø²\\\'ï¿½ï¿½]$ï¿½Z\rï¿½ï¿½ï¿½ï¿½Jï¿½g=@ï¿½@1Ã‡o39ï¿½K1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½kï¿½ï¿½ï¿½Rï¿½(à·»ï¿½ï¿½ï¿½lA]ï¿½ï¿½dï¿½ï¿½^dmDï¿½ï¿½.ï¿½Fï¿½Rgï¿½yffZï¿½ï¿½=ï¿½ï¿½b-ï¿½XÈ‘uXï¿½ï¿½$@18Qï¿½!pï¿½Kï¿½ï¿½ï¿½$ï¿½~ï¿½ï¿½ï¿½ï¿½\"ï¿½ï¿½ï¿½PÅ™ï¿½\"zï¿½ï¿½ï¿½ï¿½\rrï¿½K,ï¿½ï¿½6lï¿½ï¿½ï¿½ï¿½*ï¿½)\\ï¿½ï¿½ï¿½ï¿½ï¿½ZCï¿½s%ï¿½\0ï¿½Cï¿½ï¿½,ï¿½ï¿½İµï¿½-ï¿½ï¿½Í®-ï¿½ï¿½ ï¿½e0ï¿½jï¿½*\' dï¿½eï¿½;ï¿½Rï¿½eB[iï¿½ï¿½ï¿½uï¿½qï¿½ï¿½%-Ö’eï¿½Jï¿½hï¿½,ï¿½{2pq\Z*Jdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<ï¿½\0ï¿½\rEï¿½ï¿½ï¿½Zï¿½5:ï¿½ï¿½IN9å”Šï¿½ï¿½}4,ï¿½ï¿½fï¿½Q#[ï¿½-ï¿½.ï¿½ï¿½ï¿½s5ï¿½ ï¿½ï¿½Fz\0ï¿½ï¿½uIï¿½*Lï¿½ï¿½ï¿½1ï¿½ï¿½Uï¿½o\\ï¿½>9ï¿½Dï¿½gï¿½ï¿½Û—7ï¿½æ»¡ï¿½Ã¬\0Sï¿½(ï¿½ï¿½:Ã†\rï¿½.2İ¿s	ï¿½ï¿½%Vwï¿½8kÃ—8p`\0ï¿½ï¿½ï¿½DK1 Lï¿½İ§Oï¿½ï¿½!ï¿½ï¿½\\ï¿½eGï¿½ï¿½ï¿½ï¿½;ï¿½	ï¿½ï¿½ï¿½[ï¿½Vdï¿½ï¿½ï¿½Yï¿½ï¿½7}ï¿½ï¿½Dï¿½aæ¸¢,ï¿½Jï¿½YSï¿½ï¿½.fï¿½X|.ï¿½,&ï¿½9*ï¿½Zï¿½Hï¿½%ï¿½rbzï¿½|Yï¿½ï¿½ï¿½`	Ç›i\0ï¿½ß­eï¿½Fï¿½Dï¿½ï¿½ï¿½\0ï¿½Pï¿½thï¿½<ï¿½Yï¿½*\rÖ‡ï¿½ï¿½qDVï¿½\Z3ï¿½Tpï¿½\"ï¿½\\ï¿½lUzï¿½ï¿½@ï¿½ï¿½k1ï¿½8Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½i1`ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½]ï¿½$+ï¿½?ï¿½&-eï¿½ï¿½ï¿½eVsï¿½ï¿½ï¿½D$;ï¿½ï¿½ï¿½jï¿½ï¿½Ğ¡Cï¿½Dm9ï¿½(ï¿½Uï¿½_ï¿½ï¿½SF&Kï¿½Ziï¿½-[ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½Dï¿½Ö-Âˆ&ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½&ï¿½\\\\ï¿½ï¿½\nï¿½7È®\0dï¿½ï¿½ï¿½**bï¿½.ï¿½ï¿½URï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_]Uï¿½\\aU\Zï¿½ï¿½Yï¿½ï¿½Mï¿½i\Z|ï¿½ïŠ…V3ï¿½$ï¿½Vï¿½gï¿½\\ï¿½9ï¿½İºukï¿½;1ï¿½iï¿½S(ï¿½0ï¿½Îï¿½ï¿½Uï¿½1~Rï¿½qiï¿½Ş½ï¿½Wï¿½Dï¿½ï¿½+kï¿½ï¿½&aTï¿½ATï¿½ï¿½ï¿½HÚï¿½ï¿½ï¿½ 6ï¿½Kï¿½Iï¿½M\0ï¿½#ï¿½ï¿½a%;/;wVï¿½ï¿½>ï¿½Lmï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½Sï¿½S[ï¿½nU/ï¿½ï¿½Rï¿½m\0+id0ï¿½Kï¿½ï¿½ï¿½\'\\ï¿½G1.\'+>bï¿½ï¿½F*ï¿½ï¿½ï¿½Kuï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ Jï¿½ï¿½YUpï¿½ï¿½\rï¿½ï¿½ï¿½ï¿½2ï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^{-hmï¿½ï¿½wï¿½ï¿½,Dï¿½-u%ï¿½\\V9PÖ†ï¿½ï¿½ï¿½ï¿½ï¿½Tnï¿½ï¿½ï¿½Äˆ\nbï¿½ï¿½ï¿½qï¿½~ï¿½ï¿½ï¿½]ï¿½ï¿½mÍï¿½nï¿½Kï¿½*ZZï¿½Xï¿½ï¿½ï¿½nï¿½ï¿½ï¿½W%ASï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½4/:6\rDX(5ï¿½ï¿½yï¿½Ç|ZÄ¦Ä’aï¿½ï¿½.ï¿½Qï¿½Yrï¿½ï¿½.Uï¿½J$ï¿½^-iCï¿½QGï¿½eï¿½ï¿½à²¸ï¿½ï¿½z\rï¿½^cï¿½O8\0~ß—ï¿½ï¿½É¤ï¿½.%>ï¿½,ï¿½}ï¿½4ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½6=ï¿½fï¿½ï¿½lï¿½\'ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½`\0c\"ï¿½ØºK?IÆŸqfï¿½ï¿½`Fï¿½Zï¿½jï¿½ï¿½ï¿½\\ï¿½yï¿½:|ëª½Zï¿½hï¿½(_Kï¿½ï¿½@&ï¿½wï¿½Ş¹jï¿½ï¿½lmï¿½Mï¿½ï¿½^Eojï¿½$\'ï¿½ï¿½L[ï¿½ï¿½ï¿½[RXï¿½ï¿½ï¿½6fhï¿½ï¿½\'ï¿½ï¿½25ï¿½^ï¿½ï¿½*ï¿½H*ï¿½ï¿½Bï¿½cï¿½Zï¿½w	ï¿½8&ï¿½y*ï¿½3ï¿½K\"ï¿½aï¿½;ï¿½ï¿½\0,Jï¿½TÔ¡ï¿½Zfï¿½mï¿½Ñ¨=Tï¿½è»®ï¿½ï¿½|ï¿½ï¿½@\Z$ï¿½ï¿½ï¿½eï¿½Lfï¿½ZI4ï¿½ï¿½Fï¿½o×±ï¿½Dï¿½ï¿½ï¿½.ï¿½-ï¿½ï¿½ï¿½Ğ¤ï¿½Sï¿½ï¿½k9é¤“Ê®ï¿½ï¿½<å™¢|/ï¿½ï¿½ï¿½Dpq,:,ï¿½bÒ¯Qï¿½ï¿½ï¿½=ï¿½ï¿½|Uï¿½Sï¿½\\bï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½cTï¿½ï¿½ï¿½İ»ï¿½ï¿½ï¿½ï¿½\0Hï¿½\\Zï¿½Gï¿½ï¿½ï¿½&Y`iï¿½/ï¿½{ï¿½!(cï¿½f.\\ï¿½ï¿½ï¿½ï¿½c}= aï¿½ï¿½<ï¿½iï¿½ï¿½.Eï¿½ï¿½pï¿½ï¿½-ï¿½7jwï¿½cï¿½ï¿½Pï¿½ï¿½%ï¿½\"fï¿½~ï¿½3ï¿½ï¿½mï¿½ï¿½ï¿½]ï¿½ï¿½9Zï¿½Å¼ï¿½ï¿½B~7É‹@ï¿½}ï¿½ï¿½ç™”5ï¿½f\"c\'f\"ï¿½Nï¿½ï¿½^QpzØ¡Yï¿½\"Aï¿½ï¿½ï¿½ï¿½.9Rb+ï¿½ï¿½ï¿½fï¿½$Pï¿½ipï¿½bï¿½	#ï¿½H86mrSO2ï¿½ï¿½ï¿½|ï¿½ï¿½%ï¿½ï¿½(\nZï¿½ï¿½/,ï¿½ï¿½*)k2M*ï¿½ï¿½ï¿½,F|ï¿½ï¿½ï¿½?k9nï¿½mï¿½;ï¿½>ï¿½uï¿½mï¿½4ï¿½!!ï¿½8ï¿½ï¿½]\"Oï¿½+ï¿½ï¿½ï¿½ï¿½%ï¿½Uï¿½ï¿½ï¿½ï¿½9!4zï¿½IHï¿½Sï¿½B*=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æehï¿½ï¿½Ô«ï¿½ï¿½6ï¿½ï¿½ï¿½Zï¿½cF]ï¿½ï¿½-Iï¿½ï¿½Øº7ï¿½NÈˆ#r5ï¿½Lvï¿½Î[ï¿½FFï¿½ß•È†\r\"ËŸï¿½L\"\'ï¿½ï¿½ï¿½7o^Uï¿½Vv{qï¿½ï¿½8ï¿½_\rï¿½ï¿½jï¿½ï¿½<ï¿½u/foT`ï¿½ï¿½5ï¿½a+ï¿½Mï¿½ï¿½fs#ï¿½|ï¿½QZ_ï¿½Eï¿½ï¿½+Ê²ï¿½0Ieï¿½ï¿½;ï¿½6ï¿½h-	lï¿½3ï¿½ï¿½ï¿½&ï¿½Ì±ï¿½ï¿½Qï¿½ï¿½i7_Lï¿½Tï¿½\0\0\0\0IENDï¿½B`ï¿½ï¿½PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0ï¿½\0\0\0ï¿½\0\0\0ï¿½}Äµ\0\00ï¿½IDATxï¿½í‰ï¿½Å¹ï¿½?ï¿½ï¿½ï¿½ï¿½QQD6ï¿½APï¿½XdS\"\Zï¿½ï¿½1B7\\ï¿½rİï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ DqAwOï¿½ï¿½ï¿½ï¿½së«¯ï¿½ï¿½ï¿½ï¿½gï¿½{ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½kTï¿½Kï¿½^=Tï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½S}ï¿½ï¿½Q}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½Ù³ï¿½ï¿½Ş½{ï¿½sï¿½1ï¿½\'?ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½3;wï¿½ï¿½ï¿½:tï¿½ï¿½>rï¿½9ST3ï¿½ï¿½$ï¿½ï¿½yÅ¬ï¿½`ï¿½ï¿½ï¿½Ò«Wï¿½Xï¿½ï¿½tï¿½\nï¿½ï¿½Gï¿½nï¿½b?ï¿½ï¿½ï¿½Ş§sï¿½ï¿½ï¿½EW{ï¿½ï¿½	.ï¿½ï¿½/ï¿½ï¿½ï¿½`ï¿½Òµkï¿½ï¿½}ï¿½>ï¿½ï¿½8ï¿½ï¿½Cï¿½ï¿½x|uï¿½Ê¥ï¿½fyPï¿½^.ï¿½ï¿½mï¿½#cï¿½ï¿½01]>ï¿½ï¿½:ï¿½CTï¿½ï¿½6ï¿½ï¿½ï¿½<\\ï¿½\"ï¿½^ï¿½0ï¿½ï¿½ï¿½Gh`ï¿½Ğ±cï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½\'ï¿½2ï¿½+ï¿½.ï¿½pQ&M8#0C\\l}&ï¿½ï¿½e15ï¿½è°™ï¿½l6.ï¿½2ï¿½&7>xï¿½5ï¿½Qxï¿½\0ï¿½ï¿½S|pï¿½Wï¿½yï¿½Z0ov\0ï¿½=ï¿½ï¿½ï¿½ï¿½CCï¿½8ï¿½pï¿½ï¿½\0ï¿½UFEï¿½~ï¿½#ï¿½Æœï¿½ï¿½Í‰ï¿½+ï¿½pï¿½@ï¿½:ï¿½(uï¿½ï¿½G;1ï¿½Iï¿½ï¿½&,&ï¿½ÕhD-&ï¿½z	Ç»FR%ï¿½tï¿½Ğ|ï¿½ï¿½COï¿½p	.&N&ï¿½ï¿½ï¿½Fkï¿½;Dï¿½ï¿½0	vï¿½!%ï¿½*\rï¿½ï¿½*\\ï¿½ï¿½ï¿½Aï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½#ï¿½ï¿½\\ï¿½ï¿½ï¿½\nï¿½.Wï¿½ï¿½rTï¿½ï¿½ï¿½;ï¿½ï¿½ï¿½\rï¿½ï¿½ï¿½&>0vmï¿½-ï¿½?ï¿½0ï¿½Sï¿½ï¿½=ï¿½I6\'`ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ltï¿½AAdï¿½ï¿½ï¿½Ğ…ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½;ï¿½ï¿½:uï¿½Y3UnTCr$ï¿½ï¿½ï¿½vï¿½Ú•ï¿½ï¿½ï¿½ï¿½A\'Wï¿½oT\"ï¿½I0vï¿½(s3ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½Oï¿½IIÉ”>\'ï¿½ï¿½D~%t_xï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½1ï¿½aï¿½ï¿½ï¿½<,ï¿½MË¸jï¿½tgï¿½lï¿½;ï¿½b#ï¿½Q.ï¿½&LDï¿½ï¿½vZNï¿½ï¿½*ï¿½gtï¿½1fï¿½ï¿½Tï¿½Mk?LÊ¨ï¿½ï¿½kï¿½ï¿½\'a&ï¿½Cï¿½\rï¿½ !ï¿½A0*ï¿½H	h +bï¿½ï¿½!ï¿½bgï¿½ï¿½/ï¿½ï¿½9ï¿½6;ñ»¢ƒMï¿½ï¿½ï¿½ï¿½yï¿½ï¿½^ï¿½]ï¿½$ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½?ï¿½ï¿½	ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½$ï¿½ï¿½ï¿½hiï¿½Eï¿½QLï¿½jWï¿½ï¿½ï¿½Ş·KfFï¿½E9ï¿½,0\0ï¿½ï¿½+D	ï¿½ï¿½Xï¿½ï¿½\Zï¿½ï¿½ï¿½ï¿½ï¿½lï¿½aï¿½Mï¿½nï¿½.ï¿½ï¿½ï¿½.ï¿½M[W×¬ï¿½3ÌKï¿½ï¿½ï¿½ï¿½9gOï¿½pUï¿½ï¿½ï¿½( ï¿½È¹#ï¿½lï¿½L$ï¿½\\Òƒ}iBï¿½ï¿½ï¿½ï¿½F*ï¿½ï¿½ï¿½ï¿½,ï¿½\Zï¿½ï¿½}ï¿½\"ï¿½f;ï¿½ï¿½ï¿½faVï¿½pRÃ†\0Qï¿½ï¿½ZI@ï¿½ï¿½ï¿½Kï¿½5[Oï¿½Jï¿½ï¿½Mï¿½ï¿½ï¿½&ï¿½ï¿½>s:ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½~ï¿½j\0&ï¿½ï¿½ï¿½Gï¿½kq^K*=ï¿½Dï¿½ï¿½ï¿½ï¿½shï¿½`X5ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ihï¿½ï¿½b&\rÍ§)ï¿½ï¿½lï¿½ï¿½ï¿½\"Eï¿½L,ï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½aï¿½ï¿½ï¿½hï¿½(ï¿½$ï¿½3Pï¿½LILï¿½ï¿½Gï¿½e7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B-Z\0Dï¿½ï¿½yï¿½ï¿½.Bï¿½Fï¿½Bï¿½ï¿½sï¿½Hrm\'\'ï¿½]4Wï¿½*ï¿½wï¿½Lï¿½ï¿½>ï¿½ï¿½ Iï¿½^@ï¿½ï¿½ï¿½z~76Ù¼ï¿½,\\pï¿½wï¿½2ï¿½Dï¿½csI\0ï¿½Í“ï¿½ï¿½6ï¿½ï¿½ï¿½Vkï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½4ï¿½ï¿½ï¿½h7ï¿½\\ï¿½jï¿½8ï¿½GKQï¿½TKï¿½VK0ï¿½Rj<Qï¿½UZï¿½ï¿½ï¿½ï¿½Z\r$]ï¿½Y-Æ¨^ï¿½ï¿½ï¿½p=\rï¿½ß¹ï¿½ï¿½ï¿½ï¿½ï¿½F{ï¿½ï¿½ï¿½*lï¿½Fï¿½ï¿½vï¿½O Ã´\"hiï¿½0ï¿½OAï¿½ï¿½ï¿½5FXï¿½ ï¿½Jï¿½ï¿½Kï¿½ï¿½jï¿½ï¿½l\\ï¿½ÚŒï¿½7ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Dï¿½z*ï¿½rï¿½TÅº,<\0:<ï¿½A( mK5In4ï¿½ï¿½ï¿½8ÒŠhï¿½3gï¿½Ì„K\Zï¿½fï¿½Ä‚ï¿½p%0ï¿½ï¿½Iï¿½ï¿½Üas^ï¿½F\0ï¿½emï¿½Kh?ï¿½Yï¿½C$=<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç¥…ï¿½Nï¿½cï¿½ï¿½5ï¿½[ï¿½ï¿½ï¿½;Wï¿½	ï¿½&ï¿½fuï¿½ï¿½Aï¿½ï¿½ï¿½,ï¿½n4ï¿½ï¿½<4ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½,ï¿½ï¿½Ã¥ï¿½Iï¿½ï¿½Xï¿½Mï¿½ï¿½ï¿½\\gOï¿½X.ï¿½ï¿½(ï¿½eï¿½Òƒh/ï¿½>ï¿½1mï¿½nXï¿½Pï¿½ï¿½f\0Lï¿½K^ï¿½lï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½\'m\"ï¿½ï¿½uIï»Õ±ï¿½iKï¿½\\ï¿½ï¿½y$ï¿½ï¿½4ï¿½VTï¿½lã•ï¿½ï¿½^yï¿½Qï¿½0Gï¿½ï¿½ï¿½ï¿½3Bï¿½ï¿½Yh1\0ï¿½}ï¿½ï¿½ï¿½ï¿½`6*\\ï¿½ï¿½ï¿½ï¿½JÃ˜ï¿½<6mï¿½sï¿½]oyï¿½í˜®ï¿½swÄœï¿½ï¿½J|1ï¿½(ï¿½ï¿½gJï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½Eï¿½g.Aï¿½ï¿½.ï¿½ï¿½)$Xï¿½ï¿½)ï¿½mï¿½ï¿½CvYZMï¿½ï¿½Aï¿½bï¿½Eï¿½ï¿½cï¿½;ï¿½ï¿½ï¿½0ÎŒï¿½ï¿½ï¿½O\nï¿½İqï¿½Xkï¿½Kï¿½ï¿½ï¿½ï¿½3RCï¿½&ï¿½ï¿½05ï¿½qÉªrB7ï¿½ï¿½1&ï¿½-wï¿½ï¿½ï¿½Õgï¿½Rï¿½ï¿½^>ï¿½PMï¿½ï¿½ï¿½Wï¿½ï¿½3Ã†ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½L\nzï¿½ï¿½8SOJï¿½ï¿½ï¿½:*ï¿½ï¿½ï¿½ï¿½1,oï¿½gï¿½a&ï¿½E\nï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Bï¿½^ï¿½ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½=\\	ï¿½Sï¿½ÈŸï¿½4ï¿½ï¿½Rï¿½!tÒ½H\nSmï¿½dTï¿½\'ï¿½ï¿½ï¿½ï¿½ï¿½;ï¿½2ï¿½t\0ï¿½?ï¿½~ï¿½\0ï¿½ï¿½]\"ï¿½ï¿½ï¿½]:ï¿½[ï¿½_Zï¿½J\rÆ¸ï¿½~ï¿½ï¿½ï¿½Iï¿½\0Wï¿½\nï¿½ï¿½^Òï¿½ï¿½ß’ï¿½ï¿½\'ï¿½Jï¿½Sï¿½`çºï¿½Rï¿½yï¿½ï¿½ta×”>iï¿½Vï¿½ï¿½Ü¼ï¿½ï¿½ï¿½ï¿½rï¿½XÖšï¿½&ï¿½\'×°\"ï¿½L?[mï¿½6`!ï¿½Sï¿½ï¿½Bï¿½JCï¿½|ï¿½ï¿½7\\ï¿½ï¿½Jï¿½{ï¿½ï¿½ï¿½jï¿½4ï¿½Âï¿½ï¿½ï¿½ï¿½ï¿½[^^ï¿½nXï¿½ï¿½ï¿½Wï¿½x0o\0ï¿½Eï¿½ï¿½ï¿½F1?%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\0ï¿½ï¿½dï¿½fï¿½ï¿½t-ï¿½/5ï¿½ï¿½ï¿½Zï¿½Yï¿½\\8~xï¿½ï¿½Õ®ï¿½ï¿½{-ï¿½ï¿½ï¿½ï¿½\\ï¿½EK5ï¿½ï¿½pï¿½Uï¿½EFï¿½.ï¿½ï¿½Â¢Nï¿½\"ï¿½6Dï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½4ï¿½.ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zsï¿½\0ï¿½ï¿½q`ï¿½ï¿½i*ï¿½ï¿½ï¿½nIMDWï¿½ï¿½O.ï¿½ï¿½4Ú‹ï¿½*Qï¿½Zï¿½hC4aï¿½64ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½J@ï¿½@KpB\n-ï¿½*ï¿½\nï¿½ï¿½ÒŸï¿½ï¿½<\\)ï¿½duï¿½Mï¿½V:ï¿½ï¿½ï¿½ï¿½Ï³ï¿½\"l*ï¿½ï¿½U)ï¿½ï¿½{ï¿½cï¿½bï¿½%ï¿½O\Zï¿½ï¿½0Wï¿½ï¿½ï¿½\\ï¿½rIï¿½Jï¿½ï¿½h`UN]*ï¿½JILï¿½ï¿½ï¿½ï¿½Wtï¿½Ã•P\\ï¿½{Jï¿½^\\h,vï¿½f+/Â¦ï¿½Rï¿½ï¿½ï¿½ï¿½Ã•ï¿½ï¿½Rï¿½ï¿½vï¿½6ï¿½ï¿½ï¿½ï¿½ñ‹¼¾ï¿½ï¿½$ï¿½ï¿½ï¿½Kï¿½\0ï¿½pï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½R=aï¿½KXï¿½906`\"ï¿½>ï¿½\\!\\ICï¿½8ï¿½ï¿½lWï¿½Â‹ï¿½ï¿½ï¿½tï¿½ï¿½È¢ï¿½\rZï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½Ş±ï¿½1ï¿½Qï¿½ï¿½&ï¿½&ï¿½mWï¿½W\\ï¿½5ï¿½ï¿½VFï¿½ï¿½sNï¿½\"ï¿½ï¿½vWï¿½eï¿½N8ï¿½ï¿½ï¿½J\0Wï¿½3qï¿½Kï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cyï¿½ï¿½ï¿½ï¿½&\ZU=w~ï¿½*ï¿½a9ì¾›[ï¿½ï¿½ï¿½W\\`ï¿½Jï¿½ï¿½Sï¿½ï¿½ï¿½Aï¿½<ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½lï¿½ï¿½UPï¿½7ï¿½ï¿½hï¿½\\ï¿½ï¿½6ï¿½Ü¸#A9Oï¿½ï¿½ï¿½?ï¿½N}ï¿½ï¿½Vï¿½ï¿½s,l~=ï¿½\\ï¿½?zï¿½sLï¿½\0ï¿½Xï¿½uï¿½ï¿½g{ï¿½*ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½h-&ï¿½ï¿½ï¿½ï¿½ï¿½E\\\0ï¿½ï¿½{vï¿½(Dï¿½Fï¿½{\0fï¿½ï¿½ï¿½\\ï¿½%ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½\Zï¿½ï¿½s,Xï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½5\0pÍ½ï¿½rWï¿½ï¿½ï¿½&ï¿½Gï¿½ï¿½Zï¿½2a~ï¿½ï¿½ï¿½e!sï¿½ï¿½7ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3\rqï¿½ï¿½ï¿½6,ï¿½ï¿½ï¿½*(\\ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½^ï¿½ï¿½\0Æ¼ï¿½B.\\qï¿½ï¿½ï¿½Nï¿½}Lï¿½ï¿½ï¿½ï¿½Xpï¿½ï¿½+,ï¿½aï¿½T><ï¿½7ï¿½ï¿½ï¿½hWï¿½Ë¥ï¿½ï¿½dï¿½Wï¿½ä³§ooï¿½yï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½dGwï¿½ï¿½ï¿½Jï¿½X8ï¿½ï¿½fï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½	ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½f\'ï¿½ï¿½Dsï¿½E1\rLï¿½ï¿½ï¿½ULï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½`pï¿½8ï¿½W%pÅ4&ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½o\\0ï¿½ Vï¿½ï¿½\nï¿½ï¿½zBr[fï¿½ï¿½ï¿½Ulï¿½ï¿½(Mï¿½$ilï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3\\ï¿½Bï¿½ï¿½ï¿½eNï¿½ï¿½ï¿½ï¿½pï¿½Pï¿½Eï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½>Oï¿½\"*ï¿½ï¿½\'ï¿½ï¿½ï¿½=\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3<\\)ï¿½\\.mï¿½ï¿½Zï¿½&ï¿½ï¿½p5\\ï¿½ï¿½İºtï¿½=(	\\yï¿½Uï¿½0Iä¨³[ï¿½Bï¿½ï¿½fxï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½#\'yM ï¿½B#ï¿½ï¿½`ï¿½ï¿½ï¿½j,ï¿½l=6ï¿½bï¿½\nï¿½<6ï¿½)\\aï¿½d	fï¿½ï¿½BWï¿½ï¿½\\ï¿½ß•Ç«ï¿½rï¿½!ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½Uï¿½E\n=\\ï¿½ï¿½ï¿½bï¿½ï¿½UAï¿½ï¿½c&ï¿½Æ„ï¿½2ï¿½0ï¿½tï¿½ï¿½ï¿½U\\qWï¿½Fï¿½ï¿½ï¿½#7ï¿½ï¿½[Pï¿½ï¿½5ï¿½oï¿½ï¿½ï¿½ï¿½lï¿½;ï¿½ï¿½ï¿½.3ï¿½ï¿½J!ï¿½ï¿½\Zï¿½Hqï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½Ua;ë¨»ï¿½<\\ï¿½\rkï¿½3mï¿½ï¿½=\\ï¿½ï¿½wIï¿½K\Zï¿½xï¿½ï¿½XR?vï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½ï¿½Ã’ï¿½ï¿½gï¿½ï¿½iï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½=×¶ï¿½ï¿½W_ï¿½ï¿½]zqï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Jï¿½}Í‚ï¿½[ï¿½=yï¿½z}ï¿½ï¿½ï¿½ï¿½Jï¿½Cï¿½ï¿½1@ï¿½ï¿½ï¿½Ø¹~ï¿½ï¿½ï¿½:wï¿½ï¿½ï¿½ï¿½ò»¨ªxï¿½İŸï¿½_lï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½-+fï¿½ï¿½.\Zï¿½ï¿½vvï¿½ï¿½ï¿½ï¿½sï¿½ï¿½Wï¿½Ro-<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7ï¿½PT\nï¿½ï¿½{ï¿½ï¿½=ï¿½ï¿½ÈDï¿½ï¿½ï¿½nï¿½ï¿½Lï¿½\0ï¿½ï¿½Ã¾ï¿½\\OØªÊ„kï¿½ï¿½!Aï¿½ï¿½ï¿½+ï¿½jï¿½ï¿½sï¿½4uï¿½K4dï¿½ï¿½\\ï¿½ï¿½Ì‚Fï¿½ï…ï¿½Bï¿½ï¿½ï¿½ï¿½1?ï¿½ï¿½z\\ï¿½i\\lï¿½ï¿½*ï¿½RÉ¡ï¿½*ï¿½ï¿½ï¿½ï¿½\Zï¿½tï¿½ï¿½ï¿½ï¿½*_ï¿½Sï¿½4oï¿½ï¿½lhQMAmpï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½\'ï¿½ï¿½7ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½+oï¿½ï¿½ï¿½ï¿½*ï¿½ï¿½ï¿½ï¿½ziï¿½8-ï¿½?ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½^ï¿½aï¿½Ttï¿½@WVï¿½Eï¿½Bï¿½ï¿½5ï¿½<&ï¿½Iï¿½Mï¿½+ï¿½ï¿½ï¿½ï¿½ñ›Ÿ«.ï¿½ï¿½ï¿½ï¿½~[ï¿½Gï¿½ï¿½~ï¿½uåœ²ï¿½ï¿½ï¿½ï¿½ï¿½×…ï¿½ï¿½ï¿½ï¿½&ï¿½Kï¿½ï¿½Ã·Jï¿½ï¿½ï¿½_5ï¿½Í³ï¿½cï¿½[ï¿½/ï¿½ï¿½ï¿½o_ï¿½3R=?ï¿½Xï¿½ï¿½\0P\\f}ï¿½	ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½KJ\"9ï¿½ï¿½blpï¿½I3ï¿½ï¿½$6ï¿½ï¿½NSï¿½ï¿½jï¿½ï¿½Yï¿½Qï¿½_ï¿½ï¿½Gï¿½ï¿½7ï¿½OjZä‰€Kï¿½ï¿½CafaÏ’%ï¿½ï¿½ï¿½4ï¿½ï¿½Ë¼9ï¿½ï¿½ï¿½w/*iï¿½~ï¿½-Kï¿½Nï¿½ï¿½ï¿½ï¿½5YPIï¿½Ú¹ï¿½<=ï¿½Kï¿½ï¿½ï¿½/Rlï¿½-ï¿½Bï¿½2ï¿½4Lï¿½ï¿½wï¿½ï¿½ï¿½4o6ï¿½tï¿½kï¿½ï¿½×«ï¿½g\rï¿½bBkï¿½ï¿½ï¿½\n×‡ï¿½!wÏŒï¿½ï¿½fÇ¦ï¿½}ï¿½ï¿½Pï¿½ï¿½E)ï¿½2ï¿½\rÅŸï¿½ï¿½DÚ•|.ï¿½ï¿½,ï¿½ï¿½.}RŞ˜wï¿½ï¿½ï¿½ï¿½_ï¿½İŞ[ï¿½jï¿½Gï¿½ï¿½ï¿½ï¿½sï¿½~ï¿½jï¿½sï¿½fï¿½H6ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ë±›ï¿½ï¿½ï¿½jJï¿½ï¿½ï¿½ï¿½ï¿½Uï¿½eaï¿½dï¿½ï¿½\'ï¿½ï¿½ï¿½Wï¿½,ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½T}ï¿½ï¿½ï¿½s&Bï¿½%ï¿½ï¿½Gï¿½V\rï¿½ï¿½jï¿½<{ï¿½ï¿½`-yï¿½ï¿½ï¿½7ï¿½Fï¿½uï¿½=ï¿½unï¿½#ï¿½tŞï¿½ï¿½V_ï¿½áƒ¿ï¿½%\\hï¿½ï¿½ï¿½ï¿½qŞ[îªï¿½$ï¿½%=ï¿½Mï¿½ï¿½ï¿½?Dï¿½5ï¿½ï¿½6kï¿½ï¿½Äšï¿½pï¿½ï¿½ï¿½FOï¿½ï¿½ukFï¿½ï¿½ï¿½Vï¿½ï¿½Eï¿½+lï¿½ï¿½]ï¿½d2ï¿½e%/3,ï¿½*ï¿½|qï¿½ï¿½ï¿½{ï¿½L03ï¿½Yï¿½ï¿½Tï¿½gf^ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½\nkGï¿½`Mï¿½ï¿½Y^ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½a~ï¿½ï¿½)ï¿½Yï¿½ï¿½ï¿½ï¿½\Zï¿½ï¿½Cï¿½>ï¿½ï¿½)ï¿½/ï¿½Ñ­rCï¿½FOï¿½Qï¿½ï¿½ï¿½;Ô®ï¿½~ï¿½Aï¿½)ï¿½ï¿½8\'ï¿½4ï¿½ï¿½ï¿½Qï¿½Oï¿½k:\\ï¿½ÇŒï¿½2ï¿½ï¿½5$ßï¿½ï¿½ï¿½pï¿½[|Y9ï¿½hï¿½Rï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½6ï¿½ï¿½hR\\ï¿½ï¿½ï¿½ï¿½,Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\'ï¿½ï¿½Uï¿½oŞ¤~wï¿½8uï¿½ï¿½#Õ¼1ï¿½ï¿½ï¿½czï¿½	ï¿½\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½R\'u9Xï¿½ï¿½Kï¿½5ï¿½ï¿½ï¿½{ï¿½ï¿½V;wlSï¿½ï¿½è¯ï¿½Hï¿½d5ï¿½_7]Uï¿½ï¿½Ğ©ï¿½#ï¿½ï¿½ï¿½{oï¿½%?VJÌï¿½ï¿½Û¿ï¿½ï¿½ï¿½Ïœï¿½Nï¿½ï¿½Suï¿½ï¿½nï¿½!ï¿½ï¿½gBï¿½ï¿½ï¿½ï¿½gï¿½xï¿½Qï¿½3{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½0ï¿½ï¿½w]@f&ï¿½ï¿½)ï¿½eRï¿½|ï¿½ï¿½f^\\ï¿½Dï¿½Wpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9kï¿½ï¿½ï¿½zfï¿½ï¿½rYLï¿½ï¿½hß®uï¿½ï¿½ï¿½pxmwï¿½*ï¿½0_ï¿½ï¿½ï¿½	ï¿½mï¿½ï¿½*\0`ï¿½å…·ï¿½ï¿½=jï¿½ï¿½ï¿½GM;ï¿½uï¿½ï¿½ê„?)/<S&ï¿½xï¿½ï¿½>ï¿½ï¿½ï¿½0ï¿½huï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½Ğªï¿½9I^ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½3_zï¿½sNï¿½{ï¿½ï¿½ï¿½ï¿½gï¿½3Nï¿½9ï¿½D&\Zï¿½ï¿½Fï¿½ï¿½n^tN0ŞŒmï¿½ï¿½ï¿½H ï¿½\"pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n\"ï¿½8ï¿½ï¿½ï¿½ï¿½Kï¿½-[Qï¿½ï¿½Ø­[ï¿½Pï¿½ï¿½Âªï¿½%Zï¿½Rï¿½ï¿½ï¿½%ï¿½ï¿½ï¿½\'ï¿½nÅ¦ï¿½Sï¿½ï¿½ï¿½~1ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½_:ï¿½ï¿½:dwuï¿½ï¿½Qï¿½|ï¿½ï¿½z~ï¿½2ï¿½pï¿½ï¿½\0`ß¶wï¿½<ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½gZzï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½.={Lï¿½ï¿½ï¿½zï¿½Nï¿½ï¿½_8ï¿½\'c^ï¿½ï¿½Eï¿½ï¿½ï¿½g[ï¿½WjHï¿½ï¿½wï¿½ï¿½\rï¿½ï¿½ï¿½A4ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½Zï¿½a.a&ï¿½ï¿½Nï¿½Øï¿½`ï¿½Ş¿:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1?Uï¿½ï¿½ï¿½G]XZx3ï¿½ï¿½l/\0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½U~ï¿½ï¿½Û«ï¿½&ï¿½ï¿½Ü·7ï¿½dï¿½ï¿½ï¿½ï¿½3\'ï¿½\rï¿½xï¿½3ï¿½ï¿½)9ï¿½;ï¿½Å¼ï¿½ï¿½%U\Z:\\Dï¿½ï¿½>?.ï¿½VSï¿½%!x.v=*ï¿½ï¿½1]zJï¿½6Cï¿½ï¿½ï¿½ï¿½\r;ï¿½ï¿½bï¿½ï¿½q|ï¿½Lï¿½_ï¿½Ncï¿½.8\0ï¿½k/mï¿½krï¿½,ï¿½qï¿½ï¿½Pï¿½ï¿½Sa/vï¿½Zk/ï¿½ï¿½?ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Ô•çªï¿½{kSï¿½#ï¿½wï¿½>ï¿½ï¿½3ï¿½Tï¿½^uYï¿½3ï¿½Yo^sNï¿½c^\\ï¿½ÂŸ6ï¿½b=ï¿½ï¿½eï¿½X[ï¿½,4ï¿½3Q)ï¿½Gï¿½\Z×­Mï¿½Pï¿½ï¿½bï¿½\né¥±ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½3Í…ï¿½7ï¿½ï¿½ï¿½ï¿½=ï¿½?ï¿½,ï¿½;ï¿½fï¿½ï¿½ï¿½ï¿½v\rï¿½Aï¿½ï¿½ï¿½_sMï¿½\Zï¿½ï¿½4Aï¿½ï¿½×‚Kï¿½ï¿½ï¿½Qhï¿½2ï¿½_;uï¿½Yï¿½ï¿½g<\'ï¿½ï¿½ï¿½yGï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½Ø£ï¿½Ftï¿½$$ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½J=~~ï¿½hï¿½ï¿½ï¿½ï¿½Tï¿½vï¿½ï¿½ï¿½Y\'~ï¿½\\4B1ï¿½ï¿½ï¿½[^S./ï¿½ï¿½9ï¿½ï¿½V3ï¿½ï¿½~9ï¿½ï¿½ï¿½{ï¿½\05uhï¿½ï¿½.ï¿½1ï¿½Kï¿½rï¿½ï¿½ï¿½ï¿½ï¿½IÇªï¿½Jï¿½ï¿½qï¿½bï¿½ï¿½ï¿½ï¿½ï¿½fp}ï¿½ï¿½&ï¿½gï¿½ï¿½ï¿½Jï¿½8{R?5iï¿½ï¿½ï¿½gï¿½Uï¿½ï¿½ï¿½ï¿½/xï¿½Uï¿½/p\Zï¿½ï¿½Ú§>yï¿½Dï¿½iï¿½ï¿½Ö”ï¿½ï¿½ï¿½ï¿½7a3ï¿½ï¿½ï¿½pï¿½%O28rï¿½ï¿½Qw&lï¿½ï¿½ï¿½Ë¬+Lï¿½Kã‹¿ï¿½Wï¿½ï¿½ï¿½jï¿½ë·ï¿½Ps/ï¿½ï¿½ï¿½@tï¿½Yï¿½ï¿½??.`ï¿½3ï¿½X5c\\ï¿½ï¿½İ·ï¿½.ï¿½ï¿½ï¿½o|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_Wï¿½ï¿½i,`ï¿½ï¿½ï¿½Zï¿½Mï¿½yyï¿½ï¿½K~Ù+ï¿½ï¿½j,ï¿½ï¿½3ï¿½lï¿½/ï¿½ï¿½ï¿½0ï¿½ds%ï¿½ï¿½ï¿½.ï¿½\"gï¿½d=ï¿½ï¿½|ï¿½ï¿½ï¿½`08ï¿½	S9ï¿½NÕ´ï¿½ï¿½ï¿½A\rï¿½\\ï¿½ï¿½O$[ï¿½ï¿½>~ï¿½nï¿½ï¿½\rAï¿½+ï¿½ï¿½ì“ï¿½;ï¿½ï¿½mï¿½ï¿½ï¿½Kï¿½ï¿½Wï¿½\'ï¿½]ï¿½.qÚŠï¿½^ï¿½Vfï¿½ï¿½ï¿½ï¿½Ï®Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½$ï¿½ï¿½ï¿½Û–D>ï¿½76ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Üƒaï¿½ï¿½Ã¥G\nIï¿½ï¿½G$ï¿½ï¿½\Zï¿½ï¿½7}ï¿½ï¿½\Z0ï¿½ï¿½}.ï¿½!Eï¿½r_ï¿½ï¿½r7ï¿½nJtï¿½ï¿½ï¿½\'nUï¿½ï¿½gIï¿½Gï¿½ï¿½bï¿½ï¿½ï¿½mjï¿½æ¡ï¿½xï¿½ï¿½ï¿½ï¿½]ï¿½Rï¿½ï¿½|ï¿½ï¿½/Sï¿½\\ï¿½ï¿½Uï¿½kï¿½ï¿½ï¿½ï¿½5ï¿½O*ï¿½ï¿½ï¿½/İ¯ï¿½zï¿½æ¢¶0ï¿½È»Dï¿½fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&(ï¿½\'ï¿½>}Gï¿½ï¿½zï¿½ï¿½ï¿½9\'ï¿½,ï¿½aÂ‚ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½<pï¿½{ï¿½ï¿½ï¿½gã»‡=9@6ï¿½`,ï¿½\\ï¿½>|8ï¿½Eï¿½ax\\ï¿½ï¿½_ï¿½ï¿½Zï¿½?ï¿½ï¿½ï¿½ï¿½ZPï¿½ï¿½ï¿½fnï¿½ï¿½s.KÎ™A\rï¿½ï¿½ï¿½ï¿½ï¿½2\\19ï¿½4ï¿½D6Éºï¿½Lï¿½ï¿½ï¿½U$ï¿½Bï¿½$pï¿½ï¿½ï¿½|ï¿½ ï¿½eKï¿½KJ_ï¿½{@ï¿½_sQ+ï¿½Kï¿½`w*\r$ï¿½ï¿½ï¿½mVj9rï¿½ï¿½Ğ­ï¿½ï¿½ï¿½ï¿½iï¿½Ã‡ï¿½Fï¿½>ï¿½ï¿½ãŒ—ï¿½enï¿½ï¿½XSï¿½%mï¿½\n	ï¿½nï¿½m~ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½\",<ï¿½\\ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½a\Z~7ï¿½\0ï¿½ï¿½Jï¿½u^Lï¿½ï¿½$ï¿½Tjï¿½ï¿½!6ï¿½ï¿½;~]ï¿½dVjHBï¿½	.ï¿½Cï¿½Mï¿½Vpï¿½ï¿½ï¿½ï¿½ï¿½+Iï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½2ï¿½-1	ï¿½]ï¿½ï¿½;ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½Ã®Ö¯ï¿½ï¿½ï¿½ekZIÄ°ï¿½ï¿½ï¿½kZ}×½/>ï¿½Pp%ï¿½ï¿½ï¿½ï¿½ï¿½`~9nï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½_uEï¿½ï¿½ï¿½IXï¿½ï¿½Vï¿½ï¿½zbï¿½ï¿½Vï¿½PrzO3ï¿½uï¿½Iï¿½ï¿½ï¿½c+aï¿½}aCï¿½ï¿½Z\rï¿½<0{J.ï¿½uï¿½hï¿½(ï¿½`ï¿½nï¿½ï¿½<\\ï¿½<zï¿½*ï¿½i((ï¿½[Zï¿½\rkï¿½C=4ï¿½ï¿½k1ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½5\\Iï¿½ï¿½Çï¿½`\\ï¿½ï¿½ï¿½l0-uï¿½tï¿½ï¿½ï¿½ï¿½ï¿½0\reï¿½$ï¿½-Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#\'Eï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^6ï¿½sP$Ğ¥Kï¿½Vï¿½ï¿½ï¿½lï¿½ï¿½É“Iï¿½;ï¿½ï¿½j\r3ï¿½ï¿½ï¿½vfï¿½+ê–“ï¿½Eï¿½c2ï¿½ï¿½ï¿½ï¿½gï¿½2RHï¿½ï¿½]ï¿½bï¿½ï¿½V:\\zï¿½8]ï¿½rï¿½TO\"aï¿½aï¿½ï¿½ï¿½ï¿½.ï¿½5ï¿½ï¿½ï¿½O#ï¿½ï¿½-\\ï¿½ï¿½zï¿½q\"ï¿½Wï¿½ï¿½ï¿½ï¿½.ï¿½V~ï¿½4Ô­}ï¿½dï¿½ï¿½ï¿½pdï¿½ï¿½ï¿½yï¿½ï¿½ï¿½eï¿½\ZY{\'ï¿½r1ï¿½5:\\I\"ï¿½Tï¿½qï¿½Aï¿½å†˜ï¿½ï¿½ï¿½mï¿½^KXï¿½Bï¿½ï¿½Ã¥ï¿½Zï¿½AXï¿½ ï¿½|ï¿½Ã¨KÇ³ï¿½1ï¿½ï¿½/\nWNï¿½~+f<ï¿½ï¿½.ï¿½ï¿½3ï¿½ï¿½tÒº/ï¿½VÇ“ï¿½ï¿½Jï¿½ï¿½ï¿½#ï¿½ï¿½ï¿½2ï¿½ï¿½Xï¿½iï¿½\Zï¿½ï¿½\'&ï¿½pï¿½sï¿½}ï¿½ï¿½\0ï¿½Fï¿½ï¿½p=ï¿½ï¿½Iï¿½yEtï¿½Z6Hj<eï¿½Ô»ï¿½Saï¿½ï¿½s^ï¿½(4ï¿½\"ï¿½N^ï¿½ï¿½&_2cJï¿½ï¿½\Z:\\D\r%ï¿½ï¿½(p%	fHEï¿½Kï¿½P^ï¿½ï¿½cnï¿½ï¿½ï¿½Hï¿½Kï¿½ï¿½>ï¿½ï¿½ï¿½Pï¿½^,ï¿½waï¿½\Zï¿½oTï¿½ï¿½38ï¿½ï¿½Ã¥ï¿½ï¿½\\,ï¿½ï¿½ï¿½y)w*\\ï¿½ï¿½ï¿½ï¿½jï¿½:$ï¿½ï¿½ï¿½ï¿½.ï¿½Ø´ï¿½aï¿½JÌ[(Oï¿½Õ©Í¼ï¿½Uï¿½yï¿½mï¿½\'ï¿½\\ï¿½&ï¿½lï¿½ï¿½ï¿½ï¿½Ôï¿½Fï¿½\Zï¿½ï¿½YzNï¿½K*ï¿½I 7\n\\ï¿½ï¿½ä·¤ï¿½`ï¿½	\ZPï¿½@ï¿½ï¿½$ï¿½5\\ï¿½1	É£qï¿½;s18@\'C×1ï¿½	ï¿½Bï¿½ï¿½Jï¿½Ó¾76Dï¿½ï¿½\"H@ï¿½Tï¿½ï¿½dï¿½ï¿½ï¿½+ï¿½ï¿½[ï¿½ï¿½ï¿½\rSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2/ï¿½Nï¿½ï¿½Yï¿½,ï¿½]9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Iï¿½$\rï¿½ï¿½ï¿½<pï¿½wï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½df~Kï¿½Cï¿½;ï¿½_.>ï¿½ï¿½,ï¿½\\6ï¿½ï¿½ALC\n;]ï¿½ï¿½Uï¿½ï¿½ï¿½4pï¿½ZAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş„ï¿½ï¿½KJï¿½ï¿½:Cs|ï¿½Wç–£ï¿½I\nxï¿½}ï¿½ï¿½<Ö»Kï¿½[ï¿½ï¿½ï¿½-7ï¿½lï¿½Ë¯(ï¿½cï¿½ï¿½\\ï¿½;ï¿½vï¿½ï¿½ï¿½Uï¿½nï¿½ï¿½nï¿½qvyï¿½ï¿½ï¿½c(wï¿½ï¿½Uï¿½d2G$ï¿½ï¿½ï¿½Uï¿½ï¿½#ï¿½D&ï¿½!Bb9.ï¿½*ê‚‹<&ï¿½%ï¿½Kpq|ï¿½b!ï¿½ï¿½2\\dæ¥§ï¿½Ü›LBï¿½pï¿½;\\ï¿½K&ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½\rï¿½f-ï¿½ï¿½ÚŸï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½zÜ¨RIï¿½\'.ï¿½Ú¼1Eï¿½ï¿½ï¿½_Mï¿½pURï¿½ï¿½ï¿½ï¿½`*8ï¿½[ï¿½cï¿½0)\\ï¿½J&\\a`ï¿½>Sï¿½ï¿½Dï¿½m|ï¿½\Z5ï¿½~?ï¿½kQï¿½ï¿½>ï¿½Kï¿½ï¿½\"ï¿½ï¿½V9ï¿½ï¿½\'s+ï¿½Ï‘ï¿½.Oï¿½ï¿½Koï¿½fvï¿½bï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½,tï¿½ï¿½Zï¿½Vï¿½æ¢ï¿½kDSï¿½czï¿½mï¿½ï¿½Yï¿½ï¿½:Yï¿½ï¿½cï¿½ï¿½.Mï¿½ï¿½ï¿½g1×¦ï¿½pU	.v1ï¿½ï¿½ï¿½sï¿½ï¿½\'ï¿½Lt?ï¿½ï¿½ï¿½\ru[p,ï¿½\\35ï¿½4ï¿½@ï¿½ï¿½uï¿½Vauï¿½vï¿½ï¿½zDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<ï¿½Pï¿½ï¿½ï¿½3ï¿½ï¿½9j$ï¿½Jï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½f73\'pÓWgï¿½Ù“#ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Vï¿½İ¦Kï¿½ï¿½2ï¿½0ï¿½ï¿½)tï¿½oIï¿½yHVï¿½o;ï¿½O%ï¿½ï¿½ï¿½ï¿½cï¿½.ï¿½ï¿½Ü·ï¿½[ï¿½ï¿½ï¿½sï¿½ï¿½\0ï¿½kd5ï¿½ï¿½Vkï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½&<ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½#2>y<ï¿½_(ï¿½(kï¿½A4@ï¿½Dz)È^Eï¿½wE]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bfï¿½9ï¿½=$ï¿½oï¿½ï¿½ï¿½Qï¿½ï¿½\nByï¿½ï¿½oTNï¿½ï¿½*rï¿½ï¿½ï¿½ï¿½ï¿½eaï¿½ï¿½Uaï¿½ï¿½\'ï¿½2	mï¿½Gï¿½ ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½.ï¿½Ãªmï¿½ï¿½bNï¿½ï¿½~Wï¿½^yï¿½ï¿½?>ï¿½0ï¿½fhï¿½ï¿½@Gï¿½ï¿½	ï¿½PW.ï¿½L7	ï¿½ï¿½o.ï¿½Yï¿½\r0ï¿½ï¿½ï¿½9$ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ß²%ï¿½1ï¿½Lï¿½W+oï¿½ï¿½\n	ï¿½?ï¿½ï¿½ï¿½5Mï¿½ï¿½ï¿½ï¿½tï¿½-ï¿½ï¿½-ï¿½;ï¿½$q,İ›\\ï¿½ï¿½ï¿½[L\Z.ï¿½ï¿½M(ï¿½ï¿½È‘\0ï¿½ï¿½4,ï¿½F(Dï¿½ï¿½-C\\-ï¿½ï¿½OX*z~ï¿½&y7ï¿½ï¿½]ï¿½H7 !ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½$ï¿½yï¿½FÈ¢ï¿½Ëï¿½ï¿½ï¿½ibæš¹5ï¿½;oï¿½ï¿½\Zï¿½4ï¿½1;ï¿½ï¿½oï¿½Lï¿½xIï¿½\'ï¿½ï¿½ï¿½7Iï¿½K?Òï¿½`Î¼$ï¿½ï¿½ï¿½]Óºï¿½ï¿½)ï¿½ï¿½{	ï¿½ï¿½+ï¿½ï¿½ï¿½k`#ï¿½}ï¿½qï¿½wï¿½LB=ï¿½U$Sï¿½ï¿½eï¿½dï¿½Ë½iï¿½ï¿½ï¿½S\nï¿½ï¿½pï¿½Tï¿½\'	lï¿½ï¿½4,ï¿½ï¿½[+ï¿½yï¿½\rï¿½pï¿½6$oï¿½\Zï¿½oï¿½ï¿½aï¿½ï¿½ï¿½bJï¿½ï¿½F\rd4\\zï¿½^Wï¿½uBï¿½*uï¿½z9|)ï¿½Tï¿½sï¿½Kï¿½ï¿½ï¿½\\ï¿½=ï¿½ï¿½T6ï¿½HRï¿½eï¿½Ä¥PW*2ï¿½ï¿½ï¿½ï¿½p9ï¿½ï¿½]ï¿½ï¿½dï¿½Pï¿½kï¿½@ï¿½4Kï¿½|ï¿½È‰jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½iBï¿½ï¿½ï¿½ï¿½ï¿½w|Gï¿½ï¿½Bï¿½ze0Í ï¿½ï¿½.ï¿½ï¿½\rï¿½ï¿½Zï¿½\Zï¿½FB3ï¿½ï¿½Mï¿½dJï¿½rï¿½\0 ï¿½t>^ï¿½-ÅŸQ>bï¿½ï¿½^ï¿½ï¿½ï¿½\"ï¿½.ï¿½ï¿½~otï¿½ï¿½4pï¿½.İ´Wï¿½ï¿½ï¿½Cï¿½\0ï¿½ï¿½ï¿½Wï¿½qï¿½fï¿½ZMW\Zï¿½ï¿½Ë¡ï¿½ï¿½ï¿½$Z+ï¿½\'xï¿½2ï¿½^Nï¿½ï¿½:6ï¿½iï¿½Lï¿½ï¿½)ï¿½M<=\\5ï¿½ï¿½ï¿½Öï¿½Tdï¿½~ï¿½Bï¿½ï¿½äµŠpTï¿½ï¿½Uaï¿½Ó¯Eï¿½ï¿½ï¿½Hï¿½ï¿½Ö’<wï¿½ï¿½peï¿½Ñ¥bï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½-Wï¿½ï¿½ï¿½qï¿½ï¿½ï¿½ï¿½kIï¿½ï¿½ï¿½%_Uï¿½ï¿½?ï¿½\\ï¿½ï¿½Aï¿½ï¿½,Ê¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßï¿½&7ï¿½\'ï¿½ï¿½0ï¿½xï¿½Üµï¿½ï¿½qy-iï¿½ï¿½lï¿½`Sï¿½eIqï¿½Ö£3/ï¿½!ï¿½ÅŠï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½oï¿½è ‡+ï¿½m[\\rï¿½^Ml\0\rï¿½ï¿½ï¿½ï¿½ï¿½Ñzï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½6ï¿½ï¿½ï¿½á²„ï¿½ï¿½\rï¿½Ehï¿½Vï¿½ï¿½Zï¿½ï¿½ï¶Šï¿½ï¿½thï¿½pï¿½ï¿½fï¿½Üˆ:Rï¿½ï¿½ï¿½pUXï¿½&ï¿½ï¿½z_Y7ï¿½,Eï¿½ï¿½ï¿½ï¿½ï¿½nWÕ³aï¿½ï¿½ï¿½XIï¿½İƒï¿½ï¿½Íï¿½Xï¿½ï¿½ï¿½ï¿½\0G3ï¿½;)ï¿½ï¿½ï¿½ï¿½ï¿½\\=ï¿½ï¿½oï¿½ï¿½\Zï¿½Hï¿½ï¿½fï¿½eyï¿½Rï¿½ï¿½ï¿½S\'ï¿½ï¿½aï¿½ï¿½(ï¿½<Vï¿½Oï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ ï¿½ï¿½aï¿½fï¿½dï¿½ï¿½Bï¿½ï¿½pyï¿½ï¿½Jï¿½ï¿½ï¿½bï¿½dXhï¿½ï¿½ï¿½\0ï¿½ï¿½eï¿½l<\\ï¿½ï¿½pï¿½nï¿½ï¿½Aaï¿½U\Z0Xï¿½ï¿½63ï¿½ï¿½ï¿½ï¿½r;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å—ï¿½ï¿½K?>!ï¿½ï¿½f&0[ï¿½ï¿½ï¿½0<:\\ï¿½ï¿½ï¿½#ï¿½]ï¿½ï¿½ï¿½ï¿½oï¿½;jï¿½ï¿½ï¿½Vï¿½ï¿½43ï¿½ï¿½5ï¿½ï¿½Ìƒï¿½QAï¿½Mï¿½sï¿½fï¿½/ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½o<`ï¿½ï¿½ï¿½Ü³kï¿½ï¿½ï¿½Û¿Wï¿½:wbdï¿½ï¿½ï¿½ï¿½ï¿½Spï¿½Eï¿½ï¿½ Alï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½}ï¿½Ñ¿ï¿½zï¿½pï¿½6ï¿½ï¿½ï¿½Bï¿½/\0ï¿½ï¿½{bï¿½ï¿½?mIï¿½ï¿½\"ï¿½ï¿½z\0\'.ï¿½ï¿½_Uï¿½ï¿½W_ï¿½pyï¿½~ï¿½ï¿½ï¿½zUï¿½^?|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½>	ï¿½4ï¿½ï¿½ï¿½!9ï¿½Ã‚ï¿½2z\rï¿½ï¿½Sï¿½ï¿½Õ¶ï¿½ï¿½qï¿½<dï¿½ï¿½pyï¿½,ï¿½ï¿½W`ï¿½Å¤ï¿½-ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½\nTï¿½ï¿½Ò¼\',yï¿½ayï¿½ï¿½|\00a\\^ï¿½ï¿½~Ñ©ï¿½ï¿½P%ï¿½\'?Lï¿½ï¿½ï¿½VÒ¨ï¿½ï¿½İï¿½Rï¿½|ï¿½Aï¿½xï¿½ayï¿½ï¿½|\0L_+ï¿½ï¿½nï¿½ï¿½ï¿½hmï¿½zï¿½aï¿½ï¿½SVï¿½ï¿½ï¿½.`}ï¿½gï¿½ï¿½xï¿½ï¿½ï¿½?{ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½*ï¿½ï¿½Xd.ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½QK3Qjuï¿½ï¿½Ú¿1ï¿½ï¿½ï¿½G}ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½fï¿½?İ±Rï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½\0ï¿½ï¿½~ä†ªï¿½ï¿½#ÚŠï¿½^hOï¿½eï¿½ï¿½ï¿½ï¿½ï¿½/LÃ±cFï¿½ï¿½3/VKï¿½[ï¿½ï¿½jTï¿½mï¿½2uï¿½ï¿½ï¿½ï¿½yçœ¥N:qï¿½ï¿½Ô©ï¿½ï¿½ï¿½Tï¿½Wï¿½ï¿½Tï¿½zï¿½ZZmï¿½ï¿½ï¿½ï¿½eï¿½ï¿½\\L@ï¿½9iï¿½ï¿½ï¿½Ô©Sï¿½ï¿½9ï¿½Ô“ÕŒï¿½ï¿½Sï¿½^lpï¿½ÊXï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Mï¿½ï¿½*}}ï¿½ï¿½ï¿½ï¿½5HYï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Õ–fï¿½2ï¿½ï¿½ï¿½Øœï¿½!q*}=ï¿½ï¿½CjÜ¸qï¿½ï¿½OVï¿½ï¿½ï¿½W]ï¿½vm5ltS&ï¿½6>6@Wï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½<ï¿½iÈ!jÌ˜1ï¿½Nï¿½ï¿½uï¿½]*ï¿½ï¿½:fSï¿½E+ï¿½ï¿½ï¿½\0Lï¿½wï¿½&ï¿½ï¿½È]ï¿½Mkï¿½ï¿½*4ï¿½×»ï¿½d2>ï¿½ï¿½ï¿½Jyï¿½Eï¿½ï¿½İ»ï¿½ï¿½ï¿½ï¿½=z\"sï¿½ï¿½áª“fbï¿½c\"ï¿½	ï¿½Õ«W\0ï¿½ï¿½ï¿½9ï¿½;jï¿½ï¿½ï¿½ï¿½|51`ï¿½ï¿½ï¿½hï¿½ï¿½~?#ï¿½:ï¿½ï¿½vUï¿½ï¿½ï¿½ï¿½ï¿½JQï¿½Í›7[ï¿½aï¿½c~\0M4ï¿½	ï¿½ï¿½ï¿½ï¿½<ï¿½ï¿½ï¿½Zï¿½>ï¿½iï¿½1)ï¿½4rï¿½H5yï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½lï¿½2ï¿½ï¿½?ï¿½ï¿½ukRA&ï¿½$Wï¿½ï¿½]ï¿½jŞ,&fï¿½Jï¿½/ï¿½Øï¿½ï¿½ï¿½[ï¿½NMï¿½8QMï¿½2%.İ¢@&Lï¿½ï¿½N;ï¿½45xï¿½ï¿½`ï¿½4ï¿½Hï¿½ï¿½\"ï¿½ï¿½RDï¿½ï¿½ï¿½ï¿½ï¿½]1ï¿½Yï¿½fï¿½jï¿½0?ï¿½Ë½ï¿½ï¿½ï¿½ï¿½\0Mï¿½ï¿½ï¿½ï¿½ï¿½\\nlï¿½ï¿½hï¿½ï¿½,Yï¿½N=ï¿½Tuï¿½g8ï¿½e\nï¿½ï¿½ï¿½kï¿½ï¿½ï¿½Ö’Wï¿½ï¿½ï¿½uï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½$\n.dÛ¶mï¿½Zï¿½/ï¿½ï¿½ï¿½>Y{sï¿½=ï¿½.ï¿½|ï¿½;ï¿½Tï¿½ï¿½Ü³ï¿½aï¿½ï¿½Wï¿½ï¿½6cÇ\rï¿½mï¿½ï¿½pï¿½ï¿½fÃŒÔµ\Zï¿½vï¿½@kï¿½SŞ‰ï¿½ï¿½ï¿½$pï¿½\\ï¿½RUï¿½ï¿½ï¿½gï¿½ï¿½7>TFPï¿½ï¿½Bï¿½eEPDï¿½ï¿½ï¿½|oï¿½ï¿½ï¿½ï¾©ï¿½ï¿½oÜ¸1\0+kï¿½\\@ï¿½ozï¿½ï¿½iï¿½Rz0ï¿½ï¿½Jï¿½.2ï¿½Dï¿½lï¿½ï¿½ï¿½oß¾ï¿½ï¿½ï¿½İ»i]ï¿½ï¿½>Bï¿½l1ï¿½W,%ï¿½ï¿½v\"ï¿½ERri{_z\\}ï¿½Å§ï¿½Ú¯9sï¿½ï¿½bï¿½4ï¿½_ï¿½ï¿½YÌµD!1ï¿½}	ï¿½\0Yï¿½ï¿½i-ï¿½ï¿½ï¿½(ï¿½ï¿½Gï¿½ï¿½PI%ngï¿½ï¿½\nÉ»hï¿½=ï¿½-ï¿½eï¿½g&ï¿½ï¿½ï¿½ï¿½Vï¿½zï¿½ï¿½ï¿½ï¿½`ï¿½$ï¿½,*|rï¿½Ï€ï¿½\rï¿½Öï¿½.ï¿½`ï¿½\\Pï¿½YP)\\ï¿½~ï¿½aM\0cQï¿½ß¼ï¿½.Eï¿½ï¿½ï¿½ï¿½ï¿½V6ï¿½%rï¿½Ygï¿½.ï¿½ =qÍ†^+ï¿½ï¿½ï¿½ï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½f*d)ï¿½l|Vï¿½ï¿½È¤Ñªï¿½K|ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½5}>ï¿½ï¿½Ò…ï¿½|ï¿½ï¿½h#ï¿½Lï¿½ï¿½ï¿½!ï¿½ï¿½APÍµï¿½J7\rï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_5ï¿½ï¿½}oï¿½ï¿½ï¿½ï¿½@ë¹·ï¿½kï¿½ï¿½\r.ï¿½	ï¿½ï¿½ï¿½ï¿½A\nSï¿½e>ï¿½\0Fï¿½ï¿½-ï¿½ï¿½ï¿½<X5abBï¿½@&ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½6ï¿½ï¿½j7ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½>Ğï¿½xï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½WØ¿?ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£Ø²\\\'ï¿½ï¿½]$ï¿½Z\rï¿½ï¿½ï¿½ï¿½Jï¿½g=@ï¿½@1Ã‡o39ï¿½K1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½kï¿½ï¿½ï¿½Rï¿½(à·»ï¿½ï¿½ï¿½lA]ï¿½ï¿½dï¿½ï¿½^dmDï¿½ï¿½.ï¿½Fï¿½Rgï¿½yffZï¿½ï¿½=ï¿½ï¿½b-ï¿½XÈ‘uXï¿½ï¿½$@18Qï¿½!pï¿½Kï¿½ï¿½ï¿½$ï¿½~ï¿½ï¿½ï¿½ï¿½\"ï¿½ï¿½ï¿½PÅ™ï¿½\"zï¿½ï¿½ï¿½ï¿½\rrï¿½K,ï¿½ï¿½6lï¿½ï¿½ï¿½ï¿½*ï¿½)\\ï¿½ï¿½ï¿½ï¿½ï¿½ZCï¿½s%ï¿½\0ï¿½Cï¿½ï¿½,ï¿½ï¿½İµï¿½-ï¿½ï¿½Í®-ï¿½ï¿½ ï¿½e0ï¿½jï¿½*\' dï¿½eï¿½;ï¿½Rï¿½eB[iï¿½ï¿½ï¿½uï¿½qï¿½ï¿½%-Ö’eï¿½Jï¿½hï¿½,ï¿½{2pq\Z*Jdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<ï¿½\0ï¿½\rEï¿½ï¿½ï¿½Zï¿½5:ï¿½ï¿½IN9å”Šï¿½ï¿½}4,ï¿½ï¿½fï¿½Q#[ï¿½-ï¿½.ï¿½ï¿½ï¿½s5ï¿½ ï¿½ï¿½Fz\0ï¿½ï¿½uIï¿½*Lï¿½ï¿½ï¿½1ï¿½ï¿½Uï¿½o\\ï¿½>9ï¿½Dï¿½gï¿½ï¿½Û—7ï¿½æ»¡ï¿½Ã¬\0Sï¿½(ï¿½ï¿½:Ã†\rï¿½.2İ¿s	ï¿½ï¿½%Vwï¿½8kÃ—8p`\0ï¿½ï¿½ï¿½DK1 Lï¿½İ§Oï¿½ï¿½!ï¿½ï¿½\\ï¿½eGï¿½ï¿½ï¿½ï¿½;ï¿½	ï¿½ï¿½ï¿½[ï¿½Vdï¿½ï¿½ï¿½Yï¿½ï¿½7}ï¿½ï¿½Dï¿½aæ¸¢,ï¿½Jï¿½YSï¿½ï¿½.fï¿½X|.ï¿½,&ï¿½9*ï¿½Zï¿½Hï¿½%ï¿½rbzï¿½|Yï¿½ï¿½ï¿½`	Ç›i\0ï¿½ß­eï¿½Fï¿½Dï¿½ï¿½ï¿½\0ï¿½Pï¿½thï¿½<ï¿½Yï¿½*\rÖ‡ï¿½ï¿½qDVï¿½\Z3ï¿½Tpï¿½\"ï¿½\\ï¿½lUzï¿½ï¿½@ï¿½ï¿½k1ï¿½8Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½i1`ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½]ï¿½$+ï¿½?ï¿½&-eï¿½ï¿½ï¿½eVsï¿½ï¿½ï¿½D$;ï¿½ï¿½ï¿½jï¿½ï¿½Ğ¡Cï¿½Dm9ï¿½(ï¿½Uï¿½_ï¿½ï¿½SF&Kï¿½Ziï¿½-[ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½Dï¿½Ö-Âˆ&ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½&ï¿½\\\\ï¿½ï¿½\nï¿½7È®\0dï¿½ï¿½ï¿½**bï¿½.ï¿½ï¿½URï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_]Uï¿½\\aU\Zï¿½ï¿½Yï¿½ï¿½Mï¿½i\Z|ï¿½ïŠ…V3ï¿½$ï¿½Vï¿½gï¿½\\ï¿½9ï¿½İºukï¿½;1ï¿½iï¿½S(ï¿½0ï¿½Îï¿½ï¿½Uï¿½1~Rï¿½qiï¿½Ş½ï¿½Wï¿½Dï¿½ï¿½+kï¿½ï¿½&aTï¿½ATï¿½ï¿½ï¿½HÚï¿½ï¿½ï¿½ 6ï¿½Kï¿½Iï¿½M\0ï¿½#ï¿½ï¿½a%;/;wVï¿½ï¿½>ï¿½Lmï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½Sï¿½S[ï¿½nU/ï¿½ï¿½Rï¿½m\0+id0ï¿½Kï¿½ï¿½ï¿½\'\\ï¿½G1.\'+>bï¿½ï¿½F*ï¿½ï¿½ï¿½Kuï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ Jï¿½ï¿½YUpï¿½ï¿½\rï¿½ï¿½ï¿½ï¿½2ï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^{-hmï¿½ï¿½wï¿½ï¿½,Dï¿½-u%ï¿½\\V9PÖ†ï¿½ï¿½ï¿½ï¿½ï¿½Tnï¿½ï¿½ï¿½Äˆ\nbï¿½ï¿½ï¿½qï¿½~ï¿½ï¿½ï¿½]ï¿½ï¿½mÍï¿½nï¿½Kï¿½*ZZï¿½Xï¿½ï¿½ï¿½nï¿½ï¿½ï¿½W%ASï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½4/:6\rDX(5ï¿½ï¿½yï¿½Ç|ZÄ¦Ä’aï¿½ï¿½.ï¿½Qï¿½Yrï¿½ï¿½.Uï¿½J$ï¿½^-iCï¿½QGï¿½eï¿½ï¿½à²¸ï¿½ï¿½z\rï¿½^cï¿½O8\0~ß—ï¿½ï¿½É¤ï¿½.%>ï¿½,ï¿½}ï¿½4ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½6=ï¿½fï¿½ï¿½lï¿½\'ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½`\0c\"ï¿½ØºK?IÆŸqfï¿½ï¿½`Fï¿½Zï¿½jï¿½ï¿½ï¿½\\ï¿½yï¿½:|ëª½Zï¿½hï¿½(_Kï¿½ï¿½@&ï¿½wï¿½Ş¹jï¿½ï¿½lmï¿½Mï¿½ï¿½^Eojï¿½$\'ï¿½ï¿½L[ï¿½ï¿½ï¿½[RXï¿½ï¿½ï¿½6fhï¿½ï¿½\'ï¿½ï¿½25ï¿½^ï¿½ï¿½*ï¿½H*ï¿½ï¿½Bï¿½cï¿½Zï¿½w	ï¿½8&ï¿½y*ï¿½3ï¿½K\"ï¿½aï¿½;ï¿½ï¿½\0,Jï¿½TÔ¡ï¿½Zfï¿½mï¿½Ñ¨=Tï¿½è»®ï¿½ï¿½|ï¿½ï¿½@\Z$ï¿½ï¿½ï¿½eï¿½Lfï¿½ZI4ï¿½ï¿½Fï¿½o×±ï¿½Dï¿½ï¿½ï¿½.ï¿½-ï¿½ï¿½ï¿½Ğ¤ï¿½Sï¿½ï¿½k9é¤“Ê®ï¿½ï¿½<å™¢|/ï¿½ï¿½ï¿½Dpq,:,ï¿½bÒ¯Qï¿½ï¿½ï¿½=ï¿½ï¿½|Uï¿½Sï¿½\\bï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½cTï¿½ï¿½ï¿½İ»ï¿½ï¿½ï¿½ï¿½\0Hï¿½\\Zï¿½Gï¿½ï¿½ï¿½&Y`iï¿½/ï¿½{ï¿½!(cï¿½f.\\ï¿½ï¿½ï¿½ï¿½c}= aï¿½ï¿½<ï¿½iï¿½ï¿½.Eï¿½ï¿½pï¿½ï¿½-ï¿½7jwï¿½cï¿½ï¿½Pï¿½ï¿½%ï¿½\"fï¿½~ï¿½3ï¿½ï¿½mï¿½ï¿½ï¿½]ï¿½ï¿½9Zï¿½Å¼ï¿½ï¿½B~7É‹@ï¿½}ï¿½ï¿½ç™”5ï¿½f\"c\'f\"ï¿½Nï¿½ï¿½^QpzØ¡Yï¿½\"Aï¿½ï¿½ï¿½ï¿½.9Rb+ï¿½ï¿½ï¿½fï¿½$Pï¿½ipï¿½bï¿½	#ï¿½H86mrSO2ï¿½ï¿½ï¿½|ï¿½ï¿½%ï¿½ï¿½(\nZï¿½ï¿½/,ï¿½ï¿½*)k2M*ï¿½ï¿½ï¿½,F|ï¿½ï¿½ï¿½?k9nï¿½mï¿½;ï¿½>ï¿½uï¿½mï¿½4ï¿½!!ï¿½8ï¿½ï¿½]\"Oï¿½+ï¿½ï¿½ï¿½ï¿½%ï¿½Uï¿½ï¿½ï¿½ï¿½9!4zï¿½IHï¿½Sï¿½B*=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æehï¿½ï¿½Ô«ï¿½ï¿½6ï¿½ï¿½ï¿½Zï¿½cF]ï¿½ï¿½-Iï¿½ï¿½Øº7ï¿½NÈˆ#r5ï¿½Lvï¿½Î[ï¿½FFï¿½ß•È†\r\"ËŸï¿½L\"\'ï¿½ï¿½ï¿½7o^Uï¿½Vv{qï¿½ï¿½8ï¿½_\rï¿½ï¿½jï¿½ï¿½<ï¿½u/foT`ï¿½ï¿½5ï¿½a+ï¿½Mï¿½ï¿½fs#ï¿½|ï¿½QZ_ï¿½Eï¿½ï¿½+Ê²ï¿½0Ieï¿½ï¿½;ï¿½6ï¿½h-	lï¿½3ï¿½ï¿½ï¿½&ï¿½Ì±ï¿½ï¿½Qï¿½ï¿½i7_Lï¿½Tï¿½\0\0\0\0IENDï¿½B`ï¿½');
+/*!40000 ALTER TABLE `tbimagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbLaboratorio`
+-- Table structure for table `tblaboratorio`
 --
 
-DROP TABLE IF EXISTS `tbLaboratorio`;
+DROP TABLE IF EXISTS `tblaboratorio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbLaboratorio` (
+CREATE TABLE `tblaboratorio` (
   `idLab` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nomeLab` varchar(45) NOT NULL,
   `capAluno` int(10) unsigned NOT NULL,
@@ -491,80 +491,80 @@ CREATE TABLE `tbLaboratorio` (
   `subRede` varchar(25) NOT NULL,
   PRIMARY KEY (`idLab`),
   KEY `idCor` (`idCor`),
-  CONSTRAINT `tbLaboratorio_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbCor` (`idCor`) ON UPDATE NO ACTION
+  CONSTRAINT `tblaboratorio_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbLaboratorio`
+-- Dumping data for table `tblaboratorio`
 --
 
-LOCK TABLES `tbLaboratorio` WRITE;
-/*!40000 ALTER TABLE `tbLaboratorio` DISABLE KEYS */;
-INSERT INTO `tbLaboratorio` VALUES (1,'LaboratÃ³rio de GraduaÃ§Ã£o 01',60,30,'Inativo',1,'10.27.11.0'),(2,'LaboratÃ³rio de GraduaÃ§Ã£o 02',30,12,'Ativo',2,'10.27.12.0'),(3,'LaboratÃ³rio de GraduaÃ§Ã£o 03',15,8,'Ativo',3,'10.27.13.0'),(4,'LaboratÃ³rio de GraduaÃ§Ã£o 04',40,20,'Ativo',4,'10.27.14.0'),(5,'LaboratÃ³rio de GraduaÃ§Ã£o 05',24,12,'Ativo',5,'10.27.15.0'),(6,'LaboratÃ³rio de GraduaÃ§Ã£o 06',6,6,'Ativo',6,'10.27.16.0'),(7,'LaboratÃ³rio de Hardware 01',21,7,'Ativo',7,'10.27.22.0'),(8,'LaboratÃ³rio Geral de Estudos',34,17,'Ativo',8,'10.27.21.0');
-/*!40000 ALTER TABLE `tbLaboratorio` ENABLE KEYS */;
+LOCK TABLES `tblaboratorio` WRITE;
+/*!40000 ALTER TABLE `tblaboratorio` DISABLE KEYS */;
+INSERT INTO `tblaboratorio` VALUES (1,'LaboratÃ³rio de GraduaÃ§Ã£o 01',60,30,'Inativo',1,'10.27.11.0'),(2,'LaboratÃ³rio de GraduaÃ§Ã£o 02',30,12,'Ativo',2,'10.27.12.0'),(3,'LaboratÃ³rio de GraduaÃ§Ã£o 03',15,8,'Ativo',3,'10.27.13.0'),(4,'LaboratÃ³rio de GraduaÃ§Ã£o 04',40,20,'Ativo',4,'10.27.14.0'),(5,'LaboratÃ³rio de GraduaÃ§Ã£o 05',24,12,'Ativo',5,'10.27.15.0'),(6,'LaboratÃ³rio de GraduaÃ§Ã£o 06',6,6,'Ativo',6,'10.27.16.0'),(7,'LaboratÃ³rio de Hardware 01',21,7,'Ativo',7,'10.27.22.0'),(8,'LaboratÃ³rio Geral de Estudos',34,17,'Ativo',8,'10.27.21.0');
+/*!40000 ALTER TABLE `tblaboratorio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbMatricula`
+-- Table structure for table `tbmatricula`
 --
 
-DROP TABLE IF EXISTS `tbMatricula`;
+DROP TABLE IF EXISTS `tbmatricula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbMatricula` (
+CREATE TABLE `tbmatricula` (
   `idUser` int(10) unsigned NOT NULL,
   `matricula` varchar(12) NOT NULL,
   PRIMARY KEY (`idUser`),
-  CONSTRAINT `tbMatricula_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbmatricula_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbMatricula`
+-- Dumping data for table `tbmatricula`
 --
 
-LOCK TABLES `tbMatricula` WRITE;
-/*!40000 ALTER TABLE `tbMatricula` DISABLE KEYS */;
-INSERT INTO `tbMatricula` VALUES (1,'201310009998'),(11,'343243435443'),(12,'201320001598'),(13,'201320001598');
-/*!40000 ALTER TABLE `tbMatricula` ENABLE KEYS */;
+LOCK TABLES `tbmatricula` WRITE;
+/*!40000 ALTER TABLE `tbmatricula` DISABLE KEYS */;
+INSERT INTO `tbmatricula` VALUES (1,'201310009998'),(11,'343243435443'),(12,'201320001598'),(13,'201320001598');
+/*!40000 ALTER TABLE `tbmatricula` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbNotiConexao`
+-- Table structure for table `tbnoticonexao`
 --
 
-DROP TABLE IF EXISTS `tbNotiConexao`;
+DROP TABLE IF EXISTS `tbnoticonexao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbNotiConexao` (
+CREATE TABLE `tbnoticonexao` (
   `idUser` int(10) unsigned NOT NULL,
   `idNoti` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idUser`,`idNoti`),
   KEY `idNoti` (`idNoti`),
-  CONSTRAINT `tbNotiConexao_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbNotiConexao_ibfk_2` FOREIGN KEY (`idNoti`) REFERENCES `tbNotificacao` (`idNoti`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbnoticonexao_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbnoticonexao_ibfk_2` FOREIGN KEY (`idNoti`) REFERENCES `tbnotificacao` (`idNoti`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbNotiConexao`
+-- Dumping data for table `tbnoticonexao`
 --
 
-LOCK TABLES `tbNotiConexao` WRITE;
-/*!40000 ALTER TABLE `tbNotiConexao` DISABLE KEYS */;
-INSERT INTO `tbNotiConexao` VALUES (9,20),(10,20);
-/*!40000 ALTER TABLE `tbNotiConexao` ENABLE KEYS */;
+LOCK TABLES `tbnoticonexao` WRITE;
+/*!40000 ALTER TABLE `tbnoticonexao` DISABLE KEYS */;
+INSERT INTO `tbnoticonexao` VALUES (9,20),(10,20);
+/*!40000 ALTER TABLE `tbnoticonexao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbNotificacao`
+-- Table structure for table `tbnotificacao`
 --
 
-DROP TABLE IF EXISTS `tbNotificacao`;
+DROP TABLE IF EXISTS `tbnotificacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbNotificacao` (
+CREATE TABLE `tbnotificacao` (
   `idNoti` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `notificacao` text NOT NULL,
   `statusNoti` tinyint(1) NOT NULL,
@@ -574,73 +574,73 @@ CREATE TABLE `tbNotificacao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbNotificacao`
+-- Dumping data for table `tbnotificacao`
 --
 
-LOCK TABLES `tbNotificacao` WRITE;
-/*!40000 ALTER TABLE `tbNotificacao` DISABLE KEYS */;
-INSERT INTO `tbNotificacao` VALUES (3,'<li>\r\n                      <a href=\"noti.php?id=0&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(4,'<li>\r\n                      <a href=\"noti.php?id=4&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(5,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(6,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(7,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(8,'<li>\r\n                      <a href=\"noti.php?id=8&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(9,'<li>\r\n                      <a href=\"noti.php?id=9&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(10,'<li>\r\n                      <a href=\"noti.php?id=10&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(11,'<li>\r\n                      <a href=\"noti.php?id=11&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(12,'<li>\r\n                      <a href=\"noti.php?id=12&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(13,'<li>\r\n                      <a href=\"noti.php?id=13&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(14,'<li>\r\n                      <a href=\"noti.php?id=14&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(15,'<li>\r\n                      <a href=\"noti.php?id=15&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(16,'<li>\r\n                      <a href=\"noti.php?id=16&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(17,'<li>\r\n                      <a href=\"noti.php?id=17&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(18,'<li>\r\n                      <a href=\"noti.php?id=18&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(19,'<li>\r\n                      <a href=\"noti.php?id=19&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(20,'<li>\r\n                      <a href=\"noti.php?id=20&ir=/perfil/2/\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-retweet text-aqua\"></i> UsuÃ¡rio requisitou a troca de sua senha\r\n                      </a>\r\n                    </li>',1,'2016-02-22');
-/*!40000 ALTER TABLE `tbNotificacao` ENABLE KEYS */;
+LOCK TABLES `tbnotificacao` WRITE;
+/*!40000 ALTER TABLE `tbnotificacao` DISABLE KEYS */;
+INSERT INTO `tbnotificacao` VALUES (3,'<li>\r\n                      <a href=\"noti.php?id=0&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(4,'<li>\r\n                      <a href=\"noti.php?id=4&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(5,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(6,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(7,'<li>\r\n                      <a href=\"noti.php?id=&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi \r\n                      </a>\r\n                    </li>',0,NULL),(8,'<li>\r\n                      <a href=\"noti.php?id=8&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(9,'<li>\r\n                      <a href=\"noti.php?id=9&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(10,'<li>\r\n                      <a href=\"noti.php?id=10&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(11,'<li>\r\n                      <a href=\"noti.php?id=11&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(12,'<li>\r\n                      <a href=\"noti.php?id=12&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(13,'<li>\r\n                      <a href=\"noti.php?id=13&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(14,'<li>\r\n                      <a href=\"noti.php?id=14&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(15,'<li>\r\n                      <a href=\"noti.php?id=15&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(16,'<li>\r\n                      <a href=\"noti.php?id=16&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(17,'<li>\r\n                      <a href=\"noti.php?id=17&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(18,'<li>\r\n                      <a href=\"noti.php?id=18&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(19,'<li>\r\n                      <a href=\"noti.php?id=19&ir=/salas/minhas\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-pencil-square-o text-red\"></i> Sua reserva foi Negada\r\n                      </a>\r\n                    </li>',0,NULL),(20,'<li>\r\n                      <a href=\"noti.php?id=20&ir=/perfil/2/\" style=\"background-color: #EFEEEE\">\r\n                        <i class=\"fa fa-retweet text-aqua\"></i> UsuÃ¡rio requisitou a troca de sua senha\r\n                      </a>\r\n                    </li>',1,'2016-02-22');
+/*!40000 ALTER TABLE `tbnotificacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbOnline`
+-- Table structure for table `tbonline`
 --
 
-DROP TABLE IF EXISTS `tbOnline`;
+DROP TABLE IF EXISTS `tbonline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbOnline` (
+CREATE TABLE `tbonline` (
   `idUser` int(10) unsigned NOT NULL,
   `tempoExpirar` datetime NOT NULL,
   `sessao` varchar(30) NOT NULL,
   `senha` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idUser`),
-  CONSTRAINT `tbOnline_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON UPDATE NO ACTION
+  CONSTRAINT `tbonline_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbOnline`
+-- Dumping data for table `tbonline`
 --
 
-LOCK TABLES `tbOnline` WRITE;
-/*!40000 ALTER TABLE `tbOnline` DISABLE KEYS */;
-INSERT INTO `tbOnline` VALUES (1,'2015-12-10 15:19:00','9j6rvkkmd358hj9atc641khn82',NULL),(2,'2015-11-17 18:36:13','n8cf99al8nth6k58oojdj7j2t5',NULL),(3,'2015-12-14 16:52:32','7hj012h6hloqvscp66g60s4jv2',NULL),(9,'2015-11-17 18:09:59','3glc456ei4n72etcjh4uatl7d1',NULL),(10,'2016-06-08 17:42:54','8ce2g5m4l42hp0ra6f4aajhg35',NULL);
-/*!40000 ALTER TABLE `tbOnline` ENABLE KEYS */;
+LOCK TABLES `tbonline` WRITE;
+/*!40000 ALTER TABLE `tbonline` DISABLE KEYS */;
+INSERT INTO `tbonline` VALUES (1,'2015-12-10 15:19:00','9j6rvkkmd358hj9atc641khn82',NULL),(2,'2015-11-17 18:36:13','n8cf99al8nth6k58oojdj7j2t5',NULL),(3,'2015-12-14 16:52:32','7hj012h6hloqvscp66g60s4jv2',NULL),(9,'2015-11-17 18:09:59','3glc456ei4n72etcjh4uatl7d1',NULL),(10,'2016-06-08 17:42:54','8ce2g5m4l42hp0ra6f4aajhg35',NULL);
+/*!40000 ALTER TABLE `tbonline` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbPrimeiroAcesso`
+-- Table structure for table `tbprimeiroacesso`
 --
 
-DROP TABLE IF EXISTS `tbPrimeiroAcesso`;
+DROP TABLE IF EXISTS `tbprimeiroacesso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbPrimeiroAcesso` (
+CREATE TABLE `tbprimeiroacesso` (
   `idUser` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idUser`),
-  CONSTRAINT `tbPrimeiroAcesso_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbprimeiroacesso_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbPrimeiroAcesso`
+-- Dumping data for table `tbprimeiroacesso`
 --
 
-LOCK TABLES `tbPrimeiroAcesso` WRITE;
-/*!40000 ALTER TABLE `tbPrimeiroAcesso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbPrimeiroAcesso` ENABLE KEYS */;
+LOCK TABLES `tbprimeiroacesso` WRITE;
+/*!40000 ALTER TABLE `tbprimeiroacesso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbprimeiroacesso` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbRequerimentos`
+-- Table structure for table `tbrequerimentos`
 --
 
-DROP TABLE IF EXISTS `tbRequerimentos`;
+DROP TABLE IF EXISTS `tbrequerimentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbRequerimentos` (
+CREATE TABLE `tbrequerimentos` (
   `idReq` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(10) unsigned NOT NULL,
   `dataReq` date NOT NULL,
@@ -650,28 +650,28 @@ CREATE TABLE `tbRequerimentos` (
   `justificativaReq` text CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`idReq`),
   KEY `idUser` (`idUser`),
-  CONSTRAINT `tbRequerimentos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbrequerimentos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbRequerimentos`
+-- Dumping data for table `tbrequerimentos`
 --
 
-LOCK TABLES `tbRequerimentos` WRITE;
-/*!40000 ALTER TABLE `tbRequerimentos` DISABLE KEYS */;
-INSERT INTO `tbRequerimentos` VALUES (1,1,'2015-08-27','teste/+12/mm/yyyy/+10/mm/yyyy',1,'Negado','hgfhgfnbjmhbnvb');
-/*!40000 ALTER TABLE `tbRequerimentos` ENABLE KEYS */;
+LOCK TABLES `tbrequerimentos` WRITE;
+/*!40000 ALTER TABLE `tbrequerimentos` DISABLE KEYS */;
+INSERT INTO `tbrequerimentos` VALUES (1,1,'2015-08-27','teste/+12/mm/yyyy/+10/mm/yyyy',1,'Negado','hgfhgfnbjmhbnvb');
+/*!40000 ALTER TABLE `tbrequerimentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbReservaEq`
+-- Table structure for table `tbreservaeq`
 --
 
-DROP TABLE IF EXISTS `tbReservaEq`;
+DROP TABLE IF EXISTS `tbreservaeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbReservaEq` (
+CREATE TABLE `tbreservaeq` (
   `idReEq` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idUser` int(10) unsigned NOT NULL,
   `motivoReEq` varchar(255) NOT NULL,
@@ -680,18 +680,18 @@ CREATE TABLE `tbReservaEq` (
   PRIMARY KEY (`idReEq`),
   KEY `idReEq` (`idReEq`),
   KEY `idReserva` (`idUser`),
-  CONSTRAINT `tbReservaEq_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbreservaeq_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbReservaEq`
+-- Dumping data for table `tbreservaeq`
 --
 
-LOCK TABLES `tbReservaEq` WRITE;
-/*!40000 ALTER TABLE `tbReservaEq` DISABLE KEYS */;
-INSERT INTO `tbReservaEq` VALUES (1,3,'vnmbcxvhgcxb','gnbxxbncn','2016-03-07'),(2,3,',mb,bnmnvmbjncb','jhfjbvnbvn','2016-03-07'),(3,3,'gshhdvbxc','gnbcvbxvcn','2016-03-07'),(4,3,'kfnlkgdnglsnf','tefkdg','2016-03-08'),(5,3,'dsfsgdfas','sgfgsfgfdfasd','2016-03-22'),(7,1,'fgfdvhgsbnvbmfgd,kdbg nvcgdvfdbnv nvfdhfgbnhtn','tgrsfhfsdvncvbbf','2016-04-04'),(8,3,'fvbbxczvnbxzvb','gfsdavcxfvcb','2016-04-04'),(9,3,'fvbbxczvnbxzvb','gfsdavcxfvcb','2016-04-04'),(10,3,'ngdsngdnvdscb','gfshzbvc','2016-04-04'),(11,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(12,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(13,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(14,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(15,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(16,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(18,10,'bacsbdvbxvbs','thfsdhfddvbc','2016-04-18'),(19,3,'vdbfvw','teste','2016-04-18'),(20,3,'dfojbgkjas.dnggdag','t01','2016-04-20'),(21,3,'fgofegjlsdfhgskfhgggafg','t02','2016-04-20'),(22,3,'fgfsgfsgsfgdf','teste 1','2016-04-23'),(23,3,'gfdgsfdgf','teste 2f','2016-04-23'),(24,3,'gfsgfdgdf','teste 3','2016-04-23'),(25,3,'gfdsgfds','teste 4','2016-04-23'),(26,3,'fdsgdfgfd','teste 4','2016-04-23'),(27,3,'sfgfgsd','teste 5','2016-04-23'),(28,3,'sfagfsagfagag','teste 6','2016-04-23'),(29,3,'emrekjhgdklmhbgf','teste 7','2016-04-23'),(30,3,'rfhsgdhghdgh','TESTE 08','2016-04-23'),(31,3,'dskjkgbsdkjgnjsdg','teste 09','2016-04-23'),(32,3,'djbgkjfsdhgkfsngdfgg','teste 10','2016-04-23'),(33,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(34,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(35,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(36,3,'ghfghgdhfdvbd','teste 03','2016-04-25'),(37,3,'ndkmgnfdkjsgnfg','teste 04','2016-04-25'),(38,2,'Ã§jdabgsdkjfgfs','thdkjvzm','2016-05-15'),(39,3,'fknzvdbvvcx','teste 02','2016-05-22'),(40,3,'wrthyrehbfd','teste 03','2016-05-22'),(41,3,'dfgsgfsdd','teste fgndkf','2016-06-07'),(42,3,'gdsgfdgdsfgds','rwtregfg','2016-06-07'),(43,3,'fdfasdfdsfas','teste 01','2016-06-07'),(45,3,'fdsjgnkflsng','teste 03','2016-06-07');
-/*!40000 ALTER TABLE `tbReservaEq` ENABLE KEYS */;
+LOCK TABLES `tbreservaeq` WRITE;
+/*!40000 ALTER TABLE `tbreservaeq` DISABLE KEYS */;
+INSERT INTO `tbreservaeq` VALUES (1,3,'vnmbcxvhgcxb','gnbxxbncn','2016-03-07'),(2,3,',mb,bnmnvmbjncb','jhfjbvnbvn','2016-03-07'),(3,3,'gshhdvbxc','gnbcvbxvcn','2016-03-07'),(4,3,'kfnlkgdnglsnf','tefkdg','2016-03-08'),(5,3,'dsfsgdfas','sgfgsfgfdfasd','2016-03-22'),(7,1,'fgfdvhgsbnvbmfgd,kdbg nvcgdvfdbnv nvfdhfgbnhtn','tgrsfhfsdvncvbbf','2016-04-04'),(8,3,'fvbbxczvnbxzvb','gfsdavcxfvcb','2016-04-04'),(9,3,'fvbbxczvnbxzvb','gfsdavcxfvcb','2016-04-04'),(10,3,'ngdsngdnvdscb','gfshzbvc','2016-04-04'),(11,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(12,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(13,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(14,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(15,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(16,3,'cvznxcvnvcxbvc','ngvbc ncn','2016-04-04'),(18,10,'bacsbdvbxvbs','thfsdhfddvbc','2016-04-18'),(19,3,'vdbfvw','teste','2016-04-18'),(20,3,'dfojbgkjas.dnggdag','t01','2016-04-20'),(21,3,'fgofegjlsdfhgskfhgggafg','t02','2016-04-20'),(22,3,'fgfsgfsgsfgdf','teste 1','2016-04-23'),(23,3,'gfdgsfdgf','teste 2f','2016-04-23'),(24,3,'gfsgfdgdf','teste 3','2016-04-23'),(25,3,'gfdsgfds','teste 4','2016-04-23'),(26,3,'fdsgdfgfd','teste 4','2016-04-23'),(27,3,'sfgfgsd','teste 5','2016-04-23'),(28,3,'sfagfsagfagag','teste 6','2016-04-23'),(29,3,'emrekjhgdklmhbgf','teste 7','2016-04-23'),(30,3,'rfhsgdhghdgh','TESTE 08','2016-04-23'),(31,3,'dskjkgbsdkjgnjsdg','teste 09','2016-04-23'),(32,3,'djbgkjfsdhgkfsngdfgg','teste 10','2016-04-23'),(33,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(34,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(35,3,'gsdgfdg','tyhtehyfdg','2016-04-25'),(36,3,'ghfghgdhfdvbd','teste 03','2016-04-25'),(37,3,'ndkmgnfdkjsgnfg','teste 04','2016-04-25'),(38,2,'Ã§jdabgsdkjfgfs','thdkjvzm','2016-05-15'),(39,3,'fknzvdbvvcx','teste 02','2016-05-22'),(40,3,'wrthyrehbfd','teste 03','2016-05-22'),(41,3,'dfgsgfsdd','teste fgndkf','2016-06-07'),(42,3,'gdsgfdgdsfgds','rwtregfg','2016-06-07'),(43,3,'fdfasdfdsfas','teste 01','2016-06-07'),(45,3,'fdsjgnkflsng','teste 03','2016-06-07');
+/*!40000 ALTER TABLE `tbreservaeq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -702,7 +702,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReEq` BEFORE INSERT ON `tbReservaEq`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReEq` BEFORE INSERT ON `tbreservaeq`
  FOR EACH ROW set new.expiraReEq = date_add(current_date(), interval 180 day) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -711,13 +711,13 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Table structure for table `tbReservaLab`
+-- Table structure for table `tbreservalab`
 --
 
-DROP TABLE IF EXISTS `tbReservaLab`;
+DROP TABLE IF EXISTS `tbreservalab`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbReservaLab` (
+CREATE TABLE `tbreservalab` (
   `idReLab` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idUser` int(10) unsigned NOT NULL,
   `motivoReLab` varchar(255) NOT NULL,
@@ -727,18 +727,18 @@ CREATE TABLE `tbReservaLab` (
   `expiraReLab` date DEFAULT NULL,
   PRIMARY KEY (`idReLab`),
   KEY `idUser` (`idUser`),
-  CONSTRAINT `tbReservaLab_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbreservalab_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbReservaLab`
+-- Dumping data for table `tbreservalab`
 --
 
-LOCK TABLES `tbReservaLab` WRITE;
-/*!40000 ALTER TABLE `tbReservaLab` DISABLE KEYS */;
-INSERT INTO `tbReservaLab` VALUES (1,3,'gdsgdsfd','teste','Privado',0,'2016-03-06'),(2,3,'fdzbvxzbxcvzx','cdvsvgdsfbfgdfshv','Privado',0,'2016-03-07'),(3,3,'gfghmvhjvhb','khghjvbvee','Privado',0,'2016-03-07'),(6,3,'bvxcbcvbvcx','bhvxbvzbv','Privado',0,'2016-04-11'),(11,3,'gfhngfnbdv','teste 02','Privado',0,'2016-04-24'),(12,3,'fhdshggngnf','teste 03','Compartilhado',1,'2016-04-24'),(13,3,'wkfnblsgdknhdf','teste 04','Compartilhado',1,'2016-04-24'),(14,3,'dwfasgdsgadsfg','teste 05','Compartilhado',2,'2016-04-24'),(15,3,'Ndlkfgnfdsglknfdgda','dfgstgsgmK','Privado',0,'2016-04-24'),(16,3,'dfhdfgdgsh','teste 01','Privado',0,'2016-04-25'),(17,3,'dkngaflsngdskng','testeX 01','Privado',0,'2016-05-01'),(18,2,'vbxvcbvcxb','gdfvsdbvc','Privado',0,'2016-05-15'),(19,3,'fdfdsafd','teste chang','Privado',0,'2016-06-07'),(20,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(21,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(22,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(23,3,'dfsdafdsfasdf','teste 02','Privado',0,'2016-06-07'),(24,3,'dfsdfdsfad','teste 03','Privado',0,'2016-06-07'),(25,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(26,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(28,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(29,3,'fjbgmndgisafnbkcs,v','teste 05','Privado',0,'2016-06-07'),(30,3,'dwjobgjfjgdsgvsdfgc','testeX 02','Privado',0,'2016-06-08'),(31,3,'feooghflkdngd','testex 02','Privado',0,'2016-06-11'),(39,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(40,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(41,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(42,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(43,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11');
-/*!40000 ALTER TABLE `tbReservaLab` ENABLE KEYS */;
+LOCK TABLES `tbreservalab` WRITE;
+/*!40000 ALTER TABLE `tbreservalab` DISABLE KEYS */;
+INSERT INTO `tbreservalab` VALUES (1,3,'gdsgdsfd','teste','Privado',0,'2016-03-06'),(2,3,'fdzbvxzbxcvzx','cdvsvgdsfbfgdfshv','Privado',0,'2016-03-07'),(3,3,'gfghmvhjvhb','khghjvbvee','Privado',0,'2016-03-07'),(6,3,'bvxcbcvbvcx','bhvxbvzbv','Privado',0,'2016-04-11'),(11,3,'gfhngfnbdv','teste 02','Privado',0,'2016-04-24'),(12,3,'fhdshggngnf','teste 03','Compartilhado',1,'2016-04-24'),(13,3,'wkfnblsgdknhdf','teste 04','Compartilhado',1,'2016-04-24'),(14,3,'dwfasgdsgadsfg','teste 05','Compartilhado',2,'2016-04-24'),(15,3,'Ndlkfgnfdsglknfdgda','dfgstgsgmK','Privado',0,'2016-04-24'),(16,3,'dfhdfgdgsh','teste 01','Privado',0,'2016-04-25'),(17,3,'dkngaflsngdskng','testeX 01','Privado',0,'2016-05-01'),(18,2,'vbxvcbvcxb','gdfvsdbvc','Privado',0,'2016-05-15'),(19,3,'fdfdsafd','teste chang','Privado',0,'2016-06-07'),(20,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(21,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(22,3,'dfsdafdsfasdf','teste 01','Privado',0,'2016-06-07'),(23,3,'dfsdafdsfasdf','teste 02','Privado',0,'2016-06-07'),(24,3,'dfsdfdsfad','teste 03','Privado',0,'2016-06-07'),(25,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(26,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(28,3,'dgisafnbkcs,v','teknfdsvn','Privado',0,'2016-06-07'),(29,3,'fjbgmndgisafnbkcs,v','teste 05','Privado',0,'2016-06-07'),(30,3,'dwjobgjfjgdsgvsdfgc','testeX 02','Privado',0,'2016-06-08'),(31,3,'feooghflkdngd','testex 02','Privado',0,'2016-06-11'),(39,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(40,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(41,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(42,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11'),(43,3,'fgjafdkbndkbsgdb','testex 03','Privado',0,'2016-06-11');
+/*!40000 ALTER TABLE `tbreservalab` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -749,7 +749,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReLab` BEFORE INSERT ON `tbReservaLab`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReLab` BEFORE INSERT ON `tbreservalab`
  FOR EACH ROW set new.expiraReLab = date_add(current_date(), interval 180 day) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -758,13 +758,13 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Table structure for table `tbReservaSala`
+-- Table structure for table `tbreservasala`
 --
 
-DROP TABLE IF EXISTS `tbReservaSala`;
+DROP TABLE IF EXISTS `tbreservasala`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbReservaSala` (
+CREATE TABLE `tbreservasala` (
   `idReSala` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idUser` int(10) unsigned NOT NULL,
   `idSala` int(10) unsigned NOT NULL,
@@ -774,19 +774,19 @@ CREATE TABLE `tbReservaSala` (
   PRIMARY KEY (`idReSala`),
   KEY `idUser` (`idUser`),
   KEY `idSala` (`idSala`),
-  CONSTRAINT `tbReservaSala_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbReservaSala_ibfk_2` FOREIGN KEY (`idSala`) REFERENCES `tbSala` (`idSala`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbreservasala_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbreservasala_ibfk_2` FOREIGN KEY (`idSala`) REFERENCES `tbsala` (`idSala`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbReservaSala`
+-- Dumping data for table `tbreservasala`
 --
 
-LOCK TABLES `tbReservaSala` WRITE;
-/*!40000 ALTER TABLE `tbReservaSala` DISABLE KEYS */;
-INSERT INTO `tbReservaSala` VALUES (1,10,4,'rgfdgfdgdsvb','teste dvvnskfn','2016-05-24'),(2,10,4,'rgfdgfdgdsvb','teste dvvnskfn','2016-05-24'),(3,10,4,'dpghfljkagdsg','teste 1','2016-06-08'),(4,3,4,'fdskgnkfdlgfgds','teste 3','2016-06-08'),(5,3,4,'dgnskflgnsf','teste 4','2016-06-08');
-/*!40000 ALTER TABLE `tbReservaSala` ENABLE KEYS */;
+LOCK TABLES `tbreservasala` WRITE;
+/*!40000 ALTER TABLE `tbreservasala` DISABLE KEYS */;
+INSERT INTO `tbreservasala` VALUES (1,10,4,'rgfdgfdgdsvb','teste dvvnskfn','2016-05-24'),(2,10,4,'rgfdgfdgdsvb','teste dvvnskfn','2016-05-24'),(3,10,4,'dpghfljkagdsg','teste 1','2016-06-08'),(4,3,4,'fdskgnkfdlgfgds','teste 3','2016-06-08'),(5,3,4,'dgnskflgnsf','teste 4','2016-06-08');
+/*!40000 ALTER TABLE `tbreservasala` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -797,7 +797,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReSala` BEFORE INSERT ON `tbReservaSala`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ExpiraReSala` BEFORE INSERT ON `tbreservasala`
  FOR EACH ROW set new.expirarReSala = date_add(current_date(), interval 180 day) */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -806,41 +806,41 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Table structure for table `tbReservaTipoEq`
+-- Table structure for table `tbreservatipoeq`
 --
 
-DROP TABLE IF EXISTS `tbReservaTipoEq`;
+DROP TABLE IF EXISTS `tbreservatipoeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbReservaTipoEq` (
+CREATE TABLE `tbreservatipoeq` (
   `idTipoEq` int(10) unsigned NOT NULL,
   `idReEq` int(10) unsigned NOT NULL,
   `numReEq` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idTipoEq`,`idReEq`),
   KEY `idReEq` (`idReEq`),
-  CONSTRAINT `tbReservaTipoEq_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbTipoEq` (`idTipoEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `tbReservaTipoEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbReservaEq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbreservatipoeq_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `tbreservatipoeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbReservaTipoEq`
+-- Dumping data for table `tbreservatipoeq`
 --
 
-LOCK TABLES `tbReservaTipoEq` WRITE;
-/*!40000 ALTER TABLE `tbReservaTipoEq` DISABLE KEYS */;
-INSERT INTO `tbReservaTipoEq` VALUES (2,3,1),(2,7,1),(2,9,1),(2,25,1),(2,33,1),(2,34,1),(2,35,1),(2,38,1),(2,42,1),(2,43,1),(3,18,1),(3,19,1),(3,20,1),(3,21,1),(3,22,1),(3,23,1),(3,24,1),(3,26,1),(3,27,2),(3,28,2),(3,29,1),(3,30,1),(3,31,1),(3,32,1),(3,37,1),(3,39,1),(3,40,1),(3,43,1),(3,45,1);
-/*!40000 ALTER TABLE `tbReservaTipoEq` ENABLE KEYS */;
+LOCK TABLES `tbreservatipoeq` WRITE;
+/*!40000 ALTER TABLE `tbreservatipoeq` DISABLE KEYS */;
+INSERT INTO `tbreservatipoeq` VALUES (2,3,1),(2,7,1),(2,9,1),(2,25,1),(2,33,1),(2,34,1),(2,35,1),(2,38,1),(2,42,1),(2,43,1),(3,18,1),(3,19,1),(3,20,1),(3,21,1),(3,22,1),(3,23,1),(3,24,1),(3,26,1),(3,27,2),(3,28,2),(3,29,1),(3,30,1),(3,31,1),(3,32,1),(3,37,1),(3,39,1),(3,40,1),(3,43,1),(3,45,1);
+/*!40000 ALTER TABLE `tbreservatipoeq` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbSala`
+-- Table structure for table `tbsala`
 --
 
-DROP TABLE IF EXISTS `tbSala`;
+DROP TABLE IF EXISTS `tbsala`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbSala` (
+CREATE TABLE `tbsala` (
   `idSala` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nomeSala` varchar(50) NOT NULL,
   `numPessoa` int(10) unsigned NOT NULL,
@@ -849,45 +849,45 @@ CREATE TABLE `tbSala` (
   PRIMARY KEY (`idSala`),
   KEY `idSala` (`idSala`),
   KEY `idCor` (`idCor`),
-  CONSTRAINT `tbSala_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbCor` (`idCor`) ON UPDATE NO ACTION
+  CONSTRAINT `tbsala_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbSala`
+-- Dumping data for table `tbsala`
 --
 
-LOCK TABLES `tbSala` WRITE;
-/*!40000 ALTER TABLE `tbSala` DISABLE KEYS */;
-INSERT INTO `tbSala` VALUES (4,'teste 02',43,'Ativo',1),(5,'teste 03',32,'Ativo',2);
-/*!40000 ALTER TABLE `tbSala` ENABLE KEYS */;
+LOCK TABLES `tbsala` WRITE;
+/*!40000 ALTER TABLE `tbsala` DISABLE KEYS */;
+INSERT INTO `tbsala` VALUES (4,'teste 02',43,'Ativo',1),(5,'teste 03',32,'Ativo',2);
+/*!40000 ALTER TABLE `tbsala` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbTelefone`
+-- Table structure for table `tbtelefone`
 --
 
-DROP TABLE IF EXISTS `tbTelefone`;
+DROP TABLE IF EXISTS `tbtelefone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbTelefone` (
+CREATE TABLE `tbtelefone` (
   `idTelefone` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idUser` int(10) unsigned NOT NULL,
   `numTelefone` varchar(13) NOT NULL,
   PRIMARY KEY (`idTelefone`),
-  KEY `tbTelefone_FKIndex1` (`idUser`),
-  CONSTRAINT `tbTelefone_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbUsuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
+  KEY `tbtelefone_FKIndex1` (`idUser`),
+  CONSTRAINT `tbtelefone_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbTelefone`
+-- Dumping data for table `tbtelefone`
 --
 
-LOCK TABLES `tbTelefone` WRITE;
-/*!40000 ALTER TABLE `tbTelefone` DISABLE KEYS */;
-INSERT INTO `tbTelefone` VALUES (1,1,'(79)9988-7766');
-/*!40000 ALTER TABLE `tbTelefone` ENABLE KEYS */;
+LOCK TABLES `tbtelefone` WRITE;
+/*!40000 ALTER TABLE `tbtelefone` DISABLE KEYS */;
+INSERT INTO `tbtelefone` VALUES (1,1,'(79)9988-7766');
+/*!40000 ALTER TABLE `tbtelefone` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -905,7 +905,7 @@ CREATE TABLE `tbTempoRe` (
   `horaFim` time NOT NULL,
   `semana` varchar(70) NOT NULL,
   PRIMARY KEY (`idReLab`),
-  CONSTRAINT `tbTempoRe_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbReservaLab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `tbTempoRe_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -920,41 +920,41 @@ INSERT INTO `tbTempoRe` VALUES (17,'2015-11-03','2015-12-18','10:00:00','12:00:0
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbTipoEq`
+-- Table structure for table `tbtipoeq`
 --
 
-DROP TABLE IF EXISTS `tbTipoEq`;
+DROP TABLE IF EXISTS `tbtipoeq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbTipoEq` (
+CREATE TABLE `tbtipoeq` (
   `idTipoEq` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tipoEq` varchar(15) NOT NULL,
   `numEq` smallint(6) NOT NULL,
   `idCor` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`idTipoEq`),
   KEY `idCor` (`idCor`),
-  CONSTRAINT `tbTipoEq_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbCor` (`idCor`) ON UPDATE NO ACTION
+  CONSTRAINT `tbtipoeq_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbTipoEq`
+-- Dumping data for table `tbtipoeq`
 --
 
-LOCK TABLES `tbTipoEq` WRITE;
-/*!40000 ALTER TABLE `tbTipoEq` DISABLE KEYS */;
-INSERT INTO `tbTipoEq` VALUES (2,'Caixa de som',1,2),(3,'Projetor',2,1);
-/*!40000 ALTER TABLE `tbTipoEq` ENABLE KEYS */;
+LOCK TABLES `tbtipoeq` WRITE;
+/*!40000 ALTER TABLE `tbtipoeq` DISABLE KEYS */;
+INSERT INTO `tbtipoeq` VALUES (2,'Caixa de som',1,2),(3,'Projetor',2,1);
+/*!40000 ALTER TABLE `tbtipoeq` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbUsuario`
+-- Table structure for table `tbusuario`
 --
 
-DROP TABLE IF EXISTS `tbUsuario`;
+DROP TABLE IF EXISTS `tbusuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbUsuario` (
+CREATE TABLE `tbusuario` (
   `idUser` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idAfiliacao` int(10) unsigned DEFAULT NULL,
   `login` varchar(20) NOT NULL,
@@ -966,18 +966,18 @@ CREATE TABLE `tbUsuario` (
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   KEY `idAfiliacao` (`idAfiliacao`),
-  CONSTRAINT `tbUsuario_ibfk_1` FOREIGN KEY (`idAfiliacao`) REFERENCES `tbAfiliacao` (`idAfiliacao`) ON UPDATE NO ACTION
+  CONSTRAINT `tbusuario_ibfk_1` FOREIGN KEY (`idAfiliacao`) REFERENCES `tbafiliacao` (`idAfiliacao`) ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbUsuario`
+-- Dumping data for table `tbusuario`
 --
 
-LOCK TABLES `tbUsuario` WRITE;
-/*!40000 ALTER TABLE `tbUsuario` DISABLE KEYS */;
-INSERT INTO `tbUsuario` VALUES (1,2,'aluno',')?Ã¤5Ã˜BJGÂ£e	UÂ¶Ã‡Ã›','123','Aluno',4,'Inativo','abc@xyz.com'),(2,1,'professor','123','123','Professor',3,'Ativo','abc@xyz.com'),(3,5,'secretaria','','123','Secretaria',1,'Ativo','abc@abc.com'),(4,3,'aluno3','','LaLev-%b','Aluno 3',4,'Inativo','abc123@xyz.com'),(5,4,'aluno3','','w6jW81rP','Aluno 2',4,'Ativo','abc@xyz.com'),(6,5,'secretaria2','','123','Secretaria 2',1,'Ativo','abc@xyz.com'),(7,5,'secretaria3','','123','Secretaria 3',1,'Ativo','abc@xyz.com'),(8,1,'professor2','','123','Professor 2',3,'Ativo','abc@xyz.com'),(9,1,'professor3','','123','Professor 3',0,'Ativo','abc@xyz.com'),(10,6,'admin','123','123','Adminstrador',0,'Ativo','mgcaquino@gmail.com'),(11,2,'fgdb.gdhfdhgsd','â€“Ââ€ºxu*â€šÂ°â€¡@Ã¿jÃ½Å \Z','O@SD4FSU','fgdb gdhfdhgsd',4,'Ativo','Ã¸(Â\Z\rÂ§;Â¬?Å’Å =Â©Ã³\\`Â®Å¸l:O-ÃƒF5â€=Å¾'),(12,2,'teste.01','48478311360','ZdiA0!M1','teste 01',4,'Ativo','mgcaquino@gmail.com'),(13,7,'teste.02','13447447532','Q4%ub-!%','teste 02',4,'Ativo','mgcaquino@gmail.com');
-/*!40000 ALTER TABLE `tbUsuario` ENABLE KEYS */;
+LOCK TABLES `tbusuario` WRITE;
+/*!40000 ALTER TABLE `tbusuario` DISABLE KEYS */;
+INSERT INTO `tbusuario` VALUES (1,2,'aluno',')?Ã¤5Ã˜BJGÂ£e	UÂ¶Ã‡Ã›','123','Aluno',4,'Inativo','abc@xyz.com'),(2,1,'professor','123','123','Professor',3,'Ativo','abc@xyz.com'),(3,5,'secretaria','','123','Secretaria',1,'Ativo','abc@abc.com'),(4,3,'aluno3','','LaLev-%b','Aluno 3',4,'Inativo','abc123@xyz.com'),(5,4,'aluno3','','w6jW81rP','Aluno 2',4,'Ativo','abc@xyz.com'),(6,5,'secretaria2','','123','Secretaria 2',1,'Ativo','abc@xyz.com'),(7,5,'secretaria3','','123','Secretaria 3',1,'Ativo','abc@xyz.com'),(8,1,'professor2','','123','Professor 2',3,'Ativo','abc@xyz.com'),(9,1,'professor3','','123','Professor 3',0,'Ativo','abc@xyz.com'),(10,6,'admin','123','123','Adminstrador',0,'Ativo','mgcaquino@gmail.com'),(11,2,'fgdb.gdhfdhgsd','â€“Ââ€ºxu*â€šÂ°â€¡@Ã¿jÃ½Å \Z','O@SD4FSU','fgdb gdhfdhgsd',4,'Ativo','Ã¸(Â\Z\rÂ§;Â¬?Å’Å =Â©Ã³\\`Â®Å¸l:O-ÃƒF5â€=Å¾'),(12,2,'teste.01','48478311360','ZdiA0!M1','teste 01',4,'Ativo','mgcaquino@gmail.com'),(13,7,'teste.02','13447447532','Q4%ub-!%','teste 02',4,'Ativo','mgcaquino@gmail.com');
+/*!40000 ALTER TABLE `tbusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1000,7 +1000,7 @@ CREATE TABLE `tblabpasswd` (
 
 LOCK TABLES `tblabpasswd` WRITE;
 /*!40000 ALTER TABLE `tblabpasswd` DISABLE KEYS */;
-INSERT INTO `tblabpasswd` VALUES (1,'”ªö\0ÃÍEb¡	');
+INSERT INTO `tblabpasswd` VALUES (1,'ï¿½ï¿½ï¿½\0ï¿½ï¿½Ebï¿½	');
 /*!40000 ALTER TABLE `tblabpasswd` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

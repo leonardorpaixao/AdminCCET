@@ -9,7 +9,7 @@
   $_SESSION['irPara'] = '/recursos/disciplinas';
   $db = atalhos::getBanco();
   $link = '/recursos/disciplinas';
-	if($query = $db->prepare("SELECT idDisc, codigo, nome, carga, status FROM tbDisciplinas")){
+	if($query = $db->prepare("SELECT idDisc, codigo, nome, carga, status FROM tbdisciplinas")){
     $query->execute();
     $query->bind_result($idDisc, $codigo, $nome, $carga, $statusDisc);
   }

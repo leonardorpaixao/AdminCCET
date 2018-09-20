@@ -3,7 +3,7 @@
 	include '../sessao.php';
 
     $db = Atalhos::getBanco();
-    if (($query = $db->prepare("SELECT nome, matricula, curso, AES_DECRYPT(telefone, ?), AES_DECRYPT(email, ?), disciplina, codigo, turma, periodo, motivo, status, dataEnvio, motivo2 FROM tbInclusao WHERE idInc = ?")) && $_SESSION['nivel'] == '1'){
+    if (($query = $db->prepare("SELECT nome, matricula, curso, AES_DECRYPT(telefone, ?), AES_DECRYPT(email, ?), disciplina, codigo, turma, periodo, motivo, status, dataEnvio, motivo2 FROM tbinclusao WHERE idInc = ?")) && $_SESSION['nivel'] == '1'){
     $query->bind_param('ssi', $_SESSION['chave'], $_SESSION['chave'], $id);
     $query->execute(); 
     $query->bind_result($nomeUser, $matricula, $afiliacao, $numTelefone, $email, $disciplina, $codigo, $turma, $periodo, $motivo, $status, $dataEnvio, $motivo2);

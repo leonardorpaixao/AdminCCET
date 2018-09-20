@@ -51,7 +51,7 @@
             $ldapbind = ldap_bind($ds, $ldaprdn, $_POST['senha']);
             if($ldapbind){
               $db = Atalhos::getBanco();
-              if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo, idAfiliacao FROM tbUsuario WHERE login=? LIMIT 1")){
+              if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo, idAfiliacao FROM tbusuario WHERE login=? LIMIT 1")){
                 $query->bind_param('s', $_POST['usuario']);
                 $query->execute();
                 $query->bind_result($id, $nome, $nivel, $status, $termo, $afiliacao);
@@ -67,17 +67,17 @@
 
                   if($termo == 1){
                     $_SESSION['logado'] = true;
-                    $query = $db->prepare("SELECT sessao FROM tbOnline WHERE idUser= ?");
+                    $query = $db->prepare("SELECT sessao FROM tbonline WHERE idUser= ?");
                     $query->bind_param('i', $_SESSION['id']);
                     $query->execute();
                     if($query->fetch()){
                       $query->close();
-                      $query = $db->prepare("UPDATE tbOnline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
+                      $query = $db->prepare("UPDATE tbonline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
                       $query->bind_param('sss', date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes")), session_id(), $_SESSION['id']);
                       $query->execute();
                     }else{
                       $query->close();
-                      $query = $db->prepare("INSERT INTO tbOnline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
+                      $query = $db->prepare("INSERT INTO tbonline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
                       $data = date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes"));
                       $idSessao = session_id();
                       $query->bind_param('sss', $_SESSION['id'], $data, $idSessao);
@@ -100,7 +100,7 @@
               $ldapbind = ldap_bind($ds, $ldaprdn, $_POST['senha']);
               if($ldapbind){
                 $db = Atalhos::getBanco();
-                if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo, idAfiliacao FROM tbUsuario WHERE login=? LIMIT 1")){
+                if($query = $db->prepare("SELECT idUser, nomeUser, nivel, statusUser, termo, idAfiliacao FROM tbusuario WHERE login=? LIMIT 1")){
                   $query->bind_param('s', $_POST['usuario']);
                   $query->execute();
                   $query->bind_result($id, $nome, $nivel, $status, $termo, $afiliacao);
@@ -115,17 +115,17 @@
                     $query->close();
                     if($termo == 1){
                       $_SESSION['logado'] = true;
-                      $query = $db->prepare("SELECT sessao FROM tbOnline WHERE idUser= ?");
+                      $query = $db->prepare("SELECT sessao FROM tbonline WHERE idUser= ?");
                       $query->bind_param('i', $_SESSION['id']);
                       $query->execute();
                       if($query->fetch()){
                         $query->close();
-                        $query = $db->prepare("UPDATE tbOnline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
+                        $query = $db->prepare("UPDATE tbonline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
                         $query->bind_param('sss', date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes")), session_id(), $_SESSION['id']);
                         $query->execute();
                       }else{
                         $query->close();
-                        $query = $db->prepare("INSERT INTO tbOnline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
+                        $query = $db->prepare("INSERT INTO tbonline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
                         $data = date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes"));
                         $idSessao = session_id();
                         $query->bind_param('sss', $_SESSION['id'], $data, $idSessao);
@@ -170,7 +170,7 @@
       }
       session_destroy();
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("DELETE FROM tbOnline WHERE idUser = ?")){
+      if($query = $db->prepare("DELETE FROM tbonline WHERE idUser = ?")){
         $query->bind_param('i', $_SESSION['id']);
         Atalhos::addLogsAcoes('Deslogou', null, null);
         $query->execute();
@@ -181,24 +181,24 @@
     }
     	public static function termo(){
     		$db = Atalhos::getBanco();
-    		if($query = $db->prepare("UPDATE tbUsuario SET termo = 0 WHERE idUser = ?")){ 
+    		if($query = $db->prepare("UPDATE tbusuario SET termo = 0 WHERE idUser = ?")){ 
     			$query->bind_param('i', $_SESSION['id']);
     			$query->execute();
           Atalhos::addLogsAcoes('Confirmou termo', null, null);
     			echo 'Error: '.$query->error;
     			$query->close();
     			$_SESSION['logado'] = true;
-    			$query = $db->prepare("SELECT sessao FROM tbOnline WHERE idUser= ?");
+    			$query = $db->prepare("SELECT sessao FROM tbonline WHERE idUser= ?");
     			$query->bind_param('i', $_SESSION['id']);
     			$query->execute();
     			if($query->fetch()){
     				$query->close();
-    				$query = $db->prepare("UPDATE tbOnline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
+    				$query = $db->prepare("UPDATE tbonline SET tempoExpirar= ?,sessao= ? WHERE idUser=?");
     				$query->bind_param('sss', date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes")), session_id(), $_SESSION['id']);
     				$query->execute();
     			}else{
     				$query->close();
-    				$query = $db->prepare("INSERT INTO tbOnline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
+    				$query = $db->prepare("INSERT INTO tbonline (idUser, tempoExpirar, sessao) VALUES (?, ?, ?)");
     				$data = date("Y-m-d H:i:s", strtotime("+1 hour 30 minutes"));
     				$idSessao = session_id();
     				$query->bind_param('sss', $_SESSION['id'], $data, $idSessao);
@@ -236,7 +236,7 @@
                   break;
             }
     		$db = Atalhos::getBanco();
-            if($query = $db->prepare("SELECT idTemp FROM tbTemporarios WHERE matricula = ?")){
+            if($query = $db->prepare("SELECT idTemp FROM tbtemporarios WHERE matricula = ?")){
                 $query->bind_param('i', $_POST['matricula']);
                 $query->bind_result($idTemp1);
                 $query->execute();
@@ -249,14 +249,14 @@
                 $tese = "senhatemporaria";
 
                 if($_POST['tipoReq'] != 3 && $_POST['tipoReq'] != 5){ // REQUERIMENTOS SEM PDF
-                    if($query = $db->prepare("INSERT INTO tbTemporarios(matricula,telefone,email,senha,curso, nome) 
+                    if($query = $db->prepare("INSERT INTO tbtemporarios(matricula,telefone,email,senha,curso, nome) 
                     VALUES (?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), ?, ?)")){
                         $query->bind_param('issssssss', $_POST['matricula'], $_POST['telefone'], $_SESSION['chave'], $_POST['email'], $_SESSION['chave'], $tese, $_SESSION['chave'], $_POST['curso'], $_POST['nome']);
                         $query->execute();
                         $idTemp = $query->insert_id;
                         $query->close();
                     }
-                    if($query = $db->prepare("INSERT INTO tbRequerimentos (idTemp, dataReq, conteudoReq, tipoReq) VALUES (?, ?, ?, ?)")){
+                    if($query = $db->prepare("INSERT INTO tbrequerimentos (idTemp, dataReq, conteudoReq, tipoReq) VALUES (?, ?, ?, ?)")){
                         $query->bind_param('issi', $idTemp, date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq']);
                         $query->execute();
                         $query->close();
@@ -267,26 +267,26 @@
                       $statusInicial = 'PendenteProf';
                     else
                       $statusInicial = 'Pendente';
-                    if($query = $db->prepare("INSERT INTO tbTemporarios(matricula,telefone,email,senha,curso, nome) 
+                    if($query = $db->prepare("INSERT INTO tbtemporarios(matricula,telefone,email,senha,curso, nome) 
                     VALUES (?, AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), AES_ENCRYPT(?, ?), ?, ?)")){
                         $query->bind_param('issssssss', $_POST['matricula'], $_POST['telefone'], $_SESSION['chave'], $_POST['email'], $_SESSION['chave'], $tese, $_SESSION['chave'], $_POST['curso'], $_POST['nome']);
                         $query->execute();
                         $idTemp = $query->insert_id;
                         $query->close();
                     }
-                    if($query = $db->prepare("INSERT INTO tbRequerimentos (idTemp, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
+                    if($query = $db->prepare("INSERT INTO tbrequerimentos (idTemp, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
                         $query->bind_param('issis', $idTemp, date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq'], $statusInicial);
                         $query->execute();
                         $idPdf = $query->insert_id;
                         $query->close();
                         $_SESSION['avisoReqs'] = 1;
                     }
-                    if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbReqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
+                    if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbreqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
                       $query->bind_param('ii', $_POST['professor'], $idPdf);
                       $query->execute();
                       $query->close();
                       if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                    FROM tbUsuario
+                                    FROM tbusuario
                                     WHERE idUser = ?")){
                         $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
                         $query->execute();
@@ -307,7 +307,7 @@
                 }
             } else { // SE O USUÁRIO NÃO FOR ALUNO DO DCOMP MAS JÁ TEM REGISTRO TEMPORÁRIO  
                 if($_POST['tipoReq'] != 3 && $_POST['tipoReq'] != 5){ // REQUERIMENTOS SEM PDF
-                    if($query = $db->prepare("INSERT INTO tbRequerimentos (idTemp, dataReq, conteudoReq, tipoReq) VALUES (?, ?, ?, ?)")){
+                    if($query = $db->prepare("INSERT INTO tbrequerimentos (idTemp, dataReq, conteudoReq, tipoReq) VALUES (?, ?, ?, ?)")){
                         $query->bind_param('issi', $idTemp1, date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq']);
                         $query->execute();
                         $query->close();
@@ -318,19 +318,19 @@
                       $statusInicial = 'PendenteProf';
                     else
                       $statusInicial = 'Pendente';
-                    if($query = $db->prepare("INSERT INTO tbRequerimentos (idTemp, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
+                    if($query = $db->prepare("INSERT INTO tbrequerimentos (idTemp, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
                         $query->bind_param('issis', $idTemp1, date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq'], $statusInicial);
                         $query->execute();
                         $idPdf = $query->insert_id;
                         $query->close();
                         $_SESSION['avisoReqs'] = 1;
                     }
-                    if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbReqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
+                    if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbreqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
                       $query->bind_param('ii', $_POST['professor'], $idPdf);
                       $query->execute();
                       $query->close();
                       if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                    FROM tbUsuario
+                                    FROM tbusuario
                                     WHERE idUser = ?")){
                         $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
                         $query->execute();
@@ -357,7 +357,7 @@
         public static function bugs(){
             $db = Atalhos::getBanco();
             $dateNow = date("Y-m-d", strtotime("now"));
-            if($query = $db->prepare("INSERT INTO tbBugs (nome, email, data, pagina, bug) VALUES (?, AES_ENCRYPT(?, ?), ?, ?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbbugs (nome, email, data, pagina, bug) VALUES (?, AES_ENCRYPT(?, ?), ?, ?, ?)")){
                 $query->bind_param('ssssss', $_POST['nome'], $_POST['email'], $_SESSION['chave'], $dateNow, $_POST['pagina'], $_POST['bug']);
                 $query->execute();
                 $query->close();

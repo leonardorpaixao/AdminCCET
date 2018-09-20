@@ -48,8 +48,8 @@
                   <li><a href="/laboratorios/moderar"><i class="fa fa-pencil-square-o"></i> Reservas 
                   <?php
                     $db = Atalhos::getBanco();
-                    if ($query = $db->prepare("SELECT a.idReLab FROM tbReservaLab a 
-                          WHERE EXISTS (SELECT y.idReLab FROM tbControleDataLab y
+                    if ($query = $db->prepare("SELECT a.idReLab FROM tbreservalab a 
+                          WHERE EXISTS (SELECT y.idReLab FROM tbcontroledatalab y
                           WHERE a.idReLab = y.idReLab AND y.statusData = 'Pendente')")){
                       $query->execute();
                       $query->bind_result($idReLab);
@@ -78,8 +78,8 @@
                 <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
                   <li><a href="/equipamentos/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas 
                   <?php
-                    if($query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a 
-                          WHERE EXISTS (SELECT y.idReEq FROM tbControleDataEq y
+                    if($query = $db->prepare("SELECT a.idReEq FROM tbreservaeq a 
+                          WHERE EXISTS (SELECT y.idReEq FROM tbcontroledataeq y
                           WHERE a.idReEq = y.idReEq AND y.statusData = 'Pendente')")){
                       $query->execute();
                       $query->bind_result($idReLab);
@@ -112,8 +112,8 @@
                   <?php if($_SESSION['logado'] && $_SESSION['nivel'] == 1): ?>
                     <li><a href="/salas/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas 
                       <?php
-                        if($query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a 
-                              WHERE EXISTS (SELECT y.idReSala FROM tbControleDataSala y
+                        if($query = $db->prepare("SELECT a.idReSala FROM tbreservasala a 
+                              WHERE EXISTS (SELECT y.idReSala FROM tbcontroledatasala y
                               WHERE a.idReSala = y.idReSala AND y.statusData = 'Pendente')")){
                           $query->execute();
                           $query->bind_result($idReLab);
@@ -148,7 +148,7 @@
                   <li><a href="/requerimentos/moderar"><i class="fa fa-pencil"></i> Moderar 
                   <?php
                     $db = atalhos::getBanco();
-                    if($query = $db->prepare("SELECT a.idReq FROM tbRequerimentos a NATURAL LEFT JOIN tbReqs_professor d WHERE a.tipoReq != 5 AND ((d.idProfessor = 0) OR (d.idProfessor IS NULL) OR (a.statusReq = 'ConfirmadoProf') OR (a.statusReq = 'NegadoProf')) AND ((a.statusReq = 'Pendente') OR (a.statusReq = 'PendenteProf') OR (a.statusReq = 'ConfirmadoProf') OR (a.statusReq = 'NegadoProf'))")){
+                    if($query = $db->prepare("SELECT a.idReq FROM tbrequerimentos a NATURAL LEFT JOIN tbreqs_professor d WHERE a.tipoReq != 5 AND ((d.idProfessor = 0) OR (d.idProfessor IS NULL) OR (a.statusReq = 'ConfirmadoProf') OR (a.statusReq = 'NegadoProf')) AND ((a.statusReq = 'Pendente') OR (a.statusReq = 'PendenteProf') OR (a.statusReq = 'ConfirmadoProf') OR (a.statusReq = 'NegadoProf'))")){
                       $query->execute();
                       $query->bind_result($idInc);
                       $query->store_result();
@@ -163,7 +163,7 @@
                   <li><a href="/requerimentos/classificar"><i class="fa fa-cubes"></i> Classificar Inclusão
                   <?php
                     $db = atalhos::getBanco();
-                    if($query = $db->prepare("SELECT idReq FROM tbRequerimentos WHERE statusReq = 'Pendente' AND tipoReq = 5")){
+                    if($query = $db->prepare("SELECT idReq FROM tbrequerimentos WHERE statusReq = 'Pendente' AND tipoReq = 5")){
                       $query->execute();
                       $query->bind_result($idInc);
                       $query->store_result();
@@ -181,7 +181,7 @@
                   <li><a href="/requerimentos/moderar/docente"><i class="fa fa-pencil"></i> Moderar 
                   <?php
                     $db = atalhos::getBanco();
-                    if($query = $db->prepare("SELECT a.idReq FROM tbRequerimentos a WHERE a.idReq IN (SELECT idReq FROM tbReqs_professor WHERE idProfessor = ?) AND a.statusReq = 'PendenteProf'")){
+                    if($query = $db->prepare("SELECT a.idReq FROM tbrequerimentos a WHERE a.idReq IN (SELECT idReq FROM tbreqs_professor WHERE idProfessor = ?) AND a.statusReq = 'PendenteProf'")){
                       $query->bind_param('i', $_SESSION['id']);
                       $query->execute();
                       $query->bind_result($idInc);
@@ -222,7 +222,7 @@
                       <span>Meus tickets</span>
                       <?php
                         $db = atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Respondido' AND idUser = ?")){
+                        if($query = $db->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Respondido' AND idUser = ?")){
                           $query->bind_param('i', $_SESSION['id']);
                           $query->execute();
                           $query->bind_result($idReLab);
@@ -245,7 +245,7 @@
                       <span>Moderar tickets</span>
                       <?php
                         $db = atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idTicket FROM tbTicket WHERE statusTicket = 'Em Analise'")){
+                        if($query = $db->prepare("SELECT idTicket FROM tbticket WHERE statusTicket = 'Em Analise'")){
                           $query->execute();
                           $query->bind_result($idReLab);
                           $query->store_result();

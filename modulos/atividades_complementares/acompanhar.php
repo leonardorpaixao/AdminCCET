@@ -11,7 +11,7 @@
 	include '../../includes/menu.php';
 	$_SESSION['irPara'] = '/inicio';
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT a.id, a.status, a.dateStart, b.idUser, b.funcao, b.status, b.tipoEtapa, b.descricao, b.dateStart, c.nomeUser FROM tbAtividadesComp a INNER JOIN tbEtapaAtividadeComp b INNER JOIN tbUsuario c WHERE a.id = ? AND b.idAtividade = a.id AND c.idUser = b.idUser ORDER BY b.dateStart ASC")){
+	if($query = $db->prepare("SELECT a.id, a.status, a.dateStart, b.idUser, b.funcao, b.status, b.tipoEtapa, b.descricao, b.dateStart, c.nomeUser FROM tbAtividadesComp a INNER JOIN tbEtapaAtividadeComp b INNER JOIN tbusuario c WHERE a.id = ? AND b.idAtividade = a.id AND c.idUser = b.idUser ORDER BY b.dateStart ASC")){
 		$query->bind_param('i', $_GET['id']);
 		$query->execute();
 		$query->bind_result($id, $statusProcesso, $dataInicio, $idUser, $funcao, $statusEtapa, $tipoEtapa, $descricao, $dataEtapa, $nomeUser);
@@ -223,7 +223,7 @@
 							<option selected disabled>Selecione um professor</option>
 								<?php
 									$db = Atalhos::getBanco();
-									if($query = $db->prepare("SELECT a.idUser, a.nomeUser FROM tbUsuario a inner join tbAfiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 3 AND a.statusUser = 'Ativo'")){
+									if($query = $db->prepare("SELECT a.idUser, a.nomeUser FROM tbusuario a inner join tbafiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 3 AND a.statusUser = 'Ativo'")){
 										$query->execute();
 										$query->bind_result($idUser, $nomeUser);
 									}

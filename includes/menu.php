@@ -54,8 +54,8 @@
                           <li><a href="/salas/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
                                   <?php
                                   $db = atalhos::getBanco();
-                                  if($query = $db->prepare("SELECT a.idReSala FROM tbReservaSala a
-                              WHERE EXISTS (SELECT y.idReSala FROM tbControleDataSala y
+                                  if($query = $db->prepare("SELECT a.idReSala FROM tbreservasala a
+                              WHERE EXISTS (SELECT y.idReSala FROM tbcontroledatasala y
                               WHERE a.idReSala = y.idReSala AND y.statusData = 'Pendente')")){
                                       $query->execute();
                                       $query->bind_result($idReLab);
@@ -92,8 +92,8 @@
                   <li><a href="/equipamentos/moderar"><i class="fa  fa-pencil-square-o"></i> Reservas
                   <?php
                   $db = atalhos::getBanco();
-                    if($query = $db->prepare("SELECT a.idReEq FROM tbReservaEq a
-                          WHERE EXISTS (SELECT y.idReEq FROM tbControleDataEq y
+                    if($query = $db->prepare("SELECT a.idReEq FROM tbreservaeq a
+                          WHERE EXISTS (SELECT y.idReEq FROM tbcontroledataeq y
                           WHERE a.idReEq = y.idReEq AND y.statusData = 'Pendente')")){
                       $query->execute();
                       $query->bind_result($idReLab);
@@ -140,7 +140,7 @@
                     <span>Moderar Bugs/Problemas</span>
                     <?php
                         $db = atalhos::getBanco();
-                        if($query = $db->prepare("SELECT idBug FROM tbBugs WHERE status = 'Em análise'")){
+                        if($query = $db->prepare("SELECT idBug FROM tbbugs WHERE status = 'Em análise'")){
                           $query->execute();
                           $query->bind_result($idBug);
                           $query->store_result();

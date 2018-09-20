@@ -10,7 +10,7 @@
   $_SESSION['irPara'] = '/inicio';   
   $id = (isset($_GET['id']))? $_GET['id'] : NULL;
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbAvisos WHERE idAviso = ?")){
+  if ($query = $db->prepare("SELECT idAviso, tituloAviso, textoAviso FROM tbavisos WHERE idAviso = ?")){
     $query->bind_param('i', $id);    
     $query->execute();
     $query->bind_result($id1, $tituloAviso, $textoAviso);    

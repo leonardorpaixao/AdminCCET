@@ -711,15 +711,15 @@ CREATE TABLE `tblogsacoes` (
 
 INSERT INTO `tblogsacoes` (`idLogs`, `ip`, `idUser`, `acao`, `data`, `idRow`, `nomeTabela`) VALUES
 (17294, '::1', 1, 'Deslogou', '2018-03-06 23:35:29', NULL, NULL),
-(17295, '::1', 3, 'Inseriu', '2018-03-06 23:46:36', 304, 'tbReservaEq'),
-(17296, '::1', 3, 'Inseriu', '2018-03-06 23:46:37', 0, 'tbControleDataEq'),
+(17295, '::1', 3, 'Inseriu', '2018-03-06 23:46:36', 304, 'tbreservaeq'),
+(17296, '::1', 3, 'Inseriu', '2018-03-06 23:46:37', 0, 'tbcontroledataeq'),
 (17297, '::1', 3, 'Deslogou', '2018-03-06 23:46:42', NULL, NULL),
 (17298, '::1', 2, 'Deslogou', '2018-03-06 23:56:10', NULL, NULL),
 (17299, '::1', 3, 'Deslogou', '2018-03-24 23:53:21', NULL, NULL),
 (17300, '::1', 1, 'Deslogou', '2018-04-03 23:30:18', NULL, NULL),
 (17301, '::1', 1, 'Deslogou', '2018-04-17 21:09:23', NULL, NULL),
 (17302, '::1', 4, 'Deslogou', '2018-04-17 21:13:26', NULL, NULL),
-(17303, '::1', 4, 'Inseriu', '2018-04-17 21:14:35', 0, 'tbReservaSala'),
+(17303, '::1', 4, 'Inseriu', '2018-04-17 21:14:35', 0, 'tbreservasala'),
 (17304, '::1', 4, 'Deslogou', '2018-04-17 21:15:41', NULL, NULL),
 (17305, '::1', 4, 'Deslogou', '2018-04-17 21:16:33', NULL, NULL),
 (17306, '::1', 4, 'Deslogou', '2018-04-17 21:19:05', NULL, NULL),
@@ -731,36 +731,36 @@ INSERT INTO `tblogsacoes` (`idLogs`, `ip`, `idUser`, `acao`, `data`, `idRow`, `n
 (17312, '::1', 2, 'Deslogou', '2018-04-17 21:28:42', NULL, NULL),
 (17313, '::1', 4, 'Atualizou disciplinas.', '2018-04-17 21:29:27', NULL, NULL),
 (17314, '::1', 4, 'Deslogou', '2018-04-17 21:34:10', NULL, NULL),
-(17315, '::1', 4, 'Modificou', '2018-04-17 21:39:57', 304, 'tbControleDataEq'),
-(17316, '::1', 4, 'Inseriu', '2018-04-17 21:41:28', 305, 'tbReservaEq'),
-(17317, '::1', 4, 'Inseriu', '2018-04-17 21:41:28', 0, 'tbControleDataEq'),
-(17318, '::1', 4, 'Excluiu', '2018-04-17 21:46:34', 305, 'tbReservaEq'),
-(17319, '::1', 4, 'Excluiu', '2018-04-17 21:46:37', 304, 'tbReservaEq'),
+(17315, '::1', 4, 'Modificou', '2018-04-17 21:39:57', 304, 'tbcontroledataeq'),
+(17316, '::1', 4, 'Inseriu', '2018-04-17 21:41:28', 305, 'tbreservaeq'),
+(17317, '::1', 4, 'Inseriu', '2018-04-17 21:41:28', 0, 'tbcontroledataeq'),
+(17318, '::1', 4, 'Excluiu', '2018-04-17 21:46:34', 305, 'tbreservaeq'),
+(17319, '::1', 4, 'Excluiu', '2018-04-17 21:46:37', 304, 'tbreservaeq'),
 (17320, '::1', 4, 'Atualizou disciplinas.', '2018-04-19 16:04:16', NULL, NULL),
-(17321, '::1', 4, 'Inseriu', '2018-04-19 16:10:36', 0, 'tbEquipamento'),
-(17322, '::1', 4, 'Inseriu', '2018-04-19 16:11:14', 1, 'tbAvisos'),
+(17321, '::1', 4, 'Inseriu', '2018-04-19 16:10:36', 0, 'tbequipamento'),
+(17322, '::1', 4, 'Inseriu', '2018-04-19 16:11:14', 1, 'tbavisos'),
 (17323, '::1', 4, 'Deslogou', '2018-04-19 16:26:30', NULL, NULL),
 (17324, '::1', 4, 'Deslogou', '2018-04-19 16:33:22', NULL, NULL),
-(17325, '::1', 4, 'Inseriu', '2018-04-19 16:35:05', NULL, 'tbEquipamento'),
+(17325, '::1', 4, 'Inseriu', '2018-04-19 16:35:05', NULL, 'tbequipamento'),
 (17326, '::1', 4, 'Deslogou', '2018-05-24 12:58:01', NULL, NULL),
 (17327, '::1', 1, 'Deslogou', '2018-05-24 13:04:55', NULL, NULL),
 (17328, '::1', 2, 'Deslogou', '2018-05-24 13:05:22', NULL, NULL),
-(17329, '::1', 4, 'Inseriu', '2018-05-24 13:06:01', 1, 'tbSala'),
+(17329, '::1', 4, 'Inseriu', '2018-05-24 13:06:01', 1, 'tbsala'),
 (17330, '::1', 4, 'Deslogou', '2018-05-24 13:06:16', NULL, NULL),
 (17331, '::1', 2, 'Deslogou', '2018-06-05 17:06:20', NULL, NULL),
-(17332, '::1', 1, 'Inseriu', '2018-06-05 17:11:53', 1, 'tbReservaSala'),
+(17332, '::1', 1, 'Inseriu', '2018-06-05 17:11:53', 1, 'tbreservasala'),
 (17333, '::1', 1, 'Deslogou', '2018-06-05 17:12:50', NULL, NULL),
-(17334, '::1', 2, 'Modificou', '2018-06-05 17:13:20', 1, 'tbControleDataSala'),
-(17335, '::1', 2, 'Modificou', '2018-06-05 17:13:32', 1, 'tbControleDataSala'),
+(17334, '::1', 2, 'Modificou', '2018-06-05 17:13:20', 1, 'tbcontroledatasala'),
+(17335, '::1', 2, 'Modificou', '2018-06-05 17:13:32', 1, 'tbcontroledatasala'),
 (17336, '::1', 2, 'Deslogou', '2018-06-05 17:14:14', NULL, NULL),
 (17337, '::1', 1, 'Deslogou', '2018-06-05 17:19:58', NULL, NULL),
-(17338, '::1', 4, 'Excluiu', '2018-06-18 00:15:05', 0, 'tbSala'),
-(17339, '::1', 4, 'Excluiu', '2018-06-18 00:17:28', 0, 'tbSala'),
-(17340, '::1', 4, 'Excluiu', '2018-06-18 00:50:19', 0, 'tbSala'),
+(17338, '::1', 4, 'Excluiu', '2018-06-18 00:15:05', 0, 'tbsala'),
+(17339, '::1', 4, 'Excluiu', '2018-06-18 00:17:28', 0, 'tbsala'),
+(17340, '::1', 4, 'Excluiu', '2018-06-18 00:50:19', 0, 'tbsala'),
 (17341, '::1', 4, 'Deslogou', '2018-06-18 00:55:42', NULL, NULL),
 (17342, '::1', 4, 'Deslogou', '2018-06-18 01:24:10', NULL, NULL),
-(17343, '::1', 4, 'Excluiu', '2018-06-18 02:03:27', 0, 'tbSala'),
-(17344, '::1', 4, 'Excluiu', '2018-06-18 02:24:08', 0, 'tbSala'),
+(17343, '::1', 4, 'Excluiu', '2018-06-18 02:03:27', 0, 'tbsala'),
+(17344, '::1', 4, 'Excluiu', '2018-06-18 02:24:08', 0, 'tbsala'),
 (17345, '::1', 2, 'Deslogou', '2018-06-20 23:07:00', NULL, NULL),
 (17346, '::1', 2, 'Deslogou', '2018-06-20 23:37:02', NULL, NULL),
 (17347, '::1', 5, 'Confirmou termo', '2018-06-20 23:37:43', NULL, NULL),
@@ -1118,7 +1118,7 @@ CREATE TABLE `tbtermo` (
 -- Acionadores `tbtermo`
 --
 DELIMITER $$
-CREATE TRIGGER `atualizarTermo` AFTER UPDATE ON `tbtermo` FOR EACH ROW UPDATE tbUsuario SET termo = 0
+CREATE TRIGGER `atualizarTermo` AFTER UPDATE ON `tbtermo` FOR EACH ROW UPDATE tbusuario SET termo = 0
 $$
 DELIMITER ;
 
@@ -1318,9 +1318,9 @@ ALTER TABLE `tbchoqueeq`
 --
 ALTER TABLE `tbchoquelab`
   ADD PRIMARY KEY (`idReLab`,`idData`,`idChoqueReLab`,`idChoqueData`),
-  ADD KEY `tbChoqueLab_ibfk_2` (`idData`),
-  ADD KEY `tbChoqueLab_ibfk_3` (`idChoqueReLab`),
-  ADD KEY `tbChoqueLab_ibfk_4` (`idChoqueData`);
+  ADD KEY `tbchoquelab_ibfk_2` (`idData`),
+  ADD KEY `tbchoquelab_ibfk_3` (`idChoqueReLab`),
+  ADD KEY `tbchoquelab_ibfk_4` (`idChoqueData`);
 
 --
 -- Indexes for table `tbchoquesala`
@@ -1388,7 +1388,7 @@ ALTER TABLE `tbemail`
 --
 ALTER TABLE `tbequipamento`
   ADD PRIMARY KEY (`patrimonio`),
-  ADD KEY `tbEquipamento_FKIndex1` (`idTipoEq`),
+  ADD KEY `tbequipamento_FKIndex1` (`idTipoEq`),
   ADD KEY `idTipoEqp` (`idTipoEq`);
 
 --
@@ -1543,7 +1543,7 @@ ALTER TABLE `tbsala`
 --
 ALTER TABLE `tbtelefone`
   ADD PRIMARY KEY (`idTelefone`),
-  ADD KEY `tbTelefone_FKIndex1` (`idUser`);
+  ADD KEY `tbtelefone_FKIndex1` (`idUser`);
 
 --
 -- Indexes for table `tbtemporarios`
@@ -1806,190 +1806,190 @@ ALTER TABLE `tbusuariotemp`
 -- Limitadores para a tabela `tbalocalab`
 --
 ALTER TABLE `tbalocalab`
-  ADD CONSTRAINT `tbAlocaLab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbAlocaLab_ibfk_2` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbalocalab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbalocalab_ibfk_2` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbalocareeq`
 --
 ALTER TABLE `tbalocareeq`
-  ADD CONSTRAINT `tbAlocaReEq_ibfk_1` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbAlocaReEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbcontroledataeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbAlocaReEq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbcontroledataeq` (`idData`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbalocareeq_ibfk_1` FOREIGN KEY (`patrimonio`) REFERENCES `tbequipamento` (`patrimonio`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbalocareeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbcontroledataeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbalocareeq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbcontroledataeq` (`idData`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbalocarelab`
 --
 ALTER TABLE `tbalocarelab`
-  ADD CONSTRAINT `tbAlocaReLab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbAlocaReLab_ibfk_2` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbalocarelab_ibfk_1` FOREIGN KEY (`idLab`) REFERENCES `tblaboratorio` (`idLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbalocarelab_ibfk_2` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbblock`
 --
 ALTER TABLE `tbblock`
-  ADD CONSTRAINT `tbBlock_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE SET NULL ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbBlock_ibfk_2` FOREIGN KEY (`idUserBlock`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbblock_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbblock_ibfk_2` FOREIGN KEY (`idUserBlock`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbchoqueeq`
 --
 ALTER TABLE `tbchoqueeq`
-  ADD CONSTRAINT `tbChoqueEq_ibfk_1` FOREIGN KEY (`idReEq`,`idData`) REFERENCES `tbcontroledataeq` (`idReEq`, `idData`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueEq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
-  ADD CONSTRAINT `tbChoqueEq_ibfk_4` FOREIGN KEY (`idChoqueReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueEq_ibfk_5` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`);
+  ADD CONSTRAINT `tbchoqueeq_ibfk_1` FOREIGN KEY (`idReEq`,`idData`) REFERENCES `tbcontroledataeq` (`idReEq`, `idData`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoqueeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoqueeq_ibfk_3` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
+  ADD CONSTRAINT `tbchoqueeq_ibfk_4` FOREIGN KEY (`idChoqueReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoqueeq_ibfk_5` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`);
 
 --
 -- Limitadores para a tabela `tbchoquelab`
 --
 ALTER TABLE `tbchoquelab`
-  ADD CONSTRAINT `tbChoqueLab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueLab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbcontroledatalab` (`idData`),
-  ADD CONSTRAINT `tbChoqueLab_ibfk_3` FOREIGN KEY (`idChoqueReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueLab_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbcontroledatalab` (`idData`);
+  ADD CONSTRAINT `tbchoquelab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoquelab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbcontroledatalab` (`idData`),
+  ADD CONSTRAINT `tbchoquelab_ibfk_3` FOREIGN KEY (`idChoqueReLab`) REFERENCES `tbcontroledatalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoquelab_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbcontroledatalab` (`idData`);
 
 --
 -- Limitadores para a tabela `tbchoquesala`
 --
 ALTER TABLE `tbchoquesala`
-  ADD CONSTRAINT `tbChoqueSala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbChoqueSala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
-  ADD CONSTRAINT `tbChoqueSala_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`);
+  ADD CONSTRAINT `tbchoquesala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbchoquesala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`),
+  ADD CONSTRAINT `tbchoquesala_ibfk_4` FOREIGN KEY (`idChoqueData`) REFERENCES `tbdata` (`idData`);
 
 --
 -- Limitadores para a tabela `tbcontroledataeq`
 --
 ALTER TABLE `tbcontroledataeq`
-  ADD CONSTRAINT `tbControleDataEq_ibfk_1` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbControleDataEq_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
+  ADD CONSTRAINT `tbcontroledataeq_ibfk_1` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbcontroledataeq_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
 
 --
 -- Limitadores para a tabela `tbcontroledatalab`
 --
 ALTER TABLE `tbcontroledatalab`
-  ADD CONSTRAINT `tbControleDataLab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbControleDataLab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
+  ADD CONSTRAINT `tbcontroledatalab_ibfk_1` FOREIGN KEY (`idReLab`) REFERENCES `tbreservalab` (`idReLab`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbcontroledatalab_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
 
 --
 -- Limitadores para a tabela `tbcontroledatasala`
 --
 ALTER TABLE `tbcontroledatasala`
-  ADD CONSTRAINT `tbControleDataSala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbControleDataSala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
+  ADD CONSTRAINT `tbcontroledatasala_ibfk_1` FOREIGN KEY (`idReSala`) REFERENCES `tbreservasala` (`idReSala`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbcontroledatasala_ibfk_2` FOREIGN KEY (`idData`) REFERENCES `tbdata` (`idData`);
 
 --
 -- Limitadores para a tabela `tbequipamento`
 --
 ALTER TABLE `tbequipamento`
-  ADD CONSTRAINT `tbEquipamento_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE SET NULL ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbequipamento_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbimagem`
 --
 ALTER TABLE `tbimagem`
-  ADD CONSTRAINT `tbImagem_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbimagem_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tblaboratorio`
 --
 ALTER TABLE `tblaboratorio`
-  ADD CONSTRAINT `tbLaboratorio_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tblaboratorio_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbmatricula`
 --
 ALTER TABLE `tbmatricula`
-  ADD CONSTRAINT `tbMatricula_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbmatricula_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbnoticonexao`
 --
 ALTER TABLE `tbnoticonexao`
-  ADD CONSTRAINT `tbNotiConexao_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbNotiConexao_ibfk_2` FOREIGN KEY (`idNoti`) REFERENCES `tbnotificacao` (`idNoti`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbnoticonexao_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbnoticonexao_ibfk_2` FOREIGN KEY (`idNoti`) REFERENCES `tbnotificacao` (`idNoti`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbonline`
 --
 ALTER TABLE `tbonline`
-  ADD CONSTRAINT `tbOnline_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbonline_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbprimeiroacesso`
 --
 ALTER TABLE `tbprimeiroacesso`
-  ADD CONSTRAINT `tbPrimeiroAcesso_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbprimeiroacesso_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbreqs_professor`
 --
 ALTER TABLE `tbreqs_professor`
-  ADD CONSTRAINT `tbReqs_professor_ibfk_2` FOREIGN KEY (`idReq`) REFERENCES `tbrequerimentos` (`idReq`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbreqs_professor_ibfk_2` FOREIGN KEY (`idReq`) REFERENCES `tbrequerimentos` (`idReq`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbrequerimentos`
 --
 ALTER TABLE `tbrequerimentos`
-  ADD CONSTRAINT `tbRequerimentos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbRequerimentos_ibfk_2` FOREIGN KEY (`idTemp`) REFERENCES `tbtemporarios` (`idTemp`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbrequerimentos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbrequerimentos_ibfk_2` FOREIGN KEY (`idTemp`) REFERENCES `tbtemporarios` (`idTemp`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbreservaeq`
 --
 ALTER TABLE `tbreservaeq`
-  ADD CONSTRAINT `tbReservaEq_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbreservaeq_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbreservalab`
 --
 ALTER TABLE `tbreservalab`
-  ADD CONSTRAINT `tbReservaLab_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbreservalab_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbreservasala`
 --
 ALTER TABLE `tbreservasala`
-  ADD CONSTRAINT `tbReservaSala_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbReservaSala_ibfk_2` FOREIGN KEY (`idSala`) REFERENCES `tbsala` (`idSala`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbreservasala_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbreservasala_ibfk_2` FOREIGN KEY (`idSala`) REFERENCES `tbsala` (`idSala`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbreservatipoeq`
 --
 ALTER TABLE `tbreservatipoeq`
-  ADD CONSTRAINT `tbReservaTipoEq_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tbReservaTipoEq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbreservatipoeq_ibfk_1` FOREIGN KEY (`idTipoEq`) REFERENCES `tbtipoeq` (`idTipoEq`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbreservatipoeq_ibfk_2` FOREIGN KEY (`idReEq`) REFERENCES `tbreservaeq` (`idReEq`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbsala`
 --
 ALTER TABLE `tbsala`
-  ADD CONSTRAINT `tbSala_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbsala_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbtelefone`
 --
 ALTER TABLE `tbtelefone`
-  ADD CONSTRAINT `tbTelefone_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbtelefone_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbtipoeq`
 --
 ALTER TABLE `tbtipoeq`
-  ADD CONSTRAINT `tbTipoEq_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbtipoeq_ibfk_1` FOREIGN KEY (`idCor`) REFERENCES `tbcor` (`idCor`) ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  ADD CONSTRAINT `tbUsuario_ibfk_1` FOREIGN KEY (`idAfiliacao`) REFERENCES `tbafiliacao` (`idAfiliacao`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tbusuario_ibfk_1` FOREIGN KEY (`idAfiliacao`) REFERENCES `tbafiliacao` (`idAfiliacao`) ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbusuariotemp`
 --
 ALTER TABLE `tbusuariotemp`
-  ADD CONSTRAINT `tbUsuarioTemp_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbusuarioTemp_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tbusuario` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

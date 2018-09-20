@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
   $link = '/recursos/contas';
-  if($query = $db->prepare("SELECT a.idUser, nomeUser, login, statusUser, statusLogin, dataInicio, dataFim, sudo FROM tbUsuarioTemp a INNER JOIN tbUsuario b ON a.idUser = b.idUser ORDER BY a.idUser")){
+  if($query = $db->prepare("SELECT a.idUser, nomeUser, login, statusUser, statusLogin, dataInicio, dataFim, sudo FROM tbusuarioTemp a INNER JOIN tbusuario b ON a.idUser = b.idUser ORDER BY a.idUser")){
     $query->execute();
     $query->bind_result($idUser, $nomeUser, $login, $statusUser, $numAcesso, $dataInicio, $dataFim, $sudo);
   }

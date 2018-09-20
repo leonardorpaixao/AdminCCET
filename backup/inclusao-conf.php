@@ -8,7 +8,7 @@
     $_SESSION['irPara'] = '/inicio';
     $db = Atalhos::getBanco();
     $link = '/inclusao/configurar';
-    if($query = $db->prepare("SELECT inicio, fim FROM tbPrazo LIMIT 1")){
+    if($query = $db->prepare("SELECT inicio, fim FROM tbprazo LIMIT 1")){
           $query->execute();
           $query->bind_result($inicio, $fim);
     }

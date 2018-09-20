@@ -11,13 +11,13 @@
       include 'menu.php';
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(isset($_POST['acao'])){
-          mysql_query("DELETE FROM tbRequerimentos WHERE idReq  = {$_POST['id']} AND idUser = {$_SESSION['id']}");
+          mysql_query("DELETE FROM tbrequerimentos WHERE idReq  = {$_POST['id']} AND idUser = {$_SESSION['id']}");
         }
       }
       $_SESSION['irPara'] = '/inicio';
       $link = '/requerimentos/meus';
       $db = Atalhos::getBanco();
-      if ($query = $db->prepare("SELECT idReq, dataReq, statusReq, tipoReq, justificativaReq FROM tbRequerimentos 
+      if ($query = $db->prepare("SELECT idReq, dataReq, statusReq, tipoReq, justificativaReq FROM tbrequerimentos 
           WHERE idUser = ?")){
           $query->bind_param('i', $_SESSION['id']);
           $query->execute();

@@ -190,7 +190,7 @@
     public static function contaTempAdd(){
       $db = Atalhos::getBanco();
       if($ping = Atalhos::serviceping($_SESSION['ldaphost'])){
-        if($query = $db->prepare("INSERT INTO tbContaTemp (nomeConta, login, statusConta, numAcesso, dataInicio, dataFim) VALUES (?, ?, ?, ?, ?, ?)")){
+        if($query = $db->prepare("INSERT INTO tbcontatemp (nomeConta, login, statusConta, numAcesso, dataInicio, dataFim) VALUES (?, ?, ?, ?, ?, ?)")){
           $subdata = explode(" - ", $_POST['data']);
           $dataInicio = str_replace('/', '-', $subdata[0]);
           $dataFim = str_replace('/', '-', $subdata[1]);
@@ -247,7 +247,7 @@
                 }
                 Atalhos::set_uidNMax($ds, $ldaprecord['uidNumber']+1);
                 if($afiliacao == -1){
-                  if($query = $db->prepare("INSERT INTO tbAfiliacao (afiliacao, nivel) VALUES (?, ?)")){
+                  if($query = $db->prepare("INSERT INTO tbafiliacao (afiliacao, nivel) VALUES (?, ?)")){
                     $query->bind_param('si', $_POST['novaAfiliacao'], $_POST['nivelAcesso']);
                     $query->execute();
                     $afiliacao = $query->insert_id;
@@ -264,7 +264,7 @@
     public static function contaTempEdit(){
       if($ping = Atalhos::serviceping($_SESSION['ldaphost'])){
         $db = Atalhos::getBanco();
-        if($query = $db->prepare("SELECT a.login, b.senha FROM tbUsuario a inner join tbOnline b on a.idUser = b.idUser 
+        if($query = $db->prepare("SELECT a.login, b.senha FROM tbusuario a inner join tbonline b on a.idUser = b.idUser 
           WHERE a.idUser = ?")){
           $query->bind_param('i', $_SESSION['id']);
           $query->execute();
@@ -281,14 +281,14 @@
           if($ldapbind){
             if(isset($_POST['idconta'])){
               if($_POST['acao'] == 0){
-                if($query = $db->prepare("DELETE FROM tbContaTemp WHERE idConta = ?")){
+                if($query = $db->prepare("DELETE FROM tbcontatemp WHERE idConta = ?")){
                   $query->bind_param('i',$_POST['idconta']);
                   $query->execute();
                   $query->close();
                   //Ldap para excluir
                 }
               }elseif($_POST['acao'] == 1){
-                if($query = $db->prepare("UPDATE tbContaTemp SET statusConta = 'Inativo' WHERE idConta = ?")){
+                if($query = $db->prepare("UPDATE tbcontatemp SET statusConta = 'Inativo' WHERE idConta = ?")){
                   $query->bind_param('i', $_POST['idconta']);
                   $query->execute();
                   $query->close();
@@ -308,7 +308,7 @@
             }elseif(isset($_POST['idconta3'])){
               $data = date("Y-m-d", strtotime(str_replace('/', '-', $_POST['data'])));
               if(date_create($data) >= date_create(date("Y-m-d", strtotime('now')))){
-                if($query = $db->prepare("UPDATE tbContaTemp SET dataFim = ?, statusConta = 'Ativo' WHERE idConta = ?")){
+                if($query = $db->prepare("UPDATE tbcontatemp SET dataFim = ?, statusConta = 'Ativo' WHERE idConta = ?")){
                   $query->bind_param('si', $data, $_POST['idconta3']);
                   $query->execute();
                   $query->close();
@@ -317,7 +317,7 @@
                 $_SESSION['avisoConta'] = 1;
               }
             }else{
-              if($query = $db->prepare("UPDATE tbContaTemp SET numAcesso = ? WHERE idConta = ?")){
+              if($query = $db->prepare("UPDATE tbcontatemp SET numAcesso = ? WHERE idConta = ?")){
                   $query->bind_param('ii', $_POST['numAcesso'], $_POST['idconta4']);
                   $query->execute();
                   $query->close();
@@ -333,21 +333,21 @@
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 1){//RESOLVER BUG
         $status = "Resolvido";
-        if($query = $db->prepare("UPDATE tbBugs SET status = ? WHERE idBug = ?")){
+        if($query = $db->prepare("UPDATE tbbugs SET status = ? WHERE idBug = ?")){
           $query->bind_param('si', $status, $_POST['id']);
           $query->execute();
           $query->close();
           $_SESSION['bugResolvido'] = 1;
-          Atalhos::addLogsAcoes('Modificou', 'tbBugs', $_POST['id']);
+          Atalhos::addLogsAcoes('Modificou', 'tbbugs', $_POST['id']);
         }
       }elseif($_POST['acao'] == 2){//DESCARTAR BUG
         $status = "Descartado";  
-        if($query = $db->prepare("UPDATE tbBugs SET status = ? WHERE idBug = ?")){
+        if($query = $db->prepare("UPDATE tbbugs SET status = ? WHERE idBug = ?")){
           $query->bind_param('si', $status, $_POST['id']);
           $query->execute();
           $query->close();
           $_SESSION['bugDescartado'] = 1;
-          Atalhos::addLogsAcoes('Modificou', 'tbBugs', $_POST['id']);
+          Atalhos::addLogsAcoes('Modificou', 'tbbugs', $_POST['id']);
         }
       }
       $db->close();
@@ -356,7 +356,7 @@
     public static function attBase(){
       $db = Atalhos::getBanco();
       $dateNow = date("Y-m-d H:i:s", strtotime("now"));
-      if ($query = $db->prepare("SELECT data FROM tbAtualizacao ORDER BY idAtualizacao DESC LIMIT 1")){
+      if ($query = $db->prepare("SELECT data FROM tbatualizacao ORDER BY idAtualizacao DESC LIMIT 1")){
         $query->execute();
         $query->bind_result($data);
         $query->fetch();
@@ -364,7 +364,7 @@
       }
       $date12h = date("Y-m-d H:i:s", strtotime("+12 hour", strtotime($data)));
       if ($date12h <= $dateNow){
-        if($query = $db->prepare("INSERT INTO tbAtualizacao (idUser, data) VALUES (?, ?)")){
+        if($query = $db->prepare("INSERT INTO tbatualizacao (idUser, data) VALUES (?, ?)")){
           $query->bind_param('is', $_SESSION['id'], $dateNow);
           $query->execute();
           $idLogsAcoes = $query->insert_id;
@@ -372,7 +372,7 @@
         }
         Atalhos::updateBD();
         $_SESSION['successAtt'] = 1;
-        Atalhos::addLogsAcoes('Atualizou a base', 'tbAtualizacao', $idLogsAcoes);
+        Atalhos::addLogsAcoes('Atualizou a base', 'tbatualizacao', $idLogsAcoes);
         $db->close();
       }else{
         $_SESSION['errorAtt'] = 1;
@@ -382,13 +382,13 @@
     public static function addTermo(){
       $db = Atalhos::getBanco();
       if($_POST['idTermo'] > 0){
-        if($query = $db->prepare("UPDATE tbTermo SET termo = ? WHERE idTermo = ?")){
+        if($query = $db->prepare("UPDATE tbtermo SET termo = ? WHERE idTermo = ?")){
           $query->bind_param('si', $_POST['termo'], $_POST['idTermo']);
           $query->execute();
           $query->close();
         }
       }else{
-        if($query = $db->prepare("INSERT INTO tbTermo (termo) VALUES (?)")){
+        if($query = $db->prepare("INSERT INTO tbtermo (termo) VALUES (?)")){
           $query->bind_param('s', $_POST['termo']);
           $query->execute();
           $query->close();
@@ -400,7 +400,7 @@
     public static function logTickets(){
       $db = Atalhos::getBanco();
       if(isset($_POST['acao2'])){
-        if($query = $db->prepare("SELECT idLog FROM tbLog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
+        if($query = $db->prepare("SELECT idLog FROM tblog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
           $query->bind_param('i', $_POST['idticket2']);
           $query->bind_result($idLog);
           $query->execute();
@@ -410,19 +410,19 @@
             $idLog = 1;
           }
           $query->close();
-          if($query = $db->prepare("INSERT INTO tbLog (idTicket, idLog, idUser, mensagem)
+          if($query = $db->prepare("INSERT INTO tblog (idTicket, idLog, idUser, mensagem)
             VALUES (?, ?, ?, ?)")){
             $msgcomsenha = $_POST['mensagem'] . '<div class="callout callout-success" style="margin-top: 10px;"><p>Senha gerada automaticamente: <input class="form-control" type="text" value="'.$_POST['senhatemp'] . '"></p></div>';
             $query->bind_param('iiis', $_POST['idticket2'], $idLog, $_SESSION['id'], $msgcomsenha);
             $query->execute();
             $query->close();
-            if($query = $db->prepare("UPDATE tbTicket SET statusTicket = 'Respondido' WHERE idTicket = ?")){
+            if($query = $db->prepare("UPDATE tbticket SET statusTicket = 'Respondido' WHERE idTicket = ?")){
               $query->bind_param('i', $_POST['idticket2']);
               $query->execute();
               $query->close();
 
               if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                  FROM tbUsuario
+                  FROM tbusuario
                   WHERE idUser = ?")){
                   $query->bind_param('si', $_SESSION['chave'], $_POST['idUserTicket']);             
                   $query->execute();
@@ -437,7 +437,7 @@
           }
         }
       }elseif($_POST['acao'] == 1 || $_POST['acao'] == 2){
-        if($query = $db->prepare("SELECT idLog FROM tbLog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
+        if($query = $db->prepare("SELECT idLog FROM tblog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
           $query->bind_param('i', $_POST['idticket']);
           $query->bind_result($idLog);
           $query->execute();
@@ -447,19 +447,19 @@
             $idLog = 1;
           }
           $query->close();
-          if($query = $db->prepare("INSERT INTO tbLog (idTicket, idLog, idUser, mensagem)
+          if($query = $db->prepare("INSERT INTO tblog (idTicket, idLog, idUser, mensagem)
             VALUES (?, ?, ?, ?)")){
             $query->bind_param('iiis', $_POST['idticket'], $idLog, $_SESSION['id'], $_POST['mensagem']);
             $query->execute();
             $query->close();
             if($_POST['acao'] == 1){
-              if($query = $db->prepare("UPDATE tbTicket SET statusTicket = 'Respondido' WHERE idTicket = ?")){
+              if($query = $db->prepare("UPDATE tbticket SET statusTicket = 'Respondido' WHERE idTicket = ?")){
                 $query->bind_param('i', $_POST['idticket']);
                 $query->execute();
                 $query->close();
 
                 if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                  FROM tbUsuario
+                  FROM tbusuario
                   WHERE idUser = ?")){
                   $query->bind_param('si', $_SESSION['chave'], $_POST['idUserTicket']);             
                   $query->execute();
@@ -472,7 +472,7 @@
               }
               header('Location: /tickets/moderar');
             }else{
-              if($query = $db->prepare("UPDATE tbTicket SET statusTicket = 'Em Analise' WHERE idTicket = ?")){
+              if($query = $db->prepare("UPDATE tbticket SET statusTicket = 'Em Analise' WHERE idTicket = ?")){
                 $query->bind_param('i', $_POST['idticket']);
                 $query->execute();
                 $query->close();
@@ -482,12 +482,12 @@
           }
         }
       }else{
-        if($query = $db->prepare("UPDATE tbTicket SET statusTicket = 'Concluido', avalicao = ? WHERE idTicket = ?")){
+        if($query = $db->prepare("UPDATE tbticket SET statusTicket = 'Concluido', avalicao = ? WHERE idTicket = ?")){
           $query->bind_param('ii', $_POST['rating'], $_POST['idticket']);
           $query->execute();
           $query->close();
           if($_POST['acao'] == 4){
-            if($query = $db->prepare("UPDATE tbEmail SET criado = 1 WHERE idUser = ?")){
+            if($query = $db->prepare("UPDATE tbemail SET criado = 1 WHERE idUser = ?")){
               $query->bind_param('i', $_SESSION['id']);
               $query->execute();
               $query->close();
@@ -502,14 +502,14 @@
     public static function addTickets(){
       $bd = Atalhos::getBanco();
       if($_POST['idAssunto'] != 6){
-        if($query = $bd->prepare("INSERT INTO tbTicket (idUser, idAssunto, tituloTicket, statusTicket)
+        if($query = $bd->prepare("INSERT INTO tbticket (idUser, idAssunto, tituloTicket, statusTicket)
           VALUES (?, ?, ?, 'Em Analise')")){
           $query->bind_param('iis', $_SESSION['id'], $_POST['idAssunto'], $_POST['titulo']);
           $query->execute();
           $idTickets = $query->insert_id;
           $query->close();
-          Atalhos::addLogsAcoes('Inseriu', 'tbTicket', $idTickets);
-          if($query = $bd->prepare("SELECT idLog FROM tbLog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
+          Atalhos::addLogsAcoes('Inseriu', 'tbticket', $idTickets);
+          if($query = $bd->prepare("SELECT idLog FROM tblog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
             $query->bind_param('i', $idTickets);
             $query->bind_result($idLog);
             $query->execute();
@@ -519,7 +519,7 @@
               $idLog = 1;
             }
             $query->close();
-            if($query = $bd->prepare("INSERT INTO tbLog (idTicket, idLog, idUser, mensagem)
+            if($query = $bd->prepare("INSERT INTO tblog (idTicket, idLog, idUser, mensagem)
               VALUES (?, ?, ?, ?)")){
               $query->bind_param('iiis', $idTickets, $idLog, $_SESSION['id'], $_POST['resumo']);
               $query->execute();
@@ -528,7 +528,7 @@
           }
         }
       }else{
-        if($query = $bd->prepare("SELECT a.afiliacao FROM tbAfiliacao a INNER JOIN tbUsuario b ON a.idAfiliacao = b.idAfiliacao WHERE idUser = ?")){
+        if($query = $bd->prepare("SELECT a.afiliacao FROM tbafiliacao a INNER JOIN tbusuario b ON a.idAfiliacao = b.idAfiliacao WHERE idUser = ?")){
           $query->bind_param('i', $_SESSION['id']);
           $query->execute();
           $query->bind_result($afiliacao);
@@ -536,14 +536,14 @@
           $query->store_result();
           $query->close();
         }
-        if($query = $bd->prepare("INSERT INTO tbTicket (idUser, idAssunto, tituloTicket, statusTicket)
+        if($query = $bd->prepare("INSERT INTO tbticket (idUser, idAssunto, tituloTicket, statusTicket)
           VALUES (?, 6, 'Requisição de Email Dcomp', 'Em Analise')")){
           $query->bind_param('i', $_SESSION['id']);
           $query->execute();
           $idTickets = $query->insert_id;
           $query->close();
-          Atalhos::addLogsAcoes('Inseriu', 'tbTicket', $idTickets);
-          if($query = $bd->prepare("SELECT idLog FROM tbLog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
+          Atalhos::addLogsAcoes('Inseriu', 'tbticket', $idTickets);
+          if($query = $bd->prepare("SELECT idLog FROM tblog WHERE idTicket = ? ORDER BY idLog DESC LIMIT 1")){
             $query->bind_param('i', $idTickets);
             $query->bind_result($idLog);
             $query->execute();
@@ -559,13 +559,13 @@
                         Email alternativo: '.$_POST['emailalt'].'<br>
                         Curso: '.$afiliacao.'<br><br>
                         Em concomitância, estou concordando com os termos de uso do Admin DCOMP e dos demais recursos disponibilizados por esse Departamento, incluindo a utilização dos laboratórios, sob pena de punição em caso de descumprimento.';
-            if($query = $bd->prepare("INSERT INTO tbLog (idTicket, idLog, idUser, mensagem)
+            if($query = $bd->prepare("INSERT INTO tblog (idTicket, idLog, idUser, mensagem)
               VALUES (?, ?, ?, ?)")){
               $query->bind_param('iiis', $idTickets, $idLog, $_SESSION['id'], $resumo);
               $query->execute();
               $query->close();
             }
-            if($query = $bd->prepare("INSERT INTO tbEmail (idUser, email) VALUES (?, AES_ENCRYPT(?, ?))")){
+            if($query = $bd->prepare("INSERT INTO tbemail (idUser, email) VALUES (?, AES_ENCRYPT(?, ?))")){
               $query->bind_param('iss', $_SESSION['id'], $_POST['email'], $_SESSION['chave']);
               $query->execute();
               $query->close();
@@ -787,31 +787,31 @@
       $db = Atalhos::getBanco();
       if(isset($_POST['acao'])){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaSala WHERE idReSala =?")){
+          if($query = $db->prepare("DELETE FROM tbreservasala WHERE idReSala =?")){
             $query->bind_param('i', $_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Deletou', 'tbReservaSala', $_POST['idre']);
+            Atalhos::addLogsAcoes('Deletou', 'tbreservasala', $_POST['idre']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataSala WHERE idReSala =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledatasala WHERE idReSala =? AND idData =?")){
             $query->bind_param('ii', $_POST['idre'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Deletou', 'tbControleDataSala', $_POST['idre']);
+            Atalhos::addLogsAcoes('Deletou', 'tbcontroledatasala', $_POST['idre']);
           }
         }
       }else{
         if($_POST['id2'] == 0){
-          if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ?, justificativa = ? WHERE idReSala =?")){
+          if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ?, justificativa = ? WHERE idReSala =?")){
             $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'], $_POST['idre2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre2']);
           }
         }else{
-          if($query = $db->prepare("UPDATE tbControleDataSala SET statusData =?, justificativa =? WHERE idReSala =?
+          if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData =?, justificativa =? WHERE idReSala =?
             AND idData =?")){
             $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'], $_POST['idre2'], $_POST['id2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre2']);
           }
         }
       }
@@ -825,7 +825,7 @@
         if(empty($_POST['justificativa'])){
           $_SESSION['errorModerarSala'] = 1;
         }else{
-          if($query = $db->prepare("SELECT idNoti FROM tbNotificacao ORDER BY idNoti DESC LIMIT 1")){
+          if($query = $db->prepare("SELECT idNoti FROM tbnotificacao ORDER BY idNoti DESC LIMIT 1")){
               $query->bind_result($idNoti);
               $query->execute();
             if($query->fetch()){
@@ -846,22 +846,22 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti)
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti)
               VALUES ('".$idNoti."', '".$noti."', 'false')")){
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id2'] == 0){
-            if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ?, justificativa = ?
               WHERE idReSala = ?")){
               $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'],$_POST['idre2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre2']);
               $query->close();
             }
             $conjunto = Atalhos::getConjunto($_POST['idre2'], 0, 3);
@@ -870,11 +870,11 @@
               Atalhos::verificarConjunto($conjunto, 3);
             }
           }else{
-            if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ?, justificativa = ?
               WHERE idReSala = ? AND idData = ?")){
               $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'],$_POST['idre2'], $_POST['id2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre2']);
             }
             $conjunto = Atalhos::getConjunto($_POST['idre2'], $_POST['id2'], 3);
             if($conjunto != false){
@@ -885,24 +885,24 @@
         }
       }elseif($_POST['acao'] == 'Excluir'){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaSala WHERE idReSala =?")){
+          if($query = $db->prepare("DELETE FROM tbreservasala WHERE idReSala =?")){
             $query->bind_param('i',$_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Deletou', 'tbReservaSala', $_POST['idre']);
+            Atalhos::addLogsAcoes('Deletou', 'tbreservasala', $_POST['idre']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataSala WHERE idReSala =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledatasala WHERE idReSala =? AND idData =?")){
             $query->bind_param('ii',$_POST['idre'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Deletou', 'tbControleDataSala', $_POST['idre']);
+            Atalhos::addLogsAcoes('Deletou', 'tbcontroledatasala', $_POST['idre']);
           }
         }
       }else{
         if($_POST['acao'] == "Recebido" || $_POST['acao'] == "Entregue"){
-          if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ? WHERE idData = ? AND idReSala = ?")){
+          if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ? WHERE idData = ? AND idReSala = ?")){
             $query->bind_param('sii',$_POST['acao'], $_POST['id'], $_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre']);
           }
         }else{
           if($_SESSION['id'] != $_POST['idUser']){
@@ -911,19 +911,19 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
               $query->bind_param('is',$idNoti, $noti);
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES (?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES (?, ?)")){
               $query->bind_param('ii',$_POST['idUser'], $idNoti);
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id'] == 0){
-            if($query = $db->prepare("SELECT idData FROM tbControleDataSala WHERE idReSala= ?")){
+            if($query = $db->prepare("SELECT idData FROM tbcontroledatasala WHERE idReSala= ?")){
               $query->bind_param('i',$_POST['idre']);
               $query->execute();
               if($query->fetch()){
@@ -931,29 +931,29 @@
                   $_SESSION['errorAprovar'] = 2;
                 }else{
                   $query->close();
-                  if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ? WHERE idReSala = ?")){
+                  if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ? WHERE idReSala = ?")){
                     $query->bind_param('si',$_POST['acao'], $_POST['idre']);
                     $query->execute();
-                    Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre']);
+                    Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre']);
                     $query->close();
                   }
                 }
               }else{
                 $query->close();
-                if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ? WHERE idReSala = ?")){
+                if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ? WHERE idReSala = ?")){
                   $query->bind_param('si',$_POST['acao'], $_POST['idre']);
                   $query->execute();
-                  Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre']);
+                  Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre']);
                   $query->close();
                 }
               }
             }
           }else{
             if(Atalhos::getConjunto($_POST['idre'], $_POST['id'], 3) == false){
-              if($query = $db->prepare("UPDATE tbControleDataSala SET statusData = ? WHERE idReSala = ? AND idData = ?")){
+              if($query = $db->prepare("UPDATE tbcontroledatasala SET statusData = ? WHERE idReSala = ? AND idData = ?")){
                 $query->bind_param('sii',$_POST['acao'], $_POST['idre'], $_POST['id']);
                 $query->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbControleDataSala', $_POST['idre']);
+                Atalhos::addLogsAcoes('Modificou', 'tbcontroledatasala', $_POST['idre']);
                 $query->close();
               }
             }else{
@@ -994,21 +994,21 @@
           break;
       }
       if($_POST['tempo'] == "UmaVez"){
-        if($query = $db->prepare("INSERT INTO tbReservaSala (idUser, idSala, tituloReSala, motivoReSala)
+        if($query = $db->prepare("INSERT INTO tbreservasala (idUser, idSala, tituloReSala, motivoReSala)
           VALUES (?, ?, ?, ?)")){
           $query->bind_param('iiss', $_SESSION['id'], $_POST['sala'], $titulo, $motivo);
           $query->execute();
           $idReSala = $query->insert_id;
-          Atalhos::addLogsAcoes('Inseriu', 'tbReservaSala', $idReSala);
+          Atalhos::addLogsAcoes('Inseriu', 'tbreservasala', $idReSala);
           $query->close();
         }
-        if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+        if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
           $query->bind_param('ss', $dataini, $datafim);
           $query->execute();
           $query->bind_result($idData);
           if($query->fetch() == NULL){
             $auxDb = Atalhos::getBanco();
-            if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+            if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
               $aux->bind_param('ss', $dataini, $datafim);
               $aux->execute();
               $idData = $aux->insert_id;
@@ -1017,7 +1017,7 @@
             }
           }
           $query->close();
-          if($query = $db->prepare("INSERT INTO tbControleDataSala (idReSala, idData, statusData) VALUES (?, ?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbcontroledatasala (idReSala, idData, statusData) VALUES (?, ?, ?)")){
             $result = Atalhos::choqueSala($dataini, $datafim, $_POST['sala']);
             $query->bind_param('iis', $idReSala, $idData, $status);
             if($result != false){
@@ -1054,23 +1054,23 @@
               $dataini = $day." ".$horaIni;
               $datafim = $day." ".$horaFim;
               if($verificaData == 0){
-                if($query = $db->prepare("INSERT INTO tbReservaSala (idUser, idSala, tituloReSala, motivoReSala)
+                if($query = $db->prepare("INSERT INTO tbreservasala (idUser, idSala, tituloReSala, motivoReSala)
                   VALUES (?, ?, ?, ?)")){
                   $query->bind_param('iiss', $_SESSION['id'], $_POST['sala'], $titulo, $motivo);
                   $query->execute();
                   $idReSala = $query->insert_id;
-                  Atalhos::addLogsAcoes('Inseriu', 'tbReservaSala', $idReSala);
+                  Atalhos::addLogsAcoes('Inseriu', 'tbreservasala', $idReSala);
                   $query->close();
                 }
                 $verificaData = 1;
               }
-              if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+              if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
                 $query->bind_param('ss', $dataini, $datafim);
                 $query->execute();
                 $query->bind_result($idData);
                 if($query->fetch() == NULL){
                   $auxDb = Atalhos::getBanco();
-                  if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+                  if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
                     $aux->bind_param('ss', $dataini, $datafim);
                     $aux->execute();
                     $idData = $aux->insert_id;
@@ -1079,7 +1079,7 @@
                   }
                 }
                 $query->close();
-                if($query = $db->prepare("INSERT INTO tbControleDataSala (idReSala, idData, statusData) VALUES (?, ?, ?)")){
+                if($query = $db->prepare("INSERT INTO tbcontroledatasala (idReSala, idData, statusData) VALUES (?, ?, ?)")){
                   $result = Atalhos::choqueSala($dataini, $datafim, $_POST['sala']);
                   $query->bind_param('iis', $idReSala, $idData, $status);
                   if($result != false){
@@ -1109,22 +1109,22 @@
     public static function salaStatus(){
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 1){
-        if($query = $db->prepare("UPDATE tbSala SET statusSala = 'Inativo' WHERE idSala = ?")){
+        if($query = $db->prepare("UPDATE tbsala SET statusSala = 'Inativo' WHERE idSala = ?")){
           $query->bind_param('i', $_POST['idSala']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbSala', $_POST['idSala']);
+          Atalhos::addLogsAcoes('Modificou', 'tbsala', $_POST['idSala']);
         }
       }elseif($_POST['acao'] == 2){
-        if($query = $db->prepare("UPDATE tbSala SET statusSala = 'Ativo' WHERE idSala = ?")){
+        if($query = $db->prepare("UPDATE tbsala SET statusSala = 'Ativo' WHERE idSala = ?")){
           $query->bind_param('i', $_POST['idSala']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbSala', $_POST['idSala']);
+          Atalhos::addLogsAcoes('Modificou', 'tbsala', $_POST['idSala']);
         }
       }else{
-        if($query = $db->prepare("DELETE FROM tbSala WHERE idSala = ?")){
+        if($query = $db->prepare("DELETE FROM tbsala WHERE idSala = ?")){
           $query->bind_param('i', $_POST['idSala']);
           $query->execute();
-          Atalhos::addLogsAcoes('Excluiu', 'tbSala', $_POST['idSala']);
+          Atalhos::addLogsAcoes('Excluiu', 'tbsala', $_POST['idSala']);
         }
       }
       $query->close();
@@ -1134,10 +1134,10 @@
 
     public static function salaEdit(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("UPDATE tbSala SET nomeSala=?, numPessoa=? WHERE idSala = ?")){
+      if($query = $db->prepare("UPDATE tbsala SET nomeSala=?, numPessoa=? WHERE idSala = ?")){
         $query->bind_param('sii', $_POST['nome'], $_POST['cap'], $_POST['idSala']);
         $query->execute();
-        Atalhos::addLogsAcoes('Modificou', 'tbSala', $_POST['idSala']);
+        Atalhos::addLogsAcoes('Modificou', 'tbsala', $_POST['idSala']);
         $_SESSION['avisoSala'] = 'Sala editado com sucesso!';
       }
       $query->close();
@@ -1147,11 +1147,11 @@
 
     public static function salaAdd(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("SELECT idCor FROM tbSala ORDER BY idCor ASC")){
+      if($query = $db->prepare("SELECT idCor FROM tbsala ORDER BY idCor ASC")){
         $query->execute();
         $query->bind_result($idCor);
         $auxDb = Atalhos::getBanco();
-        if($aux = $auxDb->prepare("SELECT idCor FROM tbCor ORDER BY idCor DESC LIMIT 1")){
+        if($aux = $auxDb->prepare("SELECT idCor FROM tbcor ORDER BY idCor DESC LIMIT 1")){
           $aux->execute();
           $aux->bind_result($totalCor);
           $aux->fetch();
@@ -1167,11 +1167,11 @@
           $auxDb->close();
           $aux->close();
           if($i <= $totalCor){
-            if($query = $db->prepare("INSERT INTO tbSala (nomeSala, numPessoa, statusSala, idCor) VALUES (?, ?, ?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbsala (nomeSala, numPessoa, statusSala, idCor) VALUES (?, ?, ?, ?)")){
               $query->bind_param('sisi', $_POST['nome'], $_POST['cap'], $_POST['status'], $i);
               $query->execute();
               $idSala = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbSala', $idSala);
+              Atalhos::addLogsAcoes('Inseriu', 'tbsala', $idSala);
               $_SESSION['avisoSala'] = 'Sala adicionado com sucesso!';
             }
             $query->close();
@@ -1186,10 +1186,10 @@
 
     public static function meusReq(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("DELETE FROM tbRequerimentos WHERE idReq  = ?")){
+      if($query = $db->prepare("DELETE FROM tbrequerimentos WHERE idReq  = ?")){
         $query->bind_param('i', $_POST['id']);
         $query->execute();
-        Atalhos::addLogsAcoes('Excluiu', 'tbRequerimentos', $_POST['id']);
+        Atalhos::addLogsAcoes('Excluiu', 'tbrequerimentos', $_POST['id']);
       }
       $query->close();
       $db->close();
@@ -1200,31 +1200,31 @@
       $db = Atalhos::getBanco();
       if(isset($_POST['acao'])){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaEq WHERE idReEq =?")){
+          if($query = $db->prepare("DELETE FROM tbreservaeq WHERE idReEq =?")){
             $query->bind_param('i', $_POST['idreeq']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbReservaEq', $_POST['idreeq']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbreservaeq', $_POST['idreeq']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataEq WHERE idReEq =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledataeq WHERE idReEq =? AND idData =?")){
             $query->bind_param('ii', $_POST['idreeq'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbControleDataEq', $_POST['idreeq']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbcontroledataeq', $_POST['idreeq']);
           }
         }
       }else{
         if($_POST['id2'] == 0){
-          if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ?, justificativa = ? WHERE idReEq =?")){
+          if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ?, justificativa = ? WHERE idReEq =?")){
             $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'], $_POST['idreeq2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq2']);
           }
         }else{
-          if($query = $db->prepare("UPDATE tbControleDataEq SET statusData =?, justificativa =? WHERE idReEq =?
+          if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData =?, justificativa =? WHERE idReEq =?
             AND idData =?")){
             $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'], $_POST['idreeq2'], $_POST['id2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbControleDataEq', $_POST['idreeq2']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbcontroledataeq', $_POST['idreeq2']);
           }
         }
       }
@@ -1236,31 +1236,31 @@
       $db = Atalhos::getBanco();
       if(isset($_POST['acao'])){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaLab WHERE idReLab =?")){
+          if($query = $db->prepare("DELETE FROM tbreservalab WHERE idReLab =?")){
             $query->bind_param('i', $_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbReservaLab', $_POST['idre']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbreservalab', $_POST['idre']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataLab WHERE idReLab =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledatalab WHERE idReLab =? AND idData =?")){
             $query->bind_param('ii', $_POST['idre'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbControleDataLab', $_POST['idre']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbcontroledatalab', $_POST['idre']);
           }
         }
       }else{
         if($_POST['id2'] == 0){
-          if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ?, justificativa = ? WHERE idReLab =?")){
+          if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ?, justificativa = ? WHERE idReLab =?")){
             $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'], $_POST['idre2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre2']);
           }
         }else{
-          if($query = $db->prepare("UPDATE tbControleDataLab SET statusData =?, justificativa =? WHERE idReLab =?
+          if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData =?, justificativa =? WHERE idReLab =?
             AND idData =?")){
             $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'], $_POST['idre2'], $_POST['id2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre2']);
           }
         }
       }
@@ -1271,13 +1271,13 @@
     public static function moderarReq(){
       $db = Atalhos::getBanco();
       if(isset($_POST['acao'])){
-        if($query = $db->prepare("UPDATE tbRequerimentos SET statusReq = ? WHERE idReq = ?")){
+        if($query = $db->prepare("UPDATE tbrequerimentos SET statusReq = ? WHERE idReq = ?")){
           $query->bind_param('si', $_POST['acao'], $_POST['id']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbRequerimentos', $_POST['id']);
+          Atalhos::addLogsAcoes('Modificou', 'tbrequerimentos', $_POST['id']);
         }
         if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario NATURAL JOIN tbRequerimentos
+                                  FROM tbusuario NATURAL JOIN tbrequerimentos
                                   WHERE idReq = ?")){
           $query->bind_param('si', $_SESSION['chave'], $_POST['id']);             
           $query->execute();
@@ -1290,13 +1290,13 @@
         if(empty($_POST['justificativa'])){
           $_SESSION['errorModerarLab'] = 1;
         }else{
-          if($query = $db->prepare("UPDATE tbRequerimentos SET statusReq = ?, justificativaReq = ?  WHERE idReq = ?")){
+          if($query = $db->prepare("UPDATE tbrequerimentos SET statusReq = ?, justificativaReq = ?  WHERE idReq = ?")){
             $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'], $_POST['id2']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbRequerimentos', $_POST['id2']);
+            Atalhos::addLogsAcoes('Modificou', 'tbrequerimentos', $_POST['id2']);
           }
           if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario NATURAL JOIN tbRequerimentos
+                                  FROM tbusuario NATURAL JOIN tbrequerimentos
                                   WHERE idReq = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_POST['id2']);             
             $query->execute();
@@ -1317,10 +1317,10 @@
         $subdata = explode(" - ", $_POST['data']);
         $dataini = date('Y-m-d',strtotime($subdata[0]));
         $datafim = date('Y-m-d',strtotime($subdata[1]));
-        if($query = $db->prepare("UPDATE tbPrazo SET inicio = ?, fim = ? WHERE idPrazo = ?")){
+        if($query = $db->prepare("UPDATE tbprazo SET inicio = ?, fim = ? WHERE idPrazo = ?")){
           $query->bind_param('ssi', $dataini, $datafim, $_POST['id']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbPrazo', $_POST['id']);
+          Atalhos::addLogsAcoes('Modificou', 'tbprazo', $_POST['id']);
           $_SESSION['prazoAlterado'] = 1;
         }
         $query->close();
@@ -1328,10 +1328,10 @@
       else{
         $dataini = NULL;
         $datafim = NULL;
-        if($query = $db->prepare("UPDATE tbPrazo SET inicio = ?, fim = ? WHERE idPrazo = ?")){
+        if($query = $db->prepare("UPDATE tbprazo SET inicio = ?, fim = ? WHERE idPrazo = ?")){
           $query->bind_param('ssi', $dataini, $datafim, $_POST['id']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbPrazo', $_POST['id']);
+          Atalhos::addLogsAcoes('Modificou', 'tbprazo', $_POST['id']);
           $_SESSION['prazoAlterado'] = 1;
         }
         $query->close();
@@ -1341,34 +1341,34 @@
 
     public static function corAdd(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("INSERT INTO tbCor (cor) VALUES (?)")){
+      if($query = $db->prepare("INSERT INTO tbcor (cor) VALUES (?)")){
         $query->bind_param('s', $_POST['cor']);
         $query->execute();
         $idCor = $query->insert_id;
         $query->close();
         if(isset($_POST ['pcs'])){
-          if($query = $db->prepare("INSERT INTO tbLaboratorio (nomeLab, numComp, capAluno, statusLab, idCor)
+          if($query = $db->prepare("INSERT INTO tblaboratorio (nomeLab, numComp, capAluno, statusLab, idCor)
               VALUES (?, ?, ?, ?, ?)")){
             $query->bind_param('siisi', $_POST['nome'], $_POST['pcs'], $_POST['capacidade'], $_POST['status'], $idCor);
             $query->execute();
             $idLab = $query->insert_id;
-            Atalhos::addLogsAcoes('Inseriu', 'tbLaboratorio', $idLab);
+            Atalhos::addLogsAcoes('Inseriu', 'tblaboratorio', $idLab);
             $query->close();
             $db->close();
             $_SESSION['avisoLab'] = 'Laboratório adicionado com sucesso!';
             header('Location: /recursos/laboratorios');
           }
         }elseif(isset($_POST ['patrimonio'])){
-          if($query = $db->prepare("INSERT INTO tbTipoEq (tipoEq, numEq, idCor) VALUES (?, 1, ?)")){
+          if($query = $db->prepare("INSERT INTO tbtipoeq (tipoEq, numEq, idCor) VALUES (?, 1, ?)")){
             $query->bind_param('si', $_POST['novoTipo'], $idCor);
             $query->execute();
             $idTipoEq = $query->insert_id;
             $query->close();
-            if($query = $db->prepare("INSERT INTO tbEquipamento (patrimonio, modelo, idTipoEq, statusEq) VALUES (?, ?, ?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbequipamento (patrimonio, modelo, idTipoEq, statusEq) VALUES (?, ?, ?, ?)")){
               $query->bind_param('isis', $_POST['patrimonio'], $_POST['modelo'], $idTipoEq, $_POST['status']);
               $query->execute();
               $idEq = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbEquipamento', $idEq);
+              Atalhos::addLogsAcoes('Inseriu', 'tbequipamento', $idEq);
               $query->close();
               $db->close();
               $_SESSION['avisoEqp'] = 'Equipamento adicianado com sucesso!';
@@ -1376,11 +1376,11 @@
             }
           }
         }else{
-          if($query = $db->prepare("INSERT INTO tbSala (nomeSala, numPessoa, statusSala, idCor) VALUES (?, ?, ?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbsala (nomeSala, numPessoa, statusSala, idCor) VALUES (?, ?, ?, ?)")){
             $query->bind_param('sisi', $_POST['nome'], $_POST['cap'], $_POST['status'], $idCor);
             $query->execute();
             $idSala = $query->insert_id;
-            Atalhos::addLogsAcoes('Inseriu', 'tbSala', $idSala);
+            Atalhos::addLogsAcoes('Inseriu', 'tbsala', $idSala);
             $query->close();
             $db->close();
             $_SESSION['avisoSala'] = 'Sala adicionado com sucesso!';
@@ -1393,9 +1393,9 @@
     public static function changeLab(){
       $db = Atalhos::getBanco();
       if($query = $db->prepare("SELECT h.inicio, h.fim, a.tipoReLab, a.numPc, g.statusData
-            FROM tbReservaLab a inner join tbControleDataLab g on a.idReLab = g.idReLab
-            inner join tbData h on h.idData = g.idData
-            inner join tbLaboratorio b on g.idLab = b.idLab
+            FROM tbreservalab a inner join tbcontroledatalab g on a.idReLab = g.idReLab
+            inner join tbdata h on h.idData = g.idData
+            inner join tblaboratorio b on g.idLab = b.idLab
           WHERE g.idReLab = ? AND g.idData = ?")){
         $query->bind_param('ii', $_POST['idReLab'], $_POST['idData']);
         $query->execute();
@@ -1404,10 +1404,10 @@
         $temp = Atalhos::choqueLab($inicio, $fim, $_POST['idLab'], $tipoReLab, $numPc);
         $query->close();
         if($temp == false){
-          if($query = $db->prepare("UPDATE tbControleDataLab SET idLab = ? WHERE idReLab = ? AND idData = ?")){
+          if($query = $db->prepare("UPDATE tbcontroledatalab SET idLab = ? WHERE idReLab = ? AND idData = ?")){
             $query->bind_param('iii', $_POST['idLab'], $_POST['idReLab'], $_POST['idData']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idReLab']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idReLab']);
             $conjunto = Atalhos::getConjunto($_POST['idReLab'], $_POST['idData'], 2);
             Atalhos::deletarConjunto($_POST['idReLab'], $_POST['idData'], 2);
             Atalhos::verificarConjunto($conjunto, 2);
@@ -1420,7 +1420,7 @@
             $num = count($choque);
             for($i = 0; $i < $num; $i++){
               $choque[$i] = explode("-", $choque[$i]);
-              if($query = $db->prepare("SELECT statusData FROM  tbControleDataLab
+              if($query = $db->prepare("SELECT statusData FROM  tbcontroledatalab
                 WHERE idReLab = ? AND idData = ?")){
                 $query->bind_param('ii', $choque[$i][0], $choque[$i][1]);
                 $query->execute();
@@ -1435,10 +1435,10 @@
             }
           }
           if(!isset($_SESSION['errorChangeLab'])){
-            if($query = $db->prepare("UPDATE tbControleDataLab SET idLab = ? WHERE idReLab = ? AND idData = ?")){
+            if($query = $db->prepare("UPDATE tbcontroledatalab SET idLab = ? WHERE idReLab = ? AND idData = ?")){
               $query->bind_param('iii', $_POST['idLab'], $_POST['idReLab'], $_POST['idData']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idReLab']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idReLab']);
               $conjunto = Atalhos::getConjunto($_POST['idReLab'], $_POST['idData'], 2);
               Atalhos::deletarConjunto($_POST['idReLab'], $_POST['idData'], 2);
               Atalhos::verificarConjunto($conjunto, 2);
@@ -1455,12 +1455,12 @@
       $db = Atalhos::getBanco();
       $i = 1;
       while(isset($_POST['eqp'.$i])){
-        if($query = $db->prepare("INSERT INTO tbAlocaReEq (idReEq, idData, patrimonio) VALUES (?, ?, ?)")){
+        if($query = $db->prepare("INSERT INTO tbalocareeq (idReEq, idData, patrimonio) VALUES (?, ?, ?)")){
           $query->bind_param('iii', $_POST['idReEq'], $_POST['idData'], $_POST['eqp'.$i]);
           $query->execute();
           $query->close();
           if($i == 1){
-            if($query = $db->prepare("UPDATE tbControleDataEq SET statusData='Entregue' WHERE idReEq = ? AND idData = ?")){
+            if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData='Entregue' WHERE idReEq = ? AND idData = ?")){
               $query->bind_param('ii', $_POST['idReEq'], $_POST['idData']);
               $query->execute();
               $query->close();
@@ -1474,13 +1474,13 @@
 
     public static function eqpEdit(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("UPDATE tbEquipamento SET modelo = ? WHERE patrimonio = ?")){
+      if($query = $db->prepare("UPDATE tbequipamento SET modelo = ? WHERE patrimonio = ?")){
         $query->bind_param('si', $_POST['modelo'], $_POST['patrimonio']);
         $query->execute();
-        Atalhos::addLogsAcoes('Modificou', 'tbEquipamento', $_POST['patrimonio']);
+        Atalhos::addLogsAcoes('Modificou', 'tbequipamento', $_POST['patrimonio']);
         $query->close();
         if(!empty($_POST['lab'])){
-          if($query = $db->prepare("INSERT INTO tbAlocaLab VALUES (?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbalocalab VALUES (?, ?)")){
             $query->bind_param('ii', $_POST['lab'], $_POST['patrimonio']);
             $query->execute();
             $query->close();
@@ -1493,10 +1493,10 @@
 
     public static function labEdit(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("UPDATE tbLaboratorio SET nomeLab = ?, numComp = ?, capAluno = ? WHERE idLab = ?")){
+      if($query = $db->prepare("UPDATE tblaboratorio SET nomeLab = ?, numComp = ?, capAluno = ? WHERE idLab = ?")){
         $query->bind_param('siii', $_POST['nome'], $_POST['pcs'], $_POST['capacidade'], $_POST['idLab']);
         $query->execute();
-        Atalhos::addLogsAcoes('Modificou', 'tbLaboratorio', $_POST['idLab']);
+        Atalhos::addLogsAcoes('Modificou', 'tblaboratorio', $_POST['idLab']);
         $query->close();
         $_SESSION['avisoLab'] = 'Laboratório editado com sucesso!';
       }
@@ -1505,11 +1505,11 @@
 
     public static function labAdd(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("SELECT idCor FROM tbLaboratorio ORDER BY idCor ASC")){
+      if($query = $db->prepare("SELECT idCor FROM tblaboratorio ORDER BY idCor ASC")){
         $query->execute();
         $query->bind_result($idCor);
         $auxDb = Atalhos::getBanco();
-        if($aux = $auxDb->prepare("SELECT idCor FROM tbCor ORDER BY idCor DESC LIMIT 1")){
+        if($aux = $auxDb->prepare("SELECT idCor FROM tbcor ORDER BY idCor DESC LIMIT 1")){
           $aux->execute();
           $aux->bind_result($totalCor);
           $aux->fetch();
@@ -1525,12 +1525,12 @@
           $auxDb->close();
           $aux->close();
           if($i <= $totalCor){
-            if($query = $db->prepare("INSERT INTO tbLaboratorio (nomeLab, numComp, capAluno, statusLab, idCor)
+            if($query = $db->prepare("INSERT INTO tblaboratorio (nomeLab, numComp, capAluno, statusLab, idCor)
               VALUES (?, ?, ?, ?, ?)")){
               $query->bind_param('siisi', $_POST['nome'], $_POST['pcs'], $_POST['capacidade'], $_POST['status'], $i);
               $query->execute();
               $idLab = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbLaboratorio', $idLab);
+              Atalhos::addLogsAcoes('Inseriu', 'tblaboratorio', $idLab);
               $_SESSION['avisoLab'] = 'Laboratório adicionado com sucesso!';
             }
             $query->close();
@@ -1546,16 +1546,16 @@
     public static function eqpAdd(){
       $db = Atalhos::getBanco();
       $idTipoEq = $_POST['tipo'];
-      if($query = $db->prepare("SELECT patrimonio FROM tbEquipamento WHERE patrimonio = ?")){
+      if($query = $db->prepare("SELECT patrimonio FROM tbequipamento WHERE patrimonio = ?")){
         $query->bind_param('i', $_POST['patrimonio']);
         $query->execute();
         if($query->fetch() == null){
           if($_POST['tipo'] == 0){
-            if($query = $db->prepare("SELECT idCor FROM tbTipoEq ORDER BY idCor ASC")){
+            if($query = $db->prepare("SELECT idCor FROM tbtipoeq ORDER BY idCor ASC")){
               $query->execute();
               $query->bind_result($idCor);
               $auxDb = Atalhos::getBanco();
-              if($aux = $auxDb->prepare("SELECT idCor FROM tbCor ORDER BY idCor DESC LIMIT 1")){
+              if($aux = $auxDb->prepare("SELECT idCor FROM tbcor ORDER BY idCor DESC LIMIT 1")){
                 $aux->execute();
                 $aux->bind_result($totalCor);
                 $aux->fetch();
@@ -1571,7 +1571,7 @@
                 $auxDb->close();
                 $aux->close();
                 if($i <= $totalCor){
-                  if($query = $db->prepare("INSERT INTO tbTipoEq (tipoEq, numEq, idCor) VALUES (?, 0, ?)")){
+                  if($query = $db->prepare("INSERT INTO tbtipoeq (tipoEq, numEq, idCor) VALUES (?, 0, ?)")){
                     $query->bind_param('si', $_POST['novoTipo'], $i);
                     $query->execute();
                     $idTipoEq = $query->insert_id;
@@ -1583,24 +1583,24 @@
               }
             }
           }
-          if($query = $db->prepare("SELECT numEq FROM tbTipoEq WHERE idTipoEq = ? ")){
+          if($query = $db->prepare("SELECT numEq FROM tbtipoeq WHERE idTipoEq = ? ")){
             $query->bind_param('i', $idTipoEq);
             $query->execute();
             $query->bind_result($numEq);
             $query->fetch();
             $query->close();
             $numEq++;
-            if($aux1 = $db->prepare("UPDATE tbTipoEq SET numEq = ? WHERE idTipoEq = ?")){
+            if($aux1 = $db->prepare("UPDATE tbtipoeq SET numEq = ? WHERE idTipoEq = ?")){
               $aux1->bind_param('ii', $numEq, $idTipoEq);
               $aux1->execute();
               $aux1->close();
             }
 
-            if($aux2 = $db->prepare("INSERT INTO tbEquipamento (patrimonio, modelo, idTipoEq, statusEq) VALUES (?, ?, ?, ?)")){
+            if($aux2 = $db->prepare("INSERT INTO tbequipamento (patrimonio, modelo, idTipoEq, statusEq) VALUES (?, ?, ?, ?)")){
               $aux2->bind_param('isis', $_POST['patrimonio'], $_POST['modelo'], $idTipoEq, $_POST['status']);
               $aux2->execute();
               $idEqp = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbEquipamento', $idEqp);
+              Atalhos::addLogsAcoes('Inseriu', 'tbequipamento', $idEqp);
               $aux2->close();
               $db->close();
               $_SESSION['avisoEqp'] = 'Equipamento adicianado com sucesso!';
@@ -1623,19 +1623,19 @@
             $test = NULL;
             $db = Atalhos::getBanco();
             if($_POST['tipo'] == 1){
-              if($query = $db->prepare('INSERT INTO tbImagem VALUES (?,?)')){
+              if($query = $db->prepare('INSERT INTO tbimagem VALUES (?,?)')){
                 $query->bind_param('ib', $idUser, $test);
                 $query->send_long_data(1, $imagem);
                 $query->execute();
-                Atalhos::addLogsAcoes('Inseriu', 'tbImagem', $idUser);
+                Atalhos::addLogsAcoes('Inseriu', 'tbimagem', $idUser);
                 $query->close();
               }
             }else{
-              if($query = $db->prepare("UPDATE tbImagem SET imagem = ? WHERE idUser = ?")){
+              if($query = $db->prepare("UPDATE tbimagem SET imagem = ? WHERE idUser = ?")){
                 $query->bind_param('bi', $test, $idUser);
                 $query->send_long_data(0, $imagem);
                 $query->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbImagem', $idUser);
+                Atalhos::addLogsAcoes('Modificou', 'tbimagem', $idUser);
                 $query->close();
               }
             }
@@ -1649,24 +1649,24 @@
     public static function laboratorio(){
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 2){
-        if($query = $db->prepare("UPDATE tbLaboratorio SET statusLab = 'Ativo' WHERE idLab = ?")){
+        if($query = $db->prepare("UPDATE tblaboratorio SET statusLab = 'Ativo' WHERE idLab = ?")){
           $query->bind_param('i', $_POST['idLab']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbLaboratorio', $_POST['idLab']);
+          Atalhos::addLogsAcoes('Modificou', 'tblaboratorio', $_POST['idLab']);
           $query->close();
         }
       }else if($_POST['acao'] == 1){
-        if($query = $db->prepare("UPDATE tbLaboratorio SET statusLab = 'Inativo' WHERE idLab = ?")){
+        if($query = $db->prepare("UPDATE tblaboratorio SET statusLab = 'Inativo' WHERE idLab = ?")){
           $query->bind_param('i', $_POST['idLab']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbLaboratorio', $_POST['idLab']);
+          Atalhos::addLogsAcoes('Modificou', 'tblaboratorio', $_POST['idLab']);
           $query->close();
         }
       }else{
-        if($query = $db->prepare("DELETE FROM tbLaboratorio WHERE idLab = ?")){
+        if($query = $db->prepare("DELETE FROM tblaboratorio WHERE idLab = ?")){
           $query->bind_param('i', $_POST['idLab']);
           $query->execute();
-          Atalhos::addLogsAcoes('Excluiu', 'tbLaboratorio', $_POST['idLab']);
+          Atalhos::addLogsAcoes('Excluiu', 'tblaboratorio', $_POST['idLab']);
           $query->close();
         }
       }
@@ -1676,42 +1676,42 @@
     public static function equipamento(){
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 2){
-        if($query = $db->prepare("UPDATE tbEquipamento SET statusEq = 'Ativo' WHERE patrimonio = ?")){
+        if($query = $db->prepare("UPDATE tbequipamento SET statusEq = 'Ativo' WHERE patrimonio = ?")){
           $query->bind_param('i', $_POST['patrimonio']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbEquipamento', $_POST['patrimonio']);
+          Atalhos::addLogsAcoes('Modificou', 'tbequipamento', $_POST['patrimonio']);
           $query->close();
         }
       }else if($_POST['acao'] == 1){
-        if($query = $db->prepare("UPDATE tbEquipamento SET statusEq = 'Inativo' WHERE patrimonio = ?")){
+        if($query = $db->prepare("UPDATE tbequipamento SET statusEq = 'Inativo' WHERE patrimonio = ?")){
           $query->bind_param('i', $_POST['patrimonio']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbEquipamento', $_POST['patrimonio']);
+          Atalhos::addLogsAcoes('Modificou', 'tbequipamento', $_POST['patrimonio']);
           $query->close();
         }
       }else{
-        if($query = $db->prepare("SELECT a.idTipoEq, b.numEq FROM tbEquipamento a
-          inner join tbTipoEq b ON a.idTipoEq = b.idTipoEq WHERE patrimonio = ?")){
+        if($query = $db->prepare("SELECT a.idTipoEq, b.numEq FROM tbequipamento a
+          inner join tbtipoeq b ON a.idTipoEq = b.idTipoEq WHERE patrimonio = ?")){
           $query->bind_param('i', $_POST['patrimonio']);
           $query->execute();
           $query->bind_result($idTipoEq, $numEq);
           $query->fetch();
           $query->close();
-          if($query = $db->prepare("DELETE FROM tbEquipamento WHERE patrimonio = ?")){
+          if($query = $db->prepare("DELETE FROM tbequipamento WHERE patrimonio = ?")){
             $query->bind_param('i', $_POST['patrimonio']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbEquipamento', $_POST['patrimonio']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbequipamento', $_POST['patrimonio']);
             $query->close();
           }
           if($numEq > 1){
             $numEq--;
-            if($query = $db->prepare("UPDATE tbTipoEq SET numEq = ? WHERE idTipoEq = ?")){
+            if($query = $db->prepare("UPDATE tbtipoeq SET numEq = ? WHERE idTipoEq = ?")){
               $query->bind_param('ii', $numEq, $idTipoEq);
               $query->execute();
               $query->close();
             }
           }else{
-            if($query = $db->prepare("DELETE FROM tbTipoEq WHERE idTipoEq = ?")){
+            if($query = $db->prepare("DELETE FROM tbtipoeq WHERE idTipoEq = ?")){
               $query->bind_param('i', $idTipoEq);
               $query->execute();
               $query->close();
@@ -1725,17 +1725,17 @@
     public static function disciplina(){
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 2){
-        if($query = $db->prepare("UPDATE tbDisciplinas SET status = 'Ativo' WHERE idDisc = ?")){
+        if($query = $db->prepare("UPDATE tbdisciplinas SET status = 'Ativo' WHERE idDisc = ?")){
           $query->bind_param('i', $_POST['idDisc']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbDisciplinas', $_POST['idDisc']);
+          Atalhos::addLogsAcoes('Modificou', 'tbdisciplinas', $_POST['idDisc']);
           $query->close();
         }
       }else if($_POST['acao'] == 1){
-        if($query = $db->prepare("UPDATE tbDisciplinas SET status = 'Inativo' WHERE idDisc = ?")){
+        if($query = $db->prepare("UPDATE tbdisciplinas SET status = 'Inativo' WHERE idDisc = ?")){
           $query->bind_param('i', $_POST['idDisc']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbDisciplinas', $_POST['idDisc']);
+          Atalhos::addLogsAcoes('Modificou', 'tbdisciplinas', $_POST['idDisc']);
           $query->close();
         }
       }
@@ -1748,11 +1748,11 @@
       preg_match_all('/<td class="nome">(.+)<\/td>/', file_get_contents('https://www.sigaa.ufs.br/sigaa/public/departamento/componentes.jsf?id=83'), $br2);
       preg_match_all('/<td class="ch">(.+)<\/td>/', file_get_contents('https://www.sigaa.ufs.br/sigaa/public/departamento/componentes.jsf?id=83'), $br3);
       for($i = 0; $i<$num; $i++){
-        if($query = $db->prepare("SELECT nome FROM tbDisciplinas WHERE codigo = ?")){
+        if($query = $db->prepare("SELECT nome FROM tbdisciplinas WHERE codigo = ?")){
           $query->bind_param('s', $br[1][$i]);
           $query->execute();
           if(!($query->fetch())){
-            if($aux = $db->prepare("INSERT INTO tbDisciplinas(nome, codigo, carga) VALUES (?, ?, ?)")){
+            if($aux = $db->prepare("INSERT INTO tbdisciplinas(nome, codigo, carga) VALUES (?, ?, ?)")){
               $aux->bind_param('sss', $br2[1][$i], $br[1][$i], $br3[1][$i]);
               $aux->execute();
               $aux->close();
@@ -1770,32 +1770,32 @@
       if(isset($_POST['acao2'])){
         $idUser = $_POST['idUserBlock'];
         if($_POST['acao2'] == 2){
-          if($query = $db->prepare("UPDATE tbUsuario SET statusUser = 'Inativo' WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET statusUser = 'Inativo' WHERE idUser = ?")){
             $query->bind_param('i', $_POST['idUserBlock']);
             $query->execute();
             $query->close();
-            if($query = $db->prepare("INSERT INTO tbBlock (idUserBlock, idUser, motivoBlock, dataInicio, dataFim)
+            if($query = $db->prepare("INSERT INTO tbblock (idUserBlock, idUser, motivoBlock, dataInicio, dataFim)
               VALUES (?, ?, ?, ?, ?)")){
               $query->bind_param('iisss', $_POST['idUserBlock'], $_POST['idUser2'], $_POST['motivo'], date("Y-m-d"),
                 date("Y-m-d", strtotime("+".$_POST['duracao']." days")));
               $query->execute();
               $idBlock = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbBlock', $idBlock);
+              Atalhos::addLogsAcoes('Inseriu', 'tbblock', $idBlock);
               $query->close();
             }
           }
           $_SESSION['avisoBlock'] = 1;
         }else{
-          if($query = $db->prepare("UPDATE tbUsuario SET statusUser = 'Ativo' WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET statusUser = 'Ativo' WHERE idUser = ?")){
             $query->bind_param('i', $_POST['idUserBlock']);
             $query->execute();
             $query->close();
             $dataFim = date("Y-m-d");
             if($dataFim != $_POST['dataFim']){
-              if($query = $db->prepare("UPDATE tbBlock SET dataFim = ? WHERE idBlock =")){
+              if($query = $db->prepare("UPDATE tbblock SET dataFim = ? WHERE idBlock =")){
                 $query->bind_param('si', $dataFim, $_POST['idBlock']);
                 $query->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbBlock', $_POST['idBlock']);
+                Atalhos::addLogsAcoes('Modificou', 'tbblock', $_POST['idBlock']);
                 $query->close();
               }
             }
@@ -1806,10 +1806,10 @@
         $idUser = $_POST['idUserAcesso'];
         $qtdeAcessos = $_POST['qtdeAcessos'];
         if($_POST['acao4']){
-          if($query = $db->prepare("UPDATE tbUsuario SET statusLogin = ? WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET statusLogin = ? WHERE idUser = ?")){
             $query->bind_param('ii', $qtdeAcessos, $_POST['idUserAcesso']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbUsuario', $_POST['idUserAcesso']);
+            Atalhos::addLogsAcoes('Modificou', 'tbusuario', $_POST['idUserAcesso']);
             $query->close();
           }
         }
@@ -1817,39 +1817,39 @@
         $idUser = $_POST['idUser3'];
         $idAfiliacao = $_POST['idAfiliacao'];
         if($idAfiliacao == -1){
-          if($query = $db->prepare("INSERT INTO tbAfiliacao (afiliacao, nivel) VALUES (?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbafiliacao (afiliacao, nivel) VALUES (?, ?)")){
             $query->bind_param('si', $_POST['novaAfiliacao'], $_POST['idNivel']);
             $query->execute();
             $idAfiliacao = $query->insert_id;
-            Atalhos::addLogsAcoes('Inseriu', 'tbAfiliacao', $idAfiliacao);
+            Atalhos::addLogsAcoes('Inseriu', 'tbafiliacao', $idAfiliacao);
             $query->close();
           }
         }
         /*if($_POST['login'] != $_POST['user']){
-          if($query = $db->prepare("UPDATE tbUsuario SET nomeUser = ?, login = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ?, nivel = ? WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET nomeUser = ?, login = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ?, nivel = ? WHERE idUser = ?")){
             $query->bind_param('ssssiii', $_POST['nome'], $_POST['login'], $_POST['email'], $_SESSION['chave'], $_POST['idAfiliacao'],  $_POST['idNivel'], $_POST['idUser3']);
             $query->execute();
             $query->close();
           }
         }else{
-          if($query = $db->prepare("UPDATE tbUsuario SET nomeUser = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ?, nivel = ? WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET nomeUser = ?, email = AES_ENCRYPT(?, ?), idAfiliacao = ?, nivel = ? WHERE idUser = ?")){
             $query->bind_param('sssiii', $_POST['nome'], $_POST['email'], $_SESSION['chave'], $idAfiliacao,  $_POST['idNivel'], $_POST['idUser3']);
             $query->execute();
             $query->close();
           }
         }
-        if($query = $db->prepare("UPDATE tbMatricula SET matricula = ? WHERE idUser = ?")){
+        if($query = $db->prepare("UPDATE tbmatricula SET matricula = ? WHERE idUser = ?")){
           $query->bind_param('si', $_POST['matricula'], $_POST['idUser3']);
           $query->execute();
           $query->close();
         }*/
         if(isset($_POST['idNivel'])){
-          if($query = $db->prepare("UPDATE tbUsuario SET idAfiliacao = ? WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET idAfiliacao = ? WHERE idUser = ?")){
             $query->bind_param('ii', $idAfiliacao,  $_POST['idUser3']);
             $query->execute();
             $query->close();
           }
-          if ($query = $db->prepare("SELECT nivel FROM tbUsuario WHERE idUser = ?")){
+          if ($query = $db->prepare("SELECT nivel FROM tbusuario WHERE idUser = ?")){
             $query->bind_param('i', $_POST['idUser3']);
             $query->execute();
             $query->bind_result($nivelUser);
@@ -1857,15 +1857,15 @@
             $query->close();
           }
           if($nivelUser == 0){
-            if ($query = $db->prepare("SELECT * FROM tbUsuario WHERE nivel = ?")){
+            if ($query = $db->prepare("SELECT * FROM tbusuario WHERE nivel = ?")){
               $query->bind_param('i', $nivelUser);
               $query->execute();
               $query->store_result();
               if ($query->num_rows > 3){
-                if($aux = $db->prepare("UPDATE tbUsuario SET nivel = ? WHERE idUser = ?")){
+                if($aux = $db->prepare("UPDATE tbusuario SET nivel = ? WHERE idUser = ?")){
                   $aux->bind_param('ii', $_POST['idNivel'], $_POST['idUser3']);
                   $aux->execute();
-                  Atalhos::addLogsAcoes('Modificou', 'tbUsuario', $_POST['idUser3']);
+                  Atalhos::addLogsAcoes('Modificou', 'tbusuario', $_POST['idUser3']);
                   $aux->close();
                 }
               }else{
@@ -1874,18 +1874,18 @@
               $query->close();
             }
           }else{
-            if($aux = $db->prepare("UPDATE tbUsuario SET nivel = ? WHERE idUser = ?")){
+            if($aux = $db->prepare("UPDATE tbusuario SET nivel = ? WHERE idUser = ?")){
                 $aux->bind_param('ii', $_POST['idNivel'], $_POST['idUser3']);
                 $aux->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbUsuario', $_POST['idUser3']);
+                Atalhos::addLogsAcoes('Modificou', 'tbusuario', $_POST['idUser3']);
                 $aux->close();
               }
           }
         }else{
-          if($query = $db->prepare("UPDATE tbUsuario SET email = AES_ENCRYPT(?, ?) WHERE idUser = ?")){
+          if($query = $db->prepare("UPDATE tbusuario SET email = AES_ENCRYPT(?, ?) WHERE idUser = ?")){
             $query->bind_param('ssi', $_POST['email'], $_SESSION['chave'], $_POST['idUser3']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbUsuario', $_POST['idUser3']);
+            Atalhos::addLogsAcoes('Modificou', 'tbusuario', $_POST['idUser3']);
             $query->close();
           }
         }
@@ -1898,10 +1898,10 @@
           case 4://ativar sudo
             break;
           case 6://excluir foto
-            if($query = $db->prepare("DELETE FROM tbImagem WHERE idUser = ?")){
+            if($query = $db->prepare("DELETE FROM tbimagem WHERE idUser = ?")){
               $query->bind_param('i', $_POST['idUser']);
               $query->execute();
-              Atalhos::addLogsAcoes('Excluiu', 'tbImagem', $_POST['idUser']);
+              Atalhos::addLogsAcoes('Excluiu', 'tbimagem', $_POST['idUser']);
               $query->close();
             }
             break;
@@ -1914,24 +1914,24 @@
     public static function avisosStatus(){
       $db = Atalhos::getBanco();
       if($_POST['acao'] == 1){
-        if($query = $db->prepare("UPDATE tbAvisos SET statusAviso = 'Inativo' WHERE idAviso = ?")){
+        if($query = $db->prepare("UPDATE tbavisos SET statusAviso = 'Inativo' WHERE idAviso = ?")){
           $query->bind_param('i', $_POST['idAviso']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbAvisos', $_POST['idAviso']);
+          Atalhos::addLogsAcoes('Modificou', 'tbavisos', $_POST['idAviso']);
           $query->close();
         }
       }elseif($_POST['acao'] == 2){
-        if($query = $db->prepare("UPDATE tbAvisos SET statusAviso = 'Ativo' WHERE idAviso = ?")){
+        if($query = $db->prepare("UPDATE tbavisos SET statusAviso = 'Ativo' WHERE idAviso = ?")){
           $query->bind_param('i', $_POST['idAviso']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbAvisos', $_POST['idAviso']);
+          Atalhos::addLogsAcoes('Modificou', 'tbavisos', $_POST['idAviso']);
           $query->close();
         }
       }else{
-        if($query = $db->prepare("DELETE FROM tbAvisos WHERE idAviso = ?")){
+        if($query = $db->prepare("DELETE FROM tbavisos WHERE idAviso = ?")){
           $query->bind_param('i', $_POST['idAviso']);
           $query->execute();
-          Atalhos::addLogsAcoes('Excluiu', 'tbAvisos', $_POST['idAviso']);
+          Atalhos::addLogsAcoes('Excluiu', 'tbavisos', $_POST['idAviso']);
           $query->close();
         }
       }
@@ -1940,11 +1940,11 @@
 
     public static function avisoAdd(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("INSERT INTO tbAvisos (tituloAviso, textoAviso, dataAviso) VALUES (?, ?, ?)")){
+      if($query = $db->prepare("INSERT INTO tbavisos (tituloAviso, textoAviso, dataAviso) VALUES (?, ?, ?)")){
         $query->bind_param('sss', $_POST['titulo'], $_POST['texto'], date("Y-m-d", time()));
         $query->execute();
         $idAviso = $query->insert_id;
-        Atalhos::addLogsAcoes('Inseriu', 'tbAvisos', $idAviso);
+        Atalhos::addLogsAcoes('Inseriu', 'tbavisos', $idAviso);
         $query->close();
         $_SESSION['avisoPainel'] = 1;
       }
@@ -1953,10 +1953,10 @@
 
     public static function avisoEdit(){
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("UPDATE tbAvisos SET tituloAviso = ?, textoAviso = ? WHERE idAviso = ?")){
+      if($query = $db->prepare("UPDATE tbavisos SET tituloAviso = ?, textoAviso = ? WHERE idAviso = ?")){
         $query->bind_param('ssi', $_POST['titulo'], $_POST['texto'], $_POST['idAviso']);
         $query->execute();
-        Atalhos::addLogsAcoes('Modificou', 'tbAvisos', $_POST['idAviso']);
+        Atalhos::addLogsAcoes('Modificou', 'tbavisos', $_POST['idAviso']);
         $query->close();
         $_SESSION['avisoPainel'] = 1;
       }
@@ -1969,7 +1969,7 @@
         if(empty($_POST['justificativa'])){
           $_SESSION['errorModerarLab'] = 1;
         }else{
-          if($query = $db->prepare("SELECT idNoti FROM tbNotificacao ORDER BY idNoti DESC LIMIT 1")){
+          if($query = $db->prepare("SELECT idNoti FROM tbnotificacao ORDER BY idNoti DESC LIMIT 1")){
               $query->bind_result($idNoti);
               $query->execute();
             if($query->fetch()){
@@ -1990,22 +1990,22 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti)
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti)
               VALUES ('".$idNoti."', '".$noti."', 'false')")){
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id2'] == 0){
-            if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ?, justificativa = ?
               WHERE idReLab = ?")){
               $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'],$_POST['idre2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre2']);
               $query->close();
             }
             $conjunto = Atalhos::getConjunto($_POST['idre2'], 0, 2);
@@ -2014,11 +2014,11 @@
               Atalhos::verificarConjunto($conjunto, 2);
             }
           }else{
-            if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ?, justificativa = ?
               WHERE idReLab = ? AND idData = ?")){
               $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'],$_POST['idre2'], $_POST['id2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre2']);
             }
             $conjunto = Atalhos::getConjunto($_POST['idre2'], $_POST['id2'], 2);
             if($conjunto != false){
@@ -2029,24 +2029,24 @@
         }
       }elseif($_POST['acao'] == 'Excluir'){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaLab WHERE idReLab =?")){
+          if($query = $db->prepare("DELETE FROM tbreservalab WHERE idReLab =?")){
             $query->bind_param('i',$_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbReservaLab', $_POST['idre']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbreservalab', $_POST['idre']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataLab WHERE idReLab =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledatalab WHERE idReLab =? AND idData =?")){
             $query->bind_param('ii',$_POST['idre'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbControleDataLab', $_POST['idre']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbcontroledatalab', $_POST['idre']);
           }
         }
       }else{
         if($_POST['acao'] == "Recebido" || $_POST['acao'] == "Entregue"){
-          if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ? WHERE idData = ? AND idReLab = ?")){
+          if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ? WHERE idData = ? AND idReLab = ?")){
             $query->bind_param('sii',$_POST['acao'], $_POST['id'], $_POST['idre']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre']);
           }
         }else{
           if($_SESSION['id'] != $_POST['idUser']){
@@ -2055,19 +2055,19 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
               $query->bind_param('is',$idNoti, $noti);
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES (?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES (?, ?)")){
               $query->bind_param('ii',$_POST['idUser'], $idNoti);
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id'] == 0){
-            if($query = $db->prepare("SELECT idData FROM tbControleDataLab WHERE idReLab= ?")){
+            if($query = $db->prepare("SELECT idData FROM tbcontroledatalab WHERE idReLab= ?")){
               $query->bind_param('i',$_POST['idre']);
               $query->execute();
               if($query->fetch()){
@@ -2075,29 +2075,29 @@
                   $_SESSION['errorAprovar'] = 2;
                 }else{
                   $query->close();
-                  if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ? WHERE idReLab = ?")){
+                  if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ? WHERE idReLab = ?")){
                     $query->bind_param('si',$_POST['acao'], $_POST['idre']);
                     $query->execute();
-                    Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre']);
+                    Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre']);
                     $query->close();
                   }
                 }
               }else{
                 $query->close();
-                if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ? WHERE idReLab = ?")){
+                if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ? WHERE idReLab = ?")){
                   $query->bind_param('si',$_POST['acao'], $_POST['idre']);
                   $query->execute();
-                  Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre']);
+                  Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre']);
                   $query->close();
                 }
               }
             }
           }else{
             if(Atalhos::getConjunto($_POST['idre'], $_POST['id'], 2) == false){
-              if($query = $db->prepare("UPDATE tbControleDataLab SET statusData = ? WHERE idReLab = ? AND idData = ?")){
+              if($query = $db->prepare("UPDATE tbcontroledatalab SET statusData = ? WHERE idReLab = ? AND idData = ?")){
                 $query->bind_param('sii',$_POST['acao'], $_POST['idre'], $_POST['id']);
                 $query->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbControleDataLab', $_POST['idre']);
+                Atalhos::addLogsAcoes('Modificou', 'tbcontroledatalab', $_POST['idre']);
                 $query->close();
               }
             }else{
@@ -2115,7 +2115,7 @@
         if(empty($_POST['justificativa'])){
           $_SESSION['errorModerarEqp'] = 1;
         }else{
-          if($query = $db->prepare("SELECT idNoti FROM tbNotificacao ORDER BY idNoti DESC LIMIT 1")){
+          if($query = $db->prepare("SELECT idNoti FROM tbnotificacao ORDER BY idNoti DESC LIMIT 1")){
               $query->bind_result($idNoti);
               $query->execute();
             if($query->fetch()){
@@ -2136,22 +2136,22 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti)
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti)
               VALUES ('".$idNoti."', '".$noti."', 'false')")){
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES ('".$_POST['idUser2']."', '".$idNoti."')")){
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id2'] == 0){
-            if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ?, justificativa = ?
               WHERE idReEq = ?")){
               $query->bind_param('ssi', $_POST['acao2'], $_POST['justificativa'],$_POST['idreeq2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq2']);
               $query->close();
             }
             $conjunto = Atalhos::getConjunto($_POST['idreeq2'], 0, 1);
@@ -2160,11 +2160,11 @@
               Atalhos::verificarConjunto($conjunto, 1);
             }
           }else{
-            if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ?, justificativa = ?
+            if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ?, justificativa = ?
               WHERE idReEq = ? AND idData = ?")){
               $query->bind_param('ssii', $_POST['acao2'], $_POST['justificativa'],$_POST['idreeq2'], $_POST['id2']);
               $query->execute();
-              Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq2']);
+              Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq2']);
             }
             $conjunto = Atalhos::getConjunto($_POST['idreeq2'], $_POST['id2'], 1);
             if($conjunto != false){
@@ -2175,24 +2175,24 @@
         }
       }elseif($_POST['acao'] == 'Excluir'){
         if($_POST['id'] == 0){
-          if($query = $db->prepare("DELETE FROM tbReservaEq WHERE idReEq =?")){
+          if($query = $db->prepare("DELETE FROM tbreservaeq WHERE idReEq =?")){
             $query->bind_param('i',$_POST['idreeq']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbReservaEq', $_POST['idreeq']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbreservaeq', $_POST['idreeq']);
           }
         }else{
-          if($query = $db->prepare("DELETE FROM tbControleDataEq WHERE idReEq =? AND idData =?")){
+          if($query = $db->prepare("DELETE FROM tbcontroledataeq WHERE idReEq =? AND idData =?")){
             $query->bind_param('ii',$_POST['idreeq'], $_POST['id']);
             $query->execute();
-            Atalhos::addLogsAcoes('Excluiu', 'tbControleDataEq', $_POST['idreeq']);
+            Atalhos::addLogsAcoes('Excluiu', 'tbcontroledataeq', $_POST['idreeq']);
           }
         }
       }else{
         if($_POST['acao'] == "Recebido" || $_POST['acao'] == "Entregue"){
-          if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ? WHERE idData = ? AND idReEq = ?")){
+          if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ? WHERE idData = ? AND idReEq = ?")){
             $query->bind_param('sii',$_POST['acao'], $_POST['id'], $_POST['idreeq']);
             $query->execute();
-            Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq']);
+            Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq']);
           }
         }else{
           if($_SESSION['id'] != $_POST['idUser']){
@@ -2201,19 +2201,19 @@
                         <i class="fa fa-pencil-square-o text-red"></i> Sua reserva foi '.$status.'
                       </a>
                     </li>';
-            if($query = $db->prepare("INSERT INTO tbNotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
+            if($query = $db->prepare("INSERT INTO tbnotificacao (idNoti, notificacao, statusNoti) VALUES (?, ?, 'false')")){
               $query->bind_param('is',$idNoti, $noti);
               $query->execute();
               $query->close();
             }
-            if($query = $db->prepare("INSERT INTO tbNotiConexao VALUES (?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbnoticonexao VALUES (?, ?)")){
               $query->bind_param('ii',$_POST['idUser'], $idNoti);
               $query->execute();
               $query->close();
             }
           }
           if($_POST['id'] == 0){
-            if($query = $db->prepare("SELECT idData FROM tbControleDataEq WHERE idReEq= ?")){
+            if($query = $db->prepare("SELECT idData FROM tbcontroledataeq WHERE idReEq= ?")){
               $query->bind_param('i',$_POST['idreeq']);
               $query->execute();
               if($query->fetch()){
@@ -2221,29 +2221,29 @@
                   $_SESSION['errorAprovar'] = 2;
                 }else{
                   $query->close();
-                  if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ? WHERE idReEq = ?")){
+                  if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ? WHERE idReEq = ?")){
                     $query->bind_param('si',$_POST['acao'], $_POST['idreeq']);
                     $query->execute();
-                    Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq']);
+                    Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq']);
                     $query->close();
                   }
                 }
               }else{
                 $query->close();
-                if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ? WHERE idReEq = ?")){
+                if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ? WHERE idReEq = ?")){
                   $query->bind_param('si',$_POST['acao'], $_POST['idreeq']);
                   $query->execute();
-                  Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq']);
+                  Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq']);
                   $query->close();
                 }
               }
             }
           }else{
             if(Atalhos::getConjunto($_POST['idreeq'], $_POST['id'], 1) == false){
-              if($query = $db->prepare("UPDATE tbControleDataEq SET statusData = ? WHERE idReEq = ? AND idData = ?")){
+              if($query = $db->prepare("UPDATE tbcontroledataeq SET statusData = ? WHERE idReEq = ? AND idData = ?")){
                 $query->bind_param('sii',$_POST['acao'], $_POST['idreeq'], $_POST['id']);
                 $query->execute();
-                Atalhos::addLogsAcoes('Modificou', 'tbControleDataEq', $_POST['idreeq']);
+                Atalhos::addLogsAcoes('Modificou', 'tbcontroledataeq', $_POST['idreeq']);
                 $query->close();
               }
             }else{
@@ -2289,16 +2289,16 @@
           break;
       }
       if($_POST['tempo'] == "UmaVez"){
-        if($query = $db->prepare("INSERT INTO tbReservaLab (idUser, tipoReLab, tituloReLab, motivoReLab, numPc)
+        if($query = $db->prepare("INSERT INTO tbreservalab (idUser, tipoReLab, tituloReLab, motivoReLab, numPc)
           VALUES (?, ?, ?, ?, ?)")){
           $query->bind_param('isssi', $_SESSION['id'], $_POST['tipo'], $titulo, $motivo, $pcs);
           $query->execute();
           $idReLab = $query->insert_id;
-          Atalhos::addLogsAcoes('Inseriu', 'tbReservaLab', $idReLab);
+          Atalhos::addLogsAcoes('Inseriu', 'tbreservalab', $idReLab);
           $query->close();
           $j = 1;
           while(isset($_POST['lab'.$j])){
-            if($query = $db->prepare("INSERT INTO tbAlocaReLab (idLab, idReLab) VALUES (?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbalocarelab (idLab, idReLab) VALUES (?, ?)")){
               $query->bind_param('ii', $_POST['lab'.$j], $idReLab);
               $query->execute();
               $query->close();
@@ -2306,13 +2306,13 @@
             $j++;
           }
         }
-        if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+        if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
           $query->bind_param('ss', $dataini, $datafim);
           $query->execute();
           $query->bind_result($idData);
           if($query->fetch() == NULL){
             $auxDb = Atalhos::getBanco();
-            if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+            if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
               $aux->bind_param('ss', $dataini, $datafim);
               $aux->execute();
               $idData = $aux->insert_id;
@@ -2321,7 +2321,7 @@
             }
           }
           $query->close();
-          if($query = $db->prepare("INSERT INTO tbControleDataLab (idReLab, idData, idLab, statusData) VALUES (?, ?, ?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbcontroledatalab (idReLab, idData, idLab, statusData) VALUES (?, ?, ?, ?)")){
             $result = Atalhos::choqueLab($dataini, $datafim, $_POST['lab1'], $_POST['tipo'], $pcs);
             $query->bind_param('iiis', $idReLab, $idData, $_POST['lab1'], $status);
             if($result != false){
@@ -2331,12 +2331,12 @@
               }
               $query->execute();
               $idCon = $aux->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbControleDataLab', $idCon);
+              Atalhos::addLogsAcoes('Inseriu', 'tbcontroledatalab', $idCon);
               Atalhos::includeChoque($result, $idReLab, $idData, 2);
             }else{
               $query->execute();
               $idCon = $aux->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbControleDataLab', $idCon);
+              Atalhos::addLogsAcoes('Inseriu', 'tbcontroledatalab', $idCon);
             }
             $query->close();
           }
@@ -2361,23 +2361,23 @@
               $dataini = $day." ".$horaIni;
               $datafim = $day." ".$horaFim;
               if($verificaData == 0){
-                if($query = $db->prepare("INSERT INTO tbReservaLab (idUser, tipoReLab, tituloReLab, motivoReLab, numPc)
+                if($query = $db->prepare("INSERT INTO tbreservalab (idUser, tipoReLab, tituloReLab, motivoReLab, numPc)
                   VALUES (?, ?, ?, ?, ?)")){
                   $query->bind_param('isssi', $_SESSION['id'], $_POST['tipo'], $titulo, $motivo, $pcs);
                   $query->execute();
                   $idReLab = $query->insert_id;
-                  Atalhos::addLogsAcoes('Inseriu', 'tbReservaLab', $idReLab);
+                  Atalhos::addLogsAcoes('Inseriu', 'tbreservalab', $idReLab);
                   $query->close();
                 }
                 $verificaData = 1;
               }
-              if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+              if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
                 $query->bind_param('ss', $dataini, $datafim);
                 $query->execute();
                 $query->bind_result($idData);
                 if($query->fetch() == NULL){
                   $auxDb = Atalhos::getBanco();
-                  if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+                  if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
                     $aux->bind_param('ss', $dataini, $datafim);
                     $aux->execute();
                     $idData = $aux->insert_id;
@@ -2386,7 +2386,7 @@
                   }
                 }
                 $query->close();
-                if($query = $db->prepare("INSERT INTO tbControleDataLab (idReLab, idData, idLab, statusData) VALUES (?, ?, ?, ?)")){
+                if($query = $db->prepare("INSERT INTO tbcontroledatalab (idReLab, idData, idLab, statusData) VALUES (?, ?, ?, ?)")){
                   $result = Atalhos::choqueLab($dataini, $datafim, $_POST['lab1'], $_POST['tipo'], $pcs);
                   $query->bind_param('iiis', $idReLab, $idData, $_POST['lab1'], $status);
                   if($result != false){
@@ -2396,13 +2396,13 @@
                     }
                     $query->execute();
                     $idCon = $aux->insert_id;
-                    Atalhos::addLogsAcoes('Inseriu', 'tbControleDataLab', $idCon);
+                    Atalhos::addLogsAcoes('Inseriu', 'tbcontroledatalab', $idCon);
                     echo 'Result: '.$result.'</br>';
                     Atalhos::includeChoque($result, $idReLab, $idData, 2);
                   }else{
                     $query->execute();
                     $idCon = $aux->insert_id;
-                    Atalhos::addLogsAcoes('Inseriu', 'tbControleDataLab', $idCon);
+                    Atalhos::addLogsAcoes('Inseriu', 'tbcontroledatalab', $idCon);
                   }
                   $query->close();
                 }
@@ -2449,20 +2449,20 @@
       }
       if($_POST['tempo'] == "UmaVez"){
 
-        if($query = $db->prepare("INSERT INTO tbReservaEq (idUser, tituloReEq, motivoReEq) VALUES (?, ?, ?)")){
+        if($query = $db->prepare("INSERT INTO tbreservaeq (idUser, tituloReEq, motivoReEq) VALUES (?, ?, ?)")){
           $query->bind_param('iss', $_SESSION['id'], $titulo, $motivo);
           $query->execute();
           $idReEq = $query->insert_id;
-          Atalhos::addLogsAcoes('Inseriu', 'tbReservaEq', $idReEq);
+          Atalhos::addLogsAcoes('Inseriu', 'tbreservaeq', $idReEq);
           $query->close();
         }
-        if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+        if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
           $query->bind_param('ss', $dataini, $datafim);
           $query->execute();
           $query->bind_result($idData);
           if($query->fetch() == null){
             $auxDb = Atalhos::getBanco();
-            if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+            if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
               $aux->bind_param('ss', $dataini, $datafim);
               $aux->execute();
               $idData = $aux->insert_id;
@@ -2473,7 +2473,7 @@
           $j = 1;
           $teste = true;
           while(isset($_POST['eqp'.$j])){
-            if($query = $db->prepare("INSERT INTO tbReservaTipoEq (idReEq, idTipoEq, numReEq) VALUES (?, ?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbreservatipoeq (idReEq, idTipoEq, numReEq) VALUES (?, ?, ?)")){
               $query->bind_param('iii', $idReEq, $_POST['eqp'.$j], $_POST['numEq'.$j]);
               $query->execute();
               $query->close();
@@ -2484,7 +2484,7 @@
                   $_SESSION['choqueReserva'] = 1;
                 }
                 if($teste){
-                  if($query = $db->prepare("INSERT INTO tbControleDataEq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
+                  if($query = $db->prepare("INSERT INTO tbcontroledataeq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
                     $query->bind_param('iis', $idReEq, $idData, $status);
                     $query->execute();
                     $teste = false;
@@ -2496,11 +2496,11 @@
             }
           }
           if($teste){
-            if($query = $db->prepare("INSERT INTO tbControleDataEq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
+            if($query = $db->prepare("INSERT INTO tbcontroledataeq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
               $query->bind_param('iis', $idReEq, $idData, $status);
               $query->execute();
               $idCon = $query->insert_id;
-              Atalhos::addLogsAcoes('Inseriu', 'tbControleDataEq', $idCon);
+              Atalhos::addLogsAcoes('Inseriu', 'tbcontroledataeq', $idCon);
               $query->close();
             }
           }
@@ -2525,22 +2525,22 @@
               $dataini = $day." ".$horaIni;
               $datafim = $day." ".$horaFim;
               if($verificaData == 0){
-                if($query = $db->prepare("INSERT INTO tbReservaEq (idUser, tituloReEq, motivoReEq) VALUES (?, ?, ?)")){
+                if($query = $db->prepare("INSERT INTO tbreservaeq (idUser, tituloReEq, motivoReEq) VALUES (?, ?, ?)")){
                   $query->bind_param('iss', $_SESSION['id'], $titulo, $motivo);
                   $query->execute();
                   $idReEq = $query->insert_id;
-                  Atalhos::addLogsAcoes('Inseriu', 'tbReservaEq', $idReEq);
+                  Atalhos::addLogsAcoes('Inseriu', 'tbreservaeq', $idReEq);
                   $query->close();
                 }
                 $verificaData = 1;
               }
-              if($query = $db->prepare("SELECT idData FROM tbData WHERE inicio = ? AND fim = ? LIMIT 1")){
+              if($query = $db->prepare("SELECT idData FROM tbdata WHERE inicio = ? AND fim = ? LIMIT 1")){
                 $query->bind_param('ss', $dataini, $datafim);
                 $query->execute();
                 $query->bind_result($idData);
                 if($query->fetch() == null){
                   $auxDb = Atalhos::getBanco();
-                  if($aux = $auxDb->prepare("INSERT INTO tbData (inicio, fim) VALUES (?, ?)")){
+                  if($aux = $auxDb->prepare("INSERT INTO tbdata (inicio, fim) VALUES (?, ?)")){
                     $aux->bind_param('ss', $dataini, $datafim);
                     $aux->execute();
                     $idData = $aux->insert_id;
@@ -2551,7 +2551,7 @@
                 $j = 1;
                 $teste = true;
                 while(isset($_POST['eqp'.$j])){
-                  if($query = $db->prepare("INSERT INTO tbReservaTipoEq (idReEq, idTipoEq, numReEq) VALUES (?, ?, ?)")){
+                  if($query = $db->prepare("INSERT INTO tbreservatipoeq (idReEq, idTipoEq, numReEq) VALUES (?, ?, ?)")){
                     $query->bind_param('iii', $idReEq, $_POST['eqp'.$j], $_POST['numEq'.$j]);
                     $query->execute();
                     $query->close();
@@ -2562,7 +2562,7 @@
                         $_SESSION['choqueReserva'] = 1;
                       }
                       if($teste){
-                        if($query = $db->prepare("INSERT INTO tbControleDataEq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
+                        if($query = $db->prepare("INSERT INTO tbcontroledataeq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
                           $query->bind_param('iis', $idReEq, $idData, $status);
                           $query->execute();
                           $teste = false;
@@ -2574,7 +2574,7 @@
                   }
                 }
                 if($teste){
-                  if($query = $db->prepare("INSERT INTO tbControleDataEq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
+                  if($query = $db->prepare("INSERT INTO tbcontroledataeq (idReEq, idData, statusData) VALUES (?, ?, ?)")){
                     $query->bind_param('iis', $idReEq, $idData, $status);
                     $query->execute();
                     $query->close();
@@ -2735,20 +2735,20 @@
         else
           $statusInicial = 'Pendente';
 
-        if($query = $db->prepare("INSERT INTO tbRequerimentos (idUser, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
+        if($query = $db->prepare("INSERT INTO tbrequerimentos (idUser, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
           $query->bind_param('issis', $_SESSION['id'], date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq'], $statusInicial);
           $query->execute();
           $idPdf = $query->insert_id;
-          Atalhos::addLogsAcoes('Inseriu', 'tbRequerimentos', $idPdf);
+          Atalhos::addLogsAcoes('Inseriu', 'tbrequerimentos', $idPdf);
           $_SESSION['avisoReqs'] = 1;
           $query->close();
         }
-        if(($_POST['tipoReq'] == 6) && ($query = $db->prepare("INSERT INTO tbReqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
+        if(($_POST['tipoReq'] == 6) && ($query = $db->prepare("INSERT INTO tbreqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
           $query->bind_param('ii', $_POST['professor'], $idPdf);
           $query->execute();
           $query->close();
           if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario
+                                  FROM tbusuario
                                   WHERE idUser = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
             $query->execute();
@@ -2763,20 +2763,20 @@
             $statusInicial = 'PendenteProf';
           else
             $statusInicial = 'Pendente';
-          if($query = $db->prepare("INSERT INTO tbRequerimentos (idUser, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
+          if($query = $db->prepare("INSERT INTO tbrequerimentos (idUser, dataReq, conteudoReq, tipoReq, statusReq) VALUES (?, ?, ?, ?, ?)")){
             $query->bind_param('issis', $_SESSION['id'], date("Y-m-d", time()), $requerimento_conteudo, $_POST['tipoReq'], $statusInicial);
             $query->execute();
             $idPdf = $query->insert_id;
-            Atalhos::addLogsAcoes('Inseriu', 'tbRequerimentos', $idPdf);
+            Atalhos::addLogsAcoes('Inseriu', 'tbrequerimentos', $idPdf);
             $_SESSION['avisoReqs'] = 1;
             $query->close();
           }
-          if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbReqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
+          if(($_POST['tipoReq'] == 3) && ($query = $db->prepare("INSERT INTO tbreqs_professor (idProfessor, idReq) VALUES (?, ?)"))){
               $query->bind_param('ii', $_POST['professor'], $idPdf);
               $query->execute();
               $query->close();
               if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                    FROM tbUsuario
+                                    FROM tbusuario
                                     WHERE idUser = ?")){
               $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
               $query->execute();
@@ -2936,19 +2936,19 @@
           break;
       }
       $db = Atalhos::getBanco();
-      if($query = $db->prepare("UPDATE tbRequerimentos SET conteudoReq = ? WHERE idReq = ?")){
+      if($query = $db->prepare("UPDATE tbrequerimentos SET conteudoReq = ? WHERE idReq = ?")){
         $query->bind_param('si', $requerimento_conteudo, $_POST['idReq']);
         $query->execute();
-        Atalhos::addLogsAcoes('Modificou', 'tbRequerimentos', $_POST['idReq']);
+        Atalhos::addLogsAcoes('Modificou', 'tbrequerimentos', $_POST['idReq']);
         $_SESSION['avisoReqs'] = 1;
         $query->close();
       }
-      if(($_POST['tipoReq'] == 3 || $_POST['tipoReq'] == 6) && ($query = $db->prepare("UPDATE tbReqs_professor SET idProfessor = ? WHERE idReq = ?"))){
+      if(($_POST['tipoReq'] == 3 || $_POST['tipoReq'] == 6) && ($query = $db->prepare("UPDATE tbreqs_professor SET idProfessor = ? WHERE idReq = ?"))){
         $query->bind_param('ii', $_POST['professor'], $_POST['idReq']);
         $query->execute();
         $query->close();
         if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario
+                                  FROM tbusuario
                                   WHERE idUser = ?")){
           $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
           $query->execute();
@@ -2959,24 +2959,24 @@
         }
       }
 
-      if(($_POST['tipoReq'] == 4) && ($query = $db->prepare("SELECT idReq FROM tbReqs_professor WHERE idReq = ?"))){
+      if(($_POST['tipoReq'] == 4) && ($query = $db->prepare("SELECT idReq FROM tbreqs_professor WHERE idReq = ?"))){
         $query->bind_param('i', $_POST['idReq']);
         $query->execute();
         $query->bind_result($idReq);
         $query->fetch();
         $query->close();
         if(is_null($idReq)){
-          $query = $db->prepare("INSERT INTO tbReqs_professor (idProfessor, idReq) VALUES (?, ?)");
+          $query = $db->prepare("INSERT INTO tbreqs_professor (idProfessor, idReq) VALUES (?, ?)");
           $query->bind_param('ii', $_POST['professor'], $_POST['idReq']);
           $query->execute();
           $query->close();
-          $query = $db->prepare("UPDATE tbRequerimentos SET statusReq = 'PendenteProf' WHERE idReq = ?");
+          $query = $db->prepare("UPDATE tbrequerimentos SET statusReq = 'PendenteProf' WHERE idReq = ?");
           $query->bind_param('i', $_POST['idReq']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbRequerimentos', $_POST['idReq']);
+          Atalhos::addLogsAcoes('Modificou', 'tbrequerimentos', $_POST['idReq']);
           $query->close();
           if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario
+                                  FROM tbusuario
                                   WHERE idUser = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
             $query->execute();
@@ -2986,17 +2986,17 @@
             Atalhos::enviarEmail($email,3);
           }
         }else{
-          $query = $db->prepare("UPDATE tbReqs_professor SET idProfessor = ? WHERE idReq = ?");
+          $query = $db->prepare("UPDATE tbreqs_professor SET idProfessor = ? WHERE idReq = ?");
           $query->bind_param('ii', $_POST['professor'], $_POST['idReq']);
           $query->execute();
           $query->close();
-          $query = $db->prepare("UPDATE tbRequerimentos SET statusReq = 'PendenteProf' WHERE idReq = ?");
+          $query = $db->prepare("UPDATE tbrequerimentos SET statusReq = 'PendenteProf' WHERE idReq = ?");
           $query->bind_param('i', $_POST['idReq']);
           $query->execute();
-          Atalhos::addLogsAcoes('Modificou', 'tbRequerimentos', $_POST['idReq']);
+          Atalhos::addLogsAcoes('Modificou', 'tbrequerimentos', $_POST['idReq']);
           $query->close();
           if ($query = $db->prepare("SELECT AES_DECRYPT(email, ?)
-                                  FROM tbUsuario
+                                  FROM tbusuario
                                   WHERE idUser = ?")){
             $query->bind_param('si', $_SESSION['chave'], $_POST['professor']);             
             $query->execute();

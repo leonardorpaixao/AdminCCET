@@ -12,7 +12,7 @@
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
   $link = '/recursos/alunos';
-  if($query = $db->prepare("SELECT a.idUser, a.nomeUser, a.login, AES_DECRYPT(a.email, ?), a.statusUser, b.afiliacao FROM tbUsuario a inner join tbAfiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 4 ORDER BY a.nomeUser")){
+  if($query = $db->prepare("SELECT a.idUser, a.nomeUser, a.login, AES_DECRYPT(a.email, ?), a.statusUser, b.afiliacao FROM tbusuario a inner join tbafiliacao b on a.idAfiliacao = b.idAfiliacao WHERE b.nivel = 4 ORDER BY a.nomeUser")){
     $query->bind_param('s', $_SESSION['chave']);
     $query->execute();
     $query->bind_result($idUser, $nomeUser, $login, $email, $statusUser, $afiliacao);

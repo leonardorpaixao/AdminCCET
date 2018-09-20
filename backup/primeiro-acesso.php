@@ -1,6 +1,6 @@
 <?php 
   	include 'topo.php';
-  	if(!$_SESSION['logado'] || mysql_num_rows(mysql_query("SELECT idUser FROM tbPrimeiroAcesso WHERE idUser='".$_SESSION['id']."'")) == 0){
+  	if(!$_SESSION['logado'] || mysql_num_rows(mysql_query("SELECT idUser FROM tbprimeiroacesso WHERE idUser='".$_SESSION['id']."'")) == 0){
 		header('Location: index.php');
 	}
 ?>

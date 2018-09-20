@@ -11,7 +11,7 @@
 	include '../../includes/menu.php';
 	$_SESSION['irPara'] = '/inicio';
 	$db = Atalhos::getBanco();
-	if($query = $db->prepare("SELECT modelo FROM tbEquipamento WHERE patrimonio = ?")){
+	if($query = $db->prepare("SELECT modelo FROM tbequipamento WHERE patrimonio = ?")){
 		$query->bind_param('i', $_GET['id']);
 		$query->execute();
 		$query->bind_result($modelo);
@@ -45,13 +45,13 @@
 							<label for="lab">Laboratório</label> 
 							<select name="lab" id="lab" class="form-control">
 								<?php
-									if($query = $db->prepare("SELECT idLab FROM tbAlocaLab WHERE patrimonio = ?")){
+									if($query = $db->prepare("SELECT idLab FROM tbalocalab WHERE patrimonio = ?")){
 										$query->bind_param('i', $_GET['id']);
 										$query->execute();
 										$query->bind_result($idLab);
 										$query->fetch();
 										$query->close();
-										if($query = $db->prepare("SELECT idLab, nomeLab FROM tbLaboratorio")){
+										if($query = $db->prepare("SELECT idLab, nomeLab FROM tblaboratorio")){
 											$query->execute();
 											$query->bind_result($id, $nome);
 											echo '<option value="NULL">Nenhum</option>';

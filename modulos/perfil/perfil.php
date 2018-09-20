@@ -13,7 +13,7 @@
   include '../../includes/menu.php';
   $_SESSION['irPara'] = '/inicio';
   $db = Atalhos::getBanco();
-  if ($query = $db->prepare('SELECT a.login, c.afiliacao, AES_DECRYPT(a.email, ?), a.nomeUser, a.statusUser, c.nivel, a.nivel, a.idAfiliacao, a.statusLogin , c.nivel, a.sudo FROM tbUsuario a inner join tbAfiliacao c on a.idAfiliacao = c.idAfiliacao WHERE a.idUser = ?')){
+  if ($query = $db->prepare('SELECT a.login, c.afiliacao, AES_DECRYPT(a.email, ?), a.nomeUser, a.statusUser, c.nivel, a.nivel, a.idAfiliacao, a.statusLogin , c.nivel, a.sudo FROM tbusuario a inner join tbafiliacao c on a.idAfiliacao = c.idAfiliacao WHERE a.idUser = ?')){
     $query->bind_param('si', $_SESSION['chave'], $idUser);
     $query->execute();
     $query->bind_result($login, $afiliacao, $email, $nomeUser, $statusUser, $nivel, $nivelReal, $idAfiliacao, $statusLogin, $nivelAfiliacao, $sudo);
@@ -80,7 +80,7 @@
                   if($_SESSION['logado']){
                     $db = Atalhos::getBanco();
                     //Verifica se o usuário possui uma foto
-                    if($query = $db->prepare('SELECT idUser FROM tbImagem WHERE idUser = ?')){
+                    if($query = $db->prepare('SELECT idUser FROM tbimagem WHERE idUser = ?')){
                       $query->bind_param('i', $idUser);
                       $query->execute();
                       $query->bind_result($imagem);
@@ -126,7 +126,7 @@
                       if ($_SESSION['id'] == $_GET['id']){//Se está acessando o seu próprio perfil
                         if($_SESSION['nivel'] > 2){//Se for um aluno ou nível inferior
 	                        $db_aux = atalhos::getBanco();
-	                        if($aux = $db_aux->prepare("SELECT criado FROM tbEmail WHERE idUser = ?")){
+	                        if($aux = $db_aux->prepare("SELECT criado FROM tbemail WHERE idUser = ?")){
 	                          $aux->bind_param('i', $_SESSION['id']);
 	                          $aux->execute();
 	                          $aux->bind_result($criado);
@@ -170,7 +170,7 @@
                   $i = 1;
                   $aux_db = atalhos::getBanco();
                   if($_SESSION['logado'] && $_SESSION['nivel'] < 3){//Se estiver logado e for da secretaria ou administrador, exiba o telefone
-                    if($query = $aux_db->prepare('SELECT AES_DECRYPT(numTelefone, ?) FROM  tbTelefone WHERE idUser = ?')){
+                    if($query = $aux_db->prepare('SELECT AES_DECRYPT(numTelefone, ?) FROM  tbtelefone WHERE idUser = ?')){
                       $query->bind_param('si', $_SESSION['chave'], $idUser);
                       $query->execute();
                       $query->bind_result($numTelefone);
@@ -188,7 +188,7 @@
                   }
                   if($nivel == 4){//Se o usuário for um aluno, exiba a matricula
                     echo '<strong><i class="fa fa-book margin-r-5"></i>  Curso</strong><p class="text-muted">'.$afiliacao.'</p><hr>';
-                    if ($aux = $aux_db->prepare('SELECT matricula FROM tbMatricula WHERE idUser = ?')){
+                    if ($aux = $aux_db->prepare('SELECT matricula FROM tbmatricula WHERE idUser = ?')){
                       $aux->bind_param('i', $idUser);
                       $aux->execute();
                       $aux->bind_result($matricula);
@@ -214,7 +214,7 @@
                 <?php
                   $aux_db = atalhos::getBanco();
                   //Procura se o usuário possuí um email institucional
-                  if ($aux = $aux_db->prepare('SELECT AES_DECRYPT(email, ?) FROM tbEmail WHERE idUser = ? AND criado = 1')){
+                  if ($aux = $aux_db->prepare('SELECT AES_DECRYPT(email, ?) FROM tbemail WHERE idUser = ? AND criado = 1')){
                     $aux->bind_param('si', $_SESSION['chave'], $idUser);
                     $aux->execute();
                     $aux->bind_result($email2);
@@ -303,7 +303,7 @@
             </div>
           <?php else:
        	    $aux_db = Atalhos::getBanco();
-            if ($query = $aux_db->prepare('SELECT dataFim, dataInicio, idBlock, motivoBlock FROM tbBlock WHERE idUserBlock = ? ORDER BY idBlock DESC LIMIT 1')){
+            if ($query = $aux_db->prepare('SELECT dataFim, dataInicio, idBlock, motivoBlock FROM tbblock WHERE idUserBlock = ? ORDER BY idBlock DESC LIMIT 1')){
               $query->bind_param('i', $idUser);
               $query->execute();
               $query->bind_result($dataFim, $idBlock, $dataInicio, $motivoBlock);
@@ -345,7 +345,7 @@
 
           <?php
        	    $aux_db = Atalhos::getBanco();
-            if ($query = $aux_db->prepare('SELECT statusLogin FROM tbUsuario WHERE idUser = ? ORDER BY idUser DESC LIMIT 1')){
+            if ($query = $aux_db->prepare('SELECT statusLogin FROM tbusuario WHERE idUser = ? ORDER BY idUser DESC LIMIT 1')){
               $query->bind_param('i', $idUser);
               $query->execute();
               $query->bind_result($stslogin);
@@ -399,7 +399,7 @@
           <?php
             $aux_db = atalhos::getBanco();
             //Procura se o usuário possuí um email institucional
-            if ($aux = $aux_db->prepare('SELECT AES_DECRYPT(email, ?) FROM tbEmail WHERE idUser = ? AND criado = 1')){
+            if ($aux = $aux_db->prepare('SELECT AES_DECRYPT(email, ?) FROM tbemail WHERE idUser = ? AND criado = 1')){
               $aux->bind_param('si', $_SESSION['chave'], $idUser);
               $aux->execute();
               $aux->bind_result($emaildcomp);
@@ -433,7 +433,7 @@
                 <?php
                   echo '<option value="-1">Adicionar Nova Afiliação</option>';
   				        $aux_db = Atalhos::getBanco();
-                  if ($query =  $aux_db->prepare("SELECT idAfiliacao, afiliacao FROM tbAfiliacao WHERE afiliacao != ?")){
+                  if ($query =  $aux_db->prepare("SELECT idAfiliacao, afiliacao FROM tbafiliacao WHERE afiliacao != ?")){
                     $query->bind_param('s', $afiliacao);
                     $query->execute();
                     $query->bind_result($aux_idAfiliacao, $aux_afiliacao);
@@ -504,7 +504,7 @@
         <div class="modal-body">
           <?php
             $aux_db = Atalhos::getBanco();
-            if($query = $db->prepare('SELECT dataFim, idBlock, dataInicio, motivoBlock FROM tbBlock WHERE idUserBlock = ? ORDER BY idBlock DESC')){
+            if($query = $db->prepare('SELECT dataFim, idBlock, dataInicio, motivoBlock FROM tbblock WHERE idUserBlock = ? ORDER BY idBlock DESC')){
               $query->bind_param('i', $idUser);
               $query->execute();
               $query->bind_result($dataFim, $idBlock, $dataInicio, $motivoBlock);
